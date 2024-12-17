@@ -1,0 +1,52 @@
+.journal-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journal-detail-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.journal-detail-header img {
+  margin-left: 20px;
+  width: 60%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.journal-detail-content {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.journal-detail {
+  margin-top: 5%;
+}
+.journal-detail-info {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.journal-title {
+  display: flex;
+  height: 50vh;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  @media (max-width: 550px) {
+    height: 150px;
+  }
+}
+.journal-Button-x {
+  width: 100px;
+  height: 50px;
+  background-color: transparent;
+  /* border: none; */
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+}

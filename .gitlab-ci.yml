@@ -1,0 +1,10 @@
+stages:
+  - build-and-push
+build-prod:
+  stage: build-and-push
+  tags:
+    - fati
+  script:
+    - docker compose up -d --build
+  only:
+    - main  

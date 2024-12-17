@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  flex: .5;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  input {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-weight: 700;
+    display: block;
+  }
+}
+
+@media (max-width:730px) {
+  .container{
+    display: none;
+  }
+}

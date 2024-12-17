@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  fati-front:
+    image: fati-front
+    build: .
+    container_name: fati-front
+    volumes:
+      - /code:/var/log
+    ports:
+      - "8089:5173"
+    restart: always
+    environment:
+      - TZ=Asia/Tashkent
+    networks:
+      - tarix
+networks:
+  tarix:
+    name: tarix
+    external: true
