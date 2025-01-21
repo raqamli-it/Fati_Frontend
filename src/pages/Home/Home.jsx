@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useTranslation } from "react-i18next";
-import styles from "./home.module.css";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { GrDown } from "react-icons/gr";
-import axios from "axios";
-import PropTypes from "prop-types";
-import Slider from "react-slick/lib/slider";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from 'react-i18next';
+import styles from './home.module.css';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { GrDown } from 'react-icons/gr';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import Slider from 'react-slick/lib/slider';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const headerSettings = {
   fade: true,
@@ -22,10 +22,10 @@ const headerSettings = {
 };
 
 const settings = {
-  className: "center",
+  className: 'center',
   centerMode: true,
   infinite: true,
-  centerPadding: "60px",
+  centerPadding: '60px',
   slidesToShow: 3,
   speed: 500,
   responsive: [
@@ -64,7 +64,7 @@ export const Home = ({ setLoading, loading }) => {
   const [centersData, setCentersData] = useState([]);
   const [booksData, setBooksData] = useState([]);
   const [sliderData, setSliderData] = useState([]);
-  const [langVal] = useState("uz");
+  const [langVal] = useState('uz');
   const [seminar, setSeminarData] = useState([]);
 
   const [data, setData] = useState([]);
@@ -72,7 +72,7 @@ export const Home = ({ setLoading, loading }) => {
 
   useEffect(() => {
     i18n.changeLanguage(langVal);
-    localStorage.setItem("i18lng", langVal);
+    localStorage.setItem('i18lng', langVal);
   }, [langVal]);
 
   useEffect(() => {
@@ -80,42 +80,42 @@ export const Home = ({ setLoading, loading }) => {
       try {
         setLoading(true);
         await axios
-          .get("/doktarantura/doktarantura/")
+          .get('/doktarantura/doktarantura/')
           .then((req) => setDoctaurantsData(req.data.results));
 
         await axios
-          .get("/qoshimcha-malumotlar/karusel/")
+          .get('/qoshimcha-malumotlar/karusel/')
           .then((req) => setSliderData(req.data));
         await axios
-          .get("/qoshimcha-malumotlar/yangiliklar/")
+          .get('/qoshimcha-malumotlar/yangiliklar/')
           .then((req) => setNewsData(req.data.results));
         await axios
-          .get("/qoshimcha-malumotlar/havolalar/")
+          .get('/qoshimcha-malumotlar/havolalar/')
           .then((req) => setQuickLinksData(req.data.results));
         await axios
-          .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
+          .get('/markazlar-va-bolimlar/markazlar_bolimlar/')
           .then((req) => setCentersData(req.data));
         await axios
-          .get("/kutobxona/avtoreferat/")
+          .get('/kutobxona/avtoreferat/')
           .then((req) => setBooksData(req.data.results));
         await axios
-          .get("/seminar/seminar/")
+          .get('/seminar/seminar/')
           .then((req) => setSeminarData(req.data.results));
 
         await axios
-          .get("/qoshimcha-malumotlar/institut-tarixi/")
+          .get('/qoshimcha-malumotlar/institut-tarixi/')
           .then((req) => setData(req.data.results));
         setLoading(false);
         // setLoading(false);
       } catch (error) {
-        setLoading("show-p");
+        setLoading('show-p');
       }
     };
     fetchData();
   }, []);
 
-  if (loading === "show-p") {
-    return <p className="show-p-error">{t("show-p-error")}</p>;
+  if (loading === 'show-p') {
+    return <p className="show-p-error">{t('show-p-error')}</p>;
   }
 
   if (loading === true) {
@@ -123,7 +123,7 @@ export const Home = ({ setLoading, loading }) => {
   }
 
   return (
-    <section className={styles.section + " column"}>
+    <section className={styles.section + ' column'}>
       <header className={styles.header}>
         {/* <div className={styles["header-top"]}>
           <form onSubmit={handleSubmit}>
@@ -158,7 +158,7 @@ export const Home = ({ setLoading, loading }) => {
           </div>
         </div> */}
         <Slider {...headerSettings} className="slides">
-          {sliderData?.map((item) => {
+          {sliderData?.results?.map((item) => {
             return (
               <div className="card" key={item?.id + Math.random()}>
                 <img src={item?.file} />
@@ -222,15 +222,15 @@ export const Home = ({ setLoading, loading }) => {
         </ul> */}
       </header>
       <div className="container">
-        <div className="section-slice" style={{ flexDirection: "column" }}>
+        <div className="section-slice" style={{ flexDirection: 'column' }}>
           <div
             className="row1"
-            style={{ display: "flex", flex: 1, justifyContent: "space-around" }}
+            style={{ display: 'flex', flex: 1, justifyContent: 'space-around' }}
           >
-            <h2 style={{ flex: 1 }}>{t("latest_news")}</h2>
+            <h2 style={{ flex: 1 }}>{t('latest_news')}</h2>
 
             <a href="/news">
-              <button>{t("all_news")}</button>
+              <button>{t('all_news')}</button>
             </a>
           </div>
           <div className="row2 cards lsn">
@@ -239,7 +239,7 @@ export const Home = ({ setLoading, loading }) => {
                 if (index < 11) {
                   return (
                     <Link
-                      to={"/news/" + item?.id}
+                      to={'/news/' + item?.id}
                       className="card"
                       key={item?.id}
                     >
@@ -247,7 +247,7 @@ export const Home = ({ setLoading, loading }) => {
                       <p
                         dangerouslySetInnerHTML={{
                           __html:
-                            item?.[`content_${lang}`].slice(0, 300) + "...",
+                            item?.[`content_${lang}`].slice(0, 300) + '...',
                         }}
                       />
                       <img
@@ -289,11 +289,11 @@ export const Home = ({ setLoading, loading }) => {
       <div className="container">
         <div className="section-slice">
           <div className="row1">
-            <h2>{t("about")}</h2>
+            <h2>{t('about')}</h2>
 
             <img src={data[0]?.base_file} alt="" className="mob-hide-img" />
             <Link to="/about">
-              <button>{t("more")}</button>
+              <button>{t('more')}</button>
             </Link>
           </div>
           <div className="row2">
@@ -305,12 +305,12 @@ export const Home = ({ setLoading, loading }) => {
       </div>
       <div className="container">
         <div className="img-cards">
-          <h2>{t("centers")}</h2>
+          <h2>{t('centers')}</h2>
           <div className="cards">
             {centersData.map((item) => {
               return (
                 <div className="card" key={item?.id}>
-                  <Link to={"/centers-and-departments/" + item?.id}>
+                  <Link to={'/centers-and-departments/' + item?.id}>
                     <img src={item?.rasmlar?.[0]?.fotogalereya} />
                     <h3>{item?.[`title_${lang}`]}</h3>
                   </Link>
@@ -322,23 +322,23 @@ export const Home = ({ setLoading, loading }) => {
       </div>
       <div className="container">
         <div className="img-cards">
-          <h2>{t("councils")}</h2>
+          <h2>{t('councils')}</h2>
           <ul>
             <li className="no-border">
-              <Link to={"scientific-degree"}>
-                <p>{t("scientific-degree")}</p>
+              <Link to={'scientific-degree'}>
+                <p>{t('scientific-degree')}</p>
                 <img src="./assets/icons/arrow.svg" alt="arrow" />
               </Link>
             </li>
             <li className="no-border">
-              <Link to={"scientific-degree"}>
-                <p> {t("sc-young")}</p>
+              <Link to={'scientific-degree'}>
+                <p> {t('sc-young')}</p>
                 <img src="./assets/icons/arrow.svg" alt="arrow" />
               </Link>
             </li>
             <li className="no-border">
-              <Link to={"scientific-degree"}>
-                <p> {t("sc-council")}</p>
+              <Link to={'scientific-degree'}>
+                <p> {t('sc-council')}</p>
                 <img src="./assets/icons/arrow.svg" alt="arrow" />
               </Link>
             </li>
@@ -346,7 +346,7 @@ export const Home = ({ setLoading, loading }) => {
         </div>
       </div>
       <div className="container doc-con">
-        <h2>{t("doctaurants")}</h2>
+        <h2>{t('doctaurants')}</h2>
         <div className="doctaurants">
           {doctaurantsData?.map((item, index) => {
             return (
@@ -417,19 +417,19 @@ export const Home = ({ setLoading, loading }) => {
             );
           })}
         </div>
-        <Link to={"/doctaurants"}>
-          <button>{t("more")}</button>
+        <Link to={'/doctaurants'}>
+          <button>{t('more')}</button>
         </Link>
       </div>
       <div className="container">
-        <div className="img-cards" style={{ margin: "70px 0 90px" }}>
-          <h2>{t("gatherings")}</h2>
+        <div className="img-cards" style={{ margin: '70px 0 90px' }}>
+          <h2>{t('gatherings')}</h2>
           <ul>
             {seminar?.map((item) => {
               return (
                 <li key={item.id} className="no-border">
-                  <Link to={"/seminar/" + item.id} key={item.id}>
-                    <p>{t("seminar" + item.id)}</p>
+                  <Link to={'/seminar/' + item.id} key={item.id}>
+                    <p>{t('seminar' + item.id)}</p>
                     <img
                       src="./assets/icons/arrow.svg"
                       alt="arrow"
@@ -444,13 +444,13 @@ export const Home = ({ setLoading, loading }) => {
       </div>
       <div className="container">
         <div className="img-cards book-cards">
-          <h2>{t("library")}</h2>
+          <h2>{t('library')}</h2>
           <div className="cards">
             {booksData?.map((item, index) => {
               return index < 3 ? (
                 <div className="card" key={item?.id + Math.random()}>
                   <img src={item?.cover_img} />
-                  <span>{t("abstracts")}</span>
+                  <span>{t('abstracts')}</span>
                   <div className="book-img-content">
                     <h3>{item?.[`title_${lang}`]} </h3>
                     <Link to={item?.file} target="_blank" className="arrow">
@@ -463,7 +463,7 @@ export const Home = ({ setLoading, loading }) => {
                   </div>
                 </div>
               ) : (
-                ""
+                ''
               );
             })}
           </div>
