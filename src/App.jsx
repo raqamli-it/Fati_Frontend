@@ -2,7 +2,7 @@ import translationUz from "./locales/translation-uz.json";
 import translationEn from "./locales/translation-en.json";
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home/Home";
 import "./App.css";
@@ -34,6 +34,9 @@ import axios from "axios";
 import { Requirements } from "./pages/Requirements";
 import { InternationalTravels } from "./pages/InternationalTravels";
 import { JournalDetail } from "./pages/Jounrnal.Detail";
+import Tahririyat from "./pages/Tabs/Tahririyat";
+import Talablar from "./pages/Tabs/Talablar";
+import Arxiv from "./pages/Tabs/Arxiv";
 i18n.use(initReactI18next).init({
   resources: {
     uz: { translation: translationUz },
@@ -47,6 +50,7 @@ axios.defaults.baseURL = "http://backend.fati.uz";
 const App = () => {
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     document.body.classList.add("true");
     setTimeout(() => {
@@ -143,7 +147,12 @@ const App = () => {
         <Route
           path="journal"
           element={<Journal setLoading={setLoading} loading={loading} />}
-        />
+        >
+          <Route index element={<Navigate to="tahririyat" replace />} />
+          <Route path="tahririyat" element={<Tahririyat />} />
+          <Route path="talablar" element={<Talablar />} />
+          <Route path="arxiv" element={<Arxiv />} />
+        </Route>
         <Route
           path="requirements"
           element={<Requirements setLoading={setLoading} loading={loading} />}

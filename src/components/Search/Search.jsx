@@ -7,11 +7,12 @@ import { useRef } from "react";
 export const Search = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const ref = useRef('');
+  const ref = useRef("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    ref.current?.value?.trim() && navigate("/search/" + ref.current?.value?.trim());
+    e.preventDefault();
+    ref.current?.value?.trim() &&
+      navigate("/search/" + ref.current?.value?.trim());
   };
 
   return (
@@ -22,7 +23,7 @@ export const Search = () => {
         spellCheck="false"
         ref={ref}
       />
-      <CiSearch />
+      <CiSearch style={{ fontSize: "22px" }} />
     </form>
   );
 };

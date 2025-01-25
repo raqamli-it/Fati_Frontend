@@ -44,26 +44,12 @@ export const Wheater = React.memo(() => {
 
   return (
     <div className={styles.div}>
-      <div>
-        <img
-          src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}.png`}
-          alt={data?.weather?.description}
-        />
-        <span>{Math.ceil(data?.main?.temp - 271)} °C</span>
-        <p>Tashkent</p>
-      </div>
-      {/* <div className={styles.select}>
-        <p>{region}</p>
-        <ul>
-          {regions?.map((item) => {
-            return (
-              <li onClick={() => setRegion(item?.value)} key={item?.id}>
-                {t(`month.${item?.id}`)}
-              </li>
-            );
-          })}
-        </ul>
-      </div> */}
+      <img
+        src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}.png`}
+        alt={data?.weather?.description}
+      />
+      <span>{Math.ceil(data?.main?.temp - 271)} ° C</span>
+      <p>Tashkent</p>
     </div>
   );
 });

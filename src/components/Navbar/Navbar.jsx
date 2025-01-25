@@ -11,6 +11,23 @@ import { Wheater } from "./Wheater";
 import axios from "axios";
 
 export const Navbar = () => {
+  // Navbar Effecti
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 160) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  // Navbar Effecti
   const { i18n, t } = useTranslation();
   const [langVal, setLangValue] = useState("uz");
   const [showLang, setShowLang] = useState(false);
@@ -42,6 +59,8 @@ export const Navbar = () => {
     fetchData();
   }, []);
 
+  console.log(navbarData, "AAAA");
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.top_alert}>
@@ -49,101 +68,133 @@ export const Navbar = () => {
         <p className={styles.alert}>{t("test")}</p>
         <Wheater />
       </div>
-      <div className="container">
-        <div className={styles.container}>
-          <div className={styles.top}>
-            <Link to={"/"} className={styles.logo}>
-              <img src="/assets/logo-light.png" alt="logo" />
-            </Link>
-            <Search />
-            <div className={styles.lang}>
-              <div
-                className={styles.clc}
-                onClick={() => setShowLang((prev) => !prev)}
+
+      <div className={styles.container}>
+        <div className={styles.top}>
+          <Link to={"/"} className={styles.logo}>
+            <img src="/assets/logo-light.png" alt="logo" />
+          </Link>
+          <Search />
+
+          <div className={styles.lang}>
+            <div
+              className={styles.change}
+              onClick={() => setShowLang((prev) => !prev)}
+            >
+              <img
+                src={`/assets/${langVal === "en" ? "english" : "uzbek"}.png`}
+                alt="flag"
+              />
+              <p>{langVal === "en" ? "English" : "O'zbekcha"}</p>
+            </div>
+
+            {showLang && (
+              <span
+                onClick={() => {
+                  setLangValue(langVal != "en" ? "en" : "uz");
+                  setShowLang((prev) => !prev);
+                }}
+                className={styles.change}
               >
                 <img
-                  src={`/assets/${langVal == "en" ? "english" : "uzbek"}.png`}
+                  src={`/assets/${langVal != "en" ? "english" : "uzbek"}.png`}
                   alt="flag"
                 />
-                <p> {langVal == "en" ? "English" : "O'zbekcha"}</p>
-              </div>
-              {showLang && (
-                <span
-                  onClick={() => {
-                    setLangValue(langVal != "en" ? "en" : "uz");
-                    setShowLang((prev) => !prev);
-                  }}
-                  className={styles.change}
-                >
-                  <img
-                    src={`/assets/${langVal != "en" ? "english" : "uzbek"}.png`}
-                    alt="flag"
-                  />
-                  <p> {langVal != "en" ? "English" : "O'zbekcha"}</p>
-                </span>
-              )}
-            </div>
+                <p>{langVal != "en" ? "English" : "O'zbekcha"}</p>
+              </span>
+            )}
           </div>
-          <div className={styles["menu-mob"]}>
-            <div
-              className={styles["mob-icon"]}
-              onClick={() => setShowMenu((prev) => !prev)}
-            >
-              <BiMenu />
-            </div>
-          </div>
-          <ul className={showMenu ? styles.show : ""}>
-            {navbarData.map((item) => {
-              const { id, content } = item;
-              return (
-                <li key={id}>
-                  <input type="radio" name="menu" id={id} />
-                  <label htmlFor={id}>
-                    {!item?.links ? (
-                      <Link to={item.to}>{t(content)}</Link>
-                    ) : (
-                      <p>
-                        {t(content)} {item?.links && <GrDown />}
-                      </p>
-                    )}
-                    <ol>
-                      {item?.links != 1 && item?.links != 2
-                        ? item?.links?.map((item) => {
-                            const { id, content, to } = item;
-                            return (
-                              <li key={id} onClick={() => setShowMenu(false)}>
-                                <Link to={to}>{t(content)}</Link>
-                              </li>
-                            );
-                          })
-                        : item?.links != 1 && item?.links == 2
-                        ? seminar?.map((item) => (
-                            <li
-                              key={item?.id}
-                              onClick={() => setShowMenu(false)}
-                            >
-                              <Link to={`/seminar/${item.id}`}>
-                                {item?.[`title_${lang}`]}
-                              </Link>
-                            </li>
-                          ))
-                        : centers?.map((item) => (
-                            <li
-                              key={item?.id}
-                              onClick={() => setShowMenu(false)}
-                            >
-                              <Link to={`/centers-and-departments/${item.id}`}>
-                                {item?.[`title_${lang}`]}
-                              </Link>
-                            </li>
-                          ))}
-                    </ol>
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
         </div>
+
+        <div className={styles["menu-mob"]}>
+          <div onClick={() => setShowMenu((prev) => !prev)}>
+            <BiMenu />
+          </div>
+        </div>
+
+        <ul
+          style={{
+            backgroundColor: isScrolled && "white",
+            transition: "background-color 0.3s ease-in",
+            position: isScrolled && "fixed",
+            top: isScrolled && "0",
+            color: isScrolled && "black",
+            fontWeight: isScrolled ? 600 : "normal",
+          }}
+          className={showMenu ? styles.show : ""}
+        >
+          {navbarData.map((item) => {
+            const { id, content } = item;
+            return (
+              <li key={id}>
+                <input type="radio" name="menu" id={id} />
+                <label htmlFor={id}>
+                  {!item?.links ? (
+                    <Link
+                      style={{
+                        overflowY: "hidden",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                      to={item.to}
+                    >
+                      {t(content)}
+                    </Link>
+                  ) : (
+                    <p
+                      style={{
+                        display: "flex",
+                        gap: "5px",
+                        height: "50px",
+                        alignItems: "center",
+                      }}
+                    >
+                      {t(content)} {item?.links && <GrDown />}
+                    </p>
+                  )}
+                  <ol>
+                    {item?.links != 1 && item?.links != 2
+                      ? item?.links?.map((item) => {
+                          const { id, content, to } = item;
+                          return (
+                            <li
+                              style={{ color: isScrolled && "white" }}
+                              key={id}
+                              onClick={() => setShowMenu(false)}
+                            >
+                              <Link to={to}>{t(content)}</Link>
+                            </li>
+                          );
+                        })
+                      : item?.links !== 1 && item?.links !== 2
+                      ? seminar?.map((item) => (
+                          <li
+                            style={{ color: isScrolled && "white" }}
+                            key={item?.id}
+                            onClick={() => setShowMenu(false)}
+                          >
+                            <Link to={`/seminar/${item.id}`}>
+                              {item?.[`title_${lang}`]}
+                            </Link>
+                          </li>
+                        ))
+                      : centers?.map((item) => (
+                          <li
+                            style={{ color: isScrolled && "white" }}
+                            key={item?.id}
+                            onClick={() => setShowMenu(false)}
+                          >
+                            <Link to={`/centers-and-departments/${item.id}`}>
+                              {item?.[`title_${lang}`]}
+                            </Link>
+                          </li>
+                        ))}
+                  </ol>
+                </label>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </nav>
   );

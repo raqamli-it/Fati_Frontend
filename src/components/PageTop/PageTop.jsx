@@ -5,8 +5,8 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 const PageTop = ({ data }) => {
   const { t } = useTranslation();
   return (
-    <div className="page-top">
-      <div className="container">
+    <div className="">
+      <div className="">
         <h2>{t(data?.h2)}</h2>
         <p>
           <a href="/">{t("home-page")}</a>

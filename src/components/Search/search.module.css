@@ -2,21 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 20px;
-  flex: .5;
+  padding: 10px 20px;
+  flex: 0.5;
   width: 100%;
   border: 1px solid #e0e0e0;
   input {
     border: none;
     outline: none;
     font-family: inherit;
+    font-size: 18px;
     font-weight: 700;
     display: block;
   }
 }
 
-@media (max-width:730px) {
-  .container{
+@media (max-width: 730px) {
+  .container {
     display: none;
   }
 }
