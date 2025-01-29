@@ -3,7 +3,6 @@ import "./HomeNews.css";
 import { Fade } from "react-awesome-reveal";
 
 function HomeNews({ newsData }) {
-  console.log(newsData, "YEEEEE");
   return (
     <div className="news-container">
       {newsData?.map((value, index) => (

@@ -11,12 +11,10 @@ import { Wheater } from "./Wheater";
 import axios from "axios";
 
 export const Navbar = () => {
-  // Navbar Effecti
-
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 160) {
+      if (window.scrollY >= 170) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -59,8 +57,6 @@ export const Navbar = () => {
     fetchData();
   }, []);
 
-  console.log(navbarData, "AAAA");
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.top_alert}>
@@ -74,6 +70,7 @@ export const Navbar = () => {
           <Link to={"/"} className={styles.logo}>
             <img src="/assets/logo-light.png" alt="logo" />
           </Link>
+
           <Search />
 
           <div className={styles.lang}>
@@ -116,17 +113,17 @@ export const Navbar = () => {
           style={{
             backgroundColor: isScrolled && "white",
             transition: "background-color 0.3s ease-in",
+            zIndex: 200000,
+            top: isScrolled && "-10px",
             position: isScrolled && "fixed",
-            top: isScrolled && "0",
             color: isScrolled && "black",
-            fontWeight: isScrolled ? 600 : "normal",
           }}
-          className={showMenu ? styles.show : ""}
+          className={styles.show}
         >
           {navbarData.map((item) => {
             const { id, content } = item;
             return (
-              <li key={id}>
+              <li key={item.id}>
                 <input type="radio" name="menu" id={id} />
                 <label htmlFor={id}>
                   {!item?.links ? (

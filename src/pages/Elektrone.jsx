@@ -4,8 +4,9 @@ import axios from "axios";
 import { FaDownload } from "react-icons/fa";
 import "./EBooks.css";
 import tab_bg from "./tab_bg.png";
+import "./Elektrone.css";
 
-export const EBooks = ({ setLoading, loading }) => {
+function Elektrone({ setLoading, loading }) {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState([]);
   const lang = i18n.language;
@@ -15,7 +16,7 @@ export const EBooks = ({ setLoading, loading }) => {
       setLoading(true);
       const response = await axios.get("/kutobxona/avtoreferat/");
       const category = response.data.results.filter(
-        (value) => value.category == 3
+        (value) => value.category == 2
       );
       setData(category);
 
@@ -67,4 +68,6 @@ export const EBooks = ({ setLoading, loading }) => {
       </div>
     </section>
   );
-};
+}
+
+export default Elektrone;

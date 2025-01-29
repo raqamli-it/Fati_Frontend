@@ -1,16 +1,14 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { GrDown } from "react-icons/gr";
 import axios from "axios";
-import PropTypes from "prop-types";
 import Slider from "react-slick/lib/slider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HomeNews from "../HomeNews/HomeNews";
 import dateFormat from "dateformat";
+import { GiCloudDownload } from "react-icons/gi";
 
 const headerSettings = {
   fade: true,
@@ -116,16 +114,14 @@ export const Home = ({ setLoading, loading }) => {
     fetchData();
   }, []);
 
+  console.log(booksData, "booksData");
+
   return (
     <section>
       <header className={styles.header}>
         <Slider {...headerSettings} className="slides">
-          {sliderData?.map((item) => {
-            return (
-              <div key={item?.id}>
-                <img src={item?.file} />
-              </div>
-            );
+          {sliderData?.map((item, index) => {
+            return <div key={index}>{<img src={item?.file} />}</div>;
           })}
         </Slider>
       </header>
@@ -136,14 +132,15 @@ export const Home = ({ setLoading, loading }) => {
         <div className="img-cards">
           <h1>{t("centers")}</h1>
           <div className="cards-effect">
-            {centersData.map((item) => {
+            {centersData.map((item, index) => {
               return (
-                <div className="card-effect" key={item?.id}>
+                <div className="card-effect" key={index}>
                   <Link to={"/centers-and-departments/" + item?.id}>
                     <div className="img-effect">
-                      <img src={item?.rasmlar?.[0]?.fotogalereya} />
+                      <img src={item?.image} />
                       <h1>dadadsds</h1>
                     </div>
+
                     <div className="wrapper">
                       <div className="data-form">
                         <h2>{item?.[`title_${lang}`]}</h2>
@@ -163,7 +160,7 @@ export const Home = ({ setLoading, loading }) => {
         </div>
 
         <div className="img-cards">
-          <h2>{t("councils")}</h2>
+          <p className="card-text">{t("councils")}</p>
           <ul>
             <li className="no-border">
               <Link to={"scientific-degree"}>
@@ -185,8 +182,8 @@ export const Home = ({ setLoading, loading }) => {
             </li>
           </ul>
         </div>
-
-        <div className="doc-con">
+        {/*  */}
+        {/* <div className="doc-con">
           <h2>{t("doctaurants")}</h2>
           <div className="doctaurants">
             {doctaurantsData?.map((item, index) => {
@@ -195,6 +192,7 @@ export const Home = ({ setLoading, loading }) => {
                   <div className="card-img">
                     <img src={item?.file} alt="user" />
                   </div>
+
                   <div className="content">
                     <h2>{item?.[`title_${lang}`]}</h2>
                     <ul>
@@ -216,6 +214,7 @@ export const Home = ({ setLoading, loading }) => {
                           </ol>
                         )}
                       </li>
+
                       <li>
                         <input type="checkbox" name="doc" id={`e2${index}`} />
                         <label htmlFor={`e2${index}`}>
@@ -234,6 +233,7 @@ export const Home = ({ setLoading, loading }) => {
                           </ol>
                         )}
                       </li>
+
                       <li>
                         <input type="checkbox" name="doc" id={`e3${index}`} />
                         <label htmlFor={`e3${index}`}>
@@ -258,24 +258,17 @@ export const Home = ({ setLoading, loading }) => {
               );
             })}
           </div>
-          <Link to={"/doctaurants"}>
-            <button>{t("more")}</button>
-          </Link>
-        </div>
-
+        </div> */}
+        {/*  */}
         <div className="img-cards" style={{ margin: "70px 0 90px" }}>
           <h2>{t("gatherings")}</h2>
           <ul>
-            {seminar?.map((item) => {
+            {seminar?.map((item, index) => {
               return (
-                <li key={item.id} className="no-border">
+                <li key={index} className="no-border">
                   <Link to={"/seminar/" + item.id} key={item.id}>
                     <p>{t("seminar" + item.id)}</p>
-                    <img
-                      src="./assets/icons/arrow.svg"
-                      alt="arrow"
-                      className="arrow"
-                    />
+                    <img src="./assets/icons/arrow.svg" alt="arrow" />
                   </Link>
                 </li>
               );
@@ -283,34 +276,28 @@ export const Home = ({ setLoading, loading }) => {
           </ul>
         </div>
 
-        <div className="img-cards book-cards">
+        <div className="book_cards">
           <h2>{t("library")}</h2>
-          <div className="cards">
-            {booksData?.map((item, index) => {
-              return index < 3 ? (
-                <div className="card" key={item?.id + Math.random()}>
-                  <img src={item?.cover_img} />
-                  <span>{t("abstracts")}</span>
-                  <div className="book-img-content">
-                    <h3>{item?.[`title_${lang}`]} </h3>
-                    <Link to={item?.file} target="_blank" className="arrow">
-                      <img
-                        src="./assets/icons/arrow.svg "
-                        alt="arrow img"
-                        className="arrow"
-                      />
-                    </Link>
-                  </div>
+          <div className="card-list">
+            {booksData?.map((item, index) => (
+              <div className="cards" key={index}>
+                <div className="cards-img">
+                  <img src={item?.image} alt="Book" />
+                  <a href={item.file} download={item.file}>
+                    <GiCloudDownload />
+                  </a>
                 </div>
-              ) : (
-                ""
-              );
-            })}
+
+                <div className="cards-contents">
+                  <h2>{item?.[`title_${lang}`]}</h2>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="quick-links">
-          <h2>Foydali havolalar</h2>
+          <h2>Foydali havolalar 5</h2>
           <div className="cards">
             {quickLinksData?.map((item) => {
               return (
@@ -332,9 +319,4 @@ export const Home = ({ setLoading, loading }) => {
       </div>
     </section>
   );
-};
-
-Home.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
 };

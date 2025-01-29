@@ -37,6 +37,7 @@ import { JournalDetail } from "./pages/Jounrnal.Detail";
 import Tahririyat from "./pages/Tabs/Tahririyat";
 import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
+import Elektrone from "./pages/Elektrone";
 i18n.use(initReactI18next).init({
   resources: {
     uz: { translation: translationUz },
@@ -157,6 +158,11 @@ const App = () => {
           path="requirements"
           element={<Requirements setLoading={setLoading} loading={loading} />}
         />
+        <Route
+          path="elektrone"
+          element={<Elektrone setLoading={setLoading} loading={loading} />}
+        />
+
         <Route
           path="e-books"
           element={<EBooks setLoading={setLoading} loading={loading} />}

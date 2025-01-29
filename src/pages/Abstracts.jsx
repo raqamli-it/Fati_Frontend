@@ -1,48 +1,34 @@
-import { BiDownArrow, BiUpArrow } from "react-icons/bi";
-import PageTop from "../components/PageTop/PageTop";
-import { FaSearch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
 import axios from "axios";
-import PropTypes from "prop-types";
+import { FaDownload } from "react-icons/fa";
+import "./EBooks.css";
+import tab_bg from "./tab_bg.png";
 
 export const Abstracts = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
-  const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 20;
   const lang = i18n.language;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get("/kutobxona/avtoreferat/");
-        setData(response.data.results);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading("show-p");
-      }
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/kutobxona/avtoreferat/");
+      const category = response.data.results.filter(
+        (value) => value.category == 1
+      );
+      setData(category);
 
-  const handlePageClick = (event) => {
-    setCurrentPage(event.selected);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading("show-p");
+    }
   };
 
-  const filteredData = data.filter((item) =>
-    item?.[`title_${lang}`]?.toLowerCase()?.includes(search.toLowerCase())
-  );
-
-  const pageCount = Math.ceil(filteredData.length / itemsPerPage);
-  const displayData = filteredData.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
-  );
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
@@ -52,54 +38,33 @@ export const Abstracts = ({ setLoading, loading }) => {
   }
 
   return (
-    <section>
-      <PageTop data={{ h2: "abstracts" }} />
+    <section
+      style={{
+        backgroundImage: `url(${tab_bg})`,
+        width: "100%",
+        height: "100%",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <div className="books">
-        <div className="container">
-          <div className="top">
-            <h2>{t("abstracts")}</h2>
-            <label>
-              <input
-                type="text"
-                placeholder={t("search")}
-                onInput={(e) => setSearch(e.target.value)}
-              />
-              <FaSearch />
-            </label>
-          </div>
-        </div>
-        <div className="container">
-          <div className="img-cards">
-            <div className="cards">
-              {displayData.map((item) => (
-                <div className="card" key={item?.id}>
-                  <img src={item?.cover_img} alt="book img" />
-                  <h3>{item?.[`title_${lang}`]}</h3>
-                  <a href={item?.file} target="_blank" className="arrow">
-                    <img src="./assets/icons/arrow.svg " alt="arrow img" />
-                  </a>
-                </div>
-              ))}
+        <div className="img-download">
+          {data?.map((value, index) => (
+            <div key={index} className="wrapper">
+              <div className="file">
+                <img src={value.image} alt="salom" />
+                <a href={value.file} download={value.id}>
+                  <FaDownload />
+                </a>
+              </div>
+
+              <span className="title_lang">{value?.[`title_${lang}`]}</span>
             </div>
-          </div>
+          ))}
         </div>
-        <ReactPaginate
-          previousLabel={<BiUpArrow />}
-          nextLabel={<BiDownArrow />}
-          pageCount={pageCount}
-          onPageChange={handlePageClick}
-          containerClassName="pagination"
-          previousLinkClassName="pagination__link"
-          nextLinkClassName="pagination__link"
-          disabledClassName="pagination__link--disabled"
-          activeClassName="pagination__link--active"
-        />
       </div>
     </section>
   );
-};
-
-Abstracts.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
 };

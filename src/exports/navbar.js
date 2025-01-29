@@ -4,6 +4,7 @@ export const navbarData = [
     content: "news",
     to: "/news",
   },
+
   {
     id: 0,
     content: "about-n",
@@ -30,11 +31,13 @@ export const navbarData = [
       },
     ],
   },
+
   {
     id: 1,
     content: "centers",
     links: 1,
   },
+
   {
     id: 2,
     content: "councils",
@@ -44,6 +47,7 @@ export const navbarData = [
       { id: 2, content: "sc-young", to: "/sc-young" },
     ],
   },
+
   {
     id: 3,
     content: "doctorals",
@@ -54,6 +58,7 @@ export const navbarData = [
       { id: 2, content: "doc-exams", to: "/doc-exams" },
     ],
   },
+
   {
     id: 4,
     content: "gatherings",
@@ -71,14 +76,16 @@ export const navbarData = [
       { id: 3, content: "travels", to: "/international-travels" },
     ],
   },
+
   {
     id: 5,
     content: "library",
     to: "/library",
     links: [
-      { id: 0, content: "journal", to: "/journal" },
-      { id: 1, content: "abstracts", to: "/abstracts" },
-      { id: 2, content: "e-books", to: "/e-books" },
+      { id: 5, content: "O'zbekiston tarix jurnali", to: "/journal" },
+      { id: 1, content: "Elektron kitoblar", to: "/elektrone" },
+      { id: 2, content: "Manbalar", to: "/e-books" },
+      { id: 3, content: "Avtoreferatlar", to: "/abstracts" },
     ],
   },
 ];

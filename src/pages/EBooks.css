@@ -1,0 +1,70 @@
+.books {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.books .file {
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+.books .file a {
+  position: absolute;
+  color: white;
+  background-color: #f7353c;
+  padding: 12px 15px;
+  box-shadow: 0 0 30px #f7353c;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  right: -60px;
+  transition: all 0.5s ease-in;
+  bottom: 20px;
+}
+.books .img-download {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 50px 0 0;
+}
+
+.books img {
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+}
+.img-download .wrapper {
+  min-height: 400px;
+  background-color: #0f7a81;
+}
+.img-download span {
+  margin: 20px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 600;
+  font-family: monospace;
+  line-height: 25px;
+  font-size: 18px;
+}
+.books .wrapper {
+  border: 0 solid gray;
+  cursor: pointer;
+  transition: all 0.6s ease-in;
+}
+.books .title_lang {
+  font-family: sans-serif;
+  text-align: center;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.books .wrapper:hover a {
+  right: 20px;
+  transition: all 0.6s ease-in;
+}
+.books .wrapper:hover {
+  box-shadow: 0 0 30px rgba(55, 55, 55, 0.907);
+}
