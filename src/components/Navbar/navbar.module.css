@@ -1,7 +1,7 @@
 .navbar {
   user-select: none;
   margin-top: 0;
-  background: #01012f;
+  background: rgb(1, 1, 60);
   overflow: hidden;
   color: #fff;
   input {

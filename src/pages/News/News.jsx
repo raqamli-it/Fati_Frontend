@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next";
 import styles from "./news.module.css";
-import { FaRegNewspaper } from "react-icons/fa6";
 import { useEffect, useState } from "react";
-import PageTop from "../../components/PageTop/PageTop";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
+import { LiaArrowRightSolid } from "react-icons/lia";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+
 export const month = {
   "01_uz": "Yanvar",
   "02_uz": "Fevral",
@@ -36,9 +37,8 @@ export const month = {
 export const News = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const [sortVal, setSortVal] = useState("newest");
   const [data, setData] = useState([]);
-  // const [change, setChange] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,98 +54,67 @@ export const News = ({ setLoading, loading }) => {
     fetchData();
   }, []);
 
-  // const sortData = (sortVal) => {
-  //   if (sortVal == "newest") {
-  //     setData((prev) => prev);
-  //     console.log(change);
-  //   } else if (sortVal == "oldest") {
-  //     setData((prev) => prev.reverse());
-  //   }
-  // };
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
-  return (
-    <section className={styles.section}>
-     <PageTop data={{ h2: t("news") }} />
-      <div className="container">
-        <div className="community">
-          <ul className="news-sort">
-            <li>{t("sort-by")}</li>
-            <li
-              className={sortVal == "newest" ? "active" : ""}
-              onClick={() => setSortVal("newest")}
-            >
-              {t("published")} ({t("newest")})
-            </li>
-            <li
-              className={sortVal == "oldest" ? "active" : ""}
-              onClick={() => setSortVal("oldest")}
-            >
-              {t("published")} ({t("oldest")})
-            </li>
-            <li
-              className={sortVal == "a-z" ? "active" : ""}
-              onClick={() => setSortVal("a-z")}
-            >
-              A-Z
-            </li>
-            <li
-              className={sortVal == "z-a" ? "active" : ""}
-              onClick={() => setSortVal("z-a")}
-            >
-              Z-A
-            </li>
-          </ul>
-          <div className="cards">
-            {data?.map((item) => {
-              return (
-                <div className="card" key={item?.id}>
-                  <div className="content">
-                    <div className="news-title">
-                      <FaRegNewspaper />
-                      <p>{t("news")}</p>
-                      <span>
-                        {item?.created_at?.slice(8, 10) +
-                          " " +
-                          month[item?.created_at?.slice(5, 7) + "_" + lang] +
-                          " " +
-                          item?.created_at?.slice(0, 4)}
-                      </span>
-                    </div>
-                    <Link to={"/news/" + item?.id}>
-                      <h2>{item?.[`title_${lang}`]}</h2>
-                    </Link>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          item?.[`content_${lang}`].length > 200
-                            ? item?.[`content_${lang}`].slice(0, 200) + "..."
-                            : item?.[`content_${lang}`],
-                      }}
-                    />
-                    <Link to={"/news/" + item?.id}>
-                      <img
-                        src="./assets/icons/arrow.svg"
-                        alt="arrow"
-                        className="arrow"
-                      />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
-News.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
+  console.log(data, "data");
+  return (
+    <div className={styles.news_container}>
+      <div className={styles.news}>
+        {data?.map((item) => {
+          return (
+            <div className={styles.card} key={item?.id}>
+              <img src={item.file} alt={item[`title_${lang}`]} />
+
+              <div className={styles.content}>
+                <h2>{item?.[`title_${lang}`]}</h2>
+
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      item?.[`content_${lang}`].length > 200
+                        ? item?.[`content_${lang}`].slice(0, 200) + "..."
+                        : item?.[`content_${lang}`],
+                  }}
+                ></p>
+
+                <div className={styles["news-title"]}>
+                  <span>
+                    {item?.created_at?.slice(8, 10) +
+                      " " +
+                      month[item?.created_at?.slice(5, 7) + "_" + lang] +
+                      " " +
+                      item?.created_at?.slice(0, 4)}
+                  </span>
+
+                  <Tooltip
+                    title={
+                      <span
+                        style={{
+                          fontSize: "14px",
+                          lineHeight: "30px",
+                        }}
+                      >
+                        Batafsil ko'rish
+                      </span>
+                    }
+                    placement="top"
+                  >
+                    <Link to={"/news/" + item?.id}>
+                      <LiaArrowRightSolid className={styles.arrow} />
+                    </Link>
+                  </Tooltip>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 };

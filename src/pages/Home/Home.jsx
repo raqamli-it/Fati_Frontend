@@ -114,7 +114,7 @@ export const Home = ({ setLoading, loading }) => {
     fetchData();
   }, []);
 
-  console.log(booksData, "booksData");
+  console.log(quickLinksData, "quickLinksData");
 
   return (
     <section>
@@ -160,7 +160,7 @@ export const Home = ({ setLoading, loading }) => {
         </div>
 
         <div className="img-cards">
-          <p className="card-text">{t("councils")}</p>
+          <h2 className="card-text">{t("councils")}</h2>
           <ul>
             <li className="no-border">
               <Link to={"scientific-degree"}>
@@ -182,6 +182,7 @@ export const Home = ({ setLoading, loading }) => {
             </li>
           </ul>
         </div>
+
         {/*  */}
         {/* <div className="doc-con">
           <h2>{t("doctaurants")}</h2>
@@ -260,6 +261,7 @@ export const Home = ({ setLoading, loading }) => {
           </div>
         </div> */}
         {/*  */}
+
         <div className="img-cards" style={{ margin: "70px 0 90px" }}>
           <h2>{t("gatherings")}</h2>
           <ul>
@@ -282,9 +284,20 @@ export const Home = ({ setLoading, loading }) => {
             {booksData?.map((item, index) => (
               <div className="cards" key={index}>
                 <div className="cards-img">
-                  <img src={item?.image} alt="Book" />
-                  <a href={item.file} download={item.file}>
-                    <GiCloudDownload />
+                  <img className="images" src={item?.image} alt="Book" />
+                  <a
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "100%",
+                      position: "relative",
+                      height: "60px",
+                    }}
+                    href={item.file}
+                    download={item.file}
+                  >
+                    <GiCloudDownload className="download-icons" />
                   </a>
                 </div>
 
@@ -296,20 +309,13 @@ export const Home = ({ setLoading, loading }) => {
           </div>
         </div>
 
-        <div className="quick-links">
-          <h2>Foydali havolalar 5</h2>
-          <div className="cards">
+        <div className="foydali-hovolalar">
+          <h2>Foydali havolalar</h2>
+          <div className="hovolalar">
             {quickLinksData?.map((item) => {
               return (
-                <a
-                  className="card no-border"
-                  href={item?.link}
-                  target="_blank"
-                  key={item?.id}
-                >
-                  <div className="card-img">
-                    <img src={item?.file} alt="quick link" />
-                  </div>
+                <a href={item?.link} target="_blank" key={item?.id}>
+                  <img src={item?.file} alt="quick link" />
                   <p>{item?.[`title_${lang}`]}</p>
                 </a>
               );
