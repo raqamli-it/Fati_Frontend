@@ -73,7 +73,6 @@ export const News = ({ setLoading, loading }) => {
 
               <div className={styles.content}>
                 <h2>{item?.[`title_${lang}`]}</h2>
-
                 <p
                   dangerouslySetInnerHTML={{
                     __html:
@@ -82,7 +81,6 @@ export const News = ({ setLoading, loading }) => {
                         : item?.[`content_${lang}`],
                   }}
                 ></p>
-
                 <div className={styles["news-title"]}>
                   <span>
                     {item?.created_at?.slice(8, 10) +
