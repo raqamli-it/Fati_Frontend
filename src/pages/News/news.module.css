@@ -8,7 +8,7 @@
 }
 
 .news {
-  margin: 50px auto;
+  margin: 70px auto;
   max-width: 1320px;
   display: grid;
   gap: 20px;
@@ -27,6 +27,7 @@
 .content {
   padding: 0 15px 15px;
   cursor: pointer;
+  color: white;
 }
 .content p {
   margin-top: 5px;

@@ -314,7 +314,7 @@ export const Home = ({ setLoading, loading }) => {
           <div className="hovolalar">
             {quickLinksData?.map((item) => {
               return (
-                <a href={item?.link} target="_blank" key={item?.id}>
+                <a href={item?.link} key={item?.id} target="_blank">
                   <img src={item?.file} alt="quick link" />
                   <p>{item?.[`title_${lang}`]}</p>
                 </a>
