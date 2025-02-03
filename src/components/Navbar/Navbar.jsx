@@ -14,7 +14,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 170) {
+      if (window.scrollY >= 125) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -56,6 +56,8 @@ export const Navbar = () => {
     };
     fetchData();
   }, []);
+
+  console.log(navbarData, "XXXX");
 
   return (
     <nav className={styles.navbar}>
@@ -114,7 +116,7 @@ export const Navbar = () => {
             backgroundColor: isScrolled && "white",
             transition: "background-color 0.3s ease-in",
             zIndex: 200000,
-            top: isScrolled && "-10px",
+            top: isScrolled && "0px",
             position: isScrolled && "fixed",
             color: isScrolled && "black",
           }}
@@ -181,7 +183,7 @@ export const Navbar = () => {
                             key={item?.id}
                             onClick={() => setShowMenu(false)}
                           >
-                            <Link to={`/centers-and-departments/${item.id}`}>
+                            <Link to="/centers-and-departments">
                               {item?.[`title_${lang}`]}
                             </Link>
                           </li>

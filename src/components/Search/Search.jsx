@@ -23,7 +23,7 @@ export const Search = () => {
         spellCheck="false"
         ref={ref}
       />
-      <CiSearch style={{ fontSize: "22px" }} />
+      <CiSearch style={{ fontSize: "18px" }} />
     </form>
   );
 };

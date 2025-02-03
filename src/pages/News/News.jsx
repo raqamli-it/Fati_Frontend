@@ -69,7 +69,7 @@ export const News = ({ setLoading, loading }) => {
         {data?.map((item) => {
           return (
             <div className={styles.card} key={item?.id}>
-              <img src={item.file} alt={item[`title_${lang}`]} />
+              <img src={item.image} alt={item[`title_${lang}`]} />
 
               <div className={styles.content}>
                 <h2>{item?.[`title_${lang}`]}</h2>

@@ -4,8 +4,11 @@ import styles from "./wheater.module.css";
 
 export const Wheater = React.memo(() => {
   const [data, setData] = useState();
+
   // const [region, setRegion] = useState("Tashkent");
+
   // const { t } = useTranslation();
+
   // const regions = [
   //   { id: 0, value: "Tashkent" },
   //   { id: 1, value: "Qarshi" },
@@ -21,6 +24,7 @@ export const Wheater = React.memo(() => {
   //   { id: 11, value: "Termiz" },
   //   { id: 12, value: "Jizzax" },
   // ];
+
   const url = `https://weather-api138.p.rapidapi.com/weather?city_name=${"Tashkent"}`;
   const options = {
     method: "GET",
@@ -44,10 +48,10 @@ export const Wheater = React.memo(() => {
 
   return (
     <div className={styles.div}>
-      <img
+      {/* <img
         src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}.png`}
         alt={data?.weather?.description}
-      />
+      /> */}
       <span>{Math.ceil(data?.main?.temp - 271)} ° C</span>
       <p>Tashkent</p>
     </div>
