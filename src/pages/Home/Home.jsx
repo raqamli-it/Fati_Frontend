@@ -9,6 +9,14 @@ import "slick-carousel/slick/slick-theme.css";
 import HomeNews from "../HomeNews/HomeNews";
 import dateFormat from "dateformat";
 import { GiCloudDownload } from "react-icons/gi";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io5";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { AiOutlineLink } from "react-icons/ai";
+
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
+import bgImage from "./bg.jpg";
 
 const headerSettings = {
   fade: true,
@@ -114,8 +122,6 @@ export const Home = ({ setLoading, loading }) => {
     fetchData();
   }, []);
 
-  console.log(quickLinksData, "quickLinksData");
-
   return (
     <section>
       <header className={styles.header}>
@@ -128,7 +134,6 @@ export const Home = ({ setLoading, loading }) => {
 
       <div className={styles.container}>
         <HomeNews newsData={newsData} />
-
         <div className="img-cards">
           <h1>{t("centers")}</h1>
           <div className="cards-effect">
@@ -160,7 +165,7 @@ export const Home = ({ setLoading, loading }) => {
         </div>
 
         <div className="img-cards">
-          <h2 className="card-text">{t("councils")}</h2>
+          <h2>{t("councils")}</h2>
           <ul>
             <li className="no-border">
               <Link to={"scientific-degree"}>
@@ -183,102 +188,75 @@ export const Home = ({ setLoading, loading }) => {
           </ul>
         </div>
 
-        {/*  */}
-        {/* <div className="doc-con">
+        <div className="img-cards">
           <h2>{t("doctaurants")}</h2>
-          <div className="doctaurants">
+          <div className={styles["home-card"]}>
             {doctaurantsData?.map((item, index) => {
               return (
-                <div className="card" key={index}>
-                  <div className="card-img">
-                    <img src={item?.file} alt="user" />
+                <Zoom key={index} cascade delay={300 * index} duration={1000}>
+                  <div className={styles.wrapper}>
+                    <div className={styles.homeimg}>
+                      <img src={item?.file} alt="user" />
+                    </div>
+
+                    <div className={styles.contentTitle}>
+                      <h2 key={item.id}>
+                        {item?.[`title_${lang}`]?.toLowerCase()}
+                      </h2>
+                      <p>{item?.type}</p>
+
+                      <div className={styles["social-links"]}>
+                        <a href="">
+                          <FaFacebookF style={{ color: "#0463fa" }} />
+                        </a>
+                        <a href="">
+                          <FaTwitter style={{ color: "#0463fa" }} />
+                        </a>
+                        <a href="">
+                          <IoLogoInstagram style={{ color: "#0463fa" }} />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-
-                  <div className="content">
-                    <h2>{item?.[`title_${lang}`]}</h2>
-                    <ul>
-                      <li>
-                        <input type="checkbox" name="doc" id={`e1${index}`} />
-                        <label htmlFor={`e1${index}`}>
-                          <span>Mehnat faoliyati</span>
-                          <GrDown />
-                        </label>
-                        {item?.[`mehnat_faolyati_${lang}`] ? (
-                          <ol
-                            dangerouslySetInnerHTML={{
-                              __html: item?.[`mehnat_faolyati_${lang}`],
-                            }}
-                          />
-                        ) : (
-                          <ol>
-                            <p>Nothing to see...</p>
-                          </ol>
-                        )}
-                      </li>
-
-                      <li>
-                        <input type="checkbox" name="doc" id={`e2${index}`} />
-                        <label htmlFor={`e2${index}`}>
-                          <span>Ilmiy faoliyat</span>
-                          <GrDown />
-                        </label>
-                        {item?.[`ilimiy_faolyati_${lang}`] ? (
-                          <ol
-                            dangerouslySetInnerHTML={{
-                              __html: item?.[`ilimiy_faolyati_${lang}`],
-                            }}
-                          />
-                        ) : (
-                          <ol>
-                            <p>Nothing to see...</p>
-                          </ol>
-                        )}
-                      </li>
-
-                      <li>
-                        <input type="checkbox" name="doc" id={`e3${index}`} />
-                        <label htmlFor={`e3${index}`}>
-                          <span>Asarlari</span>
-                          <GrDown />
-                        </label>
-                        {item?.[`asarlar_${lang}`] ? (
-                          <ol
-                            dangerouslySetInnerHTML={{
-                              __html: item?.[`asarlar_${lang}`],
-                            }}
-                          />
-                        ) : (
-                          <ol>
-                            <p>Nothing to see...</p>
-                          </ol>
-                        )}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                </Zoom>
               );
             })}
           </div>
-        </div> */}
-        {/*  */}
-
-        <div className="img-cards" style={{ margin: "70px 0 90px" }}>
-          <h2>{t("gatherings")}</h2>
-          <ul>
-            {seminar?.map((item, index) => {
-              return (
-                <li key={index} className="no-border">
-                  <Link to={"/seminar/" + item.id} key={item.id}>
-                    <p>{t("seminar" + item.id)}</p>
-                    <img src="./assets/icons/arrow.svg" alt="arrow" />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
         </div>
 
-        <div className="book_cards">
+        <div
+          className=""
+          style={{
+            margin: "70px 0",
+            height: "400px",
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "bottom",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div
+            style={{ maxWidth: "1320px", margin: "0 auto", padding: "35px 0" }}
+          >
+            <h2 style={{ fontSize: "36px", fontFamily: "Poppins,sans-serf" }}>
+              {t("gatherings")}
+            </h2>
+            <div className="yiginlar">
+              {seminar?.map((item, index) => {
+                return (
+                  <div key={index} className="card-yiginlar">
+                    <div>
+                      <p>{item?.[`title_${lang}`]}</p>
+                      <p></p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="img-cards">
           <h2>{t("library")}</h2>
           <div className="card-list">
             {booksData?.map((item, index) => (
@@ -309,15 +287,18 @@ export const Home = ({ setLoading, loading }) => {
           </div>
         </div>
 
-        <div className="foydali-hovolalar">
+        <div className="img-cards">
           <h2>Foydali havolalar</h2>
           <div className="hovolalar">
-            {quickLinksData?.map((item) => {
+            {quickLinksData?.map((item, index) => {
               return (
-                <a href={item?.link} key={item?.id} target="_blank">
-                  <img src={item?.file} alt="quick link" />
+                <div className="link-card" key={index}>
+                  <img className="img" src={item?.file} alt="quick link" />
                   <p>{item?.[`title_${lang}`]}</p>
-                </a>
+                  <a className="site-path" href={item?.link} target="_blank">
+                    <AiOutlineLink />
+                  </a>
+                </div>
               );
             })}
           </div>

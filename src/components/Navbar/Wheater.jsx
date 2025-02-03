@@ -1,27 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./wheater.module.css";
-// import { useTranslation } from "react-i18next";
 
 export const Wheater = React.memo(() => {
-  const [data, setData] = useState();
-  // const [region, setRegion] = useState("Tashkent");
-  // const { t } = useTranslation();
-  // const regions = [
-  //   { id: 0, value: "Tashkent" },
-  //   { id: 1, value: "Qarshi" },
-  //   { id: 2, value: "Bukhara" },
-  //   { id: 3, value: "Samarkand" },
-  //   { id: 4, value: "Fergana" },
-  //   { id: 5, value: "Andijan" },
-  //   { id: 6, value: "Namangan" },
-  //   { id: 7, value: "Sirdaryo" },
-  //   { id: 8, value: "Navoiy" },
-  //   { id: 9, value: "Urganch" },
-  //   { id: 10, value: "Nukus" },
-  //   { id: 11, value: "Termiz" },
-  //   { id: 12, value: "Jizzax" },
-  // ];
-  const url = `https://weather-api138.p.rapidapi.com/weather?city_name=${"Tashkent"}`;
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const url = `https://weather-api138.p.rapidapi.com/weather?city_name=Tashkent`;
   const options = {
     method: "GET",
     headers: {
@@ -29,26 +14,53 @@ export const Wheater = React.memo(() => {
       "x-rapidapi-host": "weather-api138.p.rapidapi.com",
     },
   };
+
   useEffect(() => {
     const fetching = async () => {
       try {
+        setLoading(true);
+        setError(null);
+
         const response = await fetch(url, options);
+
+        if (!response.ok) {
+          throw new Error(
+            `API xatosi: ${response.status} - ${response.statusText}`
+          );
+        }
+
         const result = await response.json();
         setData(result);
       } catch (error) {
-        console.error(error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
+
     fetching();
   }, []);
 
+  if (loading) return <p>Yuklanmoqda...</p>;
+  if (error) return <p>Xatolik: {error}</p>;
+
   return (
     <div className={styles.div}>
-      <img
-        src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}.png`}
-        alt={data?.weather?.description}
-      />
-      <span>{Math.ceil(data?.main?.temp - 271)} ° C</span>
+      {data?.weather?.[0]?.icon ? (
+        <img
+          src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
+          alt="ob-havo"
+        />
+      ) : (
+        <p>Ob-havo ma'lumotlari mavjud emas</p>
+      )}
+
+      {data?.main?.temp ? (
+        <span>{Math.ceil(data.main.temp - 273.15)} °C</span>
+      ) : (
+        <span>Ma'lumot mavjud emas</span>
+      )}
+
       <p>Tashkent</p>
     </div>
   );

@@ -38,6 +38,10 @@ import Tahririyat from "./pages/Tabs/Tahririyat";
 import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
 import Elektrone from "./pages/Elektrone";
+import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
+import Employees from "./pages/Employees/Employees";
+import Research from "./pages/Research/Research";
+import PhotoVideo from "./pages/PhotoVideo/PhotoVideo";
 i18n.use(initReactI18next).init({
   resources: {
     uz: { translation: translationUz },
@@ -77,74 +81,7 @@ const App = () => {
           path="about"
           element={<About setLoading={setLoading} loading={loading} />}
         />
-        <Route
-          path="centers-and-departments/:id"
-          element={
-            <CentersAndDepartments setLoading={setLoading} loading={loading} />
-          }
-        />
-        <Route
-          path="news"
-          element={<News setLoading={setLoading} loading={loading} />}
-        ></Route>
-        <Route
-          path="news/:id"
-          element={<NewsAbout setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="international-travels"
-          element={
-            <InternationalTravels setLoading={setLoading} loading={loading} />
-          }
-        />
-        <Route
-          path="search/:value"
-          element={<SearchResult setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="seminar/:id"
-          element={<Seminar setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="contact"
-          element={<Contact setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="trade-union"
-          element={<TradeUnion setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="organization-structure"
-          element={
-            <OrganizationStructure setLoading={setLoading} loading={loading} />
-          }
-        />
-        <Route
-          path="doc-admission"
-          element={<DocAdmission setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="doctaurants"
-          element={<Doctaurants setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="doc-exams"
-          element={<DocExams setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="scientific-degree"
-          element={
-            <ScientificDegree setLoading={setLoading} loading={loading} />
-          }
-        />
-        <Route
-          path="sc-young"
-          element={<ScYoung setLoading={setLoading} loading={loading} />}
-        />
-        <Route
-          path="sc-council"
-          element={<ScCouncil setLoading={setLoading} loading={loading} />}
-        />
+
         <Route
           path="journal"
           element={<Journal setLoading={setLoading} loading={loading} />}
@@ -154,6 +91,96 @@ const App = () => {
           <Route path="talablar" element={<Talablar />} />
           <Route path="arxiv" element={<Arxiv />} />
         </Route>
+
+        <Route
+          path="centers-and-departments"
+          element={
+            <CentersAndDepartments setLoading={setLoading} loading={loading} />
+          }
+        >
+          <Route index element={<Navigate to="generalInfo" replace />} />
+          <Route path="generalInfo" element={<GeneralInfo />} />
+          <Route path="employees" element={<Employees />} />
+          <Route path="research" element={<Research />} />
+          <Route path="photoVideo" element={<PhotoVideo />} />
+        </Route>
+
+        <Route
+          path="news"
+          element={<News setLoading={setLoading} loading={loading} />}
+        ></Route>
+
+        <Route
+          path="news/:id"
+          element={<NewsAbout setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="international-travels"
+          element={
+            <InternationalTravels setLoading={setLoading} loading={loading} />
+          }
+        />
+
+        <Route
+          path="search/:value"
+          element={<SearchResult setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="seminar/:id"
+          element={<Seminar setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="contact"
+          element={<Contact setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="trade-union"
+          element={<TradeUnion setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="organization-structure"
+          element={
+            <OrganizationStructure setLoading={setLoading} loading={loading} />
+          }
+        />
+
+        <Route
+          path="doc-admission"
+          element={<DocAdmission setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="doctaurants"
+          element={<Doctaurants setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="doc-exams"
+          element={<DocExams setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="scientific-degree"
+          element={
+            <ScientificDegree setLoading={setLoading} loading={loading} />
+          }
+        />
+
+        <Route
+          path="sc-young"
+          element={<ScYoung setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="sc-council"
+          element={<ScCouncil setLoading={setLoading} loading={loading} />}
+        />
+
         <Route
           path="requirements"
           element={<Requirements setLoading={setLoading} loading={loading} />}
