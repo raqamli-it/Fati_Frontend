@@ -38,6 +38,8 @@ function Elektrone({ setLoading, loading }) {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "Nima gap Kamoliddin");
+
   return (
     <section
       style={{

@@ -38,10 +38,13 @@ import Tahririyat from "./pages/Tabs/Tahririyat";
 import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
 import Elektrone from "./pages/Elektrone";
-import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
-import Employees from "./pages/Employees/Employees";
-import Research from "./pages/Research/Research";
-import PhotoVideo from "./pages/PhotoVideo/PhotoVideo";
+import EmployeesDetails from "./pages/Employees/EmployeesDetails";
+
+// import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
+// import Employees from "./pages/Employees/Employees";
+// import Research from "./pages/Research/Research";
+// import PhotoVideo from "./pages/PhotoVideo/PhotoVideo";
+
 i18n.use(initReactI18next).init({
   resources: {
     uz: { translation: translationUz },
@@ -77,6 +80,7 @@ const App = () => {
           index
           element={<Home setLoading={setLoading} loading={loading} />}
         />
+
         <Route
           path="about"
           element={<About setLoading={setLoading} loading={loading} />}
@@ -93,22 +97,23 @@ const App = () => {
         </Route>
 
         <Route
-          path="centers-and-departments"
+          path="centers-and-departments/:id"
           element={
             <CentersAndDepartments setLoading={setLoading} loading={loading} />
           }
-        >
-          <Route index element={<Navigate to="generalInfo" replace />} />
-          <Route path="generalInfo" element={<GeneralInfo />} />
-          <Route path="employees" element={<Employees />} />
-          <Route path="research" element={<Research />} />
-          <Route path="photoVideo" element={<PhotoVideo />} />
-        </Route>
+        />
+
+        <Route
+          path="centers-and-departments/:id/:detail"
+          element={
+            <EmployeesDetails setLoading={setLoading} loading={loading} />
+          }
+        />
 
         <Route
           path="news"
           element={<News setLoading={setLoading} loading={loading} />}
-        ></Route>
+        />
 
         <Route
           path="news/:id"
@@ -185,6 +190,7 @@ const App = () => {
           path="requirements"
           element={<Requirements setLoading={setLoading} loading={loading} />}
         />
+
         <Route
           path="elektrone"
           element={<Elektrone setLoading={setLoading} loading={loading} />}
@@ -194,29 +200,36 @@ const App = () => {
           path="e-books"
           element={<EBooks setLoading={setLoading} loading={loading} />}
         />
+
         <Route
           path="sources"
           element={<Sources setLoading={setLoading} loading={loading} />}
         />
+
         <Route
           path="abstracts"
           element={<Abstracts setLoading={setLoading} loading={loading} />}
         />
+
         <Route
           path="global-partners"
           element={<GlobalPartners setLoading={setLoading} loading={loading} />}
         />
+
         <Route
           path="global-researchers"
           element={
             <GlobalResearchers setLoading={setLoading} loading={loading} />
           }
         />
+
         <Route
           path="global-projects"
           element={<GlobalProjects setLoading={setLoading} loading={loading} />}
         />
+
         <Route path="/journal/detail/:id" element={<JournalDetail />} />
+
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

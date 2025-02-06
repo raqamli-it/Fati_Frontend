@@ -1,0 +1,100 @@
+.employees {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.employees .img {
+  height: 300px;
+}
+
+.employees img {
+  width: 100%;
+  height: 100%;
+}
+
+.employees-card {
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+  border-bottom: 2px solid gray;
+  padding: 20px;
+}
+
+.employees-card .button {
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.button button {
+  text-align: center;
+  cursor: pointer;
+  height: 36px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  padding: 0 10px;
+  border: 2px solid gray;
+}
+
+.employees-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(44, 44, 44);
+  font-family: "Poppins", sans-serif;
+}
+
+.employeesDetails h1:nth-child(1) {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+}
+
+.employees-content h1 {
+  text-align: center;
+  font-size: 24px;
+  line-height: 42px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(29, 28, 28);
+}
+
+.employeesDetails p {
+  color: rgb(29, 28, 28);
+  font-weight: 600;
+  line-height: 35px;
+}
+.employeesDetails p:nth-child(1) {
+  font-size: 24px;
+}
+
+.employeesDetails p:nth-child(2) {
+  font-size: 18px;
+}
+
+.employeesDetails p:nth-child(3) {
+  font-size: 18px;
+}
+
+.employees-wrapper {
+  display: grid;
+  margin: 20px 0 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.employees-wrapper .img {
+  height: 400px;
+}
+.employees-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+/* employeesDetails */
+
+.employeesDetails {
+  max-width: 1320px;
+  padding: 100px 0;
+  margin: 0 auto;
+}
+.employeesDetails h1 {
+}
+/* employeesDetails */

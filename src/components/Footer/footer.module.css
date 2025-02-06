@@ -1,6 +1,5 @@
 .footer {
-  background: #333132;
-  color: #fff;
+  background: white;
   margin-top: auto;
   padding: 70px 50px 30px;
 
@@ -16,6 +15,7 @@
       justify-content: space-between;
       align-items: start;
     }
+
     .row2 {
       max-width: 520px;
       width: 100%;

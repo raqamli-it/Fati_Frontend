@@ -14,8 +14,12 @@ import { FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
+// iconkalar
+import avtoreferat from "./kutubxonaIcon/avtoreferat.png";
+import elektronkitoblar from "./kutubxonaIcon/elektronkitoblar.png";
+import manbalar from "./kutubxonaIcon/manbalar.png";
 
-import { Fade, Slide, Zoom } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 import bgImage from "./bg.jpg";
 
 const headerSettings = {
@@ -70,7 +74,7 @@ export const Home = ({ setLoading, loading }) => {
   const [newsData, setNewsData] = useState([]);
   const [quickLinksData, setQuickLinksData] = useState([]);
   const [centersData, setCentersData] = useState([]);
-  const [booksData, setBooksData] = useState([]);
+  // const [booksData, setBooksData] = useState([]);
   const [sliderData, setSliderData] = useState([]);
   const [langVal] = useState("uz");
   const [seminar, setSeminarData] = useState([]);
@@ -90,22 +94,21 @@ export const Home = ({ setLoading, loading }) => {
         await axios
           .get("/doktarantura/doktarantura/")
           .then((req) => setDoctaurantsData(req.data.results));
-
         await axios
           .get("/qoshimcha-malumotlar/karusel/")
           .then((req) => setSliderData(req.data));
         await axios
           .get("/qoshimcha-malumotlar/yangiliklar/")
-          .then((req) => setNewsData(req.data.results));
+          .then((req) => setNewsData(req.data));
         await axios
           .get("/qoshimcha-malumotlar/havolalar/")
-          .then((req) => setQuickLinksData(req.data.results));
+          .then((req) => setQuickLinksData(req.data));
         await axios
           .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
           .then((req) => setCentersData(req.data));
-        await axios
-          .get("/kutobxona/avtoreferat/")
-          .then((req) => setBooksData(req.data.results));
+        // await axios
+        //   .get("/kutobxona/avtoreferat/")
+        //   .then((req) => setBooksData(req.data.results));
         await axios
           .get("/seminar/seminar/")
           .then((req) => setSeminarData(req.data.results));
@@ -121,6 +124,31 @@ export const Home = ({ setLoading, loading }) => {
     };
     fetchData();
   }, []);
+
+  const booksData = [
+    {
+      id: 1,
+      title: "Avtoreferatlar",
+      icon: avtoreferat,
+      toLink: "/abstracts",
+      text: "Ushbu bo‘limda dissertatsiya avtoreferatlari jamlangan bo‘lib, tarix fanining turli yo‘nalishlari bo‘yicha olib borilgan ilmiy tadqiqotlar bilan tanishishingiz mumkin. Bu materiallar tadqiqotchilar, talaba va ilmiy izlanish olib boruvchilar uchun muhim manba hisoblanadi",
+    },
+    {
+      id: 2,
+      title: "Elektron kitoblar",
+      icon: elektronkitoblar,
+      toLink: "/elektrone",
+      text: "Elektron kutubxonamizda tarixiy tadqiqotlar, ilmiy monografiyalar va nodir manbalar to‘plangan. Siz bu yerda turli davrlarga oid akademik asarlar bilan tanishib, ilmiy izlanishlaringiz uchun foydali ma’lumotlarni topishingiz mumkin",
+    },
+
+    {
+      id: 3,
+      title: "Manbalar",
+      icon: manbalar,
+      toLink: "/e-books",
+      text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
+    },
+  ];
 
   return (
     <section>
@@ -260,28 +288,12 @@ export const Home = ({ setLoading, loading }) => {
           <h2>{t("library")}</h2>
           <div className="card-list">
             {booksData?.map((item, index) => (
-              <div className="cards" key={index}>
-                <div className="cards-img">
-                  <img className="images" src={item?.image} alt="Book" />
-                  <a
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      width: "100%",
-                      position: "relative",
-                      height: "60px",
-                    }}
-                    href={item.file}
-                    download={item.file}
-                  >
-                    <GiCloudDownload className="download-icons" />
-                  </a>
-                </div>
-
-                <div className="cards-contents">
-                  <h2>{item?.[`title_${lang}`]}</h2>
-                </div>
+              <div className="card-container" key={index}>
+                <Link className="link" to={item.toLink}>
+                  <img src={item?.icon} alt="Book" />
+                  <p>{item.title}</p>
+                </Link>
+                <p>{item.text}</p>
               </div>
             ))}
           </div>

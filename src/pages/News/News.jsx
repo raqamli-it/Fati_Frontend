@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { LiaArrowRightSolid } from "react-icons/lia";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 
 export const month = {
@@ -44,8 +43,8 @@ export const News = ({ setLoading, loading }) => {
       try {
         setLoading(true);
         await axios
-          .get("/qoshimcha-malumotlar/yangiliklar/")
-          .then((req) => setData(req.data.results));
+          .get("http://backend.fati.uz/qoshimcha-malumotlar/yangiliklar/")
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -65,9 +64,12 @@ export const News = ({ setLoading, loading }) => {
   console.log(data, "data");
   return (
     <div className={styles.news_container}>
+      <div className={styles["curved-div"]}></div>
+
       <h1 style={{ maxWidth: "1320px", margin: "0 auto", marginTop: "20px" }}>
         {t("news")}
       </h1>
+
       <div className={styles.news}>
         {data?.map((item) => {
           return (
@@ -80,7 +82,7 @@ export const News = ({ setLoading, loading }) => {
                   dangerouslySetInnerHTML={{
                     __html:
                       item?.[`content_${lang}`].length > 200
-                        ? item?.[`content_${lang}`].slice(0, 200) + "..."
+                        ? item?.[`content_${lang}`].slice(0, 100) + "..."
                         : item?.[`content_${lang}`],
                   }}
                 ></p>

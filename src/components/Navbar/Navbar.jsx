@@ -12,6 +12,7 @@ import axios from "axios";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 125) {
@@ -25,27 +26,25 @@ export const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  // Navbar Effecti
+
   const { i18n, t } = useTranslation();
   const [langVal, setLangValue] = useState("uz");
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-
   const [centers, setSectersData] = useState([]);
   const [seminar, setSeminarData] = useState([]);
-
   const lang = i18n.language;
 
   useEffect(() => {
     i18n.changeLanguage(langVal);
     localStorage.setItem("i18lng", langVal);
   }, [langVal]);
-
   useEffect(() => {
+    // seminar/seminar-turlari
     const fetchData = () => {
       try {
         axios
-          .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
+          .get("/markazlar-va-bolimlar/markazlar_bolimlar_title/")
           .then((req) => setSectersData(req.data));
         axios
           .get("/seminar/seminar-turlari/")
@@ -56,17 +55,18 @@ export const Navbar = () => {
     };
     fetchData();
   }, []);
-
+  ///markazlar-va-bolimlar/markazlar_bolimlar_title/
+  // /seminar/seminar-turlari/
   return (
     <nav className={styles.navbar}>
-      <div className={styles.top_alert}>
+      {/* <div className={styles.top_alert}>
         <Time />
         <p className={styles.alert}>{t("test")}</p>
         <Wheater />
-      </div>
+      </div> */}
 
       <div className={styles.container}>
-        <div className={styles.top}>
+        {/* <div className={styles.top}>
           <Link to={"/"} className={styles.logo}>
             <img src="/assets/logo-light.png" alt="logo" />
           </Link>
@@ -101,7 +101,7 @@ export const Navbar = () => {
               </span>
             )}
           </div>
-        </div>
+        </div> */}
 
         <div className={styles["menu-mob"]}>
           <div onClick={() => setShowMenu((prev) => !prev)}>
@@ -131,7 +131,10 @@ export const Navbar = () => {
                       style={{
                         overflowY: "hidden",
                         display: "flex",
+                        justifyContent: "flex-end",
                         alignItems: "center",
+                        height: "60px",
+                        width: "120px",
                       }}
                       to={item.to}
                     >
@@ -143,19 +146,24 @@ export const Navbar = () => {
                         display: "flex",
                         gap: "5px",
                         height: "50px",
+                        width: "190px",
                         alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      {t(content)} {item?.links && <GrDown />}
+                      {t(content)}
+                      {/* {item?.links && <GrDown />} */}
                     </p>
                   )}
                   <ol>
-                    {item?.links != 1 && item?.links != 2
+                    {item?.links !== 1 && item?.links !== 2
                       ? item?.links?.map((item) => {
                           const { id, content, to } = item;
                           return (
                             <li
-                              style={{ color: isScrolled && "white" }}
+                              style={{
+                                color: isScrolled && "white",
+                              }}
                               key={id}
                               onClick={() => setShowMenu(false)}
                             >
@@ -163,10 +171,12 @@ export const Navbar = () => {
                             </li>
                           );
                         })
-                      : item?.links !== 1 && item?.links !== 2
+                      : item?.links !== 1
                       ? seminar?.map((item) => (
                           <li
-                            style={{ color: isScrolled && "white" }}
+                            style={{
+                              color: isScrolled && "white",
+                            }}
                             key={item?.id}
                             onClick={() => setShowMenu(false)}
                           >
@@ -181,7 +191,7 @@ export const Navbar = () => {
                             key={item?.id}
                             onClick={() => setShowMenu(false)}
                           >
-                            <Link to="/centers-and-departments">
+                            <Link to={`/centers-and-departments/${item.id}`}>
                               {item?.[`title_${lang}`]}
                             </Link>
                           </li>

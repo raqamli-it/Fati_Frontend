@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import PageTop from "../components/PageTop/PageTop";
+import { Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import styles from "./PersonCard.module.css";
 import axios from "axios";
 
 export const ScientificDegree = ({ setLoading, loading }) => {
@@ -14,9 +16,9 @@ export const ScientificDegree = ({ setLoading, loading }) => {
       try {
         setLoading(true);
         await axios.get("/kengashlar/azolar/").then((req) => setData(req.data));
-        await axios
-          .get("/kengashlar/fon_picture/")
-          .then((req) => setHeaderData(req.data.results));
+        // await axios
+        //   .get('/kengashlar/fon_picture/')
+        //   .then((req) => setHeaderData(req.data.results));
         setLoading(false);
       } catch {
         setLoading("show-p");
@@ -33,66 +35,26 @@ export const ScientificDegree = ({ setLoading, loading }) => {
   }
 
   return (
-    <section>
-      <PageTop data={{ h2: "scientific-degree" }} />
-      <div className="aside" style={{ height: "auto", padding: "40px" }}>
-        <div
-          className="aside-container"
-          style={{ alignItems: "center", padding: "0", gap: "10px" }}
-        >
-          <div
-            className="aside-img"
-            style={{ maxWidth: "100vw", marginTop: "0px" }}
-          >
-            <img
-              src={headerData?.[0]?.file}
-              alt="jpg"
-              style={{
-                position: "relative",
-                objectFit: "cover",
-                maxWidth: "100%",
-                marginLeft: "auto",
-              }}
-            />
+    <section className={styles.container}>
+      {data.map((item, index) => {
+        return (
+          <div key={index} className={styles["person-card"]}>
+            <div className={styles["card-content"]}>
+              <h2 className={styles.name}>{item?.[`name_${lang}`]}</h2>
+              <p className={styles.position}>{item?.[`position_${lang}`]}</p>
+              <p className={styles.degree}>{item?.[`degree_${lang}`]}</p>
+              <div className={styles["contact-info"]}>
+                <Phone className={styles.icon} />
+                <span>{item.contact}</span>
+              </div>
+              <div className={styles["contact-info"]}>
+                <Mail className={styles.icon} />
+                <span>{item.email}</span>
+              </div>
+            </div>
           </div>
-          <div className="aside-content" style={{ fontSize: "24px" }}>
-            <h2
-              dangerouslySetInnerHTML={{
-                __html: headerData?.[0]?.[`title_${lang}`],
-              }}
-            />
-            <p>{headerData?.[0]?.[`content_${lang}`]}</p>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <ul className="councils">
-          {data.map((item) => {
-            return (
-              <li key={item?.id}>
-                <span>{item?.shifr}</span>
-                <h2>{item?.[`name_${lang}`]}</h2>
-                <ol>
-                  <li>
-                    <b>{t("workplace")}: </b> {item?.[`ish_joy_${lang}`]}
-                  </li>
-                  <li>
-                    <b>{t("position")}: </b> {item?.[`lavozim_${lang}`]}
-                  </li>
-                  <li>
-                    <b>{t("academic_degree")}: </b>{" "}
-                    {item?.[`ilmiy_darajasi_${lang}`]}
-                  </li>
-                  <li>
-                    <b>{t("academic_title")}: </b>{" "}
-                    {item?.[`ilmiy_unvoni_${lang}`]}
-                  </li>
-                </ol>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+        );
+      })}
     </section>
   );
 };

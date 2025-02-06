@@ -1,9 +1,8 @@
 import { useTranslation } from "react-i18next";
-import styles from "./about.module.css";
-import PageTop from "../../components/PageTop/PageTop";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
+import image from "../../../public/assets/user.jpg";
+import style from "./about.module.css";
 
 export const About = ({ loading, setLoading }) => {
   const { t, i18n } = useTranslation();
@@ -14,11 +13,13 @@ export const About = ({ loading, setLoading }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        await axios
-          .get("/qoshimcha-malumotlar/institut-tarixi/")
-          .then((req) => setData(req.data.results));
+        const response = await axios.get(
+          "/qoshimcha-malumotlar/institut-tarixi/"
+        );
+        setData(response.data);
         setLoading(false);
       } catch (error) {
+        console.error("API fetch error:", error);
         setLoading("show-p");
       }
     };
@@ -31,60 +32,30 @@ export const About = ({ loading, setLoading }) => {
   if (loading === true) {
     return <div className="loader"></div>;
   }
-  return (
-    <section className={styles.section}>
-      <PageTop data={{ h2: "about" }} />
-      {/* <div className={styles.desc}>
-        <h2>
-          <q>
-            {t("footer_title_b")}
-            {t("footer_title_p")}
-          </q>
-        </h2>
-      </div> */}
-      <div className="container">
-        <div className="section-slice">
-          <div className="row1">
-            <h2>{t("history_title")}</h2>
-            <img
-              src={data[0]?.file}
-              alt=""
-              style={{ width: "100%", height: "max-content" }}
-            />
-          </div>
-          <div className="row2">
-            <p
-              className="his_desc"
-              dangerouslySetInnerHTML={{
-                __html: data[0]?.[`subcontent_${lang}`],
-              }}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="section-slice">
-          <div className="row1">
-            <h2>{t("rectors")}</h2>
 
-            <img
-              src={data[0]?.base_file}
-              alt=""
-              style={{ width: "100%", height: "max-content" }}
-            />
-          </div>
-          <div className="row2">
-            <ul
-              dangerouslySetInnerHTML={{ __html: data[0]?.[`content_${lang}`] }}
-            />
+  console.log(data, "error");
+
+  return (
+    <section className={style.about}>
+      {data.map((item, index) => (
+        <div key={index} className={style.card}>
+          <img src={item.image} alt={item.name || "Rasm"} />
+          <p className={style.text}>{item?.[`title_${lang}`]}</p>
+
+          <p
+            dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
+          ></p>
+          <h1>Direktorlar</h1>
+          <div className={style.innerCard}>
+            {item?.direktorlar?.map((value, idx) => (
+              <div key={idx}>
+                <img src={value?.image} alt="" />
+                <p>{value?.[`title_${lang}`]}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      ))}
     </section>
   );
-};
-
-About.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
 };

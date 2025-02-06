@@ -2,93 +2,113 @@ import styles from "./centers-and-departments.module.css";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MdDashboardCustomize } from "react-icons/md";
 import { FaUserFriends } from "react-icons/fa";
 import { GiArchiveResearch } from "react-icons/gi";
 import { FaPhotoVideo } from "react-icons/fa";
+import GeneralInfo from "../GeneralInfo/GeneralInfo";
+import Employees from "../Employees/Employees";
+import Research from "../Research/Research";
+import PhotoVideo from "../PhotoVideo/PhotoVideo";
 
 export const CentersAndDepartments = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
+  const [activePage, setActivePage] = useState(1);
+
+  const { id } = useParams();
+
   const lang = i18n.language;
+
   const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      await axios
+        .get(`/markazlar-va-bolimlar/markazlar_bolimlar/`)
+        .then((req) => setData(req.data));
+      setLoading(false);
+    } catch (error) {
+      setLoading("show-p");
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        await axios
-          .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
-          .then((req) => setData(req.data));
-        setLoading(false);
-      } catch (error) {
-        setLoading("show-p");
-      }
-    };
     fetchData();
   }, [setLoading]);
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "XXXXX");
+  const activeDataFilter = data.filter((value) => value.id === Number(id));
+
+  console.log(activeDataFilter, "id true");
 
   return (
     <section className={styles["center-departments"]}>
       <div className={styles.bg_img}>
         <div className={styles.tab}>
-          <NavLink
-            style={({ isActive }) => ({
-              color: isActive && "red",
-              border: isActive && "3px solid red",
-            })}
-            to={"generalInfo"}
+          <button
+            style={{
+              color: activePage === 1 ? "rgb(189, 21, 21)" : "",
+              border: activePage === 1 ? "3px solid rgb(189, 21, 21)" : "",
+            }}
+            onClick={() => setActivePage(1)}
             className={styles.links}
           >
             <MdDashboardCustomize className={styles.icon} />
             <h3>umumiy ma'lumot</h3>
-          </NavLink>
-          <NavLink
-            style={({ isActive }) => ({
-              color: isActive && "red",
-              border: isActive && "3px solid red",
-            })}
-            to={"employees"}
+          </button>
+
+          <button
+            style={{
+              color: activePage === 2 ? "rgb(189, 21, 21)" : "",
+              border: activePage === 2 ? "3px solid rgb(189, 21, 21)" : "",
+            }}
+            onClick={() => setActivePage(2)}
             className={styles.links}
           >
             <FaUserFriends className={styles.icon} />
             <h3>xodimlar</h3>
-          </NavLink>
-          <NavLink
-            style={({ isActive }) => ({
-              color: isActive && "red",
-              border: isActive && "3px solid red",
-            })}
-            to={"research"}
+          </button>
+
+          <button
+            style={{
+              color: activePage === 3 ? "rgb(189, 21, 21)" : "",
+              border: activePage === 3 ? "3px solid rgb(189, 21, 21)" : "",
+            }}
+            onClick={() => setActivePage(3)}
             className={styles.links}
           >
             <GiArchiveResearch className={styles.icon} />
             <h3>tadqiqotlar</h3>
-          </NavLink>
-          <NavLink
-            style={({ isActive }) => ({
-              color: isActive && "red",
-              border: isActive && "3px solid red",
-            })}
-            to={"photoVideo"}
+          </button>
+
+          <button
+            style={{
+              color: activePage === 4 ? "rgb(189, 21, 21)" : "",
+              border: activePage === 4 ? "3px solid rgb(189, 21, 21)" : "",
+            }}
+            onClick={() => setActivePage(4)}
             className={styles.links}
           >
             <FaPhotoVideo className={styles.icon} />
             <h3>foto va video</h3>
-          </NavLink>
+          </button>
         </div>
       </div>
 
       <div className={styles.tab_card}>
-        <Outlet />
+        {activePage === 1 && <GeneralInfo data={activeDataFilter} />}
+        {activePage === 2 && <Employees activeData={activeDataFilter} />}
+        {activePage === 3 && <Research activeData={activeDataFilter} />}
+        {activePage === 4 && <PhotoVideo activeData={activeDataFilter} />}
       </div>
     </section>
   );

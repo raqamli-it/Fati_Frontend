@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import PageTop from "../../components/PageTop/PageTop";
 import axios from "axios";
+import style from "./OrganizationStructure.module.css";
 import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types";
 
 export const OrganizationStructure = ({ setLoading, loading }) => {
   const [data, setData] = useState([]);
@@ -14,7 +13,7 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/qoshimcha-malumotlar/tashkiliy-tuzulma/")
-          .then((req) => setData(req.data.results));
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -30,32 +29,14 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
   }
 
   return (
-    <section>
-      <PageTop data={{ h2: "organization-structure" }} />
-      {data?.map((item) => {
-        return (
-          <div className="container" key={item?.id}>
-            <div className="section-slice">
-              <div className="row1">
-                <h2>{item?.[`title_${lang}`]}</h2>
-                <img src={item?.file} alt="" />
-              </div>
-              <div className="row2">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: item?.[`content_${lang}`],
-                  }}
-                />
-              </div>
-            </div>
+    <section className={style.organizationStructure}>
+      <div className={style.card}>
+        {data?.map((value, index) => (
+          <div key={index}>
+            <img src={value.file} alt={value?.[`title_${lang}`]} />
           </div>
-        );
-      })}
+        ))}
+      </div>
     </section>
   );
-};
-
-OrganizationStructure.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
 };

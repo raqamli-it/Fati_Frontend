@@ -241,8 +241,14 @@ body {
       padding: 20px;
       .data-form {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
+        gap: 10px;
         justify-content: space-between;
+        h2 {
+          text-align: left;
+          font-size: 18px;
+        }
+
         span {
           font-weight: 600;
           transition: all 0.8s ease-in-out;
@@ -293,12 +299,13 @@ body {
     color: rgba(255, 0, 0, 0.763);
     transition: all 0.8s ease-in-out;
   }
-  .card-effect:hover .img-effect h1 {
+
+  .card-effect:hover .img-effect > h1 {
     position: relative;
     width: 75%;
     left: 50%;
-    transition: all 0.8s ease-in-out;
     transform: translateX(-50%);
+    transition: all 0.8s ease-in-out;
     font-size: 24px;
     height: 70px;
     text-align: center;
@@ -355,13 +362,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 70px;
-}
-
-.icon-li {
-  svg {
-    margin-right: 10px;
-    margin-top: 10px;
-  }
 }
 
 .row1 {
@@ -789,6 +789,7 @@ body {
     max-width: 100%;
   }
 }
+
 .loader {
   width: 50px;
   aspect-ratio: 1;
@@ -943,12 +944,12 @@ table {
 
 .slides {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
 
   img {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
   }
 }
 
@@ -1008,55 +1009,41 @@ table {
 .card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
   padding-top: 30px;
 }
 
-.cards {
-  width: 100%;
-}
-
-.cards-img {
-  height: 300px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cards-contents {
-  background-color: rgba(255, 0, 0, 0.805);
-  text-align: center;
-  color: white;
+.card-container {
   padding: 20px;
+  grid-template-columns: 1fr;
 }
 
-.cards-contents h2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.card-container img {
+  display: block;
+  margin: 0 auto;
+  width: 65px;
+  height: 65px;
 }
 
-.images {
-  width: 100%;
-  height: 100%;
-  transition: all 0.5s ease-in;
+.card-container .link {
+  transition: all 0.4s ease-in-out;
 }
 
-.download-icons {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  color: white;
-  transition: all 0.5s ease-in;
-  filter: drop-shadow(0 0 10px red);
+.link p {
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
 }
 
-.cards-img:hover .download-icons {
-  top: -70px;
-  transition: all 0.5s ease-in;
-  color: red;
+.card-container .link:hover p {
+  color: rgba(255, 0, 0, 0.758);
+  transition: all 0.4s ease-in-out;
+}
+
+.card-container p {
+  color: rgb(45, 45, 45);
+  line-height: 26px;
+  text-align: justify;
 }
 
 /* book_cards */
@@ -1408,6 +1395,7 @@ table {
       height: 100%;
     }
   }
+
   .slider-dots {
     position: absolute;
     bottom: 20px;

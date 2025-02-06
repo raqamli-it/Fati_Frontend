@@ -3,6 +3,7 @@ import PageTop from "../components/PageTop/PageTop";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
+import styles from "./DocAdmission.module.css";
 
 export const DocExams = ({ setLoading, loading }) => {
   const [data, setData] = useState([]);
@@ -30,27 +31,31 @@ export const DocExams = ({ setLoading, loading }) => {
   }
 
   return (
-    <section>
-      <PageTop data={{ h2: "doc-exams" }} />
-      {data?.map((item) => {
-        return (
-          <div className="container" key={item?.id}>
-            <div className="section-slice">
-              <div className="row1 column">
-                <h2>{item?.[`title_${lang}`]}</h2>
-                <img src={item?.file} alt="img" />
-              </div>
-              <div className="row2">
-                <div
+    <section className={styles["container"]}>
+      <div className={styles["about-container"]}>
+        {data.map((item) => {
+          return (
+            <div className={styles.items} key={item.id}>
+              <hr className={styles.divider} />
+              <img
+                src={item?.file}
+                alt={item?.[`title_${lang}`]}
+                className={styles["images"]}
+              />
+              <h2 className={styles["about-title"]}>
+                {item?.[`title_${lang}`]}
+              </h2>
+              <div className={styles["about-text"]}>
+                <ol
                   dangerouslySetInnerHTML={{
                     __html: item?.[`content_${lang}`],
                   }}
                 />
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </section>
   );
 };
