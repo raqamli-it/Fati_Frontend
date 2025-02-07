@@ -12,7 +12,6 @@ import Employees from "../Employees/Employees";
 import Research from "../Research/Research";
 import PhotoVideo from "../PhotoVideo/PhotoVideo";
 
-
 export const CentersAndDepartments = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const [activePage, setActivePage] = useState(1);
@@ -36,18 +35,6 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   };
 
   useEffect(() => {
-
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        await axios
-          .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
-          .then((req) => setData(req.data));
-        setLoading(false);
-      } catch (error) {
-        setLoading("show-p");
-      }
-    };
     fetchData();
   }, [setLoading]);
 
@@ -125,5 +112,4 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
       </div>
     </section>
   );
-
 };

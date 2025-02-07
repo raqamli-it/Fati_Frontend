@@ -47,12 +47,6 @@
   z-index: 999;
   top: 25%;
   right: -10px;
-.news-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1320px;
-  margin: 30px auto;
-  gap: 20px;
 }
 
 .news-items img {
@@ -123,5 +117,4 @@
 }
 .news-items:hover .lineX {
   width: 30%;
-}
 }
