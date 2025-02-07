@@ -14,12 +14,11 @@ import { FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
-// iconkalar
 import avtoreferat from "./kutubxonaIcon/avtoreferat.png";
 import elektronkitoblar from "./kutubxonaIcon/elektronkitoblar.png";
 import manbalar from "./kutubxonaIcon/manbalar.png";
-
 import { Zoom } from "react-awesome-reveal";
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
 import bgImage from "./bg.jpg";
 
 const headerSettings = {

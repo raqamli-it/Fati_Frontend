@@ -57,6 +57,9 @@ export const Navbar = () => {
   }, []);
   ///markazlar-va-bolimlar/markazlar_bolimlar_title/
   // /seminar/seminar-turlari/
+
+  console.log(navbarData, "XXXX");
+
   return (
     <nav className={styles.navbar}>
       {/* <div className={styles.top_alert}>
@@ -191,7 +194,7 @@ export const Navbar = () => {
                             key={item?.id}
                             onClick={() => setShowMenu(false)}
                           >
-                            <Link to={`/centers-and-departments/${item.id}`}>
+                            <Link to="/centers-and-departments">
                               {item?.[`title_${lang}`]}
                             </Link>
                           </li>

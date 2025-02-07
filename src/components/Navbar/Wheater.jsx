@@ -7,6 +7,27 @@ export const Wheater = React.memo(() => {
   const [error, setError] = useState(null);
 
   const url = `https://weather-api138.p.rapidapi.com/weather?city_name=Tashkent`;
+
+  // const [region, setRegion] = useState("Tashkent");
+
+  // const { t } = useTranslation();
+
+  // const regions = [
+  //   { id: 0, value: "Tashkent" },
+  //   { id: 1, value: "Qarshi" },
+  //   { id: 2, value: "Bukhara" },
+  //   { id: 3, value: "Samarkand" },
+  //   { id: 4, value: "Fergana" },
+  //   { id: 5, value: "Andijan" },
+  //   { id: 6, value: "Namangan" },
+  //   { id: 7, value: "Sirdaryo" },
+  //   { id: 8, value: "Navoiy" },
+  //   { id: 9, value: "Urganch" },
+  //   { id: 10, value: "Nukus" },
+  //   { id: 11, value: "Termiz" },
+  //   { id: 12, value: "Jizzax" },
+  // ];
+
   const options = {
     method: "GET",
     headers: {
@@ -61,6 +82,11 @@ export const Wheater = React.memo(() => {
         <span>Ma'lumot mavjud emas</span>
       )}
 
+      {/* <img
+        src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}.png`}
+        alt={data?.weather?.description}
+      /> */}
+      <span>{Math.ceil(data?.main?.temp - 271)} ° C</span>
       <p>Tashkent</p>
     </div>
   );
