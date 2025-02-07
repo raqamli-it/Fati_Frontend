@@ -5,24 +5,21 @@ import { FaDownload } from "react-icons/fa";
 import "./EBooks.css";
 import tab_bg from "./tab_bg.png";
 import "./Elektrone.css";
+import { useParams } from "react-router-dom";
 
 function Elektrone({ setLoading, loading }) {
   const { t, i18n } = useTranslation();
-  const [data, setData] = useState([]);
   const lang = i18n.language;
+  const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/kutobxona/avtoreferat/");
-      const category = response.data.results.filter(
-        (value) => value.category == 2
-      );
-      setData(category);
-
+      const response = await axios.get(`/kutobxona/avtoreferat/`);
+      // const category = response.data.filter((value) => value.id === Number(1));
+      setData(response.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading("show-p");
     }
   };
@@ -56,7 +53,7 @@ function Elektrone({ setLoading, loading }) {
         <div className="img-download">
           {data?.map((value, index) => (
             <div key={index} className="wrapper">
-              <div className="file">
+              <div className="file">  
                 <img src={value.image} alt="salom" />
                 <a href={value.file} download={value.id}>
                   <FaDownload />

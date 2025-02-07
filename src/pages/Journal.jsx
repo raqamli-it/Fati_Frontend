@@ -36,6 +36,8 @@ export const Journal = ({ setLoading, loading }) => {
   //   return <div className="loader"></div>;
   // }
 
+  console.log(archiveMenuData, "salom");
+
   return (
     <div className="journal-page">
       <div className="links">

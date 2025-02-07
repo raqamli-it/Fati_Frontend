@@ -6,7 +6,7 @@ import styles from "./Doctaurants.module.css";
 const Accordion = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
-  //cards
+
   return (
     <div className={styles.accordion}>
       <button
@@ -16,6 +16,7 @@ const Accordion = ({ title, content }) => {
         {title}
         <span className={styles.arrow}>{isOpen ? "▲" : "▼"}</span>
       </button>
+
       <div
         className={styles["accordion-content"]}
         style={{

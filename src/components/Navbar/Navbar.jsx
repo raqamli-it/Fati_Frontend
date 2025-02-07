@@ -55,23 +55,22 @@ export const Navbar = () => {
     };
     fetchData();
   }, []);
-  ///markazlar-va-bolimlar/markazlar_bolimlar_title/
-  // /seminar/seminar-turlari/
+
   return (
     <nav className={styles.navbar}>
-      {/* <div className={styles.top_alert}>
+      <div className={styles.top_alert}>
         <Time />
         <p className={styles.alert}>{t("test")}</p>
-        <Wheater />
-      </div> */}
+        {/* <Wheater /> */}
+      </div>
 
       <div className={styles.container}>
-        {/* <div className={styles.top}>
+        <div className={styles.top}>
           <Link to={"/"} className={styles.logo}>
-            <img src="/assets/logo-light.png" alt="logo" />
+            <img src="/assets/f-logo.png" alt="logo" />
           </Link>
 
-          <Search />
+          {/* <Search /> */}
 
           <div className={styles.lang}>
             <div
@@ -101,7 +100,7 @@ export const Navbar = () => {
               </span>
             )}
           </div>
-        </div> */}
+        </div>
 
         <div className={styles["menu-mob"]}>
           <div onClick={() => setShowMenu((prev) => !prev)}>

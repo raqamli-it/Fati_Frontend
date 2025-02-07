@@ -39,6 +39,7 @@ import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
 import Elektrone from "./pages/Elektrone";
 import EmployeesDetails from "./pages/Employees/EmployeesDetails";
+// import ElektroneId from "./pages/ElektroneId/ElektroneId";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -195,6 +196,13 @@ const App = () => {
           path="elektrone"
           element={<Elektrone setLoading={setLoading} loading={loading} />}
         />
+
+        {/* <Route
+          path="elektrone/:bookId"
+          element={<ElektroneId />}
+          setLoading={setLoading}
+          loading={loading}
+        /> */}
 
         <Route
           path="e-books"

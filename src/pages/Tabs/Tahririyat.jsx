@@ -24,6 +24,7 @@ function Tahririyat() {
   }, []);
 
   // Tahririyat get jarayon qismi
+  console.log(tahririyat, "salom");
 
   return (
     <div className="tahririyat">
