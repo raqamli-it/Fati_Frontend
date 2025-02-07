@@ -22,7 +22,6 @@ function Talablar() {
     TalablarGet();
   }, []);
 
-
   return (
     <div className="tahririyat">
       <div className="tahririyat-wrapper">

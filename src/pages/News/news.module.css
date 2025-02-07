@@ -20,9 +20,7 @@
   background: rgba(255, 0, 0, 0.875); /* Qizil rang */
   position: relative;
   clip-path: ellipse(100% 95% at 50% 0%);
-  
 }
-
 
 .news {
   margin: 35px auto;
