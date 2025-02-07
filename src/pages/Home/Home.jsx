@@ -150,6 +150,8 @@ export const Home = ({ setLoading, loading }) => {
     },
   ];
 
+  console.log(sliderData);
+
   return (
     <section>
       <header className={styles.header}>
