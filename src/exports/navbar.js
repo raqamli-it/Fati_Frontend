@@ -4,28 +4,28 @@ export const navbarData = [
     content: "news",
     to: "/news",
   },
-
+  
   {
     id: 0,
     content: "about-n",
     links: [
       {
-        id: 0,
+        id: "",
         content: "trade-union",
         to: "/trade-union",
       },
       {
-        id: 1,
+        id: "",
         content: "organization-structure",
         to: "/organization-structure",
       },
       {
-        id: 3,
+        id: "",
         content: "about",
         to: "/about",
       },
       {
-        id: 4,
+        id: "",
         content: "contact",
         to: "/contact",
       },
@@ -35,32 +35,49 @@ export const navbarData = [
   {
     id: 1,
     content: "centers",
-    links: 1,
-  },
-
-  {
-    id: 2,
-    content: "councils",
     links: [
-      { id: 0, content: "sc-council", to: "sc-council" },
-      { id: 1, content: "scientific-degree", to: "/scientific-degree" },
-      { id: 2, content: "sc-young", to: "/sc-young" },
+      {
+        id: "",
+        content: '"Etnologiya va antropologiya" markazi',
+        to: "/centers-and-departments/7",
+      },
+      {
+        id: "",
+        content: '"Tarixshunoslik va manbashunoslik" markazi',
+        to: "/centers-and-departments/8",
+      },
     ],
   },
 
   {
+    id: 2,
+    content: "departments",
+    links: 1,
+  },
+
+  {
     id: 3,
-    content: "doctorals",
-    to: "/doctorals",
+    content: "councils",
     links: [
-      { id: 0, content: "doc-admission", to: "/doc-admission" },
-      { id: 1, content: "doctaurants", to: "/doctaurants" },
-      { id: 2, content: "doc-exams", to: "/doc-exams" },
+      { id: "", content: "sc-council", to: "sc-council" },
+      { id: "", content: "scientific-degree", to: "/scientific-degree" },
+      { id: "", content: "sc-young", to: "/sc-young" },
     ],
   },
 
   {
     id: 4,
+    content: "doctorals",
+    to: "/doctorals",
+    links: [
+      { id: "", content: "doc-admission", to: "/doc-admission" },
+      { id: "", content: "doctaurants", to: "/doctaurants" },
+      { id: "", content: "doc-exams", to: "/doc-exams" },
+    ],
+  },
+
+  {
+    id: 5,
     content: "gatherings",
     to: "/seminar",
     links: 2,
@@ -70,22 +87,26 @@ export const navbarData = [
     id: 6,
     content: "internationals",
     links: [
-      { id: 0, content: "global-partners", to: "/global-partners" },
-      { id: 1, content: "global-projects", to: "/global-projects" },
-      { id: 2, content: "global-researchers", to: "/global-researchers" },
-      { id: 3, content: "travels", to: "/international-travels" },
+      { id: "", content: "global-partners", to: "/global-partners" },
+      { id: "", content: "global-projects", to: "/global-projects" },
+      { id: "", content: "global-researchers", to: "/global-researchers" },
+      { id: "", content: "travels", to: "/international-travels" },
     ],
   },
 
   {
-    id: 5,
+    id: 7,
     content: "library",
     to: "/library",
     links: [
-      { id: 5, content: "O'zbekiston tarix jurnali", to: "/journal" },
+      {
+        id: "tahririyat",
+        content: "O'zbekiston tarix jurnali",
+        to: "/journal",
+      },
       { id: 1, content: "Elektron kitoblar", to: "/elektrone" },
-      { id: 2, content: "Manbalar", to: "/e-books" },
-      { id: 3, content: "Avtoreferatlar", to: "/abstracts" },
+      { id: 2, content: "Avtoreferatlar", to: "/avtorefaratlar" },
+      { id: 3, content: "Manbalar", to: "/e-books" },
     ],
   },
 ];

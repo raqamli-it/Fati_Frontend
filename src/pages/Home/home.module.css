@@ -25,7 +25,7 @@
     }
     input {
       display: none;
-    }    
+    }
 
     li {
       display: flex;
@@ -78,6 +78,7 @@
 
 .container {
   max-width: 100%;
+  background-color: white;
   margin: 0 auto;
 }
 
@@ -220,13 +221,15 @@
   background-color: #4083f09a;
   text-align: center;
   position: relative;
-  padding: 10px;
+  padding: 10px 0;
   transition: all 0.5s ease-in-out;
   height: 65px;
 
   h2 {
     font-size: 15px;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Open Sans", sans-serif; */
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
     color: #1b2c51;
     line-height: 22px;
     text-transform: capitalize;
@@ -235,6 +238,8 @@
     color: #0463fa;
     text-transform: capitalize;
     font-weight: 700;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
     margin: 4px 0;
   }
 
@@ -255,6 +260,7 @@
   margin-top: -40px;
   z-index: 999;
 }
+
 .wrapper:hover .social-links {
   margin: 10px 0 5px;
   transition: all 0.5s ease-in-out;

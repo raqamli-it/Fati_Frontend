@@ -33,8 +33,6 @@ export const About = ({ loading, setLoading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "error");
-
   return (
     <section className={style.about}>
       {data.map((item, index) => (

@@ -1,0 +1,28 @@
+.globalProjects {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.globalProjects img {
+  width: 70%;
+  height: 400px;
+  margin: 30px auto;
+}
+
+.globalProjects table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.globalProjects td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.globalProjects td p,
+.globalProjects td div {
+  border: none !important;
+  margin: 0;
+  padding: 0;
+}

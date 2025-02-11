@@ -1,99 +1,30 @@
 .footer {
-  background: white;
-  margin-top: auto;
-  padding: 70px 50px 30px;
+  background: rgba(42, 146, 210, 0.862);
+  padding: 30px 0;
+  color: rgba(255, 255, 255, 0.747);
 
-  .column {
-    gap: 100px;
-    display: flex;
-    margin-bottom: 90px;
-    .row1 {
-      width: 50%;
-      font-style: italic;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: start;
-    }
-
-    .row2 {
-      max-width: 520px;
-      width: 100%;
-      margin-left: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      h2 {
-        border-top: 1px solid grey;
-        display: inline-block;
-        width: 100%;
-        font-weight: 400;
-        font-size: 18px;
-        padding: 10px 0;
-      }
-      li {
-        font-size: 14px;
-        &:hover {
-          a {
-            text-decoration: underline;
-          }
-        }
-      }
-      nav {
-        display: flex;
-        justify-content: space-between;
-        gap: 40px;
-      }
-    }
-    ul {
-      display: flex;
-      flex-direction: column !important;
-    }
+  h2 {
+    width: 100%;
+    font-size: 38px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    padding: 10px 0;
   }
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1320px;
-  padding: 0 20px;
-  margin: 0 auto;
 }
 
 .bottom {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  margin: 20px 0;
 }
-
-@media (max-width: 900px) {
-  .footer {
-    padding: 12px;
-  }
-  .logo {
-    width: 80%;
-  }
-  .column {
-    flex-direction: column;
-    gap: 20px;
-    .row1 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100% !important;
-      flex-direction: column-reverse !important;
-      gap: 30px;
-    }
-    .row2 {
-      margin-left: 0 !important;
-      width: 100%;
-      h2 {
-        width: 100%;
-      }
-    }
-  }
-  .bottom {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
+a {
+  transition: all 0.6s ease-in-out;
+}
+.footer a:hover {
+  transition: all 0.6s ease-in-out;
+  color: blue;
+}
+span {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }

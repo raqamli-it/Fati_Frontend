@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import PageTop from "../components/PageTop/PageTop";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types";
+import styles from "./GlobalPartners.module.css";
 
 export const GlobalPartners = ({ setLoading, loading }) => {
   const [data, setData] = useState([]);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,6 +23,7 @@ export const GlobalPartners = ({ setLoading, loading }) => {
     };
     fetchData();
   }, []);
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
@@ -30,35 +31,23 @@ export const GlobalPartners = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  return (
-    <section>
-      <PageTop data={{ h2: "global-partners" }} />
-      <div>
-        {data?.map((item) => {
-          return (
-            <div className="container" key={item.id}>
-              <div className="section-slice">
-                <div className="row1 column">
-                  <h2>{item?.[`title_${lang}`]}</h2>
-                  <img src={item?.file} alt="header" />
-                </div>
-                <div className="row2 inter-row">
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: item?.[`content_${lang}`],
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-};
+  console.log(data, "salom data");
 
-GlobalPartners.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
+  return (
+    <div className={styles.globalPartners}>
+      {data?.map((item, index) => {
+        return (
+          <div key={index}>
+            <h2>{item?.[`title_${lang}`]}</h2>
+
+            <p
+              dangerouslySetInnerHTML={{
+                __html: item?.[`content_${lang}`],
+              }}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
 };

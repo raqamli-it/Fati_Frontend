@@ -66,8 +66,6 @@ export const Contact = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "Kamoliddin I.E");
-
   return (
     <section className={styles.section}>
       <h1>Biz bilan bog'laning</h1>

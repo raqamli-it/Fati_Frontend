@@ -6,11 +6,11 @@ function Research({ activeData }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
-  console.log(activeData, "activeData");
+  console.log(activeData, "3333");
 
   return (
     <div className="tadqiqotlar">
-      {activeData[0]?.tadqiqotlar?.map((value, index) => (
+      {activeData?.tadqiqot?.map((value, index) => (
         <div key={index}>
           <h1>{value?.[`title_${lang}`]}</h1>
           <img src={value.image} alt={value?.[`title_${lang}`]} />

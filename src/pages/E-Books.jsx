@@ -4,21 +4,27 @@ import axios from "axios";
 import { FaDownload } from "react-icons/fa";
 import "./EBooks.css";
 import tab_bg from "./tab_bg.png";
+import { useParams } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 export const EBooks = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const lang = i18n.language;
+  const { booksId } = useParams();
 
-  const fetchData = async () => {
+  const fetchData = async (page = 1) => {
     try {
       setLoading(true);
-      const response = await axios.get("/kutobxona/avtoreferat/");
-      const category = response.data.results.filter(
-        (value) => value.category == 3
+      const response = await axios.get(
+        `/kutobxona/category/${booksId}/?page=${page}`
       );
-      setData(category);
+      const booksData = response?.data?.avtoreferatlar;
 
+      setData(booksData?.results);
+      setPageCount(Math.ceil(booksData?.count / 10));
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -27,8 +33,12 @@ export const EBooks = ({ setLoading, loading }) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(currentPage);
+  }, [currentPage, booksId]);
+
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected + 1);
+  };
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
@@ -64,6 +74,23 @@ export const EBooks = ({ setLoading, loading }) => {
             </div>
           ))}
         </div>
+
+        <ReactPaginate
+          previousLabel={"←"}
+          nextLabel={"→"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          breakClassName={"pagination-break"} // "..." uchun class
+          containerClassName={"pagination"} // Umumiy class
+          pageClassName={"page-item"} // Har bir raqam uchun class
+          pageLinkClassName={"page-link"} // Har bir link uchun
+          activeClassName={"active"} // Tanlangan sahifa uchun
+          previousClassName={"pagination-prev"} // Oldingi tugma uchun
+          nextClassName={"pagination-next"} // Keyingi tugma uchun
+        />
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types";
-import PageTop from "../components/PageTop/PageTop";
 import { useEffect, useState } from "react";
+import style from "./InternationalTravels.module.css";
 import axios from "axios";
 
 export const InternationalTravels = ({ loading, setLoading }) => {
@@ -33,29 +32,27 @@ export const InternationalTravels = ({ loading, setLoading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "data");
+
   return (
-    <section>
-      <PageTop data={{ h2: "travels" }} />
-      {data?.map((item) => (
-        <div className="container" key={item?.id}>
-          <div className="section-slice">
-            <div className="row1">
-              <h2>{item?.[`title_${lang}`]}</h2>
-              <img src={item?.file} alt="" />
-            </div>
-            <div className="row2">
-              <p
-                dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
-              />
-            </div>
+    <div className={style.internationalTravels}>
+      {data?.map((item, index) => (
+        <div className={style.card} key={index}>
+          <div className={style["card-container"]}>
+            <h2>{item?.[`title_${lang}`]}</h2>
+            <img src={item?.file} alt="" />
+          </div>
+
+          <div className={style["card-content"]}>
+            <p
+              dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
+            />
+            <p
+              dangerouslySetInnerHTML={{ __html: item?.[`subcontent_${lang}`] }}
+            />
           </div>
         </div>
       ))}
-    </section>
+    </div>
   );
-};
-
-InternationalTravels.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
 };

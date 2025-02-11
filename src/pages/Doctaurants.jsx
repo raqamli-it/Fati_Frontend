@@ -6,7 +6,6 @@ import styles from "./Doctaurants.module.css";
 const Accordion = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
-
   return (
     <div className={styles.accordion}>
       <button

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import style from "./employees.module.css";
 import axios from "axios";
 
 function EmployeesDetails({ setLoading, loading }) {
@@ -39,23 +40,15 @@ function EmployeesDetails({ setLoading, loading }) {
     return <div className="loader"></div>;
   }
 
-  console.log(FindEmployeesDetails, "MEN");
+  console.log(FindEmployeesDetails, "MEN KAMOLIDDIN");
+
+  console.log(employeesDetails, "MEN");
 
   return (
-    <div className="employeesDetails">
+    <div className={style.employeesDetails}>
       <h1>{FindEmployeesDetails?.[`title_${lang}`]}</h1>
-      <div className="employees-wrapper">
-        <div className="img">
-          <img src={FindEmployeesDetails?.image} alt="" />
-        </div>
-
-        <div className="employees-content">
-          <h1>{FindEmployeesDetails?.[`title_${lang}`]}</h1>
-          <h1>{FindEmployeesDetails?.[`academic_degree_${lang}`]}</h1>
-          <h1>{FindEmployeesDetails?.[`position_${lang}`]}</h1>
-          <h1>{FindEmployeesDetails?.[`sphere_${lang}`]}</h1>
-          <h1>{FindEmployeesDetails?.email}</h1>
-        </div>
+      <div className={style.imgUser}>
+        <img src={FindEmployeesDetails?.image} alt="" />
       </div>
 
       <p
@@ -63,6 +56,7 @@ function EmployeesDetails({ setLoading, loading }) {
           __html: FindEmployeesDetails?.[`about_${lang}`],
         }}
       ></p>
+
       <p
         dangerouslySetInnerHTML={{
           __html: FindEmployeesDetails?.[`works_${lang}`],

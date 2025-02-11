@@ -164,8 +164,9 @@ export const Home = ({ setLoading, loading }) => {
 
       <div className={styles.container}>
         <HomeNews newsData={newsData} />
+
         <div className="img-cards">
-          <h1>{t("centers")}</h1>
+          <h2>{t("centers")}</h2>
           <div className="cards-effect">
             {centersData.map((item, index) => {
               return (
@@ -179,7 +180,7 @@ export const Home = ({ setLoading, loading }) => {
                     <div className="wrapper">
                       <div className="data-form">
                         <h2>{item?.[`title_${lang}`]}</h2>
-                        <span>{dateFormat(item.created_at, "dd.mm.yyyy")}</span>
+                        {/* <span>{dateFormat(item.created_at, "dd.mm.yyyy")}</span> */}
                       </div>
                       <h3
                         dangerouslySetInnerHTML={{
@@ -221,9 +222,15 @@ export const Home = ({ setLoading, loading }) => {
         <div className="img-cards">
           <h2>{t("doctaurants")}</h2>
           <div className={styles["home-card"]}>
-            {doctaurantsData?.map((item, index) => {
+            {doctaurantsData?.slice(-4).map((item, index) => {
               return (
-                <Zoom key={index} cascade delay={300 * index} duration={1000}>
+                <Zoom
+                  key={index}
+                  cascade
+                  delay={300 * index}
+                  duration={1000}
+                  triggerOnce
+                >
                   <div className={styles.wrapper}>
                     <div className={styles.homeimg}>
                       <img src={item?.file} alt="user" />
@@ -268,7 +275,13 @@ export const Home = ({ setLoading, loading }) => {
           <div
             style={{ maxWidth: "1320px", margin: "0 auto", padding: "35px 0" }}
           >
-            <h2 style={{ fontSize: "36px", fontFamily: "Poppins,sans-serf" }}>
+            <h2
+              style={{
+                fontSize: "36px",
+                fontFamily: "Poppins,sans-serf",
+                color: "white",
+              }}
+            >
               {t("gatherings")}
             </h2>
             <div className="yiginlar">

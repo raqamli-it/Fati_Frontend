@@ -30,7 +30,6 @@ export const TradeUnion = () => {
   if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>{error}</p>;
 
-  console.log(teamMembers, "teamMembers");
   return (
     <div className={style.tradeUnion}>
       <div className={style.chiziq}></div>

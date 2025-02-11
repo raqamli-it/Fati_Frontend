@@ -1,8 +1,11 @@
 .title {
-  font-family: "Poppins", sans-serif;
-  font-size: 38px;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 40px;
+  text-transform: capitalize;
   max-width: 1320px;
-  margin: 30px auto;
+  letter-spacing: 3px;
+  margin: 0 auto;
+  padding: 30px 0;
 }
 
 .news-container {
@@ -15,7 +18,7 @@
   position: absolute;
   background-color: transparent;
   border: none;
-  background-color: rgba(255, 0, 0, 0.771);
+  background-color: #03a9f4;
   width: 35px;
   height: 35px;
   display: flex;
@@ -34,7 +37,7 @@
   position: absolute;
   background-color: transparent;
   border: none;
-  background-color: rgba(255, 0, 0, 0.771);
+  background-color: #03a9f4;
   width: 35px;
   height: 35px;
   display: flex;
@@ -57,7 +60,7 @@
   width: 0;
   transition: all 0.4s ease-in;
   height: 3px !important;
-  margin: 0 15px 10px;
+  margin: 15px 15px 10px;
   background-color: rgba(215, 75, 5, 0.884);
 }
 
@@ -65,7 +68,7 @@
   height: 280px;
   padding: 4px;
   margin: 0 10px;
-  border: 2px solid rgba(128, 128, 128, 0.204);
+  /* border: 2px solid rgba(128, 128, 128, 0.204); */
   border-radius: 4px;
 }
 .news-img img {
@@ -82,12 +85,12 @@
   margin: 15px 15px 10px;
   text-transform: capitalize;
   font-weight: 700;
-  color: rgba(215, 75, 5, 0.884);
+  color: black;
 }
 
 .content_uz {
   font-family: sans-serif;
-  color: gray;
+  color: #444444;
   margin: 0 15px;
   line-height: 24px;
   display: -webkit-box;
@@ -95,12 +98,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .news-btn {
   border: 2px solid transparent !important;
   transition: all 0.4s ease-in;
   padding: 10px;
   cursor: pointer;
-  background-color: rgba(215, 75, 5, 0.884) !important;
+  background-color: #03a9f4 !important;
   margin-top: 14px !important;
   margin: 0 15px;
   border-radius: 4px !important;
@@ -113,8 +117,9 @@
   background-color: transparent !important;
 }
 .news-items:hover img {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 .news-items:hover .lineX {
   width: 30%;
 }
+

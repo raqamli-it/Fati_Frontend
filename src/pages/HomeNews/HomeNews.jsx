@@ -14,13 +14,14 @@ function HomeNews({ newsData }) {
   };
 
   var settings = {
-    dots: true,
+    // dots: true,
     arrows: false,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -51,7 +52,7 @@ function HomeNews({ newsData }) {
 
   return (
     <div>
-      <h1 className="title">Yangiliklar</h1>
+      <h2 className="title">Yangiliklar</h2>
       <div className="news-container slider-container">
         <button className="prevButton" onClick={previous}>
           <GrPrevious />
@@ -65,13 +66,19 @@ function HomeNews({ newsData }) {
         >
           {newsData?.slice(-6).map((value, index) => (
             <div key={index} className="news-items">
-              <Fade direction="up" cascade duration={100 * value.id} delay={0}>
+              <Fade
+                direction="up"
+                cascade
+                duration={100 * value.id}
+                delay={0}
+                triggerOnce
+              >
                 <div className="news-img">
                   <img src={value?.image} alt={value.status} />
                 </div>
               </Fade>
 
-              <p className="title_en">{value.title_en}</p>
+              {/* <p className="title_en">{value.title_en}</p> */}
               <div className="lineX"></div>
 
               <p

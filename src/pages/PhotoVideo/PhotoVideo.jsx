@@ -18,7 +18,7 @@ function PhotoVideo({ activeData }) {
     setFotoVideo(id);
   };
 
-  console.log(activeData);
+  console.log(activeData, "video");
 
   return (
     <div className="fotoVideo">
@@ -39,7 +39,7 @@ function PhotoVideo({ activeData }) {
 
       {fotoVideo === Number(1) && (
         <div className="images">
-          {activeData[0]?.photos?.map((value, index) => (
+          {activeData?.photo?.map((value, index) => (
             <div className="image" key={index}>
               <img src={value.image} alt="" />
             </div>
@@ -49,7 +49,7 @@ function PhotoVideo({ activeData }) {
 
       {fotoVideo === Number(2) && (
         <div className="videos">
-          {activeData[0]?.videos?.map((value, index) => {
+          {activeData?.video?.map((value, index) => {
             const videoId = getVideoId(value.link);
 
             return (

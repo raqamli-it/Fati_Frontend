@@ -15,7 +15,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 125) {
+      if (window.scrollY >= 126) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -39,12 +39,12 @@ export const Navbar = () => {
     i18n.changeLanguage(langVal);
     localStorage.setItem("i18lng", langVal);
   }, [langVal]);
+
   useEffect(() => {
-    // seminar/seminar-turlari
     const fetchData = () => {
       try {
         axios
-          .get("/markazlar-va-bolimlar/markazlar_bolimlar_title/")
+          .get("/markazlar-bolimlar/bolimlar-list")
           .then((req) => setSectersData(req.data));
         axios
           .get("/seminar/seminar-turlari/")
@@ -111,29 +111,26 @@ export const Navbar = () => {
         <ul
           style={{
             backgroundColor: isScrolled && "white",
-            transition: "background-color 0.3s ease-in",
-            zIndex: 200000,
             top: isScrolled && "0px",
             position: isScrolled && "fixed",
             color: isScrolled && "black",
           }}
           className={styles.show}
         >
-          {navbarData.map((item) => {
+          {navbarData.map((item, index) => {
             const { id, content } = item;
             return (
-              <li key={item.id}>
-                <input type="radio" name="menu" id={id} />
+              <li key={index}>
                 <label htmlFor={id}>
                   {!item?.links ? (
                     <Link
                       style={{
                         overflowY: "hidden",
                         display: "flex",
-                        justifyContent: "flex-end",
+                        justifyContent: "center",
                         alignItems: "center",
-                        height: "60px",
-                        width: "120px",
+                        height: "55px",
+                        width: "90px",
                       }}
                       to={item.to}
                     >
@@ -144,9 +141,9 @@ export const Navbar = () => {
                       style={{
                         display: "flex",
                         gap: "5px",
-                        height: "50px",
-                        width: "190px",
-                        alignItems: "center",
+                        height: "55px",
+                        margin: "0 20px",
+                        fontSize: "16px",
                         justifyContent: "center",
                       }}
                     >
@@ -156,27 +153,27 @@ export const Navbar = () => {
                   )}
                   <ol>
                     {item?.links !== 1 && item?.links !== 2
-                      ? item?.links?.map((item) => {
+                      ? item?.links?.map((item, index) => {
                           const { id, content, to } = item;
                           return (
                             <li
                               style={{
                                 color: isScrolled && "white",
                               }}
-                              key={id}
+                              key={index}
                               onClick={() => setShowMenu(false)}
                             >
-                              <Link to={to}>{t(content)}</Link>
+                              <Link to={`${to}/${item.id}`}>{t(content)}</Link>
                             </li>
                           );
                         })
                       : item?.links !== 1
-                      ? seminar?.map((item) => (
+                      ? seminar?.map((item, index) => (
                           <li
                             style={{
                               color: isScrolled && "white",
                             }}
-                            key={item?.id}
+                            key={index}
                             onClick={() => setShowMenu(false)}
                           >
                             <Link to={`/seminar/${item.id}`}>
@@ -184,10 +181,10 @@ export const Navbar = () => {
                             </Link>
                           </li>
                         ))
-                      : centers?.map((item) => (
+                      : centers?.map((item, index) => (
                           <li
                             style={{ color: isScrolled && "white" }}
-                            key={item?.id}
+                            key={index}
                             onClick={() => setShowMenu(false)}
                           >
                             <Link to={`/centers-and-departments/${item.id}`}>

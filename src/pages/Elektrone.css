@@ -1,5 +1,45 @@
 .elektrone {
   width: 1320px;
-  background-color: red;
   margin: 50px auto;
+}
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-item {
+  padding: 5px 12px;
+  border: 2px solid gray;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
+  border: 2px solid #007bff;
+}
+
+.pagination-break {
+  color: #777;
+  font-weight: bold;
+}
+
+.pagination-prev,
+.pagination-next {
+  cursor: pointer;
+  font-size: 30px;
+  transition: all 0.5s ease-in-out;
+}
+
+.pagination-prev:hover,
+.pagination-next:hover {
+  transition: all 0.5s ease-in-out;
+  color: #007bff;
 }

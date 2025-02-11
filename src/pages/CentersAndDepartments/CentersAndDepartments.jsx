@@ -26,14 +26,14 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     try {
       setLoading(true);
       await axios
-        .get(`/markazlar-va-bolimlar/markazlar_bolimlar/`)
+        .get(`/markazlar-bolimlar/bolim/${id}`)
         .then((req) => setData(req.data));
       setLoading(false);
     } catch (error) {
       setLoading("show-p");
     }
   };
-
+  // http://backend.fati.uz/markazlar-bolimlar/bolim/1
   useEffect(() => {
     fetchData();
   }, [setLoading]);
@@ -46,9 +46,9 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  const activeDataFilter = data.filter((value) => value.id === Number(id));
+  // const activeDataFilter = data.filter((value) => value.id === Number(id));
 
-  console.log(activeDataFilter, "id true");
+  console.log(data, "sss");
 
   return (
     <section className={styles["center-departments"]}>
@@ -105,10 +105,10 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
       </div>
 
       <div className={styles.tab_card}>
-        {activePage === 1 && <GeneralInfo data={activeDataFilter} />}
-        {activePage === 2 && <Employees activeData={activeDataFilter} />}
-        {activePage === 3 && <Research activeData={activeDataFilter} />}
-        {activePage === 4 && <PhotoVideo activeData={activeDataFilter} />}
+        {activePage === 1 && <GeneralInfo data={data} />}
+        {activePage === 2 && <Employees activeData={data} />}
+        {activePage === 3 && <Research activeData={data} />}
+        {activePage === 4 && <PhotoVideo activeData={data} />}
       </div>
     </section>
   );

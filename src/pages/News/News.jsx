@@ -61,7 +61,6 @@ export const News = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "data");
   return (
     <div className={styles.news_container}>
       <div className={styles["curved-div"]}></div>

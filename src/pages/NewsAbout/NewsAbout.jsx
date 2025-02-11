@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { month } from "../News/News";
+import { IoArrowBack } from "react-icons/io5";
 
 export const NewsAbout = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
@@ -37,6 +38,11 @@ export const NewsAbout = ({ setLoading, loading }) => {
   if (loading === true) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "salom1");
+
+  console.log(newsData, "salom2");
+
   return (
     <section className={styles.section}>
       <div className={styles.card}>
@@ -45,10 +51,17 @@ export const NewsAbout = ({ setLoading, loading }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            width: "100%",
           }}
         >
-          <h2>{data?.[`title_${lang}`]}</h2>
-          <button
+          <h2>
+            <IoArrowBack
+              style={{ cursor: "pointer", color: "#000000ad" }}
+              onClick={() => navigate("/news")}
+            />
+            {data?.[`title_${lang}`]}
+          </h2>
+          {/* <button
             style={{
               padding: "7px 18px",
               borderRadius: "12px",
@@ -60,26 +73,25 @@ export const NewsAbout = ({ setLoading, loading }) => {
               boxShadow:
                 "inset 10px 10px 20px rgba(244, 11, 11, 0.83), inset -10px -10px 20px rgba(244, 11, 11, 0.83)",
             }}
-            onClick={() => navigate("/news")}
           >
             qaytish
-          </button>
+          </button> */}
+          <span>
+            {data?.created_at?.slice(8, 10) +
+              " " +
+              month[data?.created_at?.slice(5, 7) + "_" + lang] +
+              " " +
+              data?.created_at?.slice(0, 4)}
+          </span>
         </div>
-        <span>
-          {data?.created_at?.slice(8, 10) +
-            " " +
-            month[data?.created_at?.slice(5, 7) + "_" + lang] +
-            " " +
-            data?.created_at?.slice(0, 4)}
-        </span>
 
         <div className={styles.img}>
-          <img src={data?.file} alt="img" />
+          <img src={data?.image} alt="img" />
         </div>
 
         <ul dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
 
-        <div className={styles.container}>
+        {/* <div className={styles.container}>
           <div className={styles["img-cards"]}>
             <h2>{t("latest_news")}</h2>
             <div className={styles.cards}>
@@ -92,7 +104,7 @@ export const NewsAbout = ({ setLoading, loading }) => {
                       key={item?.id}
                     >
                       <img src={item?.file} alt="book" />
-                      {/* <h3>{item?.[`title_${lang}`]}</h3> */}
+                      <h3>{item?.[`title_${lang}`]}</h3>
                       <br />
                       <p
                         dangerouslySetInnerHTML={{
@@ -100,16 +112,17 @@ export const NewsAbout = ({ setLoading, loading }) => {
                             item?.[`content_${lang}`]?.slice(0, 250) + "...",
                         }}
                       />
-                      {/* <div className={styles.arrow}>
+
+                      <div className={styles.arrow}>
                         <img src="/assets/icons/arrow.svg " alt="arrow img" />
-                      </div> */}
+                      </div>
                     </Link>
                   );
                 }
               })}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
