@@ -31,8 +31,9 @@ export const Navbar = () => {
   const [langVal, setLangValue] = useState("uz");
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [centers, setSectersData] = useState([]);
+  const [teachers, setTeachersData] = useState([]);
   const [seminar, setSeminarData] = useState([]);
+  const [markazlar, setMarkazlarData] = useState([]);
   const lang = i18n.language;
 
   useEffect(() => {
@@ -45,10 +46,13 @@ export const Navbar = () => {
       try {
         axios
           .get("/markazlar-bolimlar/bolimlar-list")
-          .then((req) => setSectersData(req.data));
+          .then((req) => setTeachersData(req.data));
         axios
           .get("/seminar/seminar-turlari/")
           .then((req) => setSeminarData(req.data.results));
+        axios
+          .get("/markazlar-bolimlar/markazlar-list")
+          .then((req) => setMarkazlarData(req.data));
       } catch (error) {
         console.log(error);
       }
@@ -122,7 +126,20 @@ export const Navbar = () => {
             return (
               <li key={index}>
                 <label htmlFor={id}>
-                  {!item?.links ? (
+                  {item?.links ? (
+                    <p
+                      style={{
+                        display: "flex",
+                        gap: "5px",
+                        height: "55px",
+                        margin: "0 20px",
+                        fontSize: "16px",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {t(content)}
+                    </p>
+                  ) : (
                     <Link
                       style={{
                         overflowY: "hidden",
@@ -136,23 +153,9 @@ export const Navbar = () => {
                     >
                       {t(content)}
                     </Link>
-                  ) : (
-                    <p
-                      style={{
-                        display: "flex",
-                        gap: "5px",
-                        height: "55px",
-                        margin: "0 20px",
-                        fontSize: "16px",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {t(content)}
-                      {/* {item?.links && <GrDown />} */}
-                    </p>
                   )}
                   <ol>
-                    {item?.links !== 1 && item?.links !== 2
+                    {item?.links !== 1 && item?.links !== 2 && item?.links !== 3
                       ? item?.links?.map((item, index) => {
                           const { id, content, to } = item;
                           return (
@@ -163,11 +166,11 @@ export const Navbar = () => {
                               key={index}
                               onClick={() => setShowMenu(false)}
                             >
-                              <Link to={`${to}/${item.id}`}>{t(content)}</Link>
+                              <Link to={`${to}/${id}`}>{t(content)}</Link>
                             </li>
                           );
                         })
-                      : item?.links !== 1
+                      : item?.links === 2
                       ? seminar?.map((item, index) => (
                           <li
                             style={{
@@ -181,13 +184,29 @@ export const Navbar = () => {
                             </Link>
                           </li>
                         ))
-                      : centers?.map((item, index) => (
+                      : item?.links === 1
+                      ? teachers?.map((item, index) => (
                           <li
                             style={{ color: isScrolled && "white" }}
                             key={index}
                             onClick={() => setShowMenu(false)}
                           >
-                            <Link to={`/centers-and-departments/${item.id}`}>
+                            <Link
+                              to={`/centers-and-departments/bolim/${item.id}`}
+                            >
+                              {item?.[`title_${lang}`]}
+                            </Link>
+                          </li>
+                        ))
+                      : markazlar?.map((item, index) => (
+                          <li
+                            style={{ color: isScrolled && "white" }}
+                            key={index}
+                            onClick={() => setShowMenu(false)}
+                          >
+                            <Link
+                              to={`/centers-and-departments/markaz/${item.id}`}
+                            >
                               {item?.[`title_${lang}`]}
                             </Link>
                           </li>

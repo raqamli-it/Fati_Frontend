@@ -4,7 +4,7 @@ export const navbarData = [
     content: "news",
     to: "/news",
   },
-  
+
   {
     id: 0,
     content: "about-n",
@@ -35,18 +35,20 @@ export const navbarData = [
   {
     id: 1,
     content: "centers",
-    links: [
-      {
-        id: "",
-        content: '"Etnologiya va antropologiya" markazi',
-        to: "/centers-and-departments/7",
-      },
-      {
-        id: "",
-        content: '"Tarixshunoslik va manbashunoslik" markazi',
-        to: "/centers-and-departments/8",
-      },
-    ],
+    to: "/centers-and-departments",
+    links: 3,
+    // links: [
+    //   {
+    //     id: "",
+    //     content: '"Etnologiya va antropologiya" markazi',
+    //     to: "/centers-and-departments/7",
+    //   },
+    //   {
+    //     id: "",
+    //     content: '"Tarixshunoslik va manbashunoslik" markazi',
+    //     to: "/centers-and-departments/8",
+    //   },
+    // ],
   },
 
   {

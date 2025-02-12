@@ -9,29 +9,29 @@ function EmployeesDetails({ setLoading, loading }) {
   const lang = i18n.language;
   const navigate = useNavigate();
 
+  const { type, id, detail } = useParams();
   const [employeesDetails, setEmployeesDetails] = useState([]);
-  const { detail } = useParams();
-  const { id } = useParams();
 
   const fetchActiveData = async () => {
     try {
       setLoading(true);
-      await axios
-        .get(`/markazlar-va-bolimlar/markazlar_bolimlar/${id}`)
-        .then((req) => setEmployeesDetails(req.data.xodimlar));
-      setLoading(false);
+      const { data } = await axios.get(`/markazlar-va-bolimlar/${type}/${id}`);
+      setEmployeesDetails(data?.xodimlar || []);
     } catch (error) {
+      console.error("Error fetching data:", error);
       setLoading("show-p");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const FindEmployeesDetails = employeesDetails.find(
-    (item) => item.id === Number(detail)
-  );
-
   useEffect(() => {
     fetchActiveData();
-  }, []);
+  }, [id]);
+
+  const FindEmployeesDetails = employeesDetails.find(
+    (item) => Number(item.id) === Number(detail)
+  );
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
@@ -40,26 +40,25 @@ function EmployeesDetails({ setLoading, loading }) {
     return <div className="loader"></div>;
   }
 
-  console.log(FindEmployeesDetails, "MEN KAMOLIDDIN");
-
-  console.log(employeesDetails, "MEN");
+  console.log(employeesDetails, "salomat");
+  console.log(FindEmployeesDetails, "salomat ttt");
 
   return (
     <div className={style.employeesDetails}>
       <h1>{FindEmployeesDetails?.[`title_${lang}`]}</h1>
       <div className={style.imgUser}>
-        <img src={FindEmployeesDetails?.image} alt="" />
+        <img src={FindEmployeesDetails?.image} alt="Employee" />
       </div>
 
       <p
         dangerouslySetInnerHTML={{
-          __html: FindEmployeesDetails?.[`about_${lang}`],
+          __html: FindEmployeesDetails?.[`about_${lang}`] || "",
         }}
       ></p>
 
       <p
         dangerouslySetInnerHTML={{
-          __html: FindEmployeesDetails?.[`works_${lang}`],
+          __html: FindEmployeesDetails?.[`works_${lang}`] || "",
         }}
       ></p>
     </div>

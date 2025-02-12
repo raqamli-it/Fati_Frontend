@@ -3,12 +3,17 @@ import { Fade } from "react-awesome-reveal";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 function HomeNews({ newsData }) {
+  const navigate = useNavigate();
+
   let sliderRef = useRef(null);
+
   const next = () => {
     sliderRef.slickNext();
   };
+
   const previous = () => {
     sliderRef.slickPrev();
   };
@@ -85,7 +90,12 @@ function HomeNews({ newsData }) {
                 className="content_uz"
                 dangerouslySetInnerHTML={{ __html: value.content_uz }}
               ></p>
-              <button className="news-btn">Xammasini ko'rish</button>
+              <button
+                onClick={() => navigate(`news/${value.id}`)}
+                className="news-btn"
+              >
+                Xammasini ko'rish
+              </button>
             </div>
           ))}
         </Slider>

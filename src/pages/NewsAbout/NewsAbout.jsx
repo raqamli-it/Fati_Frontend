@@ -39,10 +39,6 @@ export const NewsAbout = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "salom1");
-
-  console.log(newsData, "salom2");
-
   return (
     <section className={styles.section}>
       <div className={styles.card}>
@@ -57,25 +53,11 @@ export const NewsAbout = ({ setLoading, loading }) => {
           <h2>
             <IoArrowBack
               style={{ cursor: "pointer", color: "#000000ad" }}
-              onClick={() => navigate("/news")}
+              onClick={() => navigate(-1)}
             />
             {data?.[`title_${lang}`]}
           </h2>
-          {/* <button
-            style={{
-              padding: "7px 18px",
-              borderRadius: "12px",
-              border: "none",
-              border: "2px solid #808080cd",
-              fontSize: "16px",
-              cursor: "pointer",
-              transition: "all .5s ease-in-out",
-              boxShadow:
-                "inset 10px 10px 20px rgba(244, 11, 11, 0.83), inset -10px -10px 20px rgba(244, 11, 11, 0.83)",
-            }}
-          >
-            qaytish
-          </button> */}
+
           <span>
             {data?.created_at?.slice(8, 10) +
               " " +
@@ -90,39 +72,6 @@ export const NewsAbout = ({ setLoading, loading }) => {
         </div>
 
         <ul dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
-
-        {/* <div className={styles.container}>
-          <div className={styles["img-cards"]}>
-            <h2>{t("latest_news")}</h2>
-            <div className={styles.cards}>
-              {newsData?.reverse()?.map((item, index) => {
-                if (index < 3 && item?.id != id) {
-                  return (
-                    <Link
-                      to={"/news/" + item?.id}
-                      className={styles.link}
-                      key={item?.id}
-                    >
-                      <img src={item?.file} alt="book" />
-                      <h3>{item?.[`title_${lang}`]}</h3>
-                      <br />
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html:
-                            item?.[`content_${lang}`]?.slice(0, 250) + "...",
-                        }}
-                      />
-
-                      <div className={styles.arrow}>
-                        <img src="/assets/icons/arrow.svg " alt="arrow img" />
-                      </div>
-                    </Link>
-                  );
-                }
-              })}
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import PageTop from "../components/PageTop/PageTop";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { NavLink, Outlet } from "react-router-dom";
@@ -29,15 +28,6 @@ export const Journal = ({ setLoading, loading }) => {
     fetchData();
   }, []);
 
-  // if (loading === "show-p") {
-  //   return <p className="show-p-error">{t("show-p-error")}</p>;
-  // }
-  // if (loading === true) {
-  //   return <div className="loader"></div>;
-  // }
-
-  console.log(archiveMenuData, "salom");
-
   return (
     <div className="journal-page">
       <div className="links">
@@ -46,7 +36,6 @@ export const Journal = ({ setLoading, loading }) => {
             to="tahririyat"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#ff0000aa" : "",
-              fontWeight: isActive ? 700 : 700,
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
@@ -60,7 +49,6 @@ export const Journal = ({ setLoading, loading }) => {
             to="talablar"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#ff0000aa" : "",
-              fontWeight: isActive ? 700 : 700,
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
@@ -73,7 +61,6 @@ export const Journal = ({ setLoading, loading }) => {
             to="arxiv"
             style={({ isActive }) => ({
               backgroundColor: isActive ? "#ff0000aa" : "",
-              fontWeight: isActive ? 700 : 700,
               color: isActive ? "white" : "",
             })}
             className="effect-btns"

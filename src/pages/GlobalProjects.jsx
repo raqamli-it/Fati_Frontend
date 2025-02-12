@@ -29,24 +29,19 @@ export const GlobalProjects = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-
+  console.log(data, "salomat");
   return (
     <div className={style.globalProjects}>
       {data.map((item, index) => (
         <div key={index} className={style.card}>
           <img src={item.img_file} alt={item?.[`title_${lang}`]} />
           <h3>{item?.[`title_${lang}`]}</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th
-                  dangerouslySetInnerHTML={{
-                    __html: item?.[`content_${lang}`],
-                  }}
-                ></th>
-              </tr>
-            </tbody>
-          </table>
+          <div
+            className={style.table}
+            dangerouslySetInnerHTML={{
+              __html: item?.[`content_${lang}`],
+            }}
+          ></div>
         </div>
       ))}
     </div>

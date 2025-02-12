@@ -39,6 +39,7 @@ import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
 import Elektrone from "./pages/Elektrone";
 import EmployeesDetails from "./pages/Employees/EmployeesDetails";
+import Bolim from "./pages/Home/Bolim";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -86,6 +87,12 @@ const App = () => {
           element={<About setLoading={setLoading} loading={loading} />}
         />
 
+        {/*  */}
+
+        {/* <Route path="/centers-and-departments/bolim/:id" element={<Bolim />} /> */}
+
+        {/*  */}
+
         <Route
           path="journal"
           element={<Journal setLoading={setLoading} loading={loading} />}
@@ -97,14 +104,14 @@ const App = () => {
         </Route>
 
         <Route
-          path="centers-and-departments/:id"
+          path="centers-and-departments/:type/:id"
           element={
             <CentersAndDepartments setLoading={setLoading} loading={loading} />
           }
         />
 
         <Route
-          path="centers-and-departments/:id/:detail"
+          path="centers-and-departments/:type/:id/:detail"
           element={
             <EmployeesDetails setLoading={setLoading} loading={loading} />
           }

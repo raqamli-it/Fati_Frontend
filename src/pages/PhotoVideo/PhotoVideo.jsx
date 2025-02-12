@@ -20,6 +20,9 @@ function PhotoVideo({ activeData }) {
 
   console.log(activeData, "video");
 
+  // const bolimlar="bolim"
+  console.log(activeData, "dd");
+
   return (
     <div className="fotoVideo">
       <div className="btn">
@@ -39,36 +42,38 @@ function PhotoVideo({ activeData }) {
 
       {fotoVideo === Number(1) && (
         <div className="images">
-          {activeData?.photo?.map((value, index) => (
-            <div className="image" key={index}>
-              <img src={value.image} alt="" />
-            </div>
-          ))}
+          {Array.isArray(activeData?.photos || activeData?.photo) &&
+            (activeData.photos || activeData.photo).map((value, index) => (
+              <div className="image" key={index}>
+                <img src={value.image} alt="" />
+              </div>
+            ))}
         </div>
       )}
 
       {fotoVideo === Number(2) && (
         <div className="videos">
-          {activeData?.video?.map((value, index) => {
-            const videoId = getVideoId(value.link);
+          {Array.isArray(activeData?.videos || activeData?.video) &&
+            (activeData.videos || activeData.video).map((value, index) => {
+              const videoId = getVideoId(value.link);
 
-            return (
-              <div key={index}>
-                {videoId ? (
-                  <iframe
-                    width="100%"
-                    height="350px"
-                    style={{ border: "none" }}
-                    src={`https://www.youtube.com/embed/${videoId}`}
-                    allowFullScreen={true}
-                    title="YouTube Video"
-                  ></iframe>
-                ) : (
-                  <p>Videoga havola yo‘q</p>
-                )}
-              </div>
-            );
-          })}
+              return (
+                <div key={index}>
+                  {videoId ? (
+                    <iframe
+                      width="100%"
+                      height="350px"
+                      style={{ border: "none" }}
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      allowFullScreen={true}
+                      title="YouTube Video"
+                    ></iframe>
+                  ) : (
+                    <p>Videoga havola yo‘q</p>
+                  )}
+                </div>
+              );
+            })}
         </div>
       )}
     </div>

@@ -63,8 +63,6 @@ export const News = ({ setLoading, loading }) => {
 
   return (
     <div className={styles.news_container}>
-      <div className={styles["curved-div"]}></div>
-
       <h1 style={{ maxWidth: "1320px", margin: "0 auto", marginTop: "20px" }}>
         {t("news")}
       </h1>
@@ -100,6 +98,7 @@ export const News = ({ setLoading, loading }) => {
                         style={{
                           fontSize: "14px",
                           lineHeight: "30px",
+                          fontWeight: 200,
                         }}
                       >
                         Batafsil ko'rish

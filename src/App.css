@@ -225,18 +225,30 @@ body {
     transition: all 0.5s ease-in-out;
   }
 
-  .cards-effect {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    justify-content: space-between;
-    width: 100% !important;
+  .markaz_va_bolim {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .markazButton,
+  .bolimButton {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .markazButton button,
+  .bolimButton button {
+    padding: 7px 20px;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .card-effect {
-    border: 1px solid #e0e0e0;
-    transition: box-shadow 0.4s ease-in-out;
-
     .wrapper {
       padding: 20px;
       .data-form {
@@ -1232,10 +1244,6 @@ table {
       font-size: 24px;
       padding-bottom: 15px;
     }
-    .cards-effect {
-      display: flex;
-      justify-content: space-between;
-    }
   }
   .requirements {
     gap: 10px;
@@ -1286,23 +1294,6 @@ table {
       .aside-content {
         margin: 0 auto;
         text-align: center;
-      }
-    }
-  }
-  .img-cards {
-    .cards-effect {
-      .card {
-        width: 50%;
-        text-align: center;
-        border: 1px solid #e0e0e0;
-        padding: 4px;
-        margin-bottom: 5px;
-        img {
-          margin: 0 !important;
-        }
-        h3 {
-          margin: 10px !important;
-        }
       }
     }
   }

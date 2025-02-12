@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick/lib/slider";
@@ -74,10 +74,12 @@ export const Home = ({ setLoading, loading }) => {
   const [newsData, setNewsData] = useState([]);
   const [quickLinksData, setQuickLinksData] = useState([]);
   const [centersData, setCentersData] = useState([]);
-  // const [booksData, setBooksData] = useState([]);
+  const [teachers, setTeachers] = useState([]);
   const [sliderData, setSliderData] = useState([]);
   const [langVal] = useState("uz");
   const [seminar, setSeminarData] = useState([]);
+
+  const navigate = useNavigate();
 
   const [data, setData] = useState([]);
   const lang = i18n.language;
@@ -104,11 +106,13 @@ export const Home = ({ setLoading, loading }) => {
           .get("/qoshimcha-malumotlar/havolalar/")
           .then((req) => setQuickLinksData(req.data));
         await axios
-          .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
+          .get("/markazlar-bolimlar/markazlar-list")
           .then((req) => setCentersData(req.data));
-        // await axios
-        //   .get("/kutobxona/avtoreferat/")
-        //   .then((req) => setBooksData(req.data.results));
+
+        await axios
+          .get("/markazlar-bolimlar/bolimlar-list")
+          .then((req) => setTeachers(req.data));
+        // /centers-and-departments/bolim/1
         await axios
           .get("/seminar/seminar/")
           .then((req) => setSeminarData(req.data.results));
@@ -117,7 +121,6 @@ export const Home = ({ setLoading, loading }) => {
           .get("/qoshimcha-malumotlar/institut-tarixi/")
           .then((req) => setData(req.data.results));
         setLoading(false);
-        // setLoading(false);
       } catch (error) {
         setLoading("show-p");
       }
@@ -150,8 +153,6 @@ export const Home = ({ setLoading, loading }) => {
     },
   ];
 
-  console.log(sliderData);
-
   return (
     <section>
       <header className={styles.header}>
@@ -167,31 +168,37 @@ export const Home = ({ setLoading, loading }) => {
 
         <div className="img-cards">
           <h2>{t("centers")}</h2>
-          <div className="cards-effect">
-            {centersData.map((item, index) => {
-              return (
-                <div className="card-effect" key={index}>
-                  <Link to={"/centers-and-departments/" + item?.id}>
-                    <div className="img-effect">
-                      <img src={item?.image} />
-                      <h1>dadadsds</h1>
-                    </div>
 
-                    <div className="wrapper">
-                      <div className="data-form">
-                        <h2>{item?.[`title_${lang}`]}</h2>
-                        {/* <span>{dateFormat(item.created_at, "dd.mm.yyyy")}</span> */}
-                      </div>
-                      <h3
-                        dangerouslySetInnerHTML={{
-                          __html: item?.[`tarix_${lang}`],
-                        }}
-                      ></h3>
-                    </div>
-                  </Link>
-                </div>
-              );
-            })}
+          <div className="markaz_va_bolim">
+            <div className="markazButton">
+              {centersData.map((item, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      navigate(`/centers-and-departments/markaz/${item.id}`)
+                    }
+                  >
+                    {item?.[`title_${lang}`]}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="bolimButton">
+              {teachers.map((item, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={() =>
+                      navigate(`/centers-and-departments/bolim/${item.id}`)
+                    }
+                  >
+                    {item?.[`title_${lang}`]}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
