@@ -4,61 +4,52 @@ import axios from "axios";
 import { FaDownload } from "react-icons/fa";
 import "./EBooks.css";
 import tab_bg from "./tab_bg.png";
-import "./Elektrone.css";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
-function Elektrone({ setLoading, loading }) {
+export const Avtorefaratlar = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
-  const lang = i18n.language;
-  const { kitoblarId } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
-
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(
-    Number(searchParams.get("page")) || 1
-  );
   const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const lang = i18n.language;
+  const { avtorefaratlarId } = useParams();
 
   const fetchData = async (page = 1) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `/kutobxona/category/${kitoblarId}/?page=${page}`
+        `/kutobxona/category/${avtorefaratlarId}/?page=${page}`
       );
-      // const category = response.data.filter(
-      //   (value) => value.id === Number(elektroneId)
-      // );
 
-      setData(response?.data?.avtoreferatlar?.results || []);
-      setCurrentPage(page);
+      setData(response?.data?.avtoreferatlar?.results);
       setPageCount(Math.ceil(response?.data?.avtoreferatlar?.count / 10));
 
       setLoading(false);
     } catch (error) {
+      console.log(error);
       setLoading("show-p");
     }
   };
 
   useEffect(() => {
     fetchData(currentPage);
-  }, [currentPage, kitoblarId]);
+  }, [currentPage, avtorefaratlarId]);
 
   const handlePageClick = (event) => {
     const selectedPage = event.selected + 1;
-    setSearchParams({ page: selectedPage });
     setCurrentPage(selectedPage);
+    fetchData(selectedPage); // Yangi sahifani yuklash
   };
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
-
   if (loading === true) {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "salom elektronlar kitobi");
+  console.log(data, "xaxaxa");
 
   return (
     <section
@@ -74,26 +65,19 @@ function Elektrone({ setLoading, loading }) {
     >
       <div className="books">
         <div className="img-download">
-          {data.length > 0 ? (
-            data.map((value, index) => (
-              <div key={index} className="wrapper">
-                <div className="file">
-                  <img src={`${value.image}`} alt="Book" />
-                  {value.file && (
-                    <a href={`${value.file}`} download={value.id}>
-                      <FaDownload />
-                    </a>
-                  )}
-                </div>
-                <span className="title_lang">{value?.[`title_${lang}`]}</span>
+          {data?.map((value, index) => (
+            <div key={index} className="wrapper">
+              <div className="file">
+                <img src={value.image} alt="salom" />
+                <a href={value.file} download={value.id}>
+                  <FaDownload />
+                </a>
               </div>
-            ))
-          ) : (
-            <p>{t("No books found")}</p>
-          )}
+              <span className="title_lang">{value?.[`title_${lang}`]}</span>
+            </div>
+          ))}
         </div>
-
-        {pageCount > 1 && (
+        {data && (
           <ReactPaginate
             previousLabel={"←"}
             nextLabel={"→"}
@@ -114,6 +98,4 @@ function Elektrone({ setLoading, loading }) {
       </div>
     </section>
   );
-}
-
-export default Elektrone;
+};

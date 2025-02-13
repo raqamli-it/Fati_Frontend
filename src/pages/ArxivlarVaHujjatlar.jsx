@@ -7,24 +7,24 @@ import tab_bg from "./tab_bg.png";
 import { useParams } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
-export const Abstracts = ({ setLoading, loading }) => {
+export const ArxivlarVaHujjatlar = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const lang = i18n.language;
-  const { avtorefaratlarId } = useParams();
+  const { arxivlarVaHujjatlarId } = useParams();
 
   const fetchData = async (page = 1) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `/kutobxona/category/${avtorefaratlarId}/?page=${page}`
+        `/kutobxona/category/${arxivlarVaHujjatlarId}/?page=${page}`
       );
+      const booksData = response?.data?.avtoreferatlar;
 
-      setData(response?.data?.avtoreferatlar?.results);
-      setPageCount(Math.ceil(response?.data?.avtoreferatlar?.count / 10));
-
+      setData(booksData?.results);
+      setPageCount(Math.ceil(booksData?.count / 10));
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -34,12 +34,10 @@ export const Abstracts = ({ setLoading, loading }) => {
 
   useEffect(() => {
     fetchData(currentPage);
-  }, [currentPage, avtorefaratlarId]);
+  }, [currentPage, arxivlarVaHujjatlarId]);
 
   const handlePageClick = (event) => {
-    const selectedPage = event.selected + 1;
-    setCurrentPage(selectedPage);
-    fetchData(selectedPage); // Yangi sahifani yuklash
+    setCurrentPage(event.selected + 1);
   };
 
   if (loading === "show-p") {
@@ -48,8 +46,6 @@ export const Abstracts = ({ setLoading, loading }) => {
   if (loading === true) {
     return <div className="loader"></div>;
   }
-
-  console.log(data, "xaxaxa");
 
   return (
     <section
@@ -73,28 +69,28 @@ export const Abstracts = ({ setLoading, loading }) => {
                   <FaDownload />
                 </a>
               </div>
+
               <span className="title_lang">{value?.[`title_${lang}`]}</span>
             </div>
           ))}
         </div>
-        {data && (
-          <ReactPaginate
-            previousLabel={"←"}
-            nextLabel={"→"}
-            breakLabel={"..."}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={3}
-            onPageChange={handlePageClick}
-            breakClassName={"pagination-break"} // "..." uchun class
-            containerClassName={"pagination"} // Umumiy class
-            pageClassName={"page-item"} // Har bir raqam uchun class
-            pageLinkClassName={"page-link"} // Har bir link uchun
-            activeClassName={"active"} // Tanlangan sahifa uchun
-            previousClassName={"pagination-prev"} // Oldingi tugma uchun
-            nextClassName={"pagination-next"} // Keyingi tugma uchun
-          />
-        )}
+
+        <ReactPaginate
+          previousLabel={"←"}
+          nextLabel={"→"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          breakClassName={"pagination-break"} // "..." uchun class
+          containerClassName={"pagination"} // Umumiy class
+          pageClassName={"page-item"} // Har bir raqam uchun class
+          pageLinkClassName={"page-link"} // Har bir link uchun
+          activeClassName={"active"} // Tanlangan sahifa uchun
+          previousClassName={"pagination-prev"} // Oldingi tugma uchun
+          nextClassName={"pagination-next"} // Keyingi tugma uchun
+        />
       </div>
     </section>
   );

@@ -22,9 +22,9 @@ import { DocExams } from "./pages/DocExams";
 import { ScientificDegree } from "./pages/ScientificDegree";
 import { ScYoung } from "./pages/ScYoung";
 import { Journal } from "./pages/Journal";
-import { EBooks } from "./pages/E-Books";
+import { ArxivlarVaHujjatlar } from "./pages/ArxivlarVaHujjatlar";
 import { Sources } from "./pages/Sources";
-import { Abstracts } from "./pages/Abstracts";
+import { Avtorefaratlar } from "./pages/Avtorefaratlar";
 import { GlobalPartners } from "./pages/GlobalPartners";
 import { GlobalResearchers } from "./pages/GlobalResearchers";
 import { GlobalProjects } from "./pages/GlobalProjects";
@@ -37,7 +37,7 @@ import { JournalDetail } from "./pages/Jounrnal.Detail";
 import Tahririyat from "./pages/Tabs/Tahririyat";
 import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
-import Elektrone from "./pages/Elektrone";
+import Kitoblar from "./pages/Kitoblar";
 import EmployeesDetails from "./pages/Employees/EmployeesDetails";
 import Bolim from "./pages/Home/Bolim";
 import Matbuot from "./pages/Matbuot";
@@ -201,12 +201,14 @@ const App = () => {
 
         <Route
           path="kitoblar/:kitoblarId"
-          element={<Elektrone setLoading={setLoading} loading={loading} />}
+          element={<Kitoblar setLoading={setLoading} loading={loading} />}
         />
 
         <Route
           path="arxivlarVaHujjatlar/:arxivlarVaHujjatlarId"
-          element={<EBooks setLoading={setLoading} loading={loading} />}
+          element={
+            <ArxivlarVaHujjatlar setLoading={setLoading} loading={loading} />
+          }
         />
 
         <Route
@@ -216,7 +218,7 @@ const App = () => {
 
         <Route
           path="avtorefaratlar/:avtorefaratlarId"
-          element={<Abstracts setLoading={setLoading} loading={loading} />}
+          element={<Avtorefaratlar setLoading={setLoading} loading={loading} />}
         />
 
         <Route path="matbuot/:matbuotId" element={<Matbuot />} />
