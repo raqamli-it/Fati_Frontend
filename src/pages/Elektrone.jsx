@@ -11,7 +11,7 @@ import ReactPaginate from "react-paginate";
 function Elektrone({ setLoading, loading }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const { elektroneId } = useParams();
+  const { kitoblarId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [data, setData] = useState([]);
@@ -24,7 +24,7 @@ function Elektrone({ setLoading, loading }) {
     try {
       setLoading(true);
       const response = await axios.get(
-        `/kutobxona/category/${elektroneId}/?page=${page}`
+        `/kutobxona/category/${kitoblarId}/?page=${page}`
       );
       // const category = response.data.filter(
       //   (value) => value.id === Number(elektroneId)
@@ -42,7 +42,7 @@ function Elektrone({ setLoading, loading }) {
 
   useEffect(() => {
     fetchData(currentPage);
-  }, [currentPage, elektroneId]);
+  }, [currentPage, kitoblarId]);
 
   const handlePageClick = (event) => {
     const selectedPage = event.selected + 1;

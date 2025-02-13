@@ -40,6 +40,7 @@ import Arxiv from "./pages/Tabs/Arxiv";
 import Elektrone from "./pages/Elektrone";
 import EmployeesDetails from "./pages/Employees/EmployeesDetails";
 import Bolim from "./pages/Home/Bolim";
+import Matbuot from "./pages/Matbuot";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -199,12 +200,12 @@ const App = () => {
         />
 
         <Route
-          path="elektrone/:elektroneId"
+          path="kitoblar/:kitoblarId"
           element={<Elektrone setLoading={setLoading} loading={loading} />}
         />
 
         <Route
-          path="e-books/:booksId"
+          path="arxivlarVaHujjatlar/:arxivlarVaHujjatlarId"
           element={<EBooks setLoading={setLoading} loading={loading} />}
         />
 
@@ -217,6 +218,8 @@ const App = () => {
           path="avtorefaratlar/:avtorefaratlarId"
           element={<Abstracts setLoading={setLoading} loading={loading} />}
         />
+
+        <Route path="matbuot/:matbuotId" element={<Matbuot />} />
 
         <Route
           path="global-partners"

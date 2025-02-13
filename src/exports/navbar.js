@@ -106,9 +106,18 @@ export const navbarData = [
         content: "O'zbekiston tarix jurnali",
         to: "/journal",
       },
-      { id: 1, content: "Elektron kitoblar", to: "/elektrone" },
-      { id: 2, content: "Avtoreferatlar", to: "/avtorefaratlar" },
-      { id: 3, content: "Manbalar", to: "/e-books" },
+
+      { id: 1, content: "Kitoblar", to: "/kitoblar" },
+
+      {
+        id: 2,
+        content: " Dissertatsiya va Avtoreferatlar",
+        to: "/avtorefaratlar",
+      },
+
+      { id: 3, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
+
+      { id: 4, content: "Matbuot", to: "/matbuot" },
     ],
   },
 ];

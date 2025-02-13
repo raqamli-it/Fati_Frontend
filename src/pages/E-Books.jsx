@@ -13,13 +13,13 @@ export const EBooks = ({ setLoading, loading }) => {
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const lang = i18n.language;
-  const { booksId } = useParams();
+  const { arxivlarVaHujjatlarId } = useParams();
 
   const fetchData = async (page = 1) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `/kutobxona/category/${booksId}/?page=${page}`
+        `/kutobxona/category/${arxivlarVaHujjatlarId}/?page=${page}`
       );
       const booksData = response?.data?.avtoreferatlar;
 
@@ -34,7 +34,7 @@ export const EBooks = ({ setLoading, loading }) => {
 
   useEffect(() => {
     fetchData(currentPage);
-  }, [currentPage, booksId]);
+  }, [currentPage, arxivlarVaHujjatlarId]);
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected + 1);
