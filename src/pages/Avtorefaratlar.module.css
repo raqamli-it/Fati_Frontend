@@ -1,0 +1,102 @@
+.container {
+    margin: 100px auto 50px;
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 35px;
+  }
+  
+  /* search input style */
+  .searchInput {
+    width: 100%;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 2px solid gray;
+    outline: none;
+    height: 56px;
+    color: #12111170;
+    padding: 0 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 8px;
+  }
+  
+  .searchInput:focus {
+    box-shadow: 0 0 20px gray;
+    transition: all 0.4s ease-in-out;
+    border-color: black;
+    border-color: gray;
+  }
+  /* search input style */
+  
+  /* Acardion style */
+  .custom-checkbox {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 2px solid gray;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .custom-checkbox:checked {
+    background-color: transparent;
+  }
+  
+  .custom-checkbox:checked::before {
+    content: "✔";
+    font-size: 12px;
+    color: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* Acardion style */
+  
+  /* imgContainer style */
+  .imgContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+  
+  .imgContainer .card {
+    border: none;
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.41);
+  }
+  
+  .imgContainer .img {
+    position: relative;
+    border: none;
+    background-color: yellow;
+    height: 280px;
+  }
+  
+  .imgContainer .img img {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .imgContainer .img a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .imgContainer .card p {
+    height: 52px;
+    background-color: red;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* imgContainer style */
+  

@@ -95,7 +95,7 @@ export const Home = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/doktarantura/doktarantura/")
-          .then((req) => setDoctaurantsData(req.data.results));
+          .then((req) => setDoctaurantsData(req.data));
         await axios
           .get("/qoshimcha-malumotlar/karusel/")
           .then((req) => setSliderData(req.data));
@@ -112,10 +112,10 @@ export const Home = ({ setLoading, loading }) => {
         await axios
           .get("/markazlar-bolimlar/bolimlar-list")
           .then((req) => setTeachers(req.data));
-        // /centers-and-departments/bolim/1
+
         await axios
-          .get("/seminar/seminar/")
-          .then((req) => setSeminarData(req.data.results));
+          .get("/seminar/seminar-turlari/")
+          .then((req) => setSeminarData(req.data));
 
         await axios
           .get("/qoshimcha-malumotlar/institut-tarixi/")
@@ -152,6 +152,8 @@ export const Home = ({ setLoading, loading }) => {
       text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
     },
   ];
+
+  console.log(doctaurantsData, "salom");
 
   return (
     <section>
@@ -247,7 +249,7 @@ export const Home = ({ setLoading, loading }) => {
                       <h2 key={item.id}>
                         {item?.[`title_${lang}`]?.toLowerCase()}
                       </h2>
-                      <p>{item?.type}</p>
+                      {/* <p>{item?.type}</p> */}
 
                       <div className={styles["social-links"]}>
                         <a href="">
@@ -269,7 +271,6 @@ export const Home = ({ setLoading, loading }) => {
         </div>
 
         <div
-          className=""
           style={{
             margin: "70px 0",
             height: "400px",
