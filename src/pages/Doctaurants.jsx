@@ -45,7 +45,7 @@ export const Doctaurants = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/doktarantura/doktarantura/")
-          .then((req) => setData(req.data.results));
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         console.log(error);

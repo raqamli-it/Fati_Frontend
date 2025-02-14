@@ -14,19 +14,20 @@ const Kitoblar = () => {
 
   const [categories, setCategories] = useState([]);
   const [years, setYears] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState([]);
+
   const [regions, setRegions] = useState([]);
   const [images, setImages] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState([]);
 
   const getMatbuotFunction = async () => {
     try {
       const response = await axios.get("/kutobxona/books/list/");
-      const imagesRes = await axios.get("/kutobxona/books/filter/");
+      const imagesResponse = await axios.get("/kutobxona/books/filter/");
 
-      // setCategories(response.data.mat_categories);
+      setCategories(response.data.results);
       // setYears(response.data.years);
       setRegions(response.data.results);
-      setImages(imagesRes.results);
+      setImages(imagesResponse);
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }
@@ -42,11 +43,11 @@ const Kitoblar = () => {
     );
   };
 
+  // console.log(categories, "categories");
+  // console.log(years, "years");
+  // console.log(regions, "regions");
+  // console.log(selectedFilters, "selectedFilters");
   console.log(categories, "categories");
-  console.log(years, "years");
-  console.log(regions, "regions");
-  console.log(images, "images");
-  console.log(selectedFilters, "selectedFilters");
 
   return (
     <div className={kitoblar.container}>

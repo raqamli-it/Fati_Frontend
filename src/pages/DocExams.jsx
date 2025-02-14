@@ -15,7 +15,7 @@ export const DocExams = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/doktarantura/malakaviy-imtihon/")
-          .then((req) => setData(req.data.results));
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");

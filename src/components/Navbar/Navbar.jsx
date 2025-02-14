@@ -49,7 +49,7 @@ export const Navbar = () => {
           .then((req) => setTeachersData(req.data));
         axios
           .get("/seminar/seminar-turlari/")
-          .then((req) => setSeminarData(req.data.results));
+          .then((req) => setSeminarData(req.data));
         axios
           .get("/markazlar-bolimlar/markazlar-list")
           .then((req) => setMarkazlarData(req.data));
@@ -59,6 +59,8 @@ export const Navbar = () => {
     };
     fetchData();
   }, []);
+
+  console.log(seminar, "seminar");
 
   return (
     <nav className={styles.navbar}>

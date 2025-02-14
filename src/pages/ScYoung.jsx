@@ -12,11 +12,11 @@ export const ScYoung = ({ setLoading, loading }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        await axios
-          .get("/kengashlar/yosh-olimlar/")
-          .then((req) => setData(req.data.results));
+        const response = await axios.get("/kengashlar/yosh-olimlar/");
+        setData(response.data);
         setLoading(false);
       } catch (error) {
+        console.error("Ma'lumotlarni olishda xatolik:", error);
         setLoading("show-p");
       }
     };
@@ -29,6 +29,8 @@ export const ScYoung = ({ setLoading, loading }) => {
   if (loading === true) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "ScYoung");
 
   return (
     <section className={styles["container"]}>

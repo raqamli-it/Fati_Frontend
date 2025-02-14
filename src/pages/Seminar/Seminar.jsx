@@ -33,6 +33,8 @@ export const Seminar = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "data");
+
   return (
     <section className={seminar["seminar-container"]}>
       <h1>{FindIdCategory[0]?.[`title_${lang}`]}</h1>

@@ -34,6 +34,8 @@ export const ScientificDegree = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "ScientificDegree");
+
   return (
     <section className={styles.container}>
       {data.map((item, index) => {

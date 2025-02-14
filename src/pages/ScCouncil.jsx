@@ -13,7 +13,7 @@ export const ScCouncil = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/kengashlar/ilmiy_kengash_majlis/")
-          .then((req) => setData(req.data.results));
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -27,6 +27,9 @@ export const ScCouncil = ({ setLoading, loading }) => {
   if (loading === true) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "ScCouncil");
+
   return (
     <section className={styles["container"]}>
       <div className={styles["about-container"]}>

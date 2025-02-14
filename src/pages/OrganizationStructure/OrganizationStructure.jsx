@@ -28,6 +28,8 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log((data, "ddd"));
+
   return (
     <section className={style.organizationStructure}>
       <div className={style.card}>
