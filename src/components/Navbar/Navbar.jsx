@@ -28,13 +28,14 @@ export const Navbar = () => {
   }, []);
 
   const { i18n, t } = useTranslation();
+  const lang = i18n.language;
+
   const [langVal, setLangValue] = useState("uz");
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [teachers, setTeachersData] = useState([]);
   const [seminar, setSeminarData] = useState([]);
   const [markazlar, setMarkazlarData] = useState([]);
-  const lang = i18n.language;
 
   useEffect(() => {
     i18n.changeLanguage(langVal);
@@ -59,8 +60,6 @@ export const Navbar = () => {
     };
     fetchData();
   }, []);
-
-  console.log(seminar, "seminar");
 
   return (
     <nav className={styles.navbar}>

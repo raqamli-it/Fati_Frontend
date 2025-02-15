@@ -107,17 +107,19 @@ export const navbarData = [
         to: "/journal",
       },
 
-      { id: 1, content: "Kitoblar", to: "/kitoblar" },
+      { id: 1, content: "Adabiyotlar", to: "/adabiyotlar" },
+
+      { id: 2, content: "Manbalar", to: "/manbalar" },
 
       {
-        id: 2,
-        content: " Dissertatsiya va Avtoreferatlar",
+        id: 3,
+        content: "Avtoreferatlar",
         to: "/avtorefaratlar",
       },
 
-      { id: 3, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
+      { id: 4, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
 
-      { id: 4, content: "Matbuot", to: "/matbuot" },
+      { id: 5, content: "Matbuot", to: "/matbuot" },
     ],
   },
 ];

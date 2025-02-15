@@ -9,25 +9,23 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import kitoblar from "./Kitoblar.module.css";
 
-const Kitoblar = () => {
+const Adabiyotlar = () => {
   const { kitoblarId } = useParams();
 
-  const [categories, setCategories] = useState([]);
   const [years, setYears] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState([]);
-
   const [regions, setRegions] = useState([]);
-  const [images, setImages] = useState([]);
+
+  const [list, setList] = useState([]);
+  const [filter, setFilter] = useState([]);
 
   const getMatbuotFunction = async () => {
     try {
-      const response = await axios.get("/kutobxona/books/list/");
-      const imagesResponse = await axios.get("/kutobxona/books/filter/");
+      const bookList = await axios.get("/kutobxona/books/list");
+      const bookListFilter = await axios.get("/kutobxona/books/filter/");
 
-      setCategories(response.data.results);
-      // setYears(response.data.years);
-      setRegions(response.data.results);
-      setImages(imagesResponse);
+      setList(bookList.data);
+      setFilter(bookListFilter.data.results);
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }
@@ -43,11 +41,8 @@ const Kitoblar = () => {
     );
   };
 
-  // console.log(categories, "categories");
-  // console.log(years, "years");
-  // console.log(regions, "regions");
-  // console.log(selectedFilters, "selectedFilters");
-  console.log(categories, "categories");
+  console.log(list, "list");
+  console.log(filter, "filter");
 
   return (
     <div className={kitoblar.container}>
@@ -57,17 +52,13 @@ const Kitoblar = () => {
           placeholder="Search ..."
           className={kitoblar.searchInput}
         />
-        {[
-          { label: "Categories", data: categories },
-          // { label: "Years", data: years },
-          // { label: "Regions", data: regions },
-        ].map((section, index) => (
+        {[{ label: "Categories", data: list }].map((section, index) => (
           <Accordion key={index} style={{ margin: 0, padding: "10px" }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               style={{ backgroundColor: "#80808070" }}
             >
-              <Typography>{section.label}</Typography>
+              <Typography>Categories</Typography>
             </AccordionSummary>
             <AccordionDetails>
               {section.data.map((item) => (
@@ -98,7 +89,7 @@ const Kitoblar = () => {
       </div>
 
       <div className={kitoblar.imgContainer}>
-        {images?.map((img, index) => (
+        {filter?.map((img, index) => (
           <div key={index} className={kitoblar.card}>
             <div className={kitoblar.img}>
               <img src={img.image} alt={img.title_uz} />
@@ -114,7 +105,7 @@ const Kitoblar = () => {
   );
 };
 
-export default Kitoblar;
+export default Adabiyotlar;
 
 // import { useTranslation } from "react-i18next";
 // import { useEffect, useState } from "react";

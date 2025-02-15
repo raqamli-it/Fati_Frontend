@@ -37,10 +37,10 @@ import { JournalDetail } from "./pages/Jounrnal.Detail";
 import Tahririyat from "./pages/Tabs/Tahririyat";
 import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
-import Kitoblar from "./pages/Kitoblar";
 import EmployeesDetails from "./pages/Employees/EmployeesDetails";
-import Bolim from "./pages/Home/Bolim";
 import Matbuot from "./pages/Matbuot";
+import Adabiyotlar from "./pages/Adabiyotlar";
+import Manbalar from "./pages/Manbalar";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -87,12 +87,6 @@ const App = () => {
           path="about"
           element={<About setLoading={setLoading} loading={loading} />}
         />
-
-        {/*  */}
-
-        {/* <Route path="/centers-and-departments/bolim/:id" element={<Bolim />} /> */}
-
-        {/*  */}
 
         <Route
           path="journal"
@@ -200,8 +194,13 @@ const App = () => {
         />
 
         <Route
-          path="kitoblar/:kitoblarId"
-          element={<Kitoblar setLoading={setLoading} loading={loading} />}
+          path="adabiyotlar/:adabiyotlarId"
+          element={<Adabiyotlar setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="manbalar/:manbalarId"
+          element={<Manbalar setLoading={setLoading} loading={loading} />}
         />
 
         <Route

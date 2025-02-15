@@ -1,112 +1,74 @@
 import { useParams } from "react-router-dom";
-import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import avtorefaratlar from "./Avtorefaratlar.module.css";
 import { AiOutlineRead } from "react-icons/ai";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import avtorefaratlar from "./Avtorefaratlar.module.css";
+import { useTranslation } from "react-i18next";
 
 const Avtorefaratlar = () => {
+  const { i18n, t } = useTranslation();
+  const lang = i18n.language;
   const { avtorefaratlarId } = useParams();
+  const [filter, setFilter] = useState([]);
 
-  const data = [
-    {
-      id: 1,
-      title: "Category",
-      innerData: [
-        { id: 1, text: "Category 1" },
-        { id: 2, text: "Category 2" },
-        { id: 3, text: "Category 3" },
-      ],
-    },
+  const getMatbuotFunction = async () => {
+    try {
+      const avtoreferatFilter = await axios.get("/kutobxona/avtoreferat/");
 
-    // {
-    //   id: 2,
-    //   title: "Year",
-    //   innerData: [
-    //     { id: 1, text: "Year 1" },
-    //     { id: 2, text: "Year 2" },
-    //     { id: 3, text: "Year 3" },
-    //     { id: 4, text: "Year 4" },
-    //     { id: 5, text: "Year 5" },
-    //   ],
-    // },
-
-    // {
-    //   id: 3,
-    //   title: "Region",
-    //   innerData: [
-    //     { id: 1, text: "Region 1" },
-    //     { id: 2, text: "Region 2" },
-    //     { id: 3, text: "Region 3" },
-    //   ],
-    // },
-  ];
-
-  const FilterData = (id) => {
-    console.log(id);
+      setFilter(avtoreferatFilter.data);
+    } catch (error) {
+      console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
+    }
   };
+
+  useEffect(() => {
+    getMatbuotFunction();
+  }, []);
+
+  // Books search
+  const [search, setSearch] = useState("");
+  const BooksSearch = (value) => {
+    setSearch(value.target.value);
+  };
+  console.log(search, "search");
+
+  const dataSearch = filter.filter((val) =>
+    val.title_uz?.toLowerCase().includes(search.toLowerCase())
+  );
+  // Books search
 
   return (
     <div className={avtorefaratlar.container}>
       <div>
         <input
-          type="text"
+          type="search"
           placeholder="Search ..."
+          onChange={BooksSearch}
           className={avtorefaratlar.searchInput}
         />
-
-        {data.map((value) => (
-          <Accordion key={value.id} style={{ margin: 0, padding: "10px" }}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              style={{ backgroundColor: "#80808070" }}
-            >
-              <Typography>{value.title}</Typography>
-            </AccordionSummary>
-
-            <AccordionDetails>
-              {value.innerData.map((innerValue, innerIndex) => (
-                <Typography
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    margin: "10px 20px",
-                    color: "#000000d0",
-                  }}
-                  key={innerIndex}
-                >
-                  <span style={{ fontSize: "16px", fontWeight: "500" }}>
-                    {innerValue.text}
-                  </span>
-                  <input
-                    onChange={() => FilterData(innerValue.id)}
-                    type="checkbox"
-                    className={avtorefaratlar["custom-checkbox"]}
-                  />
-                </Typography>
-              ))}
-            </AccordionDetails>
-          </Accordion>
-        ))}
       </div>
 
       <div className={avtorefaratlar.imgContainer}>
-        {data?.map((img, index) => (
-          <div key={index} className={avtorefaratlar.card}>
-            <div className={avtorefaratlar.img}>
-              <img src={img.images} alt={img.title} />
-              <a href={`${img.id}`}>
-                <AiOutlineRead style={{ fontSize: "30px" }} />
-              </a>
+        {dataSearch.length > 0 ? (
+          dataSearch.map((img, index) => (
+            <div key={index} className={avtorefaratlar.card}>
+              <div className={avtorefaratlar.img}>
+                <img src={img.image} alt={img[`title_${lang}`]} />
+                <a href={img.file} target="_blank" rel="noopener noreferrer">
+                  <AiOutlineRead style={{ fontSize: "30px" }} />
+                </a>
+              </div>
+              <p>{img?.[`title_${lang}`]}</p>
             </div>
-
-            <p>{img.title}</p>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Salomat</p>
+        )}
       </div>
     </div>
   );

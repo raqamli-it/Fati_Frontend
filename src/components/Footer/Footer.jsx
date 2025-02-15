@@ -42,7 +42,7 @@ export const Footer = () => {
               cursor: "pointer",
             }}
           >
-            <FaTelegram style={{ fontSize: "28px" }} />
+            <FaTelegram style={{ fontSize: "20px" }} />
             <span>Telegram</span>
           </a>
 
@@ -56,7 +56,7 @@ export const Footer = () => {
               cursor: "pointer",
             }}
           >
-            <FaFacebook style={{ fontSize: "28px" }} />
+            <FaFacebook style={{ fontSize: "20px" }} />
             <span>Facebook</span>
           </a>
 
@@ -70,7 +70,7 @@ export const Footer = () => {
               cursor: "pointer",
             }}
           >
-            <FaInstagram style={{ fontSize: "28px" }} />
+            <FaInstagram style={{ fontSize: "20px" }} />
             <span>Instagram</span>
           </a>
 
@@ -84,12 +84,9 @@ export const Footer = () => {
               cursor: "pointer",
             }}
           >
-            <FaYoutube style={{ fontSize: "28px" }} />
+            <FaYoutube style={{ fontSize: "20px" }} />
             <span>Youtube</span>
           </a>
-
-
-          
         </div>
       </div>
 

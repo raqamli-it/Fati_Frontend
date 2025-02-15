@@ -1,5 +1,3 @@
-
-
 import { useParams } from "react-router-dom";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -13,20 +11,18 @@ import arxivlar from "./ArxivlarVaHujjatlar.module.css";
 
 const ArxivlarVaHujjatlar = () => {
   const { arxivlarVaHujjatlarId } = useParams();
+  
   const [categories, setCategories] = useState([]);
-  const [years, setYears] = useState([]);
-  const [regions, setRegions] = useState([]);
   const [images, setImages] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState([]);
 
   const getMatbuotFunction = async () => {
     try {
       const response = await axios.get("/kutobxona/archive_documents/list/");
-      const imagesRes = await axios.get("/kutobxona/archive_documents/filter/");
-      setCategories(response.data || []);
-      setYears(response.data || []);
-      // setRegions(response.data.regions || []);
-      setImages(imagesRes.data.results || []);
+      const imagesResult = await axios.get(
+        "/kutobxona/archive_documents/filter/"
+      );
+      setCategories(response.data);
+      setImages(imagesResult.data.results);
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }
@@ -37,14 +33,8 @@ const ArxivlarVaHujjatlar = () => {
   }, []);
 
   const handleFilterChange = (id) => {
-    setSelectedFilters((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    console.log(id);
   };
-
-  console.log(images, "images");
-  console.log(categories, "categories");
-  console.log(years, "years");
 
   return (
     <div className={arxivlar.container}>
@@ -54,44 +44,38 @@ const ArxivlarVaHujjatlar = () => {
           placeholder="Search ..."
           className={arxivlar.searchInput}
         />
-        {[
-          { label: "Categories", data: categories },
-          // { label: "Years", data: years },
-          // { label: "Regions", data: regions },
-        ].map((section, index) => (
-          <Accordion key={index} style={{ margin: 0, padding: "10px" }}>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              style={{ backgroundColor: "#80808070" }}
-            >
-              <Typography>{section.label}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              {section.data.map((item) => (
-                <Typography
-                  key={item.id}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    margin: "15px 0",
-                    color: "#000000d0",
-                  }}
-                >
-                  <span style={{ fontSize: "16px", fontWeight: "500" }}>
-                    {item.title_uz}
-                  </span>
-                  <input
-                    type="checkbox"
-                    checked={selectedFilters.includes(item.id)}
-                    onChange={() => handleFilterChange(item.id)}
-                    className={arxivlar["custom-checkbox"]}
-                  />
-                </Typography>
-              ))}
-            </AccordionDetails>
-          </Accordion>
-        ))}
+        <Accordion style={{ margin: 0, padding: "10px" }}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            style={{ backgroundColor: "#80808070" }}
+          >
+            <Typography>Categories</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {categories.map((item, index) => (
+              <Typography
+                key={index}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  gap: "10px",
+                  margin: "15px 0",
+                  color: "#000000d0",
+                }}
+              >
+                <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                  {item.title_uz}
+                </span>
+                <input
+                  type="checkbox"
+                  onChange={() => handleFilterChange(item.id)}
+                  className={arxivlar["custom-checkbox"]}
+                />
+              </Typography>
+            ))}
+          </AccordionDetails>
+        </Accordion>
       </div>
 
       <div className={arxivlar.imgContainer}>
