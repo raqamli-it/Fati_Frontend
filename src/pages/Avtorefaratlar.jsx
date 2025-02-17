@@ -1,9 +1,4 @@
 import { useParams } from "react-router-dom";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AiOutlineRead } from "react-icons/ai";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -14,33 +9,34 @@ const Avtorefaratlar = () => {
   const { i18n, t } = useTranslation();
   const lang = i18n.language;
   const { avtorefaratlarId } = useParams();
-  const [filter, setFilter] = useState([]);
 
-  const getMatbuotFunction = async () => {
+  const [filterAvtoreferat, setFilterAvtoreferat] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const getAvtorefaratlarFunction = async (search = "") => {
     try {
-      const avtoreferatFilter = await axios.get("/kutobxona/avtoreferat/");
-
-      setFilter(avtoreferatFilter.data);
+      const avtoreferatFilter = await axios.get(
+        `/kutobxona/avtoreferat/?search=${search}`
+      );
+      setFilterAvtoreferat(avtoreferatFilter.data);
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }
   };
 
   useEffect(() => {
-    getMatbuotFunction();
-  }, []);
+    getAvtorefaratlarFunction(search);
+  }, [search]);
 
   // Books search
-  const [search, setSearch] = useState("");
+
   const BooksSearch = (value) => {
     setSearch(value.target.value);
   };
-  console.log(search, "search");
 
-  const dataSearch = filter.filter((val) =>
-    val.title_uz?.toLowerCase().includes(search.toLowerCase())
-  );
   // Books search
+
+  console.log(filterAvtoreferat, "filterAvtoreferat");
 
   return (
     <div className={avtorefaratlar.container}>
@@ -54,8 +50,8 @@ const Avtorefaratlar = () => {
       </div>
 
       <div className={avtorefaratlar.imgContainer}>
-        {dataSearch.length > 0 ? (
-          dataSearch.map((img, index) => (
+        {filterAvtoreferat.length > 0 ? (
+          filterAvtoreferat.map((img, index) => (
             <div key={index} className={avtorefaratlar.card}>
               <div className={avtorefaratlar.img}>
                 <img src={img.image} alt={img[`title_${lang}`]} />

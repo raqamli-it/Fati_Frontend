@@ -1,48 +1,70 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-// import "./Arxiv.css";
-import "./Tahririyat.css";
+import style from "./Arxiv.module.css";
+import ReactPaginate from "react-paginate";
+import { FcDownload } from "react-icons/fc";
 
 function Arxiv() {
   // Arxiv get jarayon qismi
-  const [arxiv, setArxiv] = useState([]);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
-  const ArxivGet = async () => {
+  const [arxiv, setArxiv] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const GetArxiv = async (Page = 1) => {
     try {
-      await axios
-        .get("/kutobxona/arxiv/")
-        .then((repons) => setArxiv(repons?.data));
-    } catch (error) {}
+      const response = await axios.get(`/kutobxona/arxivlar/?page=${Page}`);
+      setArxiv(response?.data.results);
+      setPageCount(Math.ceil(response.data.count / 10));
+    } catch (error) {
+      console.error("Arxivlardan ma'lumotlarini olishda xatolik:", error);
+    }
   };
 
   useEffect(() => {
-    ArxivGet();
-  }, []);
+    GetArxiv(currentPage);
+  }, [currentPage]);
+
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected + 1);
+  };
 
   console.log(arxiv, "arxiv");
 
   return (
-    <div className="tahririyat">
-      <div className="tahririyat-wrapper">
+    <div className={style.tahririyat}>
+      <div className={style["tahririyat-wrapper"]}>
         {arxiv?.map((value, index) => (
-          <div key={index} className="wrapper">
-            <div className="img-tahririyat">
+          <div key={index} className={style.wrapper}>
+            <div className={style["img-tahririyat"]}>
               <img src={value?.image} alt="img" />
-              {/* <p>{value?.[`title_${lang}`]}</p> */}
+              <a src={value.file} target="_blank" rel="noopener noreferrer">
+                <FcDownload className={style.icon} />
+              </a>
             </div>
 
-            <div className="description">
-              <p className="title">{value?.[`title_${lang}`]}</p>
-              <p
-                dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
-              ></p>
+            <div className={style.description}>
+              <p>{value?.[`title_${lang}`]}</p>
+              <p>{value?.year}</p>
             </div>
           </div>
         ))}
       </div>
+
+      <ReactPaginate
+        previousLabel={"←"}
+        nextLabel={"→"}
+        breakLabel={"..."}
+        pageCount={pageCount} // Jami sahifalar soni
+        marginPagesDisplayed={1}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageClick} // Sahifa almashganda
+        containerClassName={style.pagination}
+        activeClassName={style.active}
+      />
     </div>
   );
 }

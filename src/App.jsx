@@ -210,17 +210,17 @@ const App = () => {
           }
         />
 
-        <Route
-          path="sources"
-          element={<Sources setLoading={setLoading} loading={loading} />}
-        />
+        <Route path="matbuot/:matbuotId" element={<Matbuot />} />
 
         <Route
           path="avtorefaratlar/:avtorefaratlarId"
           element={<Avtorefaratlar setLoading={setLoading} loading={loading} />}
         />
 
-        <Route path="matbuot/:matbuotId" element={<Matbuot />} />
+        <Route
+          path="sources"
+          element={<Sources setLoading={setLoading} loading={loading} />}
+        />
 
         <Route
           path="global-partners"

@@ -14,7 +14,7 @@ export const GlobalResearchers = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/xalqaro-aloqalar/tadqiqot/")
-          .then((req) => setData(req.data.results));
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -37,10 +37,10 @@ export const GlobalResearchers = ({ setLoading, loading }) => {
       <div className={style.card}>
         {data?.map((value, index) => (
           <div key={index} className={style.cards}>
-            {/* <div className={style.cardLeft}>
+            <div className={style.cardLeft}>
               <h1>{value?.[`title_${lang}`]}</h1>
               <img src={value?.img_file} alt={value?.[`title_${lang}`]} />
-            </div> */}
+            </div>
 
             <div
               className={style.cardRight}

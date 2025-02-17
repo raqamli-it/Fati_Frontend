@@ -1,0 +1,83 @@
+.tahririyat {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.tahririyat-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.img-tahririyat {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  border: 0px solid transparent;
+  border-bottom: none;
+}
+.img-tahririyat img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease-in;
+}
+.img-tahririyat p {
+  color: white;
+  display: block;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: all 0.7s linear;
+  background-color: rgba(255, 0, 0, 0.774);
+  padding: 10px 0;
+  width: 78%;
+  position: absolute;
+  bottom: -150px;
+  left: 10%;
+  font-size: 18px !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.description {
+  padding: 0 25px;
+  background-color: rgba(128, 128, 128, 0.805);
+}
+.wrapper {
+  transition: all 0.5s ease-in;
+}
+.wrapper .title {
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.86);
+}
+.description p {
+  font-weight: 600;
+  line-height: 30px;
+  transition: all 0.5s linear;
+}
+.description p:last-child {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.wrapper:hover .img-tahririyat p {
+  bottom: 30px;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.84);
+  transition: all 0.7s linear;
+}
+.wrapper:hover .img-tahririyat img {
+  transform: scale(0.9);
+  transition: all 0.5s ease-in;
+}
+.wrapper:hover .img-tahririyat {
+  border: 2px solid gray;
+  transition: all 0.5s ease-in;
+  border-bottom: none;
+}

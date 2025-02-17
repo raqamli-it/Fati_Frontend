@@ -1,95 +1,89 @@
 import { useParams } from "react-router-dom";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AiOutlineRead } from "react-icons/ai";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import arxivlar from "./ArxivlarVaHujjatlar.module.css";
+import avtorefaratlar from "./ArxivlarVaHujjatlar.module.css";
+import { useTranslation } from "react-i18next";
+import ReactPaginate from "react-paginate";
 
 const ArxivlarVaHujjatlar = () => {
+  const { i18n, t } = useTranslation();
+  const lang = i18n.language;
   const { arxivlarVaHujjatlarId } = useParams();
-  
-  const [categories, setCategories] = useState([]);
-  const [images, setImages] = useState([]);
 
-  const getMatbuotFunction = async () => {
+  const [filterArxivlar, setFilterArxivlar] = useState([]);
+  const [search, setSearch] = useState("");
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const getArxivFunction = async (search, Id = 1) => {
     try {
-      const response = await axios.get("/kutobxona/archive_documents/list/");
-      const imagesResult = await axios.get(
-        "/kutobxona/archive_documents/filter/"
+      const arxivlarFilter = await axios.get(
+        `/kutobxona/arxivlar/?search=${search}&page=${Id}`
       );
-      setCategories(response.data);
-      setImages(imagesResult.data.results);
+
+      setFilterArxivlar(arxivlarFilter.data.results);
+      setPageCount(Math.ceil(arxivlarFilter.data.count / 10));
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }
   };
 
   useEffect(() => {
-    getMatbuotFunction();
-  }, []);
+    getArxivFunction(search, currentPage);
+  }, [search, currentPage]);
 
-  const handleFilterChange = (id) => {
-    console.log(id);
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected + 1);
   };
 
+  // Books search
+  const BooksSearch = (value) => {
+    setSearch(value.target.value);
+  };
+  // Books search
+
   return (
-    <div className={arxivlar.container}>
+    <div className={avtorefaratlar.container}>
       <div>
         <input
-          type="text"
+          type="search"
           placeholder="Search ..."
-          className={arxivlar.searchInput}
+          onChange={BooksSearch}
+          className={avtorefaratlar.searchInput}
         />
-        <Accordion style={{ margin: 0, padding: "10px" }}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            style={{ backgroundColor: "#80808070" }}
-          >
-            <Typography>Categories</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            {categories.map((item, index) => (
-              <Typography
-                key={index}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  gap: "10px",
-                  margin: "15px 0",
-                  color: "#000000d0",
-                }}
-              >
-                <span style={{ fontSize: "16px", fontWeight: "500" }}>
-                  {item.title_uz}
-                </span>
-                <input
-                  type="checkbox"
-                  onChange={() => handleFilterChange(item.id)}
-                  className={arxivlar["custom-checkbox"]}
-                />
-              </Typography>
-            ))}
-          </AccordionDetails>
-        </Accordion>
       </div>
 
-      <div className={arxivlar.imgContainer}>
-        {images?.map((img, index) => (
-          <div key={index} className={arxivlar.card}>
-            <div className={arxivlar.img}>
-              <img src={img.image} alt={img.title_uz} />
-              <a href={img.file} target="_blank" rel="noopener noreferrer">
-                <AiOutlineRead style={{ fontSize: "30px" }} />
-              </a>
-            </div>
-            <p>{img.title_uz}</p>
-          </div>
-        ))}
+      <div>
+        <div className={avtorefaratlar.imgContainer}>
+          {filterArxivlar.length > 0 ? (
+            filterArxivlar.map((img, index) => (
+              <div key={index} className={avtorefaratlar.card}>
+                <div className={avtorefaratlar.img}>
+                  <img src={img.image} alt={img[`title_${lang}`]} />
+                  <a href={img.file} target="_blank" rel="noopener noreferrer">
+                    <AiOutlineRead style={{ fontSize: "30px" }} />
+                  </a>
+                </div>
+                <p>{img?.[`title_${lang}`]}</p>
+              </div>
+            ))
+          ) : (
+            <p>Salomat</p>
+          )}
+        </div>
+
+        <ReactPaginate
+          previousLabel={"←"}
+          nextLabel={"→"}
+          breakLabel={"..."}
+          pageCount={pageCount} // Jami sahifalar soni
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick} // Sahifa almashganda
+          containerClassName={avtorefaratlar.pagination}
+          activeClassName={avtorefaratlar.active}
+        />
       </div>
     </div>
   );
@@ -101,29 +95,29 @@ export default ArxivlarVaHujjatlar;
 // import { useEffect, useState } from "react";
 // import axios from "axios";
 // import { FaDownload } from "react-icons/fa";
-// import arxiv from "./ArxivlarVaHujjatlar.module.css";
+// import "./EBooks.css";
 // import tab_bg from "./tab_bg.png";
 // import { useParams } from "react-router-dom";
 // import ReactPaginate from "react-paginate";
 
-// export const ArxivlarVaHujjatlar = ({ setLoading, loading }) => {
+// export const Avtorefaratlar = ({ setLoading, loading }) => {
 //   const { t, i18n } = useTranslation();
 //   const [data, setData] = useState([]);
 //   const [pageCount, setPageCount] = useState(0);
 //   const [currentPage, setCurrentPage] = useState(1);
 //   const lang = i18n.language;
-//   const { arxivlarVaHujjatlarId } = useParams();
+//   const { avtorefaratlarId } = useParams();
 
 //   const fetchData = async (page = 1) => {
 //     try {
 //       setLoading(true);
 //       const response = await axios.get(
-//         `/kutobxona/category/${arxivlarVaHujjatlarId}/?page=${page}`
+//         `/kutobxona/category/${avtorefaratlarId}/?page=${page}`
 //       );
-//       const booksData = response?.data?.avtoreferatlar;
 
-//       setData(booksData?.results);
-//       setPageCount(Math.ceil(booksData?.count / 10));
+//       setData(response?.data?.avtoreferatlar?.results);
+//       setPageCount(Math.ceil(response?.data?.avtoreferatlar?.count / 10));
+
 //       setLoading(false);
 //     } catch (error) {
 //       console.log(error);
@@ -133,10 +127,12 @@ export default ArxivlarVaHujjatlar;
 
 //   useEffect(() => {
 //     fetchData(currentPage);
-//   }, [currentPage, arxivlarVaHujjatlarId]);
+//   }, [currentPage, avtorefaratlarId]);
 
 //   const handlePageClick = (event) => {
-//     setCurrentPage(event.selected + 1);
+//     const selectedPage = event.selected + 1;
+//     setCurrentPage(selectedPage);
+//     fetchData(selectedPage); // Yangi sahifani yuklash
 //   };
 
 //   if (loading === "show-p") {
@@ -145,6 +141,8 @@ export default ArxivlarVaHujjatlar;
 //   if (loading === true) {
 //     return <div className="loader"></div>;
 //   }
+
+//   console.log(data, "xaxaxa");
 
 //   return (
 //     <section
@@ -158,40 +156,38 @@ export default ArxivlarVaHujjatlar;
 //         backgroundSize: "cover",
 //       }}
 //     >
-//       <div className={arxiv.books}>
-//         <div className={arxiv["img-download"]}>
+//       <div className="books">
+//         <div className="img-download">
 //           {data?.map((value, index) => (
-//             <div key={index} className={arxiv.wrapper}>
-//               <div className={arxiv.file}>
+//             <div key={index} className="wrapper">
+//               <div className="file">
 //                 <img src={value.image} alt="salom" />
 //                 <a href={value.file} download={value.id}>
 //                   <FaDownload />
 //                 </a>
 //               </div>
-
-//               <span className={arxiv.title_lang}>
-//                 {value?.[`title_${lang}`]}
-//               </span>
+//               <span className="title_lang">{value?.[`title_${lang}`]}</span>
 //             </div>
 //           ))}
 //         </div>
-
-//         <ReactPaginate
-//           previousLabel={"←"}
-//           nextLabel={"→"}
-//           breakLabel={"..."}
-//           pageCount={pageCount}
-//           marginPagesDisplayed={2}
-//           pageRangeDisplayed={3}
-//           onPageChange={handlePageClick}
-//           breakClassName={"pagination-break"} // "..." uchun class
-//           containerClassName={"pagination"} // Umumiy class
-//           pageClassName={"page-item"} // Har bir raqam uchun class
-//           pageLinkClassName={"page-link"} // Har bir link uchun
-//           activeClassName={"active"} // Tanlangan sahifa uchun
-//           previousClassName={"pagination-prev"} // Oldingi tugma uchun
-//           nextClassName={"pagination-next"} // Keyingi tugma uchun
-//         />
+//         {data && (
+//           <ReactPaginate
+//             previousLabel={"←"}
+//             nextLabel={"→"}
+//             breakLabel={"..."}
+//             pageCount={pageCount}
+//             marginPagesDisplayed={2}
+//             pageRangeDisplayed={3}
+//             onPageChange={handlePageClick}
+//             breakClassName={"pagination-break"} // "..." uchun class
+//             containerClassName={"pagination"} // Umumiy class
+//             pageClassName={"page-item"} // Har bir raqam uchun class
+//             pageLinkClassName={"page-link"} // Har bir link uchun
+//             activeClassName={"active"} // Tanlangan sahifa uchun
+//             previousClassName={"pagination-prev"} // Oldingi tugma uchun
+//             nextClassName={"pagination-next"} // Keyingi tugma uchun
+//           />
+//         )}
 //       </div>
 //     </section>
 //   );

@@ -16,6 +16,24 @@
   border: 0px solid transparent;
   border-bottom: none;
 }
+
+.img-tahririyat a {
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  z-index: 999;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  border-radius: 50%;
+  background-color: rgba(30, 255, 0, 0.672);
+}
+
+.icon {
+  font-size: 20px;
+}
 .img-tahririyat img {
   width: 100%;
   height: 100%;
@@ -26,34 +44,37 @@
   display: block;
   justify-content: center;
   display: flex;
-  text-align: center;
   align-items: center;
-  transition: all 0.5s linear;
+  transition: all 0.7s linear;
   background-color: rgba(255, 0, 0, 0.774);
-  height: 60px;
+  padding: 10px 0;
   width: 78%;
   position: absolute;
-  bottom: -60px;
+  bottom: -150px;
   left: 10%;
-  font-size: 24px !important;
+  font-size: 18px !important;
   font-family: "Poppins", sans-serif;
 }
 
 .description {
-  padding: 25px;
+  padding: 10px 25px;
   background-color: rgba(128, 128, 128, 0.805);
 }
+
 .wrapper {
   transition: all 0.5s ease-in;
 }
-.wrapper .title {
-  font-size: 22px;
-  font-weight: 600;
+
+.description p {
+  color: rgba(255, 255, 255, 0.865);
+  font-size: 16px;
   text-align: center;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
   text-transform: capitalize;
-  margin: 8px 0;
-  color: rgba(0, 0, 0, 0.86);
+  /* color: rgba(18, 18, 18, 0.781); */
 }
+
 .description p {
   font-weight: 600;
   line-height: 30px;
@@ -69,14 +90,39 @@
   bottom: 30px;
   background-color: white;
   color: rgba(0, 0, 0, 0.84);
-  transition: all 0.5s linear;
+  transition: all 0.7s linear;
 }
 .wrapper:hover .img-tahririyat img {
-  transform: scale(0.9);
+  transform: scale(0.95);
   transition: all 0.5s ease-in;
 }
 .wrapper:hover .img-tahririyat {
-  border: 2px solid gray;
   transition: all 0.5s ease-in;
   border-bottom: none;
+}
+
+/* paginatsiya */
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pagination li:hover {
+  background-color: #ddd;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+  border: none;
 }

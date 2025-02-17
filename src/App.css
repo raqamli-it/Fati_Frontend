@@ -243,8 +243,9 @@ body {
 
   .markazButton button,
   .bolimButton button {
-    padding: 7px 20px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 20px;
     cursor: pointer;
   }
 
@@ -1146,7 +1147,7 @@ table {
   transition: all 0.3s ease-in-out;
   left: 50%;
   transform: translateX(-50%);
-  top: -35px;
+  top: -42px;
   justify-content: center;
   align-items: center;
   background-color: white;

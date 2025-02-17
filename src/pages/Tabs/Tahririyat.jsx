@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import "./Tahririyat.css";
+import style from "./Tahririyat.module.css";
 
 function Tahririyat() {
   // Tahririyat get jarayon qismi
@@ -12,7 +12,7 @@ function Tahririyat() {
   const TahririyatGet = async () => {
     try {
       await axios
-        .get("/kutobxona/Tahririyat/")
+        .get("/kutobxona/tahririyat/")
         .then((repons) => setTahririyat(repons?.data));
     } catch (error) {}
   };
@@ -27,17 +27,17 @@ function Tahririyat() {
   console.log(tahririyat, "salom");
 
   return (
-    <div className="tahririyat">
-      <div className="tahririyat-wrapper">
+    <div className={style.tahririyat}>
+      <div className={style["tahririyat-wrapper"]}>
         {tahririyat?.map((value, index) => (
-          <div key={index} className="wrapper">
-            <div className="img-tahririyat">
+          <div key={index} className={style.wrapper}>
+            <div className={style["img-tahririyat"]}>
               <img src={value?.file} alt="img" />
               <p>{value?.[`degree_${lang}`]}</p>
             </div>
 
-            <div className="description">
-              <p className="title">{value?.[`position_${lang}`]}</p>
+            <div className={style.description}>
+              <p className={style.title}>{value?.[`position_${lang}`]}</p>
               <p
                 dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
               ></p>

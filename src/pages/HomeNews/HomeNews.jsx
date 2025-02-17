@@ -74,8 +74,8 @@ function HomeNews({ newsData }) {
               <Fade
                 direction="up"
                 cascade
-                duration={100 * value.id}
-                delay={0}
+                delay={100 * (index + 1)}
+                duration={900}
                 triggerOnce
               >
                 <div className="news-img">

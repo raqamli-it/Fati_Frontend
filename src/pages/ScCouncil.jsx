@@ -36,22 +36,22 @@ export const ScCouncil = ({ setLoading, loading }) => {
         {data.map((item) => {
           return (
             <div className={styles.items} key={item.id}>
-              <hr className={styles.divider} />
               <img
                 src={item?.file}
                 alt={item?.[`title_${lang}`]}
                 className={styles["images"]}
               />
+
               <h2 className={styles["about-title"]}>
                 {item?.[`title_${lang}`]}
               </h2>
-              <div className={styles["about-text"]}>
-                <ol
-                  dangerouslySetInnerHTML={{
-                    __html: item?.[`content_${lang}`],
-                  }}
-                />
-              </div>
+
+              <h3
+                className={styles["about-text"]}
+                dangerouslySetInnerHTML={{
+                  __html: item?.[`content_${lang}`],
+                }}
+              ></h3>
             </div>
           );
         })}

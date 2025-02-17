@@ -33,41 +33,6 @@ const headerSettings = {
   autoplaySpeed: 6000,
 };
 
-const settings = {
-  className: "center",
-  centerMode: true,
-  infinite: true,
-  centerPadding: "60px",
-  slidesToShow: 3,
-  speed: 500,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
-
 export const Home = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const [doctaurantsData, setDoctaurantsData] = useState([]);
@@ -152,8 +117,6 @@ export const Home = ({ setLoading, loading }) => {
       text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
     },
   ];
-
-  console.log(doctaurantsData, "salom");
 
   return (
     <section>

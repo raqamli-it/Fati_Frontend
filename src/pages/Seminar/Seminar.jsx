@@ -13,9 +13,7 @@ export const Seminar = ({ setLoading, loading }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        await axios
-          .get(`/seminar/seminar/`)
-          .then((req) => setData(req.data.results));
+        await axios.get(`/seminar/seminar/`).then((req) => setData(req.data));
 
         setLoading(false);
       } catch (error) {
@@ -33,14 +31,14 @@ export const Seminar = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "data");
+  console.log(data, "data seminar");
 
   return (
     <section className={seminar["seminar-container"]}>
       <h1>{FindIdCategory[0]?.[`title_${lang}`]}</h1>
       <h3
         dangerouslySetInnerHTML={{
-          __html: FindIdCategory[0]?.[`subcontent_${lang}`],
+          __html: FindIdCategory[0]?.[`content_${lang}`],
         }}
       ></h3>
     </section>

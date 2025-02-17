@@ -1,17 +1,16 @@
 .container {
-  margin: 170px 50px 200px 50px;
+  margin: 100px auto 50px;
+  max-width: 1320px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   align-items: flex-start;
 }
 
 .person-card {
-  width: 320px;
   padding: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
   background-color: #fff;
 }
 
@@ -20,14 +19,17 @@
 }
 
 .name {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   color: #2d3748;
 }
 
 .position,
 .degree {
   font-size: 14px;
+  line-height: 28px;
   color: #718096;
 }
 
@@ -36,6 +38,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 8px;
+  line-height: 28px;
   font-size: 14px;
   color: #4a5568;
 }

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-// import "./Talablar.css";
-import "./Tahririyat.css";
+import style from "./Talablar.module.css";
 
 function Talablar() {
   // Talablar get jarayon qismi
@@ -13,8 +12,8 @@ function Talablar() {
   const TalablarGet = async () => {
     try {
       await axios
-        .get("/kutobxona/talablar/")
-        .then((repons) => setTalablar(repons?.data));
+        .get(`/kutobxona/talablar/`)
+        .then((repons) => setTalablar(repons?.data.results));
     } catch (error) {}
   };
 
@@ -22,18 +21,19 @@ function Talablar() {
     TalablarGet();
   }, []);
 
+  console.log(talablar, "talablar");
+
   return (
-    <div className="tahririyat">
-      <div className="tahririyat-wrapper">
+    <div className={style.talablar}>
+      <div className={style["talablar-wrapper"]}>
         {talablar?.map((value, index) => (
-          <div key={index} className="wrapper">
-            <div className="img-tahririyat">
+          <div key={index} className={style.wrapper}>
+            <p className={style.title}>{value?.[`title_${lang}`]}</p>
+            <div className={style["img-talablar"]}>
               <img src={value?.image} alt="img" />
-              {/* <p>{value?.[`degree_${lang}`]}</p> */}
             </div>
 
-            <div className="description">
-              <p className="title">{value?.[`title_${lang}`]}</p>
+            <div className={style.description}>
               <p
                 dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
               ></p>

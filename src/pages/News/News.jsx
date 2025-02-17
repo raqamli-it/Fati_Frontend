@@ -61,6 +61,8 @@ export const News = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "data");
+
   return (
     <div className={styles.news_container}>
       <h1 style={{ maxWidth: "1320px", margin: "0 auto", marginTop: "20px" }}>

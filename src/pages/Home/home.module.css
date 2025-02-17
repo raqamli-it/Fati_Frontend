@@ -198,15 +198,15 @@
 
 .wrapper {
   height: 370px;
-  overflow: hidden;
   border-radius: 20px;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .homeimg {
   border: none;
-  height: 320px;
+  height: 300px;
   border-radius: 20px;
   transition: all 0.5s ease-in-out;
 
@@ -218,16 +218,16 @@
   }
 }
 .contentTitle {
-  background-color: #4083f09a;
   text-align: center;
   position: relative;
   padding: 10px 0;
+  height: 120px;
+  background-color: gray;
   transition: all 0.5s ease-in-out;
-  height: 50px;
+  border-radius: 0 0 20px 20px;
 
   h2 {
     font-size: 16px;
-    /* font-family: "Open Sans", sans-serif; */
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
     color: #1b2c51;
@@ -235,45 +235,36 @@
     margin-bottom: 20px;
     text-transform: capitalize;
   }
-  /* p {
-    color: #0463fa;
-    text-transform: capitalize;
-    font-weight: 700;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    margin: 4px 0;
-  } */
 
   .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    transition: all 0.5s ease-in-out;
-    margin: 10px 0 5px;
-    place-items: center;
-    width: 100%;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  }
+
+  .social-links a {
+    margin: 0 10px;
   }
 }
 
 .wrapper:hover .contentTitle {
-  background-color: #4083f09a;
   position: relative;
-  margin-top: -40px;
+  margin-top: -20px;
   z-index: 999;
-}
-
-.wrapper:hover .social-links {
-  margin: 10px 0 5px;
-  transition: all 0.5s ease-in-out;
-}
-
-.wrapper:hover .contentTitle {
-  height: 100px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in;
 }
 
 .wrapper:hover img {
-  margin-top: -40px;
-  transition: all 0.5s ease-in-out;
+  margin-top: -20px;
+  transition: all 0.5s ease-in;
 }
+
+.wrapper:hover .social-links {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
 /* home-card dactarantura */
