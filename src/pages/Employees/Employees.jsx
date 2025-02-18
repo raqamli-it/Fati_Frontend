@@ -9,6 +9,8 @@ function Employees({ activeData }) {
   const lang = i18n.language;
   const navigate = useNavigate();
 
+  // console.log(activeData.xodimlar, "activeData");
+
   return (
     <div className={employees.employees}>
       <div>

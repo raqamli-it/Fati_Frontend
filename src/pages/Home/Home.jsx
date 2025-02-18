@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick/lib/slider";
 import "slick-carousel/slick/slick.css";
@@ -38,11 +38,11 @@ export const Home = ({ setLoading, loading }) => {
   const [doctaurantsData, setDoctaurantsData] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [quickLinksData, setQuickLinksData] = useState([]);
-  const [centersData, setCentersData] = useState([]);
-  const [teachers, setTeachers] = useState([]);
   const [sliderData, setSliderData] = useState([]);
   const [langVal] = useState("uz");
   const [seminar, setSeminarData] = useState([]);
+  const [centersData, setCentersData] = useState([]);
+  const [teachers, setTeachers] = useState([]);
 
   const navigate = useNavigate();
 
@@ -58,18 +58,23 @@ export const Home = ({ setLoading, loading }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
+
         await axios
           .get("/doktarantura/doktarantura/")
           .then((req) => setDoctaurantsData(req.data));
+
         await axios
           .get("/qoshimcha-malumotlar/karusel/")
           .then((req) => setSliderData(req.data));
+
         await axios
           .get("/qoshimcha-malumotlar/yangiliklar/")
           .then((req) => setNewsData(req.data));
+
         await axios
           .get("/qoshimcha-malumotlar/havolalar/")
           .then((req) => setQuickLinksData(req.data));
+
         await axios
           .get("/markazlar-bolimlar/markazlar-list")
           .then((req) => setCentersData(req.data));
@@ -82,9 +87,10 @@ export const Home = ({ setLoading, loading }) => {
           .get("/seminar/seminar-turlari/")
           .then((req) => setSeminarData(req.data));
 
-        await axios
-          .get("/qoshimcha-malumotlar/institut-tarixi/")
-          .then((req) => setData(req.data.results));
+        // await axios
+        //   .get("/qoshimcha-malumotlar/institut-tarixi/")
+        //   .then((req) => setData(req.data.results));
+
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -117,6 +123,9 @@ export const Home = ({ setLoading, loading }) => {
       text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
     },
   ];
+
+  console.log(centersData, "centersData");
+  console.log(teachers, "teachers");
 
   return (
     <section>

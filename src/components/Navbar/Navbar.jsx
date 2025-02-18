@@ -34,8 +34,8 @@ export const Navbar = () => {
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [teachers, setTeachersData] = useState([]);
-  const [seminar, setSeminarData] = useState([]);
   const [markazlar, setMarkazlarData] = useState([]);
+  const [seminar, setSeminarData] = useState([]);
 
   useEffect(() => {
     i18n.changeLanguage(langVal);
@@ -48,12 +48,14 @@ export const Navbar = () => {
         axios
           .get("/markazlar-bolimlar/bolimlar-list")
           .then((req) => setTeachersData(req.data));
-        axios
-          .get("/seminar/seminar-turlari/")
-          .then((req) => setSeminarData(req.data));
+
         axios
           .get("/markazlar-bolimlar/markazlar-list")
           .then((req) => setMarkazlarData(req.data));
+
+        axios
+          .get("/seminar/seminar-turlari/")
+          .then((req) => setSeminarData(req.data));
       } catch (error) {
         console.log(error);
       }

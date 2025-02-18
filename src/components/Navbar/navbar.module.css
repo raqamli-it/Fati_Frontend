@@ -42,7 +42,6 @@
             top: 55px;
             opacity: 1;
             visibility: visible;
-            max-width: max-content;
             transition: all 0.5s ease-in;
             width: 225px;
             z-index: 1000;
@@ -70,8 +69,8 @@
           visibility: hidden;
           position: absolute;
           top: 100px;
-          max-width: 225px;
-          transition: all 0.5s ease-in;
+          width: 225px;
+          transition: all 0.2s ease-in;
           background: #494949;
           /* backdrop-filter: blur(100px); */
           z-index: 1000;

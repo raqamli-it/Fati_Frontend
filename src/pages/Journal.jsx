@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import "./journal.css";
 import talablar from "./PageIcons/talablar.png";
 import arxiv from "./PageIcons/arxiv.webp";

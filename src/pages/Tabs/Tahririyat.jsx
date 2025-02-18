@@ -24,7 +24,8 @@ function Tahririyat() {
   }, []);
 
   // Tahririyat get jarayon qismi
-  console.log(tahririyat, "salom");
+
+  console.log(tahririyat, "tahririyat");
 
   return (
     <div className={style.tahririyat}>
@@ -33,14 +34,15 @@ function Tahririyat() {
           <div key={index} className={style.wrapper}>
             <div className={style["img-tahririyat"]}>
               <img src={value?.file} alt="img" />
-              <p>{value?.[`degree_${lang}`]}</p>
+              <p>
+                {value?.[`degree_${lang}`]} {value?.[`sphere_${lang}`]}
+              </p>
             </div>
 
             <div className={style.description}>
-              <p className={style.title}>{value?.[`position_${lang}`]}</p>
-              <p
-                dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
-              ></p>
+              <p className={style.title}>
+                {value?.[`position_${lang}`]} : {value?.[`title_${lang}`]}
+              </p>
             </div>
           </div>
         ))}

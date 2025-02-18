@@ -32,8 +32,6 @@ function Arxiv() {
     setCurrentPage(event.selected + 1);
   };
 
-  console.log(arxiv, "arxiv");
-
   return (
     <div className={style.tahririyat}>
       <div className={style["tahririyat-wrapper"]}>

@@ -66,12 +66,15 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
               icon: <MdDashboardCustomize size={36} />,
               label: t("umumiy ma'lumot"),
             },
+            
             { id: 2, icon: <FaUserFriends size={36} />, label: t("xodimlar") },
+
             {
               id: 3,
               icon: <GiArchiveResearch size={36} />,
               label: t("tadqiqotlar"),
             },
+
             {
               id: 4,
               icon: <FaPhotoVideo size={36} />,

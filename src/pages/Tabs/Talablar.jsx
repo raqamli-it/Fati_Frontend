@@ -21,8 +21,6 @@ function Talablar() {
     TalablarGet();
   }, []);
 
-  console.log(talablar, "talablar");
-
   return (
     <div className={style.talablar}>
       <div className={style["talablar-wrapper"]}>

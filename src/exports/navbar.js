@@ -37,18 +37,6 @@ export const navbarData = [
     content: "centers",
     to: "/centers-and-departments",
     links: 3,
-    // links: [
-    //   {
-    //     id: "",
-    //     content: '"Etnologiya va antropologiya" markazi',
-    //     to: "/centers-and-departments/7",
-    //   },
-    //   {
-    //     id: "",
-    //     content: '"Tarixshunoslik va manbashunoslik" markazi',
-    //     to: "/centers-and-departments/8",
-    //   },
-    // ],
   },
 
   {
