@@ -4,13 +4,13 @@
 
 .cards {
   gap: 30px;
-  display: flex;
-  justify-content: space-between;
   margin-top: 35px;
-  /* height: 450px; */
   .img {
-    flex: 1;
+    float: left;
+    width: 50%;
+    margin-right: 20px;
     height: 450px;
+    margin-bottom: 5px;
     img {
       width: 100%;
       height: 100%;
@@ -18,10 +18,10 @@
   }
 
   .contants {
-    flex: 1;
     padding-right: 10px;
+    transition: all 0.5s ease-in;
     min-height: 450px;
-    transition: all 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
 
     .btn {
       border: none;
@@ -32,9 +32,14 @@
       font-family: "Poppins", sans-serif;
       padding: 0 20px;
       font-size: 18px;
-      margin: 20px 0;
+      margin-top: 20px;
       cursor: pointer;
       display: block;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgb(78, 118, 2);
+      }
     }
 
     p {
@@ -42,12 +47,14 @@
       font-weight: 400;
       line-height: 25px;
       font-size: 16px;
+      transition: all 0.5s ease-in-out;
     }
 
     h2 {
       font-size: 32px;
       color: rgb(93, 139, 3);
       font-weight: 600;
+      margin: 0;
       font-family: "Poppins", sans-serif;
     }
 
@@ -58,11 +65,13 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       font-family: "Poppins", sans-serif;
+      transition: all 0.5s ease-in-out;
     }
 
     .openText {
       font-size: 18px;
       font-family: "Poppins", sans-serif;
+      transition: all 0.5s ease-in-out;
     }
   }
 }

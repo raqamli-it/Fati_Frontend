@@ -1,23 +1,26 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useCallback, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick/lib/slider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HomeNews from "../HomeNews/HomeNews";
-import dateFormat from "dateformat";
-import { GiCloudDownload } from "react-icons/gi";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
-import { FaExternalLinkAlt } from "react-icons/fa";
 import { AiOutlineLink } from "react-icons/ai";
+// import { navbarData } from "../../exports/navbar";
+
 // iconkalar
 import avtoreferat from "./kutubxonaIcon/avtoreferat.png";
 import elektronkitoblar from "./kutubxonaIcon/elektronkitoblar.png";
+
 import manbalar from "./kutubxonaIcon/manbalar.png";
+import adabiyotlar from "./kutubxonaIcon/adabiyotlar.jpg";
+import arxivVahujjat from "./kutubxonaIcon/arxivVahujjat.jpg";
+import avtoreferatlar from "./kutubxonaIcon/avtoreferatlar.jpg";
 
 import { Zoom } from "react-awesome-reveal";
 import bgImage from "./bg.jpg";
@@ -45,8 +48,10 @@ export const Home = ({ setLoading, loading }) => {
   const [teachers, setTeachers] = useState([]);
 
   const navigate = useNavigate();
+  const doctaurant = useNavigate();
+  const seminarNavigate = useNavigate();
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const lang = i18n.language;
 
   useEffect(() => {
@@ -102,27 +107,37 @@ export const Home = ({ setLoading, loading }) => {
   const booksData = [
     {
       id: 1,
-      title: "Avtoreferatlar",
-      icon: avtoreferat,
-      toLink: "/abstracts",
+      title: "Adabiyotlar",
+      icon: adabiyotlar,
+      toLink: "/adabiyotlar",
       text: "Ushbu bo‘limda dissertatsiya avtoreferatlari jamlangan bo‘lib, tarix fanining turli yo‘nalishlari bo‘yicha olib borilgan ilmiy tadqiqotlar bilan tanishishingiz mumkin. Bu materiallar tadqiqotchilar, talaba va ilmiy izlanish olib boruvchilar uchun muhim manba hisoblanadi",
     },
     {
       id: 2,
-      title: "Elektron kitoblar",
-      icon: elektronkitoblar,
-      toLink: "/elektrone",
+      title: "Manbalar",
+      icon: manbalar,
+      toLink: "/manbalar",
       text: "Elektron kutubxonamizda tarixiy tadqiqotlar, ilmiy monografiyalar va nodir manbalar to‘plangan. Siz bu yerda turli davrlarga oid akademik asarlar bilan tanishib, ilmiy izlanishlaringiz uchun foydali ma’lumotlarni topishingiz mumkin",
     },
 
     {
       id: 3,
-      title: "Manbalar",
-      icon: manbalar,
-      toLink: "/e-books",
+      title: "Avtorefaratlar",
+      icon: avtoreferatlar,
+      toLink: "/avtorefaratlar",
+      text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
+    },
+
+    {
+      id: 4,
+      title: "Arxivlar va hujjatlar",
+      icon: arxivVahujjat,
+      toLink: "/arxivlarVaHujjatlar",
       text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
     },
   ];
+
+  console.log(seminar, "seminar");
 
   return (
     <section>
@@ -198,7 +213,12 @@ export const Home = ({ setLoading, loading }) => {
         </div>
 
         <div className="img-cards">
-          <h2>{t("doctaurants")}</h2>
+          <h2
+            style={{ cursor: "pointer" }}
+            onClick={() => doctaurant("/doctaurants")}
+          >
+            {t("doctaurants")}
+          </h2>
           <div className={styles["home-card"]}>
             {doctaurantsData?.slice(-4).map((item, index) => {
               return (
@@ -264,7 +284,11 @@ export const Home = ({ setLoading, loading }) => {
             <div className="yiginlar">
               {seminar?.map((item, index) => {
                 return (
-                  <div key={index} className="card-yiginlar">
+                  <div
+                    onClick={() => seminarNavigate(`/seminar/${item.id}`)}
+                    key={index}
+                    className="card-yiginlar"
+                  >
                     <div>
                       <p>{item?.[`title_${lang}`]}</p>
                       <p></p>
@@ -281,7 +305,7 @@ export const Home = ({ setLoading, loading }) => {
           <div className="card-list">
             {booksData?.map((item, index) => (
               <div className="card-container" key={index}>
-                <Link className="link" to={item.toLink}>
+                <Link className="link" to={`${item.toLink}/${item.id}`}>
                   <img src={item?.icon} alt="Book" />
                   <p>{item.title}</p>
                 </Link>

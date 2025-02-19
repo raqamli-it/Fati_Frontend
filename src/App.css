@@ -1024,7 +1024,7 @@ table {
 
 .card-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding-top: 30px;
 }
 
@@ -1034,20 +1034,24 @@ table {
 }
 
 .card-container img {
+  width: 65px;
   display: block;
   margin: 0 auto;
-  width: 65px;
   height: 65px;
 }
 
 .card-container .link {
+  display: block;
   transition: all 0.4s ease-in-out;
 }
 
 .link p {
   margin: 10px 0;
   font-weight: 600;
-  font-size: 22px;
+  color: rgb(45, 45, 45);
+  line-height: 26px;
+  text-align: center;
+  font-size: 20px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -1056,10 +1060,9 @@ table {
   transition: all 0.4s ease-in-out;
 }
 
-.card-container p {
-  color: rgb(45, 45, 45);
-  line-height: 26px;
-  text-align: justify;
+.card-container > p:first-of-type {
+  font-weight: 400;
+  text-align: center;
 }
 
 /* book_cards */

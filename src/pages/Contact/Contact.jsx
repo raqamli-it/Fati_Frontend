@@ -55,6 +55,7 @@ export const Contact = ({ setLoading, loading }) => {
       console.error("Ma'lumotni olishda xatolik:", error);
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
@@ -135,7 +136,6 @@ export const Contact = ({ setLoading, loading }) => {
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11988.423207249718!2d69.2865385!3d41.3065619!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ad515a743d3%3A0x39f0e8ce7ec381ea!2sO&#39;zbekiston%20Respublikasi%20Fanlar%20akademiyasi!5e0!3m2!1suz!2s!4v1730127802141!5m2!1suz!2s"
           style={{
             width: "100%",
-            height: "450px",
             border: 0,
             display: "block",
             margin: "0 auto",
