@@ -13,13 +13,15 @@ function Talablar() {
     try {
       await axios
         .get(`/kutobxona/talablar/`)
-        .then((repons) => setTalablar(repons?.data.results));
+        .then((repons) => setTalablar(repons?.data));
     } catch (error) {}
   };
 
   useEffect(() => {
     TalablarGet();
   }, []);
+
+  console.log(talablar, "talablar");
 
   return (
     <div className={style.talablar}>

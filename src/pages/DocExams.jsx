@@ -37,22 +37,23 @@ export const DocExams = ({ setLoading, loading }) => {
         {data.map((item) => {
           return (
             <div className={styles.items} key={item.id}>
-              <img
-                src={item?.file}
-                alt={item?.[`title_${lang}`]}
-                className={styles["images"]}
-              />
-
-              <h2 className={styles["about-title"]}>
-                {item?.[`title_${lang}`]}
-              </h2>
+              <div style={{ float: "left", width: "50%" }}>
+                <h2 className={styles["about-title"]}>
+                  {item?.[`title_${lang}`]}
+                </h2>
+                <img
+                  className={styles["images"]}
+                  src={item?.file}
+                  alt={item?.[`title_${lang}`]}
+                />
+              </div>
 
               <div
                 className={styles["about-text"]}
                 dangerouslySetInnerHTML={{
                   __html: item?.[`content_${lang}`],
                 }}
-              />
+              ></div>
             </div>
           );
         })}

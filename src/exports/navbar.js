@@ -1,11 +1,5 @@
 export const navbarData = [
   {
-    id: 7,
-    content: "news",
-    to: "/news",
-  },
-
-  {
     id: 0,
     content: "about-n",
     links: [
@@ -106,9 +100,13 @@ export const navbarData = [
       },
 
       { id: 4, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
-
-      { id: 5, content: "Matbuot", to: "/matbuot" },
     ],
+  },
+
+  {
+    id: 7,
+    content: "news",
+    to: "/news",
   },
 ];
 

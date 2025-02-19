@@ -13,7 +13,7 @@ function Tahririyat() {
     try {
       await axios
         .get("/kutobxona/tahririyat/")
-        .then((repons) => setTahririyat(repons?.data));
+        .then((repons) => setTahririyat(repons?.data.results));
     } catch (error) {}
   };
 

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import adabiyotlar from "./Adabiyotlar.module.css";
 import { useTranslation } from "react-i18next";
 import ReactPaginate from "react-paginate";
+import nodata from "../../public/assets/no-data.png";
 
 const Manbalar = () => {
   const { i18n, t } = useTranslation();
@@ -53,35 +54,52 @@ const Manbalar = () => {
       </div>
 
       <div>
-        <div className={adabiyotlar.imgContainer}>
-          {filterManbalar.length > 0 ? (
-            filterManbalar.map((img, index) => (
-              <div key={index} className={adabiyotlar.card}>
-                <div className={adabiyotlar.img}>
-                  <img src={img.image} alt={img[`title_${lang}`]} />
-                  <a href={img.file} target="_blank" rel="noopener noreferrer">
-                    <AiOutlineRead style={{ fontSize: "30px" }} />
-                  </a>
+        {filterManbalar.length > 0 ? (
+          <div>
+            <div className={adabiyotlar.imgContainer}>
+              {filterManbalar.map((img, index) => (
+                <div key={index} className={adabiyotlar.card}>
+                  <div className={adabiyotlar.img}>
+                    <img src={img.image} alt={img[`title_${lang}`]} />
+                    <a
+                      href={img.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <AiOutlineRead style={{ fontSize: "30px" }} />
+                    </a>
+                  </div>
+                  <p>{img?.[`title_${lang}`]}</p>
                 </div>
-                <p>{img?.[`title_${lang}`]}</p>
-              </div>
-            ))
-          ) : (
-            <p>Salomat</p>
-          )}
-        </div>
+              ))}
+            </div>
 
-        <ReactPaginate
-          previousLabel={"←"}
-          nextLabel={"→"}
-          breakLabel={"..."}
-          pageCount={pageCount} // Jami sahifalar soni
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={3}
-          onPageChange={handlePageClick} // Sahifa almashganda
-          containerClassName={adabiyotlar.pagination}
-          activeClassName={adabiyotlar.active}
-        />
+            <ReactPaginate
+              previousLabel={"←"}
+              nextLabel={"→"}
+              breakLabel={"..."}
+              pageCount={pageCount} // Jami sahifalar soni
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={3}
+              onPageChange={handlePageClick} // Sahifa almashganda
+              containerClassName={adabiyotlar.pagination}
+              activeClassName={adabiyotlar.active}
+            />
+          </div>
+        ) : (
+          <div>
+            <img
+              src={nodata}
+              alt=""
+              style={{
+                width: "42%",
+                height: "300px",
+                margin: "0 auto",
+                display: "block",
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

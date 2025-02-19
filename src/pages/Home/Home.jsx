@@ -124,9 +124,6 @@ export const Home = ({ setLoading, loading }) => {
     },
   ];
 
-  console.log(centersData, "centersData");
-  console.log(teachers, "teachers");
-
   return (
     <section>
       <header className={styles.header}>
@@ -221,7 +218,6 @@ export const Home = ({ setLoading, loading }) => {
                       <h2 key={item.id}>
                         {item?.[`title_${lang}`]?.toLowerCase()}
                       </h2>
-                      {/* <p>{item?.type}</p> */}
 
                       <div className={styles["social-links"]}>
                         <a href="">
@@ -260,6 +256,7 @@ export const Home = ({ setLoading, loading }) => {
                 fontSize: "36px",
                 fontFamily: "Poppins,sans-serf",
                 color: "white",
+                textAlign: "center",
               }}
             >
               {t("gatherings")}

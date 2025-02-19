@@ -37,8 +37,6 @@ import { JournalDetail } from "./pages/Jounrnal.Detail";
 import Tahririyat from "./pages/Tabs/Tahririyat";
 import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
-import EmployeesDetails from "./pages/Employees/EmployeesDetails";
-import Matbuot from "./pages/Matbuot";
 import Adabiyotlar from "./pages/Adabiyotlar";
 import Manbalar from "./pages/Manbalar";
 
@@ -102,13 +100,6 @@ const App = () => {
           path="centers-and-departments/:type/:id"
           element={
             <CentersAndDepartments setLoading={setLoading} loading={loading} />
-          }
-        />
-
-        <Route
-          path="centers-and-departments/:type/:id/:detail"
-          element={
-            <EmployeesDetails setLoading={setLoading} loading={loading} />
           }
         />
 
@@ -209,8 +200,6 @@ const App = () => {
             <ArxivlarVaHujjatlar setLoading={setLoading} loading={loading} />
           }
         />
-
-        <Route path="matbuot/:matbuotId" element={<Matbuot />} />
 
         <Route
           path="avtorefaratlar/:avtorefaratlarId"

@@ -10,7 +10,10 @@ function Research({ activeData }) {
 
   return (
     <div className="tadqiqotlar">
-      {activeData?.tadqiqotlar?.map((value, index) => (
+      {(Array.isArray(activeData?.tadqiqotlar)
+        ? activeData?.tadqiqotlar
+        : activeData?.tadqiqot
+      )?.map((value, index) => (
         <div key={index}>
           <h1>{value?.[`title_${lang}`]}</h1>
           <img src={value.image} alt={value?.[`title_${lang}`]} />

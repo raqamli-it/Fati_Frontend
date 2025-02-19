@@ -16,12 +16,12 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   const [activePage, setActivePage] = useState(1);
   const { type, id } = useParams();
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
 
+  const [data, setData] = useState([]);
   const lang = i18n.language;
 
   useEffect(() => {
-    if (type !== "markaz" && type !== "bolim") {
+    if (!type || (type !== "bolim" && type !== "markaz")) {
       navigate("/not-found");
     }
   }, [type, navigate]);
@@ -29,6 +29,9 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
+
+      // Type va id ni tekshiramiz
+
       const path = `/markazlar-bolimlar/${type}/${id}`;
 
       const { data } = await axios.get(path);
@@ -39,13 +42,13 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     } finally {
       setLoading(false);
     }
-  }, [id, type, setLoading]);
+  }, [id, type]);
 
   useEffect(() => {
     if (type === "markaz" || type === "bolim") {
       fetchData();
     }
-  }, [fetchData, type]);
+  }, [type, id]); // id ham dependencyga qo‘shildi
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
@@ -55,7 +58,8 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "dadadada");
+  console.log(data, "nimalar olamda");
+
   return (
     <section className={styles["center-departments"]}>
       <div className={styles.bg_img}>
@@ -66,7 +70,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
               icon: <MdDashboardCustomize size={36} />,
               label: t("umumiy ma'lumot"),
             },
-            
+
             { id: 2, icon: <FaUserFriends size={36} />, label: t("xodimlar") },
 
             {

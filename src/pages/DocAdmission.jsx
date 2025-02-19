@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types";
 import styles from "./DocAdmission.module.css";
 
 export const DocAdmission = ({ setLoading, loading }) => {
@@ -30,37 +29,33 @@ export const DocAdmission = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "DocAdmission");
+
   return (
-    <section className={styles["container"]}>
-      <div className={styles["about-container"]}>
-        {data.map((item) => {
-          return (
-            <div className={styles.items} key={item.id}>
-              <hr className={styles.divider} />
-              <img
-                src={item?.file}
-                alt={item?.[`title_${lang}`]}
-                className={styles["images"]}
-              />
+    <div className={styles["about-container"]}>
+      {data.map((item) => {
+        return (
+          <div className={styles.items} key={item.id}>
+            <div style={{ float: "left", width: "50%" }}>
               <h2 className={styles["about-title"]}>
                 {item?.[`title_${lang}`]}
               </h2>
-              <div className={styles["about-text"]}>
-                <ol
-                  dangerouslySetInnerHTML={{
-                    __html: item?.[`content_${lang}`],
-                  }}
-                />
-              </div>
+              <img
+                className={styles["images"]}
+                src={item?.file}
+                alt={item?.[`title_${lang}`]}
+              />
             </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-};
 
-DocAdmission.propTypes = {
-  setLoading: PropTypes.func,
-  loading: PropTypes.any,
+            <div
+              className={styles["about-text"]}
+              dangerouslySetInnerHTML={{
+                __html: item?.[`content_${lang}`],
+              }}
+            ></div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };

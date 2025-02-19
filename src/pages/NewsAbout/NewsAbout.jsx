@@ -32,12 +32,16 @@ export const NewsAbout = ({ setLoading, loading }) => {
     };
     fetchData();
   }, [id]);
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "data");
 
   return (
     <section className={styles.section}>
@@ -66,11 +70,9 @@ export const NewsAbout = ({ setLoading, loading }) => {
               data?.created_at?.slice(0, 4)}
           </span>
         </div>
-
         <div className={styles.img}>
           <img src={data?.image} alt="img" />
         </div>
-
         <ul dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
       </div>
     </section>

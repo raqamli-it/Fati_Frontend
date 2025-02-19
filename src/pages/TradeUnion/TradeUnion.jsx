@@ -8,7 +8,7 @@ export const TradeUnion = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { t, i18n } = useTranslation();
-  const lang = i18n.language;
+  const lang = i18n.language  ;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,12 +39,7 @@ export const TradeUnion = () => {
         <h1>Ilmiy Xodimlar Va Loyiha Qatnashchilari</h1>
         <div className={style["team-grid"]}>
           {teamMembers?.map((value, index) => (
-            <div
-              key={index}
-              className={`${style.card} ${
-                index % 2 === 1 ? style["team-member-t"] : ""
-              }`}
-            >
+            <div key={index} className={`${style.card}`}>
               <div className={style["team-member"]}>
                 <img src={value.image} alt={value.title_uz} />
               </div>

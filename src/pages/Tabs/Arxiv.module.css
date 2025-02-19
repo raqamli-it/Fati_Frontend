@@ -17,6 +17,30 @@
   border-bottom: none;
 }
 
+/* search input style */
+.searchInput {
+  width: 30%;
+  transition: all 0.4s ease-in-out;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: 2px solid gray;
+  outline: none;
+  height: 48px;
+  color: #12111170;
+  padding: 0 15px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border-radius: 8px;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 20px gray;
+  transition: all 0.4s ease-in-out;
+  border-color: black;
+  border-color: gray;
+}
+/* search input style */
+
 .img-tahririyat a {
   width: 38px;
   height: 38px;
