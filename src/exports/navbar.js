@@ -85,13 +85,12 @@ export const navbarData = [
     links: [
       {
         id: "tahririyat",
-        content: "O'zbekiston tarix jurnali",
+        content: "O'zbekiston Tarix Jurnali",
         to: "/journal",
       },
+      { id: 1, content: "Manbalar", to: "/manbalar" },
 
-      { id: 1, content: "Adabiyotlar", to: "/adabiyotlar" },
-
-      { id: 2, content: "Manbalar", to: "/manbalar" },
+      { id: 2, content: "Adabiyotlar", to: "/adabiyotlar" },
 
       {
         id: 3,
@@ -99,7 +98,7 @@ export const navbarData = [
         to: "/avtorefaratlar",
       },
 
-      { id: 4, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
+      // { id: 4, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
     ],
   },
 

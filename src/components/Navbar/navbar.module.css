@@ -33,7 +33,6 @@
       li {
         p {
           cursor: pointer;
-          transition: all 0.5s ease-in;
         }
         &:hover {
           opacity: 0.8;

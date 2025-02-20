@@ -106,14 +106,14 @@ export const Home = ({ setLoading, loading }) => {
 
   const booksData = [
     {
-      id: 1,
-      title: "Adabiyotlar",
+      id: "",
+      title: "O'zbekiston Tarix Jurnali",
       icon: adabiyotlar,
-      toLink: "/adabiyotlar",
+      toLink: "/journal/tahririyat",
       text: "Ushbu bo‘limda dissertatsiya avtoreferatlari jamlangan bo‘lib, tarix fanining turli yo‘nalishlari bo‘yicha olib borilgan ilmiy tadqiqotlar bilan tanishishingiz mumkin. Bu materiallar tadqiqotchilar, talaba va ilmiy izlanish olib boruvchilar uchun muhim manba hisoblanadi",
     },
     {
-      id: 2,
+      id: 1,
       title: "Manbalar",
       icon: manbalar,
       toLink: "/manbalar",
@@ -121,20 +121,28 @@ export const Home = ({ setLoading, loading }) => {
     },
 
     {
-      id: 3,
-      title: "Avtorefaratlar",
+      id: 2,
+      title: "Adabiyotlar",
       icon: avtoreferatlar,
-      toLink: "/avtorefaratlar",
+      toLink: "/adabiyotlar",
       text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
     },
 
     {
-      id: 4,
-      title: "Arxivlar va hujjatlar",
-      icon: arxivVahujjat,
-      toLink: "/arxivlarVaHujjatlar",
-      text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
+      id: 3,
+      title: "Avtoreferatlar",
+      icon: adabiyotlar,
+      toLink: "/avtorefaratlar",
+      text: "Ushbu bo‘limda dissertatsiya avtoreferatlari jamlangan bo‘lib, tarix fanining turli yo‘nalishlari bo‘yicha olib borilgan ilmiy tadqiqotlar bilan tanishishingiz mumkin. Bu materiallar tadqiqotchilar, talaba va ilmiy izlanish olib boruvchilar uchun muhim manba hisoblanadi",
     },
+
+    // {
+    //   id: 4,
+    //   title: "Arxivlar va hujjatlar",
+    //   icon: arxivVahujjat,
+    //   toLink: "/arxivlarVaHujjatlar",
+    //   text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
+    // },
   ];
 
   console.log(seminar, "seminar");
