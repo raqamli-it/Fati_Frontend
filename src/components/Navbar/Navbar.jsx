@@ -137,6 +137,7 @@ export const Navbar = () => {
                         height: "55px",
                         margin: "0 20px",
                         fontSize: "16px",
+                        fontWeight: "300",
                         justifyContent: "center",
                       }}
                     >
@@ -150,6 +151,8 @@ export const Navbar = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         height: "55px",
+                        fontWeight: "300",
+                        fontSize: "16px",
                         width: "90px",
                       }}
                       to={item.to}

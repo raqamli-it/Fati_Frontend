@@ -170,7 +170,13 @@ export const Home = ({ setLoading, loading }) => {
                 );
               })}
             </div>
+          </div>
+        </div>
 
+        <div className="img-cards">
+          <h2>{t("departments")}</h2>
+
+          <div className="markaz_va_bolim">
             <div className="bolimButton">
               {teachers.map((item, index) => {
                 return (
