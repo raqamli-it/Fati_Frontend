@@ -2,28 +2,37 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import style from "./Tahririyat.module.css";
+import ReactPaginate from "react-paginate";
 
 function Tahririyat() {
   // Tahririyat get jarayon qismi
   const [tahririyat, setTahririyat] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
-  const TahririyatGet = async () => {
+  const TahririyatGet = async (Id = 1) => {
     try {
-      await axios
-        .get("/kutobxona/tahririyat/")
-        .then((repons) => setTahririyat(repons?.data.results));
+      const tahririyatPagination = await axios.get(
+        `/kutobxona/tahririyat/?page=${Id}`
+      );
+      setTahririyat(tahririyatPagination?.data.results);
+      setPageCount(Math.ceil(tahririyatPagination.data.count / 3));
     } catch (error) {}
   };
 
   // const lang = i18n.language;
 
   useEffect(() => {
-    TahririyatGet();
-  }, []);
+    TahririyatGet(currentPage);
+  }, [currentPage]);
 
   // Tahririyat get jarayon qismi
+
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected + 1);
+  };
 
   console.log(tahririyat, "tahririyat");
 
@@ -47,6 +56,18 @@ function Tahririyat() {
           </div>
         ))}
       </div>
+
+      <ReactPaginate
+        previousLabel={"←"}
+        nextLabel={"→"}
+        breakLabel={"..."}
+        pageCount={pageCount} // Jami sahifalar soni
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={3}
+        onPageChange={handlePageClick} // Sahifa almashganda
+        containerClassName={style.pagination}
+        activeClassName={style.active}
+      />
     </div>
   );
 }

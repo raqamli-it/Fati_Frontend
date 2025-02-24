@@ -32,9 +32,9 @@ export const Time = () => {
     <div className={styles.div + " mob-hide"}>
       <div>
         <p>{hour < 10 ? "0" + hour : hour}</p>
-        <span>:</span>
+        <span style={{ color: "white" }}>:</span>
         <p>{minute < 10 ? "0" + minute : minute}</p>
-        <span>:</span>
+        <span style={{ color: "white" }}>:</span>
         <p>{second < 10 ? "0" + second : second}</p>
         <b></b>
         <p>

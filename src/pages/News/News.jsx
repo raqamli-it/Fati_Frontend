@@ -43,7 +43,7 @@ export const News = ({ setLoading, loading }) => {
       try {
         setLoading(true);
         await axios
-          .get("http://backend.fati.uz/qoshimcha-malumotlar/yangiliklar/")
+          .get("/qoshimcha-malumotlar/yangiliklar/")
           .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
@@ -65,26 +65,26 @@ export const News = ({ setLoading, loading }) => {
 
   return (
     <div className={styles.news_container}>
-      <h1 style={{ maxWidth: "1320px", margin: "0 auto", marginTop: "20px" }}>
+      <h1
+        style={{
+          maxWidth: "1320px",
+          margin: "0 auto",
+          marginTop: "20px",
+          textAlign: "center",
+          fontSize: "40px",
+        }}
+      >
         {t("news")}
       </h1>
 
       <div className={styles.news}>
-        {data?.map((item) => {
+        {data?.map((item, index) => {
           return (
-            <div className={styles.card} key={item?.id}>
+            <div className={styles.card} key={index}>
               <img src={item.image} alt={item[`title_${lang}`]} />
 
               <div className={styles.content}>
                 <h2>{item?.[`title_${lang}`]}</h2>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      item?.[`content_${lang}`].length > 200
-                        ? item?.[`content_${lang}`].slice(0, 100) + "..."
-                        : item?.[`content_${lang}`],
-                  }}
-                ></p>
                 <div className={styles["news-title"]}>
                   <span>
                     {item?.created_at?.slice(8, 10) +
@@ -98,9 +98,9 @@ export const News = ({ setLoading, loading }) => {
                     title={
                       <span
                         style={{
-                          fontSize: "14px",
                           lineHeight: "30px",
                           fontWeight: 200,
+                          color: "white",
                         }}
                       >
                         Batafsil ko'rish

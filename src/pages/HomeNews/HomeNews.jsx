@@ -57,7 +57,9 @@ function HomeNews({ newsData }) {
 
   return (
     <div>
-      <h2 className="title">Yangiliklar</h2>
+      <h2 onClick={() => navigate(`/news`)} className="title">
+        Yangiliklar
+      </h2>
       <div className="news-container slider-container">
         <button className="prevButton" onClick={previous}>
           <GrPrevious />
@@ -86,16 +88,26 @@ function HomeNews({ newsData }) {
               {/* <p className="title_en">{value.title_en}</p> */}
               <div className="lineX"></div>
 
-              <p
-                className="content_uz"
-                dangerouslySetInnerHTML={{ __html: value.content_uz }}
-              ></p>
-              <button
-                onClick={() => navigate(`news/${value.id}`)}
-                className="news-btn"
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  minHeight: "160px",
+                  width: "90%",
+                }}
               >
-                Xammasini ko'rish
-              </button>
+                <p
+                  className="content_uz"
+                  dangerouslySetInnerHTML={{ __html: value.content_uz }}
+                ></p>
+                <button
+                  onClick={() => navigate(`news/${value.id}`)}
+                  className="news-btn"
+                >
+                  Batafsil
+                </button>
+              </div>
             </div>
           ))}
         </Slider>

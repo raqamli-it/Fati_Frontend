@@ -101,7 +101,7 @@
   .change {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     color: white;
     margin: 5px 0;
     cursor: pointer;

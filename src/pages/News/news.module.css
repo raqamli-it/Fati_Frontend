@@ -57,9 +57,13 @@
 
 .content h2 {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
+  height: 84px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
   font-family: "Poppins", sans-serif;
-  display: block;
 }
 
 .content p {

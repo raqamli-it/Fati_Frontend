@@ -7,7 +7,7 @@
   overflow: hidden;
   position: relative;
 
-  ul {
+  /* ul {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -73,9 +73,40 @@
         }
       }
     }
+  } */
+  .global-search {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    transform: translate(-50%, -50%);
+    input {
+      height: 60px;
+      background-color: #d9d9d9ab;
+      border-radius: 12px;
+      font-size: 26px;
+      display: block;
+      left: 25%;
+      font-weight: 400;
+      width: 50%;
+
+      border: none;
+      outline: none;
+      padding: 0 25px;
+    }
+    button {
+      padding: 0 25px;
+      background-color: #d9d9d9ab;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 26px;
+      outline: none;
+    }
   }
 }
-
 .container {
   max-width: 100%;
   background-color: white;

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import style from "./Arxiv.module.css";
 import ReactPaginate from "react-paginate";
-import { FcDownload } from "react-icons/fc";
+import { FcDownload, FcSearch } from "react-icons/fc";
 import nodata from "../../../public/assets/no-data.png";
 
 function Arxiv() {
@@ -14,42 +14,64 @@ function Arxiv() {
   const [arxiv, setArxiv] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(""); // Asosiy qidiruv matni
+  const [tempSearch, setTempSearch] = useState(""); // Inputga yoziladigan vaqtinchalik qidiruv
 
-  const GetArxiv = async (Page = 1, books = "") => {
+  const GetArxiv = async (Page = 1, query = "") => {
     try {
       const response = await axios.get(
-        `/kutobxona/arxivlar/?search=${books}&page=${Page}`
+        `/kutobxona/arxivlar/?search=${query}&page=${Page}`
       );
       setArxiv(response?.data.results);
-      setPageCount(Math.ceil(response.data.count / 10));
+      setPageCount(Math.ceil(response.data.count / 3));
     } catch (error) {
       console.error("Arxivlardan ma'lumotlarini olishda xatolik:", error);
     }
   };
 
   useEffect(() => {
-    GetArxiv(currentPage, search);
-  }, [currentPage, search]);
+    GetArxiv(currentPage, search); // Faqat sahifa o'zgarsa so'rov yuboriladi
+  }, [currentPage]);
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected + 1);
   };
 
-  // Books search
-  const BooksSearch = (value) => {
-    setSearch(value.target.value);
+  // Icon bosilganda qidiruv boshlanadi
+  const BooksSearch = () => {
+    setSearch(tempSearch); // Yangi qidiruv so‘zini belgilaymiz
+    GetArxiv(1, tempSearch); // Backendga so‘rov yuboramiz
+    setCurrentPage(1); // 1-sahifadan boshlash
   };
-  // Books search
+
+  const handleOpenPDF = (pdfUrl) => {
+    window.open(pdfUrl, "_blank", "noopener,noreferrer");
+  };
+
+  console.log(arxiv, "arxiv");
 
   return (
     <div className={style.tahririyat}>
-      <div>
+      <div
+        style={{ position: "relative", display: "inline-block", width: "32%" }}
+      >
         <input
-          type="search"
+          type="text"
           placeholder="Search ..."
-          onChange={BooksSearch}
+          value={tempSearch} // Inputni `tempSearch` bilan bog‘laymiz
+          onChange={(e) => setTempSearch(e.target.value)} // Vaqtinchalik searchni yangilash
           className={style.searchInput}
+        />
+        <FcSearch
+          onClick={BooksSearch}
+          style={{
+            fontSize: "30px",
+            position: "absolute",
+            right: "10px",
+            cursor: "pointer",
+            top: "38%",
+            transform: "translateY(-50%)",
+          }}
         />
       </div>
 
@@ -62,9 +84,8 @@ function Arxiv() {
                   <div className={style["img-tahririyat"]}>
                     <img src={value?.image} alt="img" />
                     <a
-                      src={value.file}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleOpenPDF(value.file)}
                     >
                       <FcDownload className={style.icon} />
                     </a>
@@ -94,11 +115,11 @@ function Arxiv() {
           <div>
             <img
               src={nodata}
-              alt=""
+              alt="No data"
               style={{
-                width: "42%",
+                width: "35%",
                 height: "300px",
-                margin: "0 auto",
+                margin: "25px auto 0",
                 display: "block",
               }}
             />

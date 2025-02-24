@@ -10,12 +10,15 @@ import { Time } from "./Time";
 import { Wheater } from "./Wheater";
 import axios from "axios";
 
+import uzbek from "../../../public/assets/uzbek.png";
+import english from "../../../public/assets/english.png";
+
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 126) {
+      if (window.scrollY >= 90) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -30,12 +33,21 @@ export const Navbar = () => {
   const { i18n, t } = useTranslation();
   const lang = i18n.language;
 
-  const [langVal, setLangValue] = useState("uz");
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [teachers, setTeachersData] = useState([]);
   const [markazlar, setMarkazlarData] = useState([]);
   const [seminar, setSeminarData] = useState([]);
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("i18lng") || "uz";
+    setLangValue(savedLang);
+    i18n.changeLanguage(savedLang);
+  }, []);
+
+  const [langVal, setLangValue] = useState(
+    localStorage.getItem("i18lng") || "uz"
+  );
 
   useEffect(() => {
     i18n.changeLanguage(langVal);
@@ -65,11 +77,11 @@ export const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.top_alert}>
+      {/* <div className={styles.top_alert}>
         <Time />
         <p className={styles.alert}>{t("test")}</p>
-        {/* <Wheater /> */}
-      </div>
+        <Wheater />
+      </div> */}
 
       <div className={styles.container}>
         <div className={styles.top}>
@@ -80,32 +92,23 @@ export const Navbar = () => {
           {/* <Search /> */}
 
           <div className={styles.lang}>
-            <div
-              className={styles.change}
-              onClick={() => setShowLang((prev) => !prev)}
-            >
-              <img
-                src={`/assets/${langVal === "en" ? "english" : "uzbek"}.png`}
-                alt="flag"
-              />
-              <p>{langVal === "en" ? "English" : "O'zbekcha"}</p>
-            </div>
-
-            {showLang && (
-              <span
-                onClick={() => {
-                  setLangValue(langVal != "en" ? "en" : "uz");
-                  setShowLang((prev) => !prev);
-                }}
-                className={styles.change}
+            <div className={styles.change}>
+              <div
+                onClick={() => setLangValue("uz")}
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
-                <img
-                  src={`/assets/${langVal != "en" ? "english" : "uzbek"}.png`}
-                  alt="flag"
-                />
-                <p>{langVal != "en" ? "English" : "O'zbekcha"}</p>
-              </span>
-            )}
+                <img src={uzbek} alt="flag" />
+                <p>UZB</p>
+              </div>
+
+              <div
+                onClick={() => setLangValue("en")}
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <img src={english} alt="flag" />
+                <p>ENG</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -137,7 +140,7 @@ export const Navbar = () => {
                         height: "55px",
                         margin: "0 20px",
                         fontSize: "16px",
-                        fontWeight: "300",
+                        fontWeight: "400",
                         justifyContent: "center",
                       }}
                     >
@@ -151,7 +154,7 @@ export const Navbar = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         height: "55px",
-                        fontWeight: "300",
+                        fontWeight: "400",
                         fontSize: "16px",
                         width: "90px",
                       }}

@@ -8,6 +8,13 @@ export const GlobalProjects = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
+  const [activePage, setActivePage] = useState("Amaldagi loyihalar");
+
+  const ActiveButton = (id) => {
+    console.log("Bosilgan ID:", id);
+    setActivePage(id);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,25 +32,48 @@ export const GlobalProjects = ({ setLoading, loading }) => {
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "salomat");
+  const mapData = data.find(
+    (value) => value.status.trim() === activePage.trim()
+  );
+
+  console.log(data);
+
   return (
     <div className={style.globalProjects}>
-      {data.map((item, index) => (
-        <div key={index} className={style.card}>
-          <img src={item.img_file} alt={item?.[`title_${lang}`]} />
-          <h3>{item?.[`title_${lang}`]}</h3>
+      <div className={style.findPage}>
+        {data?.map((item, index) => (
+          <button
+            className={`${
+              item.status.trim() === activePage.trim()
+                ? style.activeButton
+                : style.button
+            }`}
+            onClick={() => ActiveButton(item.status)}
+            key={index}
+          >
+            {item.status}
+          </button>
+        ))}
+      </div>
+
+      <div>
+        <div className={style.card}>
+          {/* <img src={mapData.img_file} alt={mapData?.[`title_${lang}`]} /> */}
+
+          <h3>{mapData?.[`title_${lang}`]}</h3>
           <div
             className={style.table}
             dangerouslySetInnerHTML={{
-              __html: item?.[`content_${lang}`],
+              __html: mapData?.[`content_${lang}`],
             }}
           ></div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

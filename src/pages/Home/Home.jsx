@@ -145,14 +145,23 @@ export const Home = ({ setLoading, loading }) => {
     // },
   ];
 
-  console.log(seminar, "seminar");
+  console.log(centersData, "centersData");
+  console.log(teachers, "teachers");
 
   return (
     <section>
       <header className={styles.header}>
         <Slider {...headerSettings} className="slides">
           {sliderData?.map((item, index) => {
-            return <div key={index}>{<img src={item?.file} />}</div>;
+            return (
+              <div key={index}>
+                {<img src={item?.file} />}
+                <div className={styles["global-search"]}>
+                  <input type="text" placeholder="Search ... " />
+                  <button>Qidiruv</button>
+                </div>
+              </div>
+            );
           })}
         </Slider>
       </header>
@@ -167,14 +176,17 @@ export const Home = ({ setLoading, loading }) => {
             <div className="markazButton">
               {centersData.map((item, index) => {
                 return (
-                  <button
-                    key={index}
-                    onClick={() =>
-                      navigate(`/centers-and-departments/markaz/${item.id}`)
-                    }
-                  >
-                    {item?.[`title_${lang}`]}
-                  </button>
+                  <div key={index}>
+                    <img src={item.image} />
+                    <p>{item?.[`title_${lang}`]}</p>
+                    <button
+                      onClick={() =>
+                        navigate(`/centers-and-departments/markaz/${item.id}`)
+                      }
+                    >
+                      Batafsil
+                    </button>
+                  </div>
                 );
               })}
             </div>
@@ -188,14 +200,17 @@ export const Home = ({ setLoading, loading }) => {
             <div className="bolimButton">
               {teachers.map((item, index) => {
                 return (
-                  <button
-                    key={index}
-                    onClick={() =>
-                      navigate(`/centers-and-departments/bolim/${item.id}`)
-                    }
-                  >
-                    {item?.[`title_${lang}`]}
-                  </button>
+                  <div key={index}>
+                    <img src={item.image} alt="" />
+                    <p>{item?.[`title_${lang}`]}</p>
+                    <button
+                      onClick={() =>
+                        navigate(`/centers-and-departments/bolim/${item.id}`)
+                      }
+                    >
+                      Batafsil
+                    </button>
+                  </div>
                 );
               })}
             </div>
@@ -320,10 +335,13 @@ export const Home = ({ setLoading, loading }) => {
             {booksData?.map((item, index) => (
               <div className="card-container" key={index}>
                 <Link className="link" to={`${item.toLink}/${item.id}`}>
-                  <img src={item?.icon} alt="Book" />
+                  <img
+                    src={item?.icon}
+                    alt="Book"
+                    style={{ width: "180px", height: "150px" }}
+                  />
                   <p>{item.title}</p>
                 </Link>
-                <p>{item.text}</p>
               </div>
             ))}
           </div>

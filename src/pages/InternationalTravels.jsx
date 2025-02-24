@@ -15,7 +15,7 @@ export const InternationalTravels = ({ loading, setLoading }) => {
         setLoading(true);
         await axios
           .get("/xalqaro-aloqalar/xalqaro-sayohatlar/")
-          .then((req) => setData(req.data.results));
+          .then((req) => setData(req.data));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
