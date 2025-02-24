@@ -242,10 +242,15 @@ body {
     justify-content: center;
   }
 
+  .shadow {
+    box-shadow: 0 0 5px gray;
+  }
+
   .markazButton p,
   .bolimButton p {
     display: -webkit-box;
     height: 52px;
+    padding: 5px 15px;
     line-height: 24px;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -265,6 +270,7 @@ body {
     color: #023e8a;
     background-color: transparent;
     border: none;
+    padding: 5px 15px 10px;
     font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: flex-end;

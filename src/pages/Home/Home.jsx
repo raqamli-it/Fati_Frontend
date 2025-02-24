@@ -176,7 +176,7 @@ export const Home = ({ setLoading, loading }) => {
             <div className="markazButton">
               {centersData.map((item, index) => {
                 return (
-                  <div key={index}>
+                  <div key={index} className="shadow">
                     <img src={item.image} />
                     <p>{item?.[`title_${lang}`]}</p>
                     <button
@@ -200,7 +200,7 @@ export const Home = ({ setLoading, loading }) => {
             <div className="bolimButton">
               {teachers.map((item, index) => {
                 return (
-                  <div key={index}>
+                  <div key={index} className="shadow">
                     <img src={item.image} alt="" />
                     <p>{item?.[`title_${lang}`]}</p>
                     <button
