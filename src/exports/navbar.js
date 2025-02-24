@@ -85,7 +85,7 @@ export const navbarData = [
     links: [
       {
         id: "tahririyat",
-        content: "O'zbekiston Tarix Jurnali",
+        content: '"O\'zbekiston Tarix" Jurnali',
         to: "/journal",
       },
       { id: 1, content: "Manbalar", to: "/manbalar" },
