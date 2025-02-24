@@ -4,12 +4,14 @@
 
 .cards {
   gap: 30px;
-  margin-top: 35px;
+  margin-top: 120px;
+  display: grid;
+  grid-template-columns: 1fr;
   .img {
-    float: left;
-    width: 50%;
+    width: 100%;
+    margin-top: 50px;
+    height: 350px;
     margin-right: 20px;
-    height: 450px;
     img {
       width: 100%;
       height: 100%;
@@ -18,6 +20,8 @@
 
   .contants {
     padding-right: 10px;
+    max-width: 1320px;
+    margin: 0 auto 30px;
     transition: all 0.5s ease-in;
     min-height: 450px;
     transition: max-height 0.5s ease-in-out;
@@ -25,34 +29,29 @@
     .btn {
       border: none;
       height: 48px;
-      background-color: rgb(93, 139, 3);
+      background-color: #023e8a;
       text-align: center;
       color: white;
       font-family: "Poppins", sans-serif;
       padding: 0 20px;
+      font-weight: 400;
       font-size: 18px;
       margin-top: 20px;
       cursor: pointer;
-      display: block;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: rgb(78, 118, 2);
-      }
     }
 
     p {
       text-align: justify;
       font-weight: 400;
-      line-height: 27px;
+      line-height: 26px;
       font-size: 16px;
       transition: all 0.5s ease-in-out;
     }
 
     h2 {
       font-size: 32px;
-      color: rgb(93, 139, 3);
-      font-weight: 600;
+      color: rgba(0, 0, 0, 0.892);
+      font-weight: 400;
       margin: 0;
       font-family: "Poppins", sans-serif;
     }

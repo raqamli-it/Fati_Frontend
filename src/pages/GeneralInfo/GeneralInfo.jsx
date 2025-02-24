@@ -17,34 +17,27 @@ function GeneralInfo({ data }) {
 
   return (
     <div className={generalInfo.generalInfo}>
-      <div className={generalInfo.card}>
-        <div className={generalInfo.cards}>
-          <div className={generalInfo.img}>
-            <img src={data.image} alt={data?.[`title_${lang}`]} />
-          </div>
+      <div className={generalInfo.cards}>
+        <div className={generalInfo.img}>
+          <img src={data.image} alt={data?.[`title_${lang}`]} />
+        </div>
 
-          <div className={generalInfo.contants}>
-            <h2>{data?.[`title_${lang}`]}</h2>
+        <div className={generalInfo.contants}>
+          <h2>{data?.[`title_${lang}`]}</h2>
 
-            <p
-              style={{
-                transition: "all 0.5s ease-in-out",
-              }}
-              className={
-                openItems[data.id]
-                  ? generalInfo.openText
-                  : generalInfo.hiddenText
-              }
-              dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }}
-            ></p>
+          <p
+            style={{
+              transition: "all 0.5s ease-in-out",
+            }}
+            className={
+              openItems[data.id] ? generalInfo.openText : generalInfo.hiddenText
+            }
+            dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }}
+          ></p>
 
-            <button
-              onClick={() => OpenBtn(data.id)}
-              className={generalInfo.btn}
-            >
-              {openItems[data.id] ? "Yopish" : "Ko'proq o'qish"}
-            </button>
-          </div>
+          <button onClick={() => OpenBtn(data.id)} className={generalInfo.btn}>
+            {openItems[data.id] ? "Yopish" : "Ko'proq o'qish"}
+          </button>
         </div>
       </div>
     </div>

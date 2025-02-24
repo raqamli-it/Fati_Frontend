@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
+  margin: 150px auto 50px;
 }
 
 .videos,

@@ -13,12 +13,13 @@
   .tab {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: absolute;
     max-width: 1320px;
     gap: 30px;
     bottom: -100px;
     left: 50%;
-    width: 75%;
+    width: 100%;
     transform: translateX(-50%);
   }
 
@@ -56,12 +57,12 @@
     transition: all 0.5s ease-in-out;
   }
 
-  .tab_card {
+  /* .tab_card {
     max-width: 1320px;
     margin: 0 auto;
   }
 
   .tab_card {
     padding: 150px 0 60px;
-  }
+  } */
 }

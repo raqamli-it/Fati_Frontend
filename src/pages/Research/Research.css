@@ -1,5 +1,6 @@
 .tadqiqotlar {
-  width: 100%;
+  max-width: 1320px;
+  margin: 150px auto 50px;
 }
 
 .tadqiqotlar h1 {
