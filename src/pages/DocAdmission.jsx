@@ -22,6 +22,7 @@ export const DocAdmission = ({ setLoading, loading }) => {
     };
     fetchData();
   }, []);
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
@@ -36,8 +37,8 @@ export const DocAdmission = ({ setLoading, loading }) => {
       {data.map((item) => {
         return (
           <div className={styles.items} key={item.id}>
-            <div style={{ float: "left", width: "50%" }}>
-              <h2 className={styles["about-title"]}>
+            <div>
+              <h2>
                 {item?.[`title_${lang}`]}
               </h2>
               <img

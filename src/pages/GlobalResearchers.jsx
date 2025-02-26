@@ -36,7 +36,7 @@ export const GlobalResearchers = ({ setLoading, loading }) => {
     <div className={style.globalResearchers}>
       <div className={style.card}>
         {data?.map((value, index) => (
-          <div key={index} className={style.cards}>
+          <div key={index}>
             <div className={style.cardLeft}>
               <h1>{value?.[`title_${lang}`]}</h1>
               <img src={value?.img_file} alt={value?.[`title_${lang}`]} />

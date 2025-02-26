@@ -55,6 +55,8 @@ function HomeNews({ newsData }) {
     ],
   };
 
+  console.log(newsData, "newsData");
+
   return (
     <div>
       <h2 onClick={() => navigate(`/news`)} className="title">
@@ -93,14 +95,15 @@ function HomeNews({ newsData }) {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  minHeight: "160px",
+                  minHeight: "150px",
                   width: "90%",
                 }}
               >
-                <p
+                {/* <p
                   className="content_uz"
                   dangerouslySetInnerHTML={{ __html: value.content_uz }}
-                ></p>
+                ></p> */}
+                <p className="content_uz">{value.title_uz}</p>
                 <button
                   onClick={() => navigate(`news/${value.id}`)}
                   className="news-btn"

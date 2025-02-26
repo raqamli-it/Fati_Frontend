@@ -1,6 +1,7 @@
 {
   "about-n": "Biz haqimizda",
   "about": "Institut haqida",
+  "HRPanel": "Kadrlar bo‘limi",
   "centers": "Markazlar",
   "departments": "Bo'limlar",
   "councils": "Kengashlar",
@@ -40,6 +41,10 @@
   "search": "Qidiruv",
   "search-results": "Qidiruv natijalari",
   "home-page": "Bosh sahifa",
+  "malumotlar": "umumiy ma'lumot",
+  "xodimlar": "xodimlar",
+  "tadqiqotlar": "tadqiqotlar",
+  "foto_va_video": "foto va video",
   "news": "Yangiliklar",
   "latest_news": "So'nggi yangiliklar",
   "all_news": "Barcha yangiliklar",

@@ -63,7 +63,9 @@ export const GlobalProjects = ({ setLoading, loading }) => {
 
       <div>
         <div className={style.card}>
-          {/* <img src={mapData.img_file} alt={mapData?.[`title_${lang}`]} /> */}
+          {/* {mapData.img_file && (
+            <img src={mapData.img_file} alt={mapData?.[`title_${lang}`]} />
+          )} */}
 
           <h3>{mapData?.[`title_${lang}`]}</h3>
           <div

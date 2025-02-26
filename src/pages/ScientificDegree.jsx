@@ -8,6 +8,7 @@ export const ScientificDegree = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +29,6 @@ export const ScientificDegree = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "ScientificDegree");
 
   return (
     <section className={styles.container}>

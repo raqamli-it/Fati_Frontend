@@ -145,9 +145,6 @@ export const Home = ({ setLoading, loading }) => {
     // },
   ];
 
-  console.log(centersData, "centersData");
-  console.log(teachers, "teachers");
-
   return (
     <section>
       <header className={styles.header}>
@@ -171,12 +168,11 @@ export const Home = ({ setLoading, loading }) => {
 
         <div className="img-cards">
           <h2>{t("centers")}</h2>
-
           <div className="markaz_va_bolim">
             <div className="markazButton">
               {centersData.map((item, index) => {
                 return (
-                  <div key={index} className="shadow">
+                  <div key={index} className="shadowMarkaz">
                     <img src={item.image} />
                     <p>{item?.[`title_${lang}`]}</p>
                     <button
@@ -195,7 +191,6 @@ export const Home = ({ setLoading, loading }) => {
 
         <div className="img-cards">
           <h2>{t("departments")}</h2>
-
           <div className="markaz_va_bolim">
             <div className="bolimButton">
               {teachers.map((item, index) => {
@@ -219,26 +214,22 @@ export const Home = ({ setLoading, loading }) => {
 
         <div className="img-cards">
           <h2>{t("councils")}</h2>
-          <ul>
-            <li className="no-border">
-              <Link to={"scientific-degree"}>
-                <p>{t("scientific-degree")}</p>
-                <img src="./assets/icons/arrow.svg" alt="arrow" />
-              </Link>
-            </li>
-            <li className="no-border">
-              <Link to={"scientific-degree"}>
-                <p> {t("sc-young")}</p>
-                <img src="./assets/icons/arrow.svg" alt="arrow" />
-              </Link>
-            </li>
-            <li className="no-border">
-              <Link to={"scientific-degree"}>
-                <p> {t("sc-council")}</p>
-                <img src="./assets/icons/arrow.svg" alt="arrow" />
-              </Link>
-            </li>
-          </ul>
+          <div className="kengashlar">
+            <Link className="yiginlarDetail" to="/sc-young">
+              <span> {t("sc-council")}</span>
+              <img src="./assets/icons/arrow.svg" alt="arrow" />
+            </Link>
+
+            <Link className="yiginlarDetail" to="/sc-council">
+              <span>{t("scientific-degree")}</span>
+              <img src="./assets/icons/arrow.svg" alt="arrow" />
+            </Link>
+
+            <Link className="yiginlarDetail" to="/scientific-degree">
+              <span> {t("sc-young")}</span>
+              <img src="./assets/icons/arrow.svg" alt="arrow" />
+            </Link>
+          </div>
         </div>
 
         <div className="img-cards">
@@ -293,7 +284,7 @@ export const Home = ({ setLoading, loading }) => {
             height: "400px",
             backgroundImage: `url(${bgImage})`,
             backgroundSize: "cover",
-            backgroundPosition: "bottom",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >

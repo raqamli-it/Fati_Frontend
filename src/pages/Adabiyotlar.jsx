@@ -48,7 +48,7 @@ const Adabiyotlar = () => {
   return (
     <div className={adabiyotlar.container}>
       <div
-        style={{ position: "relative", display: "inline-block", width: "100%" }}
+        style={{ position: "relative", display: "inline-block", width: "50%" }}
       >
         <input
           type="text"

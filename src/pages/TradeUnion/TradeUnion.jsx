@@ -8,7 +8,7 @@ export const TradeUnion = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { t, i18n } = useTranslation();
-  const lang = i18n.language  ;
+  const lang = i18n.language;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +36,7 @@ export const TradeUnion = () => {
       {teamMembers && <div className={style.chiziq}></div>}
 
       <div className={style.tradeUnionContainer}>
-        <h1>Ilmiy Xodimlar Va Loyiha Qatnashchilari</h1>
+        <h1>Institut boshqaruvi</h1>
         <div className={style["team-grid"]}>
           {teamMembers?.map((value, index) => (
             <div key={index} className={`${style.card}`}>

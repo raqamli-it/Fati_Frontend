@@ -58,8 +58,6 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "nimalar olamda");
-
   return (
     <section className={styles["center-departments"]}>
       <div className={styles.bg_img}>
@@ -67,30 +65,29 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
           {[
             {
               id: 1,
-              icon: <MdDashboardCustomize size={36} />,
-              label: t("umumiy ma'lumot"),
+              icon: <MdDashboardCustomize size={50} />,
+              label: t("malumotlar"),
             },
 
-            { id: 2, icon: <FaUserFriends size={36} />, label: t("xodimlar") },
+            { id: 2, icon: <FaUserFriends size={50} />, label: t("xodimlar") },
 
             {
               id: 3,
-              icon: <GiArchiveResearch size={36} />,
+              icon: <GiArchiveResearch size={50} />,
               label: t("tadqiqotlar"),
             },
 
             {
               id: 4,
-              icon: <FaPhotoVideo size={36} />,
-              label: t("foto va video"),
+              icon: <FaPhotoVideo size={50} />,
+              label: t("foto_va_video"),
             },
           ].map((tab) => (
             <button
               key={tab.id}
               style={{
-                color: activePage === tab.id ? "rgb(189, 21, 21)" : "",
-                border:
-                  activePage === tab.id ? "3px solid rgb(189, 21, 21)" : "",
+                color: activePage === tab.id ? "#023E8A" : "",
+                border: activePage === tab.id ? "3px solid #023E8A" : "",
               }}
               onClick={() => setActivePage(tab.id)}
               className={styles.links}

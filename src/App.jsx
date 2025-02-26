@@ -39,6 +39,7 @@ import Talablar from "./pages/Tabs/Talablar";
 import Arxiv from "./pages/Tabs/Arxiv";
 import Adabiyotlar from "./pages/Adabiyotlar";
 import Manbalar from "./pages/Manbalar";
+import HRPanel from "./pages/HRPanel/HRPanel";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -84,6 +85,11 @@ const App = () => {
         <Route
           path="about"
           element={<About setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="HRPanel"
+          element={<HRPanel setLoading={setLoading} loading={loading} />}
         />
 
         <Route

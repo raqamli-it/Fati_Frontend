@@ -1,6 +1,7 @@
 {
   "about-n": "About us",
   "about": "About the Institute",
+  "HRPanel": "HR Department",
   "centers": "Centers",
   "departments": "Departments",
   "councils": "Councils",
@@ -10,6 +11,10 @@
   "internationals": "International cooperation",
   "contact": "Contact",
   "trade-union": "Management",
+  "malumotlar": "general information",
+  "xodimlar": "employees",
+  "tadqiqotlar": "studies",
+  "foto_va_video": "photo goes video",
   "organization-structure": "Institute structure",
   "doc-legal": "Regulatory documents",
   "centers1": "Department of Ancient History",

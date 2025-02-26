@@ -104,12 +104,13 @@
   font-family: sans-serif;
   color: #444444;
   margin: 0 15px;
-  height: 130px;
   line-height: 24px;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
+  letter-spacing: 1px;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-size: 16px;
 }
 
 .news-btn {
@@ -120,6 +121,7 @@
   background-color: #03a9f4 !important;
   margin: 16px;
   width: 40%;
+  margin-left: 66%;
   border-radius: 4px !important;
   color: white !important;
   font-size: 18px;
@@ -133,7 +135,7 @@
 }
 
 .news-items:hover img {
-  transform: scale(0.95);
+  transform: scale(0.93);
 }
 
 .news-items:hover .lineX {

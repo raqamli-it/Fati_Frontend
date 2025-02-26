@@ -32,7 +32,6 @@ export const Contact = ({ setLoading, loading }) => {
       );
 
       if (response) {
-        console.log("Javob:", response);
         toast.success("Xabar muvaffaqiyatli jo‘natildi!");
         setName("");
         setPhone("");
@@ -40,7 +39,6 @@ export const Contact = ({ setLoading, loading }) => {
       }
     } catch (error) {
       toast.error("Xabar jo‘natishda xatolik yuz berdi!");
-      console.error("Xatolik:", error);
     } finally {
       setLoading(false);
     }
@@ -98,7 +96,7 @@ export const Contact = ({ setLoading, loading }) => {
           <h2>Bizga xabar yuboring</h2>
           <div className={styles.sendMessage}>
             <div className={styles.inputValue}>
-              <label htmlFor="ism">Isim</label>
+              <label htmlFor="ism">Ism</label>
               <input
                 required
                 onChange={(e) => setName(e.target.value)}

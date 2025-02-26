@@ -1,6 +1,6 @@
 .navbar {
   user-select: none;
-  background: rgb(1, 1, 60);
+  background: #023e8a;
   overflow: hidden;
   color: #fff;
 
@@ -105,13 +105,22 @@
     color: white;
     margin: 5px 0;
     cursor: pointer;
-    p {
-      font-size: 14px;
+
+    select {
+      background-color: transparent;
+      border: 2px solid gray;
+      height: 38px;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      outline: none;
+      width: 120px;
+
+      option {
+        background-color: gray;
+      }
     }
-  }
-  img {
-    width: 22px;
-    height: 16px;
   }
 }
 

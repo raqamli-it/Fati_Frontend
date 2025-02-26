@@ -10,11 +10,10 @@ import { Time } from "./Time";
 import { Wheater } from "./Wheater";
 import axios from "axios";
 
-import uzbek from "../../../public/assets/uzbek.png";
-import english from "../../../public/assets/english.png";
-
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const [language, setLanguage] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +31,6 @@ export const Navbar = () => {
 
   const { i18n, t } = useTranslation();
   const lang = i18n.language;
-
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [teachers, setTeachersData] = useState([]);
@@ -93,9 +91,22 @@ export const Navbar = () => {
 
           <div className={styles.lang}>
             <div className={styles.change}>
-              <div
+              <select
+                onChange={(e) => setLangValue(e.target.value)}
+                value={langVal}
+              >
+                <option value="uz">UZB</option>
+                <option value="en">ENG</option>
+              </select>
+
+              {/* <div
                 onClick={() => setLangValue("uz")}
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  cursor: "pointer",
+                }}
               >
                 <img src={uzbek} alt="flag" />
                 <p>UZB</p>
@@ -103,11 +114,16 @@ export const Navbar = () => {
 
               <div
                 onClick={() => setLangValue("en")}
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  cursor: "pointer",
+                }}
               >
                 <img src={english} alt="flag" />
                 <p>ENG</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

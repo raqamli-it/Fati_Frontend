@@ -29,11 +29,10 @@ export const About = ({ loading, setLoading }) => {
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
-
-  console.log(data, "About");
 
   return (
     <section className={style.about}>
@@ -41,7 +40,6 @@ export const About = ({ loading, setLoading }) => {
         <div key={index} className={style.card}>
           <img src={item.image} alt={item.name || "Rasm"} />
           <p className={style.text}>{item?.[`title_${lang}`]}</p>
-
           <p
             dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
           ></p>

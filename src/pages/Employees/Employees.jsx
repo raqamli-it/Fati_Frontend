@@ -32,22 +32,27 @@ function Employees({ activeData }) {
               {value?.[`ful_name_${lang}`]}
             </span>
 
-            <Accordion sx={{ boxShadow: "none", marginBottom: "15px" }}>
+            <Accordion
+              disableGutters
+              style={{
+                overflow: "hidden",
+                borderRadius: "20px",
+                boxShadow: "0 0 5px gray",
+                marginTop: "20px",
+              }}
+            >
               <AccordionSummary
-                style={{
-                  backgroundColor: "gray",
-                  height: "50px",
-                  color: "white",
+                sx={{
+                  boxShadow: "0 0 5px gray",
+                  height: "60px",
+                  borderTop: "none",
+                  borderRadius: "20px",
                 }}
-                expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon />}
               >
-                <Typography
-                  component="div"
-                  style={{ fontSize: "20px", margin: "0" }}
-                >
-                  Xaqida
-                </Typography>
+                <Typography sx={{ fontSize: "20px" }}>Xaqida</Typography>
               </AccordionSummary>
+
               <AccordionDetails>
                 <div
                   style={{
@@ -64,19 +69,27 @@ function Employees({ activeData }) {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ boxShadow: "none", marginBottom: "15px" }}>
+            <Accordion
+              disableGutters
+              style={{
+                overflow: "hidden",
+                borderRadius: "20px",
+                boxShadow: "0 0 5px gray",
+                marginTop: "20px",
+              }}
+            >
               <AccordionSummary
-                style={{
-                  backgroundColor: "gray",
-                  height: "50px",
-                  color: "white",
+                sx={{
+                  boxShadow: "0 0 5px gray",
+                  height: "60px",
+                  borderTop: "none",
+                  borderRadius: "20px",
                 }}
-                expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon />}
               >
-                <Typography component="div" style={{ fontSize: "20px" }}>
-                  Active
-                </Typography>
+                <Typography sx={{ fontSize: "20px" }}>Faoliyati</Typography>
               </AccordionSummary>
+
               <AccordionDetails>
                 <div
                   style={{
@@ -93,20 +106,26 @@ function Employees({ activeData }) {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion sx={{ boxShadow: "none" }}>
+            <Accordion
+              disableGutters
+              style={{
+                overflow: "hidden",
+                borderRadius: "20px",
+                boxShadow: "0 0 5px gray",
+                marginTop: "20px",
+              }}
+            >
               <AccordionSummary
-                style={{
-                  backgroundColor: "gray",
-                  height: "50px",
-                  color: "white",
+                sx={{
+                  boxShadow: "0 0 5px gray",
+                  height: "60px",
+                  borderTop: "none",
+                  borderRadius: "20px",
                 }}
-                expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
+                expandIcon={<ExpandMoreIcon />}
               >
-                <Typography component="div" style={{ fontSize: "20px" }}>
-                  Ishlari
-                </Typography>
+                <Typography sx={{ fontSize: "20px" }}>Ishlari</Typography>
               </AccordionSummary>
-
               <AccordionDetails>
                 <div
                   style={{
