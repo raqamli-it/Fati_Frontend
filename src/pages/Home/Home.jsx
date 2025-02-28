@@ -14,13 +14,10 @@ import { AiOutlineLink } from "react-icons/ai";
 // import { navbarData } from "../../exports/navbar";
 
 // iconkalar
-import avtoreferat from "./kutubxonaIcon/avtoreferat.png";
-import elektronkitoblar from "./kutubxonaIcon/elektronkitoblar.png";
-
+import jurnali from "./kutubxonaIcon/jurnali.jpg";
 import manbalar from "./kutubxonaIcon/manbalar.png";
 import adabiyotlar from "./kutubxonaIcon/adabiyotlar.jpg";
-import arxivVahujjat from "./kutubxonaIcon/arxivVahujjat.jpg";
-import avtoreferatlar from "./kutubxonaIcon/avtoreferatlar.jpg";
+import avtorefaratlar from "./kutubxonaIcon/avtorefaratlar.jpg";
 
 import { Zoom } from "react-awesome-reveal";
 import bgImage from "./bg.jpg";
@@ -108,7 +105,7 @@ export const Home = ({ setLoading, loading }) => {
     {
       id: "",
       title: "O'zbekiston Tarix Jurnali",
-      icon: adabiyotlar,
+      icon: jurnali,
       toLink: "/journal/tahririyat",
       text: "Ushbu bo‘limda dissertatsiya avtoreferatlari jamlangan bo‘lib, tarix fanining turli yo‘nalishlari bo‘yicha olib borilgan ilmiy tadqiqotlar bilan tanishishingiz mumkin. Bu materiallar tadqiqotchilar, talaba va ilmiy izlanish olib boruvchilar uchun muhim manba hisoblanadi",
     },
@@ -123,7 +120,7 @@ export const Home = ({ setLoading, loading }) => {
     {
       id: 2,
       title: "Adabiyotlar",
-      icon: avtoreferatlar,
+      icon: adabiyotlar,
       toLink: "/adabiyotlar",
       text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
     },
@@ -131,18 +128,10 @@ export const Home = ({ setLoading, loading }) => {
     {
       id: 3,
       title: "Avtoreferatlar",
-      icon: adabiyotlar,
+      icon: avtorefaratlar,
       toLink: "/avtorefaratlar",
       text: "Ushbu bo‘limda dissertatsiya avtoreferatlari jamlangan bo‘lib, tarix fanining turli yo‘nalishlari bo‘yicha olib borilgan ilmiy tadqiqotlar bilan tanishishingiz mumkin. Bu materiallar tadqiqotchilar, talaba va ilmiy izlanish olib boruvchilar uchun muhim manba hisoblanadi",
     },
-
-    // {
-    //   id: 4,
-    //   title: "Arxivlar va hujjatlar",
-    //   icon: arxivVahujjat,
-    //   toLink: "/arxivlarVaHujjatlar",
-    //   text: "Ushbu bo‘limda tarixiy manbalar, arxiv hujjatlari va tadqiqotlar uchun muhim materiallar to‘plangan. Ilmiy izlanishlar uchun zarur bo‘lgan barcha manbalarni topishingiz mumkin",
-    // },
   ];
 
   return (
@@ -334,7 +323,7 @@ export const Home = ({ setLoading, loading }) => {
                   <img
                     src={item?.icon}
                     alt="Book"
-                    style={{ width: "180px", height: "150px" }}
+                    style={{ width: "140px", height: "120px" }}
                   />
                   <p>{item.title}</p>
                 </Link>
@@ -344,7 +333,7 @@ export const Home = ({ setLoading, loading }) => {
         </div>
 
         <div className="img-cards">
-          <h2>Foydali havolalar</h2>
+          <h2 style={{ margin: "70px 0 30px" }}>Foydali havolalar</h2>
           <div className="hovolalar">
             {quickLinksData?.map((item, index) => {
               return (
