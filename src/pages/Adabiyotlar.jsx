@@ -24,7 +24,7 @@ const Adabiyotlar = () => {
       );
 
       setFilterAdabiyotlar(response.data.results);
-      setPageCount(Math.ceil(response.data.count / 3)); // Har sahifada 10 ta element bor deb faraz qilamiz
+      setPageCount(Math.ceil(response.data.count / 16)); // Har sahifada 10 ta element bor deb faraz qilamiz
     } catch (error) {
       console.error("Kitoblarni olishda xatolik:", error);
     }

@@ -52,24 +52,25 @@ export const Navbar = () => {
     localStorage.setItem("i18lng", langVal);
   }, [langVal]);
 
+  const fetchData = () => {
+    try {
+      axios
+        .get("/markazlar-bolimlar/bolimlar-list")
+        .then((req) => setTeachersData(req.data));
+
+      axios
+        .get("/markazlar-bolimlar/markazlar-list")
+        .then((req) => setMarkazlarData(req.data));
+
+      axios
+        .get("/seminar/seminar-turlari/")
+        .then((req) => setSeminarData(req.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = () => {
-      try {
-        axios
-          .get("/markazlar-bolimlar/bolimlar-list")
-          .then((req) => setTeachersData(req.data));
-
-        axios
-          .get("/markazlar-bolimlar/markazlar-list")
-          .then((req) => setMarkazlarData(req.data));
-
-        axios
-          .get("/seminar/seminar-turlari/")
-          .then((req) => setSeminarData(req.data));
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchData();
   }, []);
 

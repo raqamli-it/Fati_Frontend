@@ -1,10 +1,13 @@
-.cards {
+.wrapper {
   max-width: 1320px;
+  margin: 100px auto 70px;
+}
+
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 20px;
   align-items: flex-start;
-  margin: 100px auto 70px;
 }
 .contents {
   display: flex;
@@ -69,4 +72,26 @@
 .card-image {
   width: 100%;
   height: 300px;
+}
+
+/* paginatsiya */
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pagination .active {
+  background-color: #007bff;
+  color: white;
+  border: none;
 }

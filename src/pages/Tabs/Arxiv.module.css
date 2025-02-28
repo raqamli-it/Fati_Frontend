@@ -3,11 +3,14 @@
   margin: 0 auto;
   padding: 50px 0;
 }
+
 .tahririyat-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
+
 .img-tahririyat {
   position: relative;
   height: 300px;
@@ -91,7 +94,7 @@
 .description p {
   color: rgba(255, 255, 255, 0.865);
   font-size: 16px;
-  text-align: center;
+  text-align: justify;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;

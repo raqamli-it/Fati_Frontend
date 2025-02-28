@@ -30,14 +30,12 @@ export const ScYoung = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "ScYoung");
-
   return (
     <div className={styles["about-container"]}>
       {data.map((item) => {
         return (
           <div className={styles.items} key={item.id}>
-            <div style={{ float: "left", width: "50%" }}>
+            <div>
               <h2 className={styles["about-title"]}>
                 {item?.[`title_${lang}`]}
               </h2>

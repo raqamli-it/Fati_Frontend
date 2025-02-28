@@ -13,24 +13,30 @@
   justify-content: center;
 }
 
-h3 table {
+table {
   width: 100% !important;
+  margin: 0 auto;
 }
 
-h3 table tr td p,
+table tr td p,
 strong {
   text-align: center;
   display: block;
   line-height: 25px;
   font-weight: 500;
+  font-size: 16px;
 }
 
-h3 table tr td:first-child {
+table tr td:first-child {
   width: 6% !important;
 }
 
-h3 table tr td {
-  padding: 10px 0;
+table tr td:nth-of-type(2) {
+  width: 35% !important;
+}
+
+table tr td {
+  padding: 10px 5px;
 }
 
 .read-more {
@@ -43,25 +49,20 @@ h3 table tr td {
   text-decoration: underline;
 }
 
-.images {
-  width: 95%;
-  display: block;
-  height: 500px;
-}
-
 .about-text {
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
   font-weight: 400 !important;
+  line-height: 30px;
   color: rgba(0, 0, 0, 0.825);
 }
 
 .items h2 {
-  font-size: 38px;
-  display: block;
+  font-size: 28px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  text-align: center;
   color: rgba(0, 0, 0, 0.825);
   margin-bottom: 20px;
 }
@@ -80,4 +81,9 @@ span {
   font-weight: 400;
   line-height: 36px;
   font-family: "Poppins", sans-serif;
+}
+
+.images {
+  height: 600px;
+  width: 100%;
 }

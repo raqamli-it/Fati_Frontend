@@ -1,50 +1,17 @@
 .container {
   margin: 100px auto 50px;
   max-width: 1320px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  align-items: flex-start;
 }
 
-.person-card {
-  padding: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  background-color: #fff;
+.description > p:nth-of-type(1) {
+  color: #242424;
+  font-size: 36px;
+  font-family: "Arial", sans-serif;
 }
 
-.card-content {
-  text-align: left;
-}
-
-.name {
-  font-size: 24px;
-  line-height: 32px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  color: #2d3748;
-}
-
-.position,
-.degree {
-  font-size: 14px;
-  line-height: 28px;
-  color: #718096;
-}
-
-.contact-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  line-height: 28px;
-  font-size: 14px;
-  color: #4a5568;
-}
-
-.icon {
-  width: 16px;
-  height: 16px;
-  color: #4a5568;
+.description p:nth-of-type(2) strong {
+  color: #151515;
+  font-size: 18px;
+  line-height: 36px;
+  font-family: "Arial", sans-serif;
 }

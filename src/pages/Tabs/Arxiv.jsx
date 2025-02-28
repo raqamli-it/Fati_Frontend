@@ -22,8 +22,8 @@ function Arxiv() {
       const response = await axios.get(
         `/kutobxona/arxivlar/?search=${query}&page=${Page}`
       );
-      setArxiv(response?.data);
-      setPageCount(Math.ceil(response.data.count / 3));
+      setArxiv(response?.data.results);
+      setPageCount(Math.ceil(response.data.count / 10));
     } catch (error) {
       console.error("Arxivlardan ma'lumotlarini olishda xatolik:", error);
     }

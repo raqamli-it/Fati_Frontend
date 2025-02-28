@@ -23,7 +23,7 @@ const Avtorefaratlar = () => {
         `/kutobxona/avtoreferat/?search=${search}&page=${Page}`
       );
       setFilterAvtoreferat(avtoreferatFilter.data.results);
-      setPageCount(Math.ceil(avtoreferatFilter.data.count / 4));
+      setPageCount(Math.ceil(avtoreferatFilter.data.count / 16));
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }

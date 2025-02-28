@@ -66,7 +66,7 @@ export const Home = ({ setLoading, loading }) => {
 
         await axios
           .get("/doktarantura/doktarantura/")
-          .then((req) => setDoctaurantsData(req.data));
+          .then((req) => setDoctaurantsData(req.data.results));
 
         await axios
           .get("/qoshimcha-malumotlar/karusel/")
@@ -154,7 +154,7 @@ export const Home = ({ setLoading, loading }) => {
               <div key={index}>
                 {<img src={item?.file} />}
                 <div className={styles["global-search"]}>
-                  <input type="text" placeholder="Search ... " />
+                  <input type="text" placeholder="Izlash ... " />
                   <button>Qidiruv</button>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export const Home = ({ setLoading, loading }) => {
           <h2>{t("councils")}</h2>
           <div className="kengashlar">
             <Link className="yiginlarDetail" to="/sc-young">
-              <span> {t("sc-council")}</span>
+              <span>{t("sc-council")}</span>
               <img src="./assets/icons/arrow.svg" alt="arrow" />
             </Link>
 
@@ -227,6 +227,11 @@ export const Home = ({ setLoading, loading }) => {
 
             <Link className="yiginlarDetail" to="/scientific-degree">
               <span> {t("sc-young")}</span>
+              <img src="./assets/icons/arrow.svg" alt="arrow" />
+            </Link>
+
+            <Link className="yiginlarDetail" to="/notices">
+              <span>{t("notices")}</span>
               <img src="./assets/icons/arrow.svg" alt="arrow" />
             </Link>
           </div>
@@ -261,13 +266,13 @@ export const Home = ({ setLoading, loading }) => {
 
                       <div className={styles["social-links"]}>
                         <a href="">
-                          <FaFacebookF style={{ color: "#0463fa" }} />
+                          <FaFacebookF style={{ color: "white" }} />
                         </a>
                         <a href="">
-                          <FaTwitter style={{ color: "#0463fa" }} />
+                          <FaTwitter style={{ color: "white" }} />
                         </a>
                         <a href="">
-                          <IoLogoInstagram style={{ color: "#0463fa" }} />
+                          <IoLogoInstagram style={{ color: "white" }} />
                         </a>
                       </div>
                     </div>

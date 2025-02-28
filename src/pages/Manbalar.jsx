@@ -23,7 +23,7 @@ const Manbalar = () => {
         `/kutobxona/manbalar/?search=${query}&page=${Page}`
       );
       setFilterManbalar(manbalarFilter.data.results);
-      setPageCount(Math.ceil(manbalarFilter.data.count / 3));
+      setPageCount(Math.ceil(manbalarFilter.data.count / 16));
     } catch (error) {
       console.error("Matbuot ma'lumotlarini olishda xatolik:", error);
     }

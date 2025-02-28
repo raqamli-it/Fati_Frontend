@@ -18,7 +18,7 @@ function Tahririyat() {
         `/kutobxona/tahririyat/?page=${Id}`
       );
       setTahririyat(tahririyatPagination?.data.results);
-      setPageCount(Math.ceil(tahririyatPagination.data.count / 3));
+      setPageCount(Math.ceil(tahririyatPagination.data.count / 16));
     } catch (error) {}
   };
 

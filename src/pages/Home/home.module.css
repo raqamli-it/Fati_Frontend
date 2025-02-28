@@ -74,6 +74,7 @@
       }
     }
   } */
+
   .global-search {
     position: absolute;
     top: 50%;
@@ -107,6 +108,7 @@
     }
   }
 }
+
 .container {
   max-width: 100%;
   background-color: white;
@@ -252,8 +254,8 @@
   text-align: center;
   position: relative;
   padding: 10px 0;
-  height: 120px;
-  background-color: gray;
+  height: 100px;
+  background-color: #0052b4;
   transition: all 0.5s ease-in-out;
   border-radius: 0 0 20px 20px;
 
@@ -261,15 +263,14 @@
     font-size: 16px;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
-    color: #1b2c51;
+    color: white;
     line-height: 22px;
-    margin-bottom: 20px;
     text-transform: capitalize;
   }
 
   .social-links {
     position: absolute;
-    bottom: 30px;
+    bottom: 20px;
     left: 50%;
     transform: translate(-50%, 20px);
     opacity: 0;

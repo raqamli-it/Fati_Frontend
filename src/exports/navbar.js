@@ -51,6 +51,7 @@ export const navbarData = [
       { id: "", content: "sc-council", to: "sc-council" },
       { id: "", content: "scientific-degree", to: "/scientific-degree" },
       { id: "", content: "sc-young", to: "/sc-young" },
+      { id: "", content: "notices", to: "/notices" },
     ],
   },
 

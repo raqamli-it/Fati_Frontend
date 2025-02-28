@@ -40,6 +40,8 @@ import Arxiv from "./pages/Tabs/Arxiv";
 import Adabiyotlar from "./pages/Adabiyotlar";
 import Manbalar from "./pages/Manbalar";
 import HRPanel from "./pages/HRPanel/HRPanel";
+import Notices from "./pages/Notices";
+import NoticesDetail from "./pages/NoticesDetail";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -173,6 +175,16 @@ const App = () => {
           element={
             <ScientificDegree setLoading={setLoading} loading={loading} />
           }
+        />
+
+        <Route
+          path="notices"
+          element={<Notices setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="notices/:id"
+          element={<NoticesDetail setLoading={setLoading} loading={loading} />}
         />
 
         <Route
