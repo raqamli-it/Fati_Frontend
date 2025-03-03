@@ -90,7 +90,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
 
       <div className={styles.tab_card}>
         {activePage === 1 && <GeneralInfo data={data} />}
-        {/* {activePage === 2 && <Employees activeData={data} />} */}
+        {activePage === 2 && <Employees activeData={data} />}
         {activePage === 3 && <Research activeData={data} />}
       </div>
     </section>
