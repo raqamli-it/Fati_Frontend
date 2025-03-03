@@ -49,7 +49,7 @@ function Views({ setLoading }) {
           {data.map((item, index) => (
             <div key={index}>
               <button onClick={() => setSelectedItem(item)}>
-                <FaPlay fontSize={"25px"} />
+                <img src={item?.image} alt={item?.[`title_${lang}`]} />
                 <span>{item?.[`title_${lang}`]}</span>
               </button>
             </div>

@@ -19,7 +19,9 @@ function Tahririyat() {
       );
       setTahririyat(tahririyatPagination?.data.results);
       setPageCount(Math.ceil(tahririyatPagination.data.count / 16));
-    } catch (error) {}
+    } catch (error) {
+      console.log(error, "Xatolik yuz berdi");
+    }
   };
 
   // const lang = i18n.language;
