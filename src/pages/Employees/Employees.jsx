@@ -12,7 +12,7 @@ function Employees({ activeData }) {
 
   return (
     <div className={style.container}>
-      <div className={style.employees}>
+      <div className={style.employeesX}>
         {(Array.isArray(activeData.xodimlar)
           ? activeData.xodimlar
           : activeData.xodim

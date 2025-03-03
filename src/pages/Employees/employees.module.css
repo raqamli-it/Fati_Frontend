@@ -1,4 +1,4 @@
-.employees {
+.employeesX {
   display: grid;
   padding-top: 45px;
   align-items: flex-start;
@@ -6,11 +6,11 @@
   gap: 30px;
 }
 
-.employees .card {
+.employeesX .card {
   box-shadow: 0 0 5px gray;
 }
 
-.employees .name {
+.employeesX .name {
   margin: 15px 0 7px;
   text-align: center;
   color: rgba(0, 0, 0, 0.731);
