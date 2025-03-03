@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import style from "./Employees.module.css";
+import style from "./employees.module.css";
 
 function EmployeesDetail() {
   const { detail } = useParams();

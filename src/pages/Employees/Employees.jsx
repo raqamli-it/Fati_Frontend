@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import style from "./Employees.module.css";
+import style from "./employees.module.css";
 
 function Employees({ activeData }) {
   const { t, i18n } = useTranslation();
