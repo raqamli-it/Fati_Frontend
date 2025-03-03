@@ -32,7 +32,7 @@ function Employees({ activeData }) {
               ></span>
 
               <button
-                // onClick={() => navigate(`/centers-and-departments/${value.id}`)}
+                onClick={() => navigate(`/centers-and-departments/${value.id}`)}
                 title="Batafsil ko'ring"
                 className={employees.detail}
               >
