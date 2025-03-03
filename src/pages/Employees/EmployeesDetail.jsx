@@ -24,7 +24,6 @@ function EmployeesDetail() {
       <div className={style.imgDetail}>
         <img src={dataDetail.image} alt={dataDetail?.[`ful_name_${lang}`]} />
       </div>
-
       <div className={style.cardDetail}>
         <h1>{dataDetail?.[`ful_name_${lang}`]}</h1>
         <div
