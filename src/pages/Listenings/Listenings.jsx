@@ -1,24 +1,28 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { FaPlay } from "react-icons/fa6";
 import style from "./Listenings.module.css";
 
-function Listenings({ setLoading, loading }) {
+function Listenings({ setLoading }) {
   const [data, setData] = useState([]);
-  const [listenings, setListenings] = useState(null);
-  const audioRef = useRef(null); // Audio elementni boshqarish uchun
-  const { t, i18n } = useTranslation();
+  const [selectedItem, setSelectedItem] = useState(null);
+  const { i18n } = useTranslation();
   const lang = i18n.language;
 
+  // ✅ API dan malumot olish
   const getListeningsData = async () => {
     try {
       setLoading(true);
       const response = await axios.get(`/markazlar-bolimlar/audio/`);
       setData(response.data);
+      if (response.data.length > 0) {
+        setSelectedItem(response.data[0]);
+      }
     } catch (error) {
-      setLoading("show-p");
       console.log(error, "error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,48 +30,63 @@ function Listenings({ setLoading, loading }) {
     getListeningsData();
   }, []);
 
-  const ListeningsBtn = (audioSrc) => {
-    setListenings(audioSrc); // Audio src-ni o'zgartiramiz
-    if (audioRef.current) {
-      audioRef.current.load(); // Yangi audio yuklash
-      audioRef.current.play(); // Avtomatik o'ynash
+  // ✅ Audio faylning formatini aniqlash
+  const getAudioType = (url) => {
+    const extension = url.split(".").pop().toLowerCase(); // Fayl kengaytmasini olish
+    switch (extension) {
+      case "mp3":
+        return "audio/mpeg";
+      case "wav":
+        return "audio/wav";
+      case "ogg":
+        return "audio/ogg";
+      case "m4a":
+        return "audio/mp4"; // ✅ TO‘G‘RI FORMAT
+      default:
+        return "audio/mpeg"; // ✅ Default format
     }
   };
 
-  console.log(data, "nimala olamada");
+  console.log(selectedItem, "selectedItem");
+  console.log(document.createElement("audio").canPlayType("audio/mp4"));
 
   return (
     <div className={style.container}>
-      {data &&
-        data?.slice(0, 1).map((item, index) => (
-          <div key={index} className={style.wrapper}>
-            <div className={style.cards}>
-              <img src={item?.image} alt={item?.[`title_${lang}`]} />
-
-              <audio
-                ref={audioRef}
-                controls
-                style={{
-                  width: "100%",
-                  marginTop: "15px",
-                }}
-              >
-                <source src={listenings} type="audio/mpeg" />
-              </audio>
-            </div>
-
-            <div className={style.listeningCard}>
-              {item?.audiolar.map((value, idx) => (
-                <div key={idx}>
-                  <button onClick={() => ListeningsBtn(value.audio)}>
-                    <FaPlay fontSize={"25px"} />
-                    Eshitish
-                  </button>
-                </div>
-              ))}
-            </div>
+      <div className={style.wrapper}>
+        {/* 🎵 Default holatda va bosilganda ko‘rinadigan player */}
+        {selectedItem && (
+          <div>
+            <img
+              src={selectedItem.image}
+              alt={selectedItem?.[`title_${lang}`]}
+            />
+            <audio
+              key={selectedItem.audio}
+              controls
+              autoPlay
+              style={{ width: "100%", marginTop: "15px" }}
+            >
+              <source
+                src={selectedItem.audio}
+                type={getAudioType(selectedItem.audio)}
+              />
+              Sizning brauzeringiz ushbu audio formatni qo‘llab-quvvatlamaydi.
+            </audio>
           </div>
-        ))}
+        )}
+
+        {/* 🎵 Buttonlar - audio tanlash uchun */}
+        <div>
+          {data.map((item, index) => (
+            <div key={index}>
+              <button onClick={() => setSelectedItem(item)}>
+                <FaPlay fontSize={"25px"} />
+                <span>{item?.[`title_${lang}`]}</span>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

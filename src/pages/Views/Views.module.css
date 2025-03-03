@@ -5,57 +5,36 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 5fr 3fr;
+  grid-template-columns: 2fr 3fr;
   gap: 30px;
   align-items: flex-start;
-  height: 500px;
-  padding: 8px;
-  background-color: rgba(226, 226, 226, 0.478);
+  padding: 30px;
+  height: 450px;
+  box-shadow: 0 0 10px rgb(198, 198, 198);
 }
 
-.wrapper .cards {
+.wrapper img {
   width: 100%;
-  height: 100%;
-  overflow: hidden; /* Ichidagi narsalar tashqariga chiqmasin */
+  height: 320px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgb(198, 198, 198);
+}
+
+.wrapper button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.wrapper .cards video {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover; /* Poster va video mos tushishi uchun */
-}
-
-.wrapper .listeningCard {
-  height: 100%;
-  border-radius: 10px;
-  background-color: white;
-  overflow-y: auto;
-  padding: 8px;
-}
-
-.wrapper .listeningCard button {
+  padding: 20px 15px;
   width: 100%;
-  padding: 20px;
   margin-bottom: 20px;
-  text-align: left;
-  display: flex;
   align-items: center;
-  gap: 20px;
   border-radius: 10px;
-  cursor: pointer;
   border: none;
-  font-size: 20px;
-  font-weight: 300;
-  background-color: rgba(231, 231, 231, 0.216);
-  font-family: "Poppins", sans-serif;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 0 3px rgb(213, 213, 213);
+  gap: 15px;
+  cursor: pointer;
 }
 
-.wrapper .listeningCard button:hover {
-  background-color: rgba(199, 199, 199, 0.216);
-  transition: all 0.2s ease-in-out;
+.wrapper button span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

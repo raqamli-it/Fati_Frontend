@@ -1,7 +1,11 @@
+.container {
+  max-width: 1320px;
+  margin: 150px auto 60px;
+}
+
 .employees {
   display: grid;
-  max-width: 1320px;
-  margin: 100px auto 30px;
+  padding-top: 45px;
   align-items: flex-start;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -9,7 +13,6 @@
 
 .employees .card {
   box-shadow: 0 0 5px gray;
-  margin: 50px 0 30px;
 }
 
 .employees .name {
