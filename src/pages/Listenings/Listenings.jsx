@@ -53,7 +53,6 @@ function Listenings({ setLoading }) {
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
-        {/* 🎵 Default holatda va bosilganda ko‘rinadigan player */}
         {selectedItem && (
           <div>
             <img
@@ -63,7 +62,6 @@ function Listenings({ setLoading }) {
             <audio
               key={selectedItem.audio}
               controls
-              autoPlay
               style={{ width: "100%", marginTop: "15px" }}
             >
               <source

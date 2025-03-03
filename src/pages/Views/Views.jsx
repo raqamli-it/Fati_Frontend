@@ -15,8 +15,9 @@ function Views({ setLoading }) {
       setLoading(true);
       const response = await axios.get(`/markazlar-bolimlar/video/`);
       setData(response.data);
+
       if (response.data.length > 0) {
-        setSelectedItem(response.data[0]);
+        setSelectedItem(response.data[0]); // Birinchi videoni tanlash
       }
     } catch (error) {
       console.log(error, "error");
@@ -29,23 +30,17 @@ function Views({ setLoading }) {
     getViewsData();
   }, []);
 
-  console.log((data, "data"));
-
-  console.log(selectedItem, "selectedItem");
-
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
         {selectedItem && (
           <div>
             <video
-              key={selectedItem.video}
+              key={selectedItem.id} // ID yoki boshqa unikal qiymat ishlatish
               controls
-              autoPlay
               style={{ width: "100%" }}
             >
               <source src={selectedItem.video} type="video/mp4" />
-              Sizning brauzeringiz ushbu video formatni qo‘llab-quvvatlamaydi.
             </video>
           </div>
         )}
