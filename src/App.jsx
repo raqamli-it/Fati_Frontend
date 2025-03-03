@@ -42,6 +42,11 @@ import Manbalar from "./pages/Manbalar";
 import HRPanel from "./pages/HRPanel/HRPanel";
 import Notices from "./pages/Notices";
 import NoticesDetail from "./pages/NoticesDetail";
+import EmployeesDetail from "./pages/Employees/EmployeesDetail";
+import Photos from "./pages/Photos/Photos";
+import Views from "./pages/Views/Views";
+import Listenings from "./pages/Listenings/Listenings";
+import PhotosDetail from "./pages/Photos/PhotosDetail";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -109,6 +114,11 @@ const App = () => {
           element={
             <CentersAndDepartments setLoading={setLoading} loading={loading} />
           }
+        />
+
+        <Route
+          path="centers-and-departments/:detail"
+          element={<EmployeesDetail />}
         />
 
         <Route
@@ -244,6 +254,23 @@ const App = () => {
         <Route
           path="global-projects"
           element={<GlobalProjects setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="photos"
+          element={<Photos setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="photos/:id"
+          element={<PhotosDetail setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route path="views" element={<Views setLoading={setLoading} />} />
+
+        <Route
+          path="listenings"
+          element={<Listenings setLoading={setLoading} loading={loading} />}
         />
 
         <Route path="/journal/detail/:id" element={<JournalDetail />} />

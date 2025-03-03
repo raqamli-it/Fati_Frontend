@@ -1,20 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import employees from "./employees.module.css";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { MdFileDownload } from "react-icons/md";
+import employees from "./Employees.module.css";
 
 function Employees({ activeData }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const { type, id } = useParams();
   const navigate = useNavigate();
 
-  console.log(activeData.xodimlar, "activeData");
+  console.log(activeData, "activeData");
 
   return (
     <div className={employees.employees}>
@@ -32,124 +27,17 @@ function Employees({ activeData }) {
               {value?.[`ful_name_${lang}`]}
             </span>
 
-            <Accordion
-              disableGutters
-              style={{
-                overflow: "hidden",
-                borderRadius: "20px",
-                boxShadow: "0 0 5px gray",
-                marginTop: "20px",
-              }}
+            <span
+              dangerouslySetInnerHTML={{ __html: value?.[`about_${lang}`] }}
+            ></span>
+
+            <button
+              onClick={() => navigate(`/centers-and-departments/${value.id}`)}
+              title="Batafsil ko'ring"
+              className={employees.detail}
             >
-              <AccordionSummary
-                sx={{
-                  boxShadow: "0 0 5px gray",
-                  height: "60px",
-                  borderTop: "none",
-                  borderRadius: "20px",
-                }}
-                expandIcon={<ExpandMoreIcon />}
-              >
-                <Typography sx={{ fontSize: "20px" }}>Xaqida</Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <div
-                  style={{
-                    maxHeight: "200px",
-                    overflowY: "auto",
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    fontFamily: "Poppins, sans-serif",
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: value?.[`about_${lang}`] || "",
-                  }}
-                />
-              </AccordionDetails>
-            </Accordion>
-
-            <Accordion
-              disableGutters
-              style={{
-                overflow: "hidden",
-                borderRadius: "20px",
-                boxShadow: "0 0 5px gray",
-                marginTop: "20px",
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  boxShadow: "0 0 5px gray",
-                  height: "60px",
-                  borderTop: "none",
-                  borderRadius: "20px",
-                }}
-                expandIcon={<ExpandMoreIcon />}
-              >
-                <Typography sx={{ fontSize: "20px" }}>Faoliyati</Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <div
-                  style={{
-                    maxHeight: "200px",
-                    overflowY: "auto",
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    fontFamily: "Poppins, sans-serif",
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: value?.[`activity_${lang}`] || "",
-                  }}
-                />
-              </AccordionDetails>
-            </Accordion>
-
-            <Accordion
-              disableGutters
-              style={{
-                overflow: "hidden",
-                borderRadius: "20px",
-                boxShadow: "0 0 5px gray",
-                marginTop: "20px",
-              }}
-            >
-              <AccordionSummary
-                sx={{
-                  boxShadow: "0 0 5px gray",
-                  height: "60px",
-                  borderTop: "none",
-                  borderRadius: "20px",
-                }}
-                expandIcon={<ExpandMoreIcon />}
-              >
-                <Typography sx={{ fontSize: "20px" }}>Ishlari</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <div
-                  style={{
-                    maxHeight: "200px",
-                    overflowY: "auto",
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    fontFamily: "Poppins, sans-serif",
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: value?.[`works_${lang}`] || "",
-                  }}
-                />
-              </AccordionDetails>
-            </Accordion>
-
-            <a
-              className={employees.bookDownload}
-              href={value.file}
-              download={value.file}
-            >
-              <span>Yuklab olish</span>
-              <MdFileDownload style={{ fontSize: "18px" }} />
-            </a>
+              Batafsil
+            </button>
           </div>
         </div>
       ))}

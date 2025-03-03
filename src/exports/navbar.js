@@ -1,6 +1,6 @@
 export const navbarData = [
   {
-    id: 0,
+    id: 1,
     content: "about-n",
     links: [
       {
@@ -32,20 +32,26 @@ export const navbarData = [
   },
 
   {
-    id: 1,
+    id: 2,
+    content: "news",
+    to: "/news",
+  },
+
+  {
+    id: 3,
+    content: "departments",
+    links: 1,
+  },
+
+  {
+    id: 4,
     content: "centers",
     to: "/centers-and-departments",
     links: 3,
   },
 
   {
-    id: 2,
-    content: "departments",
-    links: 1,
-  },
-
-  {
-    id: 3,
+    id: 5,
     content: "councils",
     links: [
       { id: "", content: "sc-council", to: "sc-council" },
@@ -56,7 +62,7 @@ export const navbarData = [
   },
 
   {
-    id: 4,
+    id: 6,
     content: "doctorals",
     to: "/doctorals",
     links: [
@@ -67,14 +73,14 @@ export const navbarData = [
   },
 
   {
-    id: 5,
+    id: 7,
     content: "gatherings",
     to: "/seminar",
     links: 2,
   },
 
   {
-    id: 6,
+    id: 8,
     content: "internationals",
     links: [
       { id: "", content: "global-partners", to: "/global-partners" },
@@ -85,7 +91,7 @@ export const navbarData = [
   },
 
   {
-    id: 7,
+    id: 9,
     content: "library",
     to: "/library",
     links: [
@@ -103,15 +109,17 @@ export const navbarData = [
         content: "Avtoreferatlar",
         to: "/avtorefaratlar",
       },
-
-      // { id: 4, content: "Arxivlar va hujjatlar", to: "/arxivlarVaHujjatlar" },
     ],
   },
 
   {
-    id: 7,
-    content: "news",
-    to: "/news",
+    id: 10,
+    content: "sensory-experience",
+    links: [
+      { id: "", content: "photos", to: "/photos" },
+      { id: "", content: "views", to: "/views" },
+      { id: "", content: "listenings", to: "/listenings" },
+    ],
   },
 ];
 

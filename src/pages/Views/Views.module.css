@@ -1,0 +1,61 @@
+.container {
+  max-width: 1320px;
+  margin: 100px auto 60px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  gap: 30px;
+  align-items: flex-start;
+  height: 500px;
+  padding: 8px;
+  background-color: rgba(226, 226, 226, 0.478);
+}
+
+.wrapper .cards {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ichidagi narsalar tashqariga chiqmasin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .cards video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Poster va video mos tushishi uchun */
+}
+
+.wrapper .listeningCard {
+  height: 100%;
+  border-radius: 10px;
+  background-color: white;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.wrapper .listeningCard button {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: rgba(231, 231, 231, 0.216);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 3px rgb(213, 213, 213);
+}
+
+.wrapper .listeningCard button:hover {
+  background-color: rgba(199, 199, 199, 0.216);
+  transition: all 0.2s ease-in-out;
+}

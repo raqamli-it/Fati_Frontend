@@ -1,0 +1,54 @@
+.container {
+  max-width: 1320px;
+  margin: 100px auto 70px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.cards {
+  width: 100%;
+  flex-direction: column;
+}
+
+.cards .img {
+  height: 300px;
+}
+
+.cards img {
+  width: 100%;
+  height: 100%;
+}
+
+.cards a {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.cards p {
+  height: 50px;
+  background-color: rgba(21, 0, 255, 0.718);
+  padding: 5px 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.cardDetail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.cardDetailImg {
+  height: 380px;
+  width: 100%;
+}
+.cardDetailImg img {
+  width: 100%;
+  height: 100%;
+}

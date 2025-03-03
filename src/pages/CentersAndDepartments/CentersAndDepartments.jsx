@@ -9,16 +9,15 @@ import { GiArchiveResearch } from "react-icons/gi";
 import GeneralInfo from "../GeneralInfo/GeneralInfo";
 import Employees from "../Employees/Employees";
 import Research from "../Research/Research";
-import PhotoVideo from "../PhotoVideo/PhotoVideo";
 
 export const CentersAndDepartments = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
+  const lang = i18n.language;
   const [activePage, setActivePage] = useState(1);
   const { type, id } = useParams();
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
-  const lang = i18n.language;
 
   useEffect(() => {
     if (!type || (type !== "bolim" && type !== "markaz")) {
@@ -29,11 +28,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
-
-      // Type va id ni tekshiramiz
-
       const path = `/markazlar-bolimlar/${type}/${id}`;
-
       const { data } = await axios.get(path);
       setData(data);
     } catch (error) {
@@ -76,12 +71,6 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
               icon: <GiArchiveResearch size={50} />,
               label: t("tadqiqotlar"),
             },
-
-            {
-              id: 4,
-              icon: <FaPhotoVideo size={50} />,
-              label: t("foto_va_video"),
-            },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -103,7 +92,6 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
         {activePage === 1 && <GeneralInfo data={data} />}
         {activePage === 2 && <Employees activeData={data} />}
         {activePage === 3 && <Research activeData={data} />}
-        {activePage === 4 && <PhotoVideo activeData={data} />}
       </div>
     </section>
   );

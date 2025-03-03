@@ -142,10 +142,10 @@ export const Home = ({ setLoading, loading }) => {
             return (
               <div key={index}>
                 {<img src={item?.file} />}
-                <div className={styles["global-search"]}>
+                {/* <div className={styles["global-search"]}>
                   <input type="text" placeholder="Izlash ... " />
                   <button>Qidiruv</button>
-                </div>
+                </div> */}
               </div>
             );
           })}
@@ -154,29 +154,6 @@ export const Home = ({ setLoading, loading }) => {
 
       <div className={styles.container}>
         <HomeNews newsData={newsData} />
-
-        <div className="img-cards">
-          <h2>{t("centers")}</h2>
-          <div className="markaz_va_bolim">
-            <div className="markazButton">
-              {centersData.map((item, index) => {
-                return (
-                  <div key={index} className="shadowMarkaz">
-                    <img src={item.image} />
-                    <p>{item?.[`title_${lang}`]}</p>
-                    <button
-                      onClick={() =>
-                        navigate(`/centers-and-departments/markaz/${item.id}`)
-                      }
-                    >
-                      Batafsil
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
 
         <div className="img-cards">
           <h2>{t("departments")}</h2>
@@ -190,6 +167,29 @@ export const Home = ({ setLoading, loading }) => {
                     <button
                       onClick={() =>
                         navigate(`/centers-and-departments/bolim/${item.id}`)
+                      }
+                    >
+                      Batafsil
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="img-cards">
+          <h2>{t("centers")}</h2>
+          <div className="markaz_va_bolim">
+            <div className="markazButton">
+              {centersData.map((item, index) => {
+                return (
+                  <div key={index} className="shadowMarkaz">
+                    <img src={item.image} />
+                    <p>{item?.[`title_${lang}`]}</p>
+                    <button
+                      onClick={() =>
+                        navigate(`/centers-and-departments/markaz/${item.id}`)
                       }
                     >
                       Batafsil

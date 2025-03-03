@@ -89,6 +89,36 @@
       margin: 10px auto 0;
       height: 80px;
       align-items: center;
+
+      .global-search {
+        display: flex;
+        width: 50%;
+        gap: 15px;
+        input {
+          height: 42px;
+          background-color: transparent;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 400;
+          width: 100%;
+          border: 2px solid rgba(128, 128, 128, 0.656);
+          color: white;
+          outline: none;
+          letter-spacing: 1.3px;
+          padding: 0 15px;
+        }
+        button {
+          padding: 0 15px;
+          background-color: transparent;
+          border: 2px solid rgba(128, 128, 128, 0.656);
+          border-radius: 12px;
+          letter-spacing: 1.5px;
+          color: white;
+          cursor: pointer;
+          font-size: 16px;
+          outline: none;
+        }
+      }
     }
   }
 }

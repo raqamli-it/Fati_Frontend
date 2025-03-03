@@ -89,6 +89,10 @@ export const Navbar = () => {
           </Link>
 
           {/* <Search /> */}
+          <div className={styles["global-search"]}>
+            <input type="text" placeholder="Izlash ... " />
+            <button>Qidiruv</button>
+          </div>
 
           <div className={styles.lang}>
             <div className={styles.change}>
@@ -128,7 +132,6 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
-
         <div className={styles["menu-mob"]}>
           <div onClick={() => setShowMenu((prev) => !prev)}>
             <BiMenu />
@@ -149,38 +152,39 @@ export const Navbar = () => {
             return (
               <li key={index}>
                 <label htmlFor={id}>
-                  {item?.links ? (
-                    <p
-                      style={{
-                        display: "flex",
-                        gap: "5px",
-                        height: "55px",
-                        margin: "0 20px",
-                        fontSize: "16px",
-                        fontWeight: "400",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {t(content)}
-                    </p>
-                  ) : (
-                    <Link
-                      style={{
-                        overflowY: "hidden",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        height: "55px",
-                        fontWeight: "400",
-                        fontSize: "16px",
-                        width: "90px",
-                      }}
-                      to={item.to}
-                    >
-                      {t(content)}
-                    </Link>
-                  )}
-
+                  <div>
+                    {item?.links ? (
+                      <p
+                        style={{
+                          display: "flex",
+                          gap: "5px",
+                          height: "55px",
+                          margin: "0 20px",
+                          fontSize: "16px",
+                          fontWeight: "400",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {t(content)}
+                      </p>
+                    ) : (
+                      <Link
+                        style={{
+                          overflowY: "hidden",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          height: "55px",
+                          fontWeight: "400",
+                          fontSize: "16px",
+                          width: "90px",
+                        }}
+                        to={item.to}
+                      >
+                        {t(content)}
+                      </Link>
+                    )}
+                  </div>
                   <ol>
                     {item?.links !== 1 && item?.links !== 2 && item?.links !== 3
                       ? item?.links?.map((item, index) => {
