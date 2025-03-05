@@ -57,7 +57,7 @@ function Arxiv() {
       >
         <input
           type="text"
-          placeholder="Search ..."
+          placeholder="Qidiruv ..."
           value={tempSearch} // Inputni `tempSearch` bilan bog‘laymiz
           onChange={(e) => setTempSearch(e.target.value)} // Vaqtinchalik searchni yangilash
           className={style.searchInput}

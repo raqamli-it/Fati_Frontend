@@ -36,7 +36,7 @@
   box-sizing: border-box;
   background-color: white;
   box-shadow: 0 0 20px gray;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -52,7 +52,23 @@
 p {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  line-height: 26px;
+  text-align: justify;
+  line-height: 24px;
+}
+
+.card > p:nth-of-type(1) {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card > p:nth-of-type(2) {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  height: 25px;
+  overflow: hidden;
 }
 
 h2 {

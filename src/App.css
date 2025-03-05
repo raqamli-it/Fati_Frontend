@@ -260,7 +260,7 @@ body {
   .bolimButton button {
     font-size: 16px;
     cursor: pointer;
-    color: #023e8a;
+    color: #0052b4;
     background-color: transparent;
     border: none;
     padding: 5px 15px 10px;
@@ -1078,7 +1078,7 @@ table {
 }
 
 .card-container .link:hover p {
-  color: rgba(255, 0, 0, 0.758);
+  color: #023e8a;
   transition: all 0.4s ease-in-out;
 }
 
@@ -1113,7 +1113,7 @@ table {
 }
 
 .card-yiginlar p:first-child {
-  color: gray;
+  color: #0052b4;
   font-family: "Poppins", sans-serif;
   line-height: 20px;
 }
@@ -1195,7 +1195,7 @@ table {
 }
 
 .link-card:hover .site-path {
-  color: green;
+  color: #023e8a;
   transition: all 0.5 s ease-in-out;
 }
 

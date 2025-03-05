@@ -8,6 +8,7 @@ import { FaFacebook, FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
 export const Footer = () => {
   const { t } = useTranslation();
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,6 +21,7 @@ export const Footer = () => {
     };
     fetchData();
   }, []);
+
   return (
     <footer className={styles.footer}>
       <div>
@@ -90,12 +92,10 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className={styles.bottom}>
-        <p>© Copyright {t("rights")}</p>
-        {/* <p>
+      <p style={{textAlign:"center"}}>© Copyright {t("rights")}</p>
+      {/* <p>
             © Copyright {new Date().getFullYear()} - Web developed by #bUrkHaNov
           </p> */}
-      </div>
     </footer>
   );
 };

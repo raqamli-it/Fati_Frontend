@@ -13,9 +13,7 @@ export const TradeUnion = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://backend.fati.uz/qoshimcha-malumotlar/rahbariyat/"
-        );
+        const response = await axios.get("/qoshimcha-malumotlar/rahbariyat/");
         setTeamMembers(response.data);
         setLoading(false);
       } catch (error) {

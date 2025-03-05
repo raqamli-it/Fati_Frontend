@@ -1,3 +1,9 @@
+.container {
+  max-width: 1320px;
+  margin: 100px auto;
+  min-height: 400px;
+}
+
 .employeesX {
   display: grid;
   padding-top: 45px;
@@ -55,12 +61,6 @@
   margin-top: 10px;
   cursor: pointer;
   justify-content: flex-end;
-}
-
-.container {
-  max-width: 1320px;
-  margin: 100px auto;
-  min-height: 400px;
 }
 
 .container .imgDetail {

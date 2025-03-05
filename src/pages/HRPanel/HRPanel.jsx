@@ -33,16 +33,6 @@ function HRPanel({ setLoading, loading }) {
 
   const selectedData = data.find((item) => item.title === HRPanel);
 
-  //   if (loading === "show-p") {
-  //     return <p className="show-p-error">{t("show-p-error")}</p>;
-  //   }
-  //   if (loading === true) {
-  //     return <div className="loader"></div>;
-  //   }
-
-  console.log(data, "HRPanel");
-  console.log(HRPanel, "HRPanel Details");
-
   return (
     <div className={hrpanel.container}>
       <div className={hrpanel["bg-img"]}>

@@ -51,7 +51,7 @@ const Manbalar = () => {
       >
         <input
           type="text"
-          placeholder="Search ..."
+          placeholder="Qidiruv ..."
           value={tempSearch}
           onChange={(e) => setTempSearch(e.target.value)}
           className={adabiyotlar.searchInput}

@@ -52,7 +52,7 @@ const Adabiyotlar = () => {
       >
         <input
           type="text"
-          placeholder="Search ..."
+          placeholder="Qidiruv ..."
           value={tempSearch}
           onChange={(e) => setTempSearch(e.target.value)}
           className={adabiyotlar.searchInput}
@@ -98,7 +98,7 @@ const Adabiyotlar = () => {
               breakLabel={"..."}
               pageCount={pageCount} // Jami sahifalar soni
               marginPagesDisplayed={2}
-              pageRangeDisplayed={3}
+              pageRangeDisplayed={2}
               onPageChange={handlePageClick} // Sahifa almashganda
               containerClassName={adabiyotlar.pagination}
               activeClassName={adabiyotlar.active}

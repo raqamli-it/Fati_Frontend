@@ -12,11 +12,6 @@
     text-align: center;
   }
 
-  .bottom {
-    text-align: center;
-    margin: 20px 0;
-  }
-
   a {
     transition: all 0.6s ease-in-out;
 

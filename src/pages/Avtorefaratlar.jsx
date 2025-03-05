@@ -5,17 +5,18 @@ import { useEffect, useState } from "react";
 import avtorefaratlar from "./Avtorefaratlar.module.css";
 import ReactPaginate from "react-paginate";
 import { useTranslation } from "react-i18next";
+import { FcSearch } from "react-icons/fc";
 import nodata from "../../public/assets/no-data.png";
 
 const Avtorefaratlar = () => {
   const { i18n, t } = useTranslation();
   const lang = i18n.language;
-  const { avtorefaratlarId } = useParams();
 
   const [filterAvtoreferat, setFilterAvtoreferat] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [tempSearch, setTempSearch] = useState("");
 
   const getAvtorefaratlarFunction = async (search = "", Page = 1) => {
     try {
@@ -38,21 +39,35 @@ const Avtorefaratlar = () => {
   };
 
   // Books search
-  const BooksSearch = (value) => {
-    setSearch(value.target.value);
+  const BooksSearch = () => {
+    setSearch(tempSearch);
+    getAvtorefaratlarFunction(tempSearch, 1);
+    setCurrentPage(1);
   };
   // Books search
 
-  console.log(filterAvtoreferat, "filterAvtoreferat");
-
   return (
     <div className={avtorefaratlar.container}>
-      <div>
+      <div
+        style={{ position: "relative", display: "inline-block", width: "50%" }}
+      >
         <input
-          type="search"
-          placeholder="Search ..."
-          onChange={BooksSearch}
+          type="text"
+          placeholder="Qidiruv ..."
+          value={tempSearch}
+          onChange={(e) => setTempSearch(e.target.value)}
           className={avtorefaratlar.searchInput}
+        />
+
+        <FcSearch
+          onClick={BooksSearch}
+          style={{
+            fontSize: "30px",
+            position: "absolute",
+            right: "10px",
+            cursor: "pointer",
+            top: "10px",
+          }}
         />
       </div>
 

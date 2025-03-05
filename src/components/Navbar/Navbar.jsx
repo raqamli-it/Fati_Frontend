@@ -177,7 +177,6 @@ export const Navbar = () => {
                           height: "55px",
                           fontWeight: "400",
                           fontSize: "16px",
-                          width: "90px",
                         }}
                         to={item.to}
                       >
