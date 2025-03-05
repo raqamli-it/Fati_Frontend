@@ -84,7 +84,7 @@
 
 .description {
   padding: 10px 25px;
-  background-color: rgba(128, 128, 128, 0.805);
+  background-color: #023e8a;
 }
 
 .wrapper {
@@ -93,31 +93,21 @@
 
 .description p {
   color: rgba(255, 255, 255, 0.865);
-  font-size: 16px;
+  font-size: 15px;
   text-align: justify;
   font-weight: 500;
+  line-height: 30px;
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
-  /* color: rgba(18, 18, 18, 0.781); */
 }
 
-.description p {
-  font-weight: 600;
-  line-height: 30px;
-  transition: all 0.5s linear;
-}
 .description p:last-child {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.wrapper:hover .img-tahririyat p {
-  bottom: 30px;
-  background-color: white;
-  color: rgba(0, 0, 0, 0.84);
-  transition: all 0.7s linear;
-}
+
 .wrapper:hover .img-tahririyat img {
   transform: scale(0.95);
   transition: all 0.5s ease-in;

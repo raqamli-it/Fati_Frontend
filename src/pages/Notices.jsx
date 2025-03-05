@@ -44,6 +44,8 @@ function Notices({ setLoading, loading }) {
     return <div className="loader"></div>;
   }
 
+  console.log(data);
+
   return (
     <div className={style.container}>
       <div className={style.cards}>

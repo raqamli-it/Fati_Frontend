@@ -188,7 +188,7 @@ const App = () => {
         />
 
         <Route
-          path="notices"
+          path="8i"
           element={<Notices setLoading={setLoading} loading={loading} />}
         />
 

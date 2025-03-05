@@ -28,24 +28,16 @@ function Tahririyat() {
 
   return (
     <div className={style.tahririyat}>
-      <div className={style["tahririyat-wrapper"]}>
-        {tahririyat?.map((value, index) => (
-          <div key={index} className={style.wrapper}>
-            <div className={style["img-tahririyat"]}>
-              <img src={value?.file} alt="img" />
-              <p>
-                {value?.[`degree_${lang}`]} {value?.[`sphere_${lang}`]}
-              </p>
-            </div>
+      {tahririyat?.map((value, index) => (
+        <div key={index} className={style.wrapper}>
+          <p>{value?.[`title_${lang}`]}</p>
 
-            <div className={style.description}>
-              <p className={style.title}>
-                {value?.[`position_${lang}`]} : {value?.[`title_${lang}`]}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+          <div
+            className={style.title}
+            dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
+          ></div>
+        </div>
+      ))}
     </div>
   );
 }

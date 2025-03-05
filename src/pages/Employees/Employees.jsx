@@ -25,9 +25,8 @@ function Employees({ activeData }) {
             <div className={style.description}>
               <span className={style.name}>{value?.[`ful_name_${lang}`]}</span>
 
-              <span
-                dangerouslySetInnerHTML={{ __html: value?.[`about_${lang}`] }}
-              ></span>
+              <p>{value?.position_uz && value?.[`position_${lang}`]}</p>
+              <p>{value?.email_uz && value?.[`email_${lang}`]}</p>
 
               <button
                 onClick={() => navigate(`/centers-and-departments/${value.id}`)}

@@ -20,7 +20,7 @@
 
   .discription {
     color: white;
-    background-color: gray;
+    background-color: #023e8a;
     padding: 10px 20px;
   }
 
@@ -38,7 +38,7 @@
     background-color: transparent;
     padding: 7px 20px;
     font-size: 16px;
-    border: 2px solid rgba(0, 128, 0, 0.779);
+    border: 2px solid white;
     border-radius: 20px;
     margin: 12px 0 5px;
     color: white;
