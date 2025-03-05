@@ -16,7 +16,6 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   const [activePage, setActivePage] = useState(1);
   const { type, id } = useParams();
   const navigate = useNavigate();
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -52,6 +51,8 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   if (loading) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "dataaaa");
 
   return (
     <section className={styles["center-departments"]}>

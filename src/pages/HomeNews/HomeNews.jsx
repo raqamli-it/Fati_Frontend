@@ -55,6 +55,8 @@ function HomeNews({ newsData }) {
     ],
   };
 
+  console.log(newsData, "newsData");
+
   return (
     <div>
       <h2 onClick={() => navigate(`/news`)} className="title">
@@ -71,7 +73,7 @@ function HomeNews({ newsData }) {
           }}
           {...settings}
         >
-          {newsData?.slice(-6).map((value, index) => (
+          {newsData?.slice(0, 6).map((value, index) => (
             <div key={index} className="news-items">
               <Fade
                 direction="up"

@@ -22,7 +22,7 @@ function Employees({ activeData }) {
               <img src={value.image} alt="" />
             </div>
 
-            <div className={style.acardion}>
+            <div className={style.description}>
               <span className={style.name}>{value?.[`ful_name_${lang}`]}</span>
 
               <span

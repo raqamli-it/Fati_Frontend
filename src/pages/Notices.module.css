@@ -29,7 +29,7 @@
     font-weight: 400;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    height: 80px;
+    height: 75px;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
