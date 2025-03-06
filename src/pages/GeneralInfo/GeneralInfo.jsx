@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import generalInfo from "./generalInfo.module.css";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
 
 function GeneralInfo({ data }) {
   const [openItems, setOpenItems] = useState({});

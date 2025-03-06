@@ -5,19 +5,15 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   align-items: flex-start;
 }
-.contents {
-  display: flex;
-  justify-content: space-between;
-}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
   margin: 10px;
   background: white;
   padding: 20px;
@@ -25,53 +21,56 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.card-image {
+  width: 100%;
+  height: 300px;
+}
+
 .title {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.827);
   font-size: 15px;
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
-.accordion {
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.accordion-header {
-  width: 100%;
-  background: #f1f1f1;
-  padding: 15px;
-  text-align: left;
-  font-size: 16px;
-  font-weight: bold;
+button {
+  display: block;
+  margin-left: auto;
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-size: 18px;
+  color: rgba(0, 0, 255, 0.888);
 }
 
-.accordion-content {
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
+.detailUserImg img {
+  width: 35%;
+  float: left;
+  height: 400px;
+  margin-right: 25px;
 }
 
-.scroll-container {
-  max-height: 200px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 10px;
-  background: #fff;
+.cardDetail > div > p:first-child {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
-.card-image {
-  width: 100%;
-  height: 300px;
+.cardDetail h3 li {
+  color: rgba(0, 0, 0, 0.825);
+  font-size: 18px !important;
+  font-weight: 400;
+  line-height: 36px;
+  font-family: "Poppins", sans-serif; 
 }
 
 /* paginatsiya */

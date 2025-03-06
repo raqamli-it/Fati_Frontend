@@ -98,7 +98,7 @@
   font-weight: 500;
   line-height: 30px;
   font-family: "Poppins", sans-serif;
-  text-transform: capitalize;
+  text-transform: lowercase;
 }
 
 .description p:last-child {

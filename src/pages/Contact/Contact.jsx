@@ -61,6 +61,7 @@ export const Contact = ({ setLoading, loading }) => {
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+  
   if (loading === true) {
     return <div className="loader"></div>;
   }

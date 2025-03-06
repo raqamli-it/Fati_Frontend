@@ -16,10 +16,15 @@
     max-width: 1320px;
     margin: 0 auto;
 
-    .btn {
+    .btns {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
       gap: 25px;
       position: relative;
       z-index: 999;
@@ -32,6 +37,7 @@
         font-size: 26px;
         line-height: 32px;
         font-weight: 400;
+        background-color: white;
         border-radius: 16px;
         box-shadow: 0 0 6px gray;
       }
@@ -61,7 +67,7 @@
         text-align: center;
       }
       .description p:first-child {
-        font-size: 20px;
+        font-size: 22px;
         line-height: 32px;
         color: rgba(0, 0, 0, 0.816);
       }

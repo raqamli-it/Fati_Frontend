@@ -2,7 +2,7 @@
   padding-right: 10px;
   max-width: 1320px;
   min-height: 450px;
-  margin: 130px auto 80px;
+  margin: 80px auto;
   transition: all 0.5s ease-in;
 }
 
@@ -18,18 +18,19 @@
 
 .contants {
   transition: max-height 0.5s ease-in-out;
+  min-height: 450px;
 
   .btn {
     border: none;
     height: 48px;
     background-color: #023e8a;
-    text-align: center;
     color: white;
     font-family: "Poppins", sans-serif;
-    padding: 0 20px;
+    width: 160px;
     font-weight: 400;
     font-size: 18px;
     margin-top: 20px;
+    margin-right: 45%;
     cursor: pointer;
   }
 

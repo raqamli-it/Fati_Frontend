@@ -1,12 +1,11 @@
 .container {
   max-width: 1320px;
-  margin: 100px auto;
+  margin: 80px auto;
   min-height: 400px;
 }
 
 .employeesX {
   display: grid;
-  padding-top: 45px;
   align-items: flex-start;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;

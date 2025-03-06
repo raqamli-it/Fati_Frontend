@@ -1,46 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import styles from "./Doctaurants.module.css";
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 
-const Accordion = ({ title, content }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef(null);
-  return (
-    <div className={styles.accordion}>
-      <button
-        className={styles["accordion-header"]}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {title}
-        <span className={styles.arrow}>{isOpen ? "▲" : "▼"}</span>
-      </button>
-
-      <div
-        className={styles["accordion-content"]}
-        style={{
-          maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : "0px",
-        }}
-      >
-        <div ref={contentRef} className={styles["scroll-container"]}>
-          <ol
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const Doctaurants = ({ setLoading, loading }) => {
+export const Doctaurants = ({ loading, setLoading }) => {
   const [data, setData] = useState([]);
   const { t, i18n } = useTranslation();
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const lang = i18n.language;
+  const navigate = useNavigate();
 
   const fetchData = async (Page = 1) => {
     try {
@@ -73,6 +44,9 @@ export const Doctaurants = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "qqqq");
+  console.log(navigate, "navigate");
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.cards}>
@@ -84,16 +58,14 @@ export const Doctaurants = ({ setLoading, loading }) => {
                 alt="image"
                 className={styles["card-image"]}
               />
+
               <h6 className={styles.title}>{item?.[`title_${lang}`]}</h6>
-              <Accordion
-                title="Mehnat faoliyati"
-                content={item?.[`labor_activity_${lang}`]}
-              />
-              <Accordion
-                title="Ilmiy faoliyat"
-                content={item?.[`scientific_activity_${lang}`]}
-              />
-              <Accordion title="Asarlari" content={item?.[`works_${lang}`]} />
+              <button
+                onClick={() => navigate(`${item.id}`)}
+                title="Batafsil ko'rish"
+              >
+                Batafsil
+              </button>
             </div>
           );
         })}

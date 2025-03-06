@@ -145,7 +145,8 @@
       font-weight: 500;
       border-radius: 8px;
       outline: none;
-      width: 120px;
+      width: 80px;
+      cursor: pointer;
 
       option {
         background-color: gray;

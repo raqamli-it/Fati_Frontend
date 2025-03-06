@@ -47,6 +47,7 @@ import Photos from "./pages/Photos/Photos";
 import Views from "./pages/Views/Views";
 import Listenings from "./pages/Listenings/Listenings";
 import PhotosDetail from "./pages/Photos/PhotosDetail";
+import DoctaurantsDetail from "./pages/DoctaurantsDetail";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -176,6 +177,13 @@ const App = () => {
         />
 
         <Route
+          path="doctaurants/:id"
+          element={
+            <DoctaurantsDetail setLoading={setLoading} loading={loading} />
+          }
+        />
+
+        <Route
           path="doc-exams"
           element={<DocExams setLoading={setLoading} loading={loading} />}
         />
@@ -188,7 +196,7 @@ const App = () => {
         />
 
         <Route
-          path="8i"
+          path="notices"
           element={<Notices setLoading={setLoading} loading={loading} />}
         />
 

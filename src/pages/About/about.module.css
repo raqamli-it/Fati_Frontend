@@ -41,7 +41,8 @@
 .wrapper .btns button {
   padding: 20px;
   border: none;
-  height: 90px;
+  height: 110px;
+  width: 200px;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
   font-size: 16px;
@@ -74,9 +75,12 @@
   color: white;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  height: 70px;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.details p:nth-of-type(2) {
+  padding: 0 0 15px;
 }
 
 .wrapper .btns .active {

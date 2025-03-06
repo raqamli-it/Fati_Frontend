@@ -10,21 +10,26 @@
     background-image: url("./bg-tarix.jpg");
   }
 
-  .tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .tab_card {
+    padding-top: 50px;
+  }
+
+  .tabs {
     position: absolute;
     max-width: 1320px;
-    gap: 30px;
     bottom: -80px;
     left: 50%;
-    width: 100%;
     transform: translateX(-50%);
   }
 
+  .tab {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
   .links {
-    width: 18%;
+    width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,16 +37,17 @@
     align-items: center;
     transition: all 0.5s ease-in-out;
     height: 160px;
-    border: 3px solid #023e8a;
+    border: 3px solid whitesmoke;
     background-color: whitesmoke;
     h3 {
       transition: all 0.5s ease-in-out;
       text-transform: uppercase;
+      font-size: 16px;
       font-family: "Poppins", sans-serif;
     }
     gap: 10px;
     .icon {
-      font-size: 45px;
+      font-size: 35px;
       transition: all 0.5s ease-in-out;
     }
   }

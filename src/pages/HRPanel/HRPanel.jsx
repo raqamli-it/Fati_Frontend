@@ -33,6 +33,8 @@ function HRPanel({ setLoading, loading }) {
 
   const selectedData = data.find((item) => item.title === HRPanel);
 
+  console.log(HRPanel, "data");
+
   return (
     <div className={hrpanel.container}>
       <div className={hrpanel["bg-img"]}>
@@ -40,12 +42,14 @@ function HRPanel({ setLoading, loading }) {
       </div>
 
       <div className={hrpanel.wrapper}>
-        <div className={hrpanel.btn}>
-          {data?.map((value, index) => (
-            <button onClick={() => HRPanelBtn(value.title)} key={index}>
-              {value.title}
-            </button>
-          ))}
+        <div className={hrpanel.btns}>
+          <div className={hrpanel.btn}>
+            {data?.map((value, index) => (
+              <button onClick={() => HRPanelBtn(value.title)} key={index}>
+                {value.title}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className={hrpanel.card}>

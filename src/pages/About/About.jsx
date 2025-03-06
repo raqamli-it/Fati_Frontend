@@ -48,6 +48,8 @@ export const About = ({ loading, setLoading }) => {
 
   const FindId = staff.find((val) => val.id === Number(activePage)) || null;
 
+  console.log(FindId, "FindId");
+
   return (
     <section className={style.about}>
       <div>
@@ -83,6 +85,7 @@ export const About = ({ loading, setLoading }) => {
                   <img src={item?.image} alt={item?.[`full_name_${lang}`]} />
                 </div>
                 <p>{item?.[`full_name_${lang}`]}</p>
+                <p>{item?.year}</p>
               </div>
             ))}
         </div>

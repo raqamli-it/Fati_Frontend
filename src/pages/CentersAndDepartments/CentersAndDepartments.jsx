@@ -16,6 +16,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   const [activePage, setActivePage] = useState(1);
   const { type, id } = useParams();
   const navigate = useNavigate();
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -52,40 +53,44 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "dataaaa");
-
   return (
     <section className={styles["center-departments"]}>
       <div className={styles.bg_img}>
-        <div className={styles.tab}>
-          {[
-            {
-              id: 1,
-              icon: <MdDashboardCustomize size={50} />,
-              label: t("malumotlar"),
-            },
+        <div className={styles.tabs}>
+          <div className={styles.tab}>
+            {[
+              {
+                id: 1,
+                icon: <MdDashboardCustomize size={50} />,
+                label: t("malumotlar"),
+              },
 
-            { id: 2, icon: <FaUserFriends size={50} />, label: t("xodimlar") },
+              {
+                id: 2,
+                icon: <FaUserFriends size={50} />,
+                label: t("xodimlar"),
+              },
 
-            {
-              id: 3,
-              icon: <GiArchiveResearch size={50} />,
-              label: t("tadqiqotlar"),
-            },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              style={{
-                color: activePage === tab.id ? "#023E8A" : "",
-                border: activePage === tab.id ? "3px solid #023E8A" : "",
-              }}
-              onClick={() => setActivePage(tab.id)}
-              className={styles.links}
-            >
-              {tab.icon}
-              <h3>{tab.label}</h3>
-            </button>
-          ))}
+              {
+                id: 3,
+                icon: <GiArchiveResearch size={50} />,
+                label: t("tadqiqotlar"),
+              },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                style={{
+                  color: activePage === tab.id ? "#023E8A" : "black",
+                  border: activePage === tab.id ? "3px solid #023E8A" : "",
+                }}
+                onClick={() => setActivePage(tab.id)}
+                className={styles.links}
+              >
+                {tab.icon}
+                <h3>{tab.label}</h3>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

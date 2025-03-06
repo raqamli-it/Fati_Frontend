@@ -46,6 +46,7 @@
 .box p {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
+  text-align: left;
   color: rgb(40, 40, 40);
 }
 .section h2 {
