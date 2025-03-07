@@ -26,6 +26,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div>
         <h2>Fanlar akademiyasi Tarix Instituti</h2>
+
         <div
           style={{
             display: "flex",
@@ -92,7 +93,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <p style={{textAlign:"center"}}>© Copyright {t("rights")}</p>
+      <p style={{ textAlign: "center" }}>© Copyright {t("rights")}</p>
       {/* <p>
             © Copyright {new Date().getFullYear()} - Web developed by #bUrkHaNov
           </p> */}

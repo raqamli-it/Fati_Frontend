@@ -68,17 +68,20 @@ function Listenings({ setLoading }) {
                 src={selectedItem.audio}
                 type={getAudioType(selectedItem.audio)}
               />
-              Sizning brauzeringiz ushbu audio formatni qo‘llab-quvvatlamaydi.
+              Sizning brauzeringiz ushbu audio formatni qollab-quvvatlamaydi.
             </audio>
           </div>
         )}
 
-        {/* 🎵 Buttonlar - audio tanlash uchun */}
-        <div>
+        <div className={style.audioCard}>
           {data.map((item, index) => (
             <div key={index}>
               <button onClick={() => setSelectedItem(item)}>
-                <FaPlay fontSize={"25px"} />
+                <FaPlay
+                  style={{
+                    fontSize: "25px",
+                  }}
+                />
                 <span>{item?.[`title_${lang}`]}</span>
               </button>
             </div>

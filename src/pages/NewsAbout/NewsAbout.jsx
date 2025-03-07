@@ -56,7 +56,11 @@ export const NewsAbout = ({ setLoading, loading }) => {
         >
           <h2>
             <IoArrowBack
-              style={{ cursor: "pointer", color: "#000000ad" }}
+              style={{
+                cursor: "pointer",
+                color: "#000000d2",
+                fontSize: "30px",
+              }}
               onClick={() => navigate(-1)}
             />
             {data?.[`title_${lang}`]}
@@ -70,9 +74,11 @@ export const NewsAbout = ({ setLoading, loading }) => {
               data?.created_at?.slice(0, 4)}
           </span>
         </div>
+
         <div className={styles.img}>
           <img src={data?.image} alt="img" />
         </div>
+
         <ul dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
       </div>
     </section>

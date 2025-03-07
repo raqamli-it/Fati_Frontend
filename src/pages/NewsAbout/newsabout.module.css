@@ -6,8 +6,10 @@
 .card h2 {
   display: flex;
   align-items: center;
-  gap: 20px;
-  font-size: 28px;
+  line-height: 36px;
+  gap: 30px;
+  font-size: 24px;
+  width: 100%;
   font-family: "Poppenis", sans-serif;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.892);
@@ -17,6 +19,8 @@
 .card span {
   font-size: 18px;
   display: block;
+  width: 20%;
+  text-align: right;
   font-family: "Poppenis", sans-serif;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.892);
@@ -51,4 +55,8 @@
 
 .link p {
   margin-top: 30px;
+}
+
+.card ul p span {
+  width: 100%;
 }

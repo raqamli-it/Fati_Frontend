@@ -4,17 +4,66 @@
   padding: 10px 0 30px;
 }
 
-.seminar-container h1 {
-  font-size: 42px;
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin: 35px 0;
+}
+
+.wrapper .cards {
+  background-color: rgba(0, 0, 255, 0.682);
+}
+
+.wrapper img {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.wrapper h2 {
+  margin: 0;
+  padding: 10px 15px 15px;
+  display: -webkit-box;
+  height: 85px;
+  font-size: 16px;
+  line-height: 25px;
+  -webkit-line-clamp: 3;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wrapper .cards .btn {
+  margin: 15px;
+  margin-left: auto;
+}
+
+/* SeminarDetail style */
+
+.seminar-container > p:nth-of-type(1) {
+  font-size: 32px;
   font-weight: 400;
+  margin: 35px 0;
+  line-height: 42px;
+  text-align: left;
   font-family: "Poppins", sans-serif;
 }
 
-.seminar-container h3 {
-  text-align: justify;
+.seminar-container .detailImg {
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+  height: 600px;
+}
+
+/* .seminar-container .title {
+  margin-top: 35px;
+} */
+
+.seminar-container .title p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   line-height: 30px;
-  margin-top: 20px;
-  font-weight: 500;
-  text-align: justify;
-  font-size: 18px;
 }

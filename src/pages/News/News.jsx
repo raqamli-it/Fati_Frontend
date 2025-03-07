@@ -108,7 +108,7 @@ export const News = ({ setLoading, loading }) => {
                     }
                     placement="top"
                   >
-                    <Link to={"/news/" + item?.id}>
+                    <Link to={item.link ? `${item.link}` : "/news/" + item?.id}>
                       <LiaArrowRightSolid className={styles.arrow} />
                     </Link>
                   </Tooltip>

@@ -48,6 +48,7 @@ import Views from "./pages/Views/Views";
 import Listenings from "./pages/Listenings/Listenings";
 import PhotosDetail from "./pages/Photos/PhotosDetail";
 import DoctaurantsDetail from "./pages/DoctaurantsDetail";
+import SeminarDetail from "./pages/Seminar/SeminarDetail";
 
 // import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
 // import Employees from "./pages/Employees/Employees";
@@ -147,6 +148,11 @@ const App = () => {
         <Route
           path="seminar/:id"
           element={<Seminar setLoading={setLoading} loading={loading} />}
+        />
+
+        <Route
+          path="seminar/:id/:seminarDetail"
+          element={<SeminarDetail setLoading={setLoading} loading={loading} />}
         />
 
         <Route

@@ -17,3 +17,58 @@
   line-height: 36px;
   font-family: "Arial", sans-serif;
 }
+
+/* employees */
+
+.description .employees {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.description .employeesCard {
+  display: grid;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.452);
+  box-shadow: inset 0 0 5px black;
+  grid-template-columns: 2fr 3fr;
+  align-items: stretch;
+  padding: 15px;
+  gap: 15px;
+}
+
+/* .description .employeesImg {
+  height: 270px;
+} */
+
+.description .employeesImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description .employeesDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.employeesDescription .employeesName {
+  border: 1px solid rgba(0, 0, 0, 0.452);
+  box-shadow: inset 0 0 5px black;
+  margin: 0 0 10px;
+  line-height: 24px !important;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding: 6px 10px;
+}
+
+.employeesDescription .employeesName:last-child {
+  margin-bottom: 0;
+}
+
+.employeesDescription .employeesName span {
+  font-size: 16px !important;
+}
