@@ -6,31 +6,35 @@
   grid-row-gap: 30px;
 }
 
+.internationalTravels h2 {
+  margin: 25px 0;
+  text-align: left;
+  font-size: 36px;
+  font-weight: 400;
+  font-family: "Times New Roman", "serif";
+}
+
 .card {
   display: grid;
   align-items: flex-start;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 30px;
 }
 
 .card-container img {
   width: 100%;
   height: 400px;
+  object-fit: cover;
 }
 
-.card-container h2 {
-  margin: 25px 0;
-  text-align: left;
-  font-size: 32px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
+.card-content p p:nth-child(-n + 3) {
+  display: none;
 }
 
 .card-content p {
   font-weight: 400;
-  margin-top: 30px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 32px;
   text-align: justify;
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", "serif";
 }

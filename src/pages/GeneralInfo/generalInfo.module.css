@@ -34,12 +34,13 @@
     cursor: pointer;
   }
 
-  p {
+  span {
     text-align: justify;
     font-weight: 400;
-    line-height: 26px;
-    font-size: 16px;
+    line-height: 30px;
+    font-size: 32px;
     transition: all 0.5s ease-in-out;
+    font-family: "Times New Roman", "serif";
   }
 
   h2 {
@@ -47,21 +48,18 @@
     color: rgba(0, 0, 0, 0.892);
     font-weight: 400;
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: "Times New Roman", "serif";
   }
 
   .hiddenText {
-    font-size: 18px;
     display: -webkit-box;
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-family: "Poppins", sans-serif;
     transition: all 0.5s ease-in-out;
   }
 
   .openText {
-    font-size: 18px;
     font-family: "Poppins", sans-serif;
     transition: all 0.5s ease-in-out;
   }

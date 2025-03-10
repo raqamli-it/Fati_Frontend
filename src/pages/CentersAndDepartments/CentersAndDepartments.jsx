@@ -43,7 +43,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     if (type === "markaz" || type === "bolim") {
       fetchData();
     }
-  }, [type, id]); // id ham dependencyga qo‘shildi
+  }, [type, id]);
 
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
@@ -52,6 +52,8 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   if (loading) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "data");
 
   return (
     <section className={styles["center-departments"]}>
@@ -96,7 +98,9 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
 
       <div className={styles.tab_card}>
         {activePage === 1 && <GeneralInfo data={data} />}
+
         {activePage === 2 && <Employees activeData={data} />}
+
         {activePage === 3 && <Research activeData={data} />}
       </div>
     </section>

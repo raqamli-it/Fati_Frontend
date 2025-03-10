@@ -22,8 +22,7 @@ function GeneralInfo({ data }) {
 
       <div className={generalInfo.contants}>
         <h2>{data?.[`title_${lang}`]}</h2>
-
-        <p
+        <div
           style={{
             transition: "all 0.5s ease-in-out",
           }}
@@ -31,8 +30,7 @@ function GeneralInfo({ data }) {
             openItems[data.id] ? generalInfo.openText : generalInfo.hiddenText
           }
           dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }}
-        ></p>
-
+        ></div>
         <button onClick={() => OpenBtn(data.id)} className={generalInfo.btn}>
           {openItems[data.id] ? "Yopish" : "Ko'proq o'qish"}
         </button>

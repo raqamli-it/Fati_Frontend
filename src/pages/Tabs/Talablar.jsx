@@ -33,11 +33,10 @@ function Talablar() {
               <img src={value?.image} alt="img" />
             </div>
 
-            <div className={style.description}>
-              <p
-                dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
-              ></p>
-            </div>
+            <p
+              className={style.description}
+              dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
+            ></p>
           </div>
         ))}
       </div>

@@ -60,6 +60,8 @@ export const NewsAbout = ({ setLoading, loading }) => {
                 cursor: "pointer",
                 color: "#000000d2",
                 fontSize: "30px",
+                width: "10%",
+                display: "inline-block",
               }}
               onClick={() => navigate(-1)}
             />
@@ -79,7 +81,7 @@ export const NewsAbout = ({ setLoading, loading }) => {
           <img src={data?.image} alt="img" />
         </div>
 
-        <ul dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
+        <div dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
       </div>
     </section>
   );

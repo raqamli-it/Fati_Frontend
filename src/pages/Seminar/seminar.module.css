@@ -48,13 +48,14 @@
   margin: 35px 0;
   line-height: 42px;
   text-align: left;
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", "serif";
 }
 
 .seminar-container .detailImg {
   width: 70%;
   margin: 0 auto;
   display: block;
+  object-fit: contain;
   height: 600px;
 }
 
@@ -63,7 +64,9 @@
 } */
 
 .seminar-container .title p {
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", "serif";
   font-weight: 400;
-  line-height: 30px;
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 36px;
 }

@@ -25,7 +25,7 @@ function EmployeesDetail() {
         <img src={dataDetail.image} alt={dataDetail?.[`ful_name_${lang}`]} />
       </div>
       <div className={style.cardDetail}>
-        <h1>{dataDetail?.[`ful_name_${lang}`]}</h1>
+        <h1>{dataDetail?.[`full_name_${lang}`]}</h1>
         <div
           dangerouslySetInnerHTML={{ __html: dataDetail?.[`about_${lang}`] }}
         ></div>
