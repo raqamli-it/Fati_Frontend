@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import style from "./Notices.module.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { GrFormPreviousLink } from "react-icons/gr";
 
 function NoticesDetail({ setLoading, loading }) {
   const [data, setData] = useState(null);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,13 +39,20 @@ function NoticesDetail({ setLoading, loading }) {
     <div className={style.detailContainer}>
       <div className={style.detailContainer}>
         {data ? (
-          <>
-            <p>{data[`title_${lang}`]}</p>
-            
+          <div>
+            <p style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              <GrFormPreviousLink
+                onClick={() => navigate("/notices")}
+                fontSize={"52px"}
+                cursor={"pointer"}
+              />
+              {data[`title_${lang}`]}
+            </p>
+
             <div
               style={{
                 float: "left",
-                width: "42%",
+                width: "25%",
                 marginRight: "20px",
               }}
             >
@@ -60,7 +69,7 @@ function NoticesDetail({ setLoading, loading }) {
               }}
               dangerouslySetInnerHTML={{ __html: data[`content_${lang}`] }}
             ></div>
-          </>
+          </div>
         ) : (
           <p>{t("data_not_found")}</p>
         )}
