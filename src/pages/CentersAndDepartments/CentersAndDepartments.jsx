@@ -13,7 +13,7 @@ import Research from "../Research/Research";
 export const CentersAndDepartments = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const [activePage, setActivePage] = useState(1);
+  const [activePage, setActivePage] = useState(0);
   const { type, id } = useParams();
   const navigate = useNavigate();
 
@@ -57,52 +57,59 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
 
   return (
     <section className={styles["center-departments"]}>
-      <div className={styles.bg_img}>
-        <div className={styles.tabs}>
-          <div className={styles.tab}>
-            {[
-              {
-                id: 1,
-                icon: <MdDashboardCustomize size={50} />,
-                label: t("malumotlar"),
-              },
+      {activePage === Number(0) ? (
+        <div>
+          <div className={styles.bg_img}></div>
+          <div className={styles.tabs}>
+            <div className={styles.tab}>
+              {[
+                {
+                  id: 1,
+                  // icon: <MdDashboardCustomize size={50} />,
+                  label: t("malumotlar"),
+                },
 
-              {
-                id: 2,
-                icon: <FaUserFriends size={50} />,
-                label: t("xodimlar"),
-              },
+                {
+                  id: 2,
+                  // icon: <FaUserFriends size={50} />,
+                  label: t("xodimlar"),
+                },
 
-              {
-                id: 3,
-                icon: <GiArchiveResearch size={50} />,
-                label: t("tadqiqotlar"),
-              },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                style={{
-                  color: activePage === tab.id ? "#023E8A" : "black",
-                  border: activePage === tab.id ? "3px solid #023E8A" : "",
-                }}
-                onClick={() => setActivePage(tab.id)}
-                className={styles.links}
-              >
-                {tab.icon}
-                <h3>{tab.label}</h3>
-              </button>
-            ))}
+                {
+                  id: 3,
+                  // icon: <GiArchiveResearch size={50} />,
+                  label: t("tadqiqotlar"),
+                },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  // style={{
+                  //   color: activePage === tab.id ? "#023E8A" : "black",
+                  //   border: activePage === tab.id ? "3px solid #023E8A" : "",
+                  // }}
+                  onClick={() => setActivePage(tab.id)}
+                  className={styles.links}
+                >
+                  {tab.icon}
+                  <h3>{tab.label}</h3>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className={styles.tab_card}>
-        {activePage === 1 && <GeneralInfo data={data} />}
-
-        {activePage === 2 && <Employees activeData={data} />}
-
-        {activePage === 3 && <Research activeData={data} />}
-      </div>
+      ) : (
+        <div className={styles.tab_card}>
+          {activePage === 1 && (
+            <GeneralInfo activeData={data} setActivePage={setActivePage} />
+          )}
+          {activePage === 2 && (
+            <Employees activeData={data} setActivePage={setActivePage} />
+          )}
+          {activePage === 3 && (
+            <Research activeData={data} setActivePage={setActivePage} />
+          )}
+        </div>
+      )}
     </section>
   );
 };

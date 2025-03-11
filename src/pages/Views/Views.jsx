@@ -45,9 +45,9 @@ function Views({ setLoading }) {
           </div>
         )}
 
-        <div>
+        <div className={style.viewsBtn}>
           {data.map((item, index) => (
-            <div key={index}>
+            <div key={index} className={style.viewsCard}>
               <button onClick={() => setSelectedItem(item)}>
                 <img src={item?.image} alt={item?.[`title_${lang}`]} />
                 <span>{item?.[`title_${lang}`]}</span>

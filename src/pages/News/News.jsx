@@ -71,7 +71,9 @@ export const News = ({ setLoading, loading }) => {
           margin: "0 auto",
           marginTop: "20px",
           textAlign: "center",
+          fontWeight: "400",
           fontSize: "40px",
+          fontFamily: "Poppins, sans-serif",
         }}
       >
         {t("news")}
@@ -100,6 +102,8 @@ export const News = ({ setLoading, loading }) => {
                         style={{
                           lineHeight: "30px",
                           fontWeight: 200,
+                          letterSpacing: "1.5px",
+                          fontFamily: "Poppins",
                           color: "white",
                         }}
                       >

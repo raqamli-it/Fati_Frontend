@@ -47,12 +47,14 @@
 
 .news-title span {
   line-height: 25px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
+  color: black;
+  font-family: "Poppins", sans-serif;
 }
 
 .arrow {
-  font-size: 25px;
+  font-size: 30px;
   display: block;
   color: #0052b4;
 }
@@ -62,10 +64,11 @@
   font-weight: 400;
   height: 84px;
   display: -webkit-box;
+  line-height: 28px;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  font-family: "Poppins", sans-serif;
+  font-family: "Times New Roman", "serif";
 }
 
 .content p {

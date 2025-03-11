@@ -6,61 +6,48 @@
   transition: all 0.5s ease-in;
 }
 
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  border: 1px solid rgba(128, 128, 128, 0.579);
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: rgba(0, 0, 255, 0.749);
+  box-shadow: inset 0 0 15px gray;
+}
+
 .img {
-  height: 450px;
+  height: 480px;
   float: left;
+  width: 40%;
   margin-right: 20px;
   img {
     width: 100%;
-    height: 100%;
+    height: 90%;
   }
 }
 
 .contants {
   transition: max-height 0.5s ease-in-out;
   min-height: 450px;
+}
 
-  .btn {
-    border: none;
-    height: 48px;
-    background-color: #023e8a;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    width: 160px;
-    font-weight: 400;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-right: 45%;
-    cursor: pointer;
-  }
+.contants p span {
+  text-align: justify;
+  font-weight: 400;
+  line-height: 30px;
+  font-size: 32px;
+  transition: all 0.5s ease-in-out;
+  font-family: "Times New Roman", "serif";
+}
 
-  span {
-    text-align: justify;
-    font-weight: 400;
-    line-height: 30px;
-    font-size: 32px;
-    transition: all 0.5s ease-in-out;
-    font-family: "Times New Roman", "serif";
-  }
-
-  h2 {
-    font-size: 36px;
-    color: rgba(0, 0, 0, 0.892);
-    font-weight: 400;
-    margin: 0;
-    font-family: "Times New Roman", "serif";
-  }
-
-  .hiddenText {
-    display: -webkit-box;
-    -webkit-line-clamp: 8;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .openText {
-    font-family: "Poppins", sans-serif;
-    transition: all 0.5s ease-in-out;
-  }
+h2 {
+  font-size: 36px;
+  color: rgba(0, 0, 0, 0.892);
+  font-weight: 400;
+  margin: 0;
+  font-family: "Times New Roman", "serif";
 }

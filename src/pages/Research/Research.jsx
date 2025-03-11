@@ -1,8 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "./Research.css";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
-function Research({ activeData }) {
+function Research({ activeData, setActivePage }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
@@ -15,7 +16,12 @@ function Research({ activeData }) {
         : activeData?.tadqiqot
       )?.map((value, index) => (
         <div key={index}>
-          <h1>{value?.[`title_${lang}`]}</h1>
+          {/* <h1>{value?.[`title_${lang}`]}</h1> */}
+          <button className="back-button" onClick={() => setActivePage(0)}>
+            <IoMdArrowRoundBack fontSize={"22px"} />
+            Orqaga
+          </button>
+
           <img src={value.image} alt={value?.[`title_${lang}`]} />
           <p
             dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
@@ -27,3 +33,6 @@ function Research({ activeData }) {
 }
 
 export default Research;
+
+
+

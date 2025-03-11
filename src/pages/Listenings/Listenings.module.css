@@ -30,7 +30,7 @@
 }
 
 .audioCard::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.93); /* Scrollning ushlanadigan joyi */
+  background-color: rgba(0, 0, 0, 0.703); /* Scrollning ushlanadigan joyi */
   border-radius: 5px;
   cursor: pointer;
 }

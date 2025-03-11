@@ -15,11 +15,10 @@
   }
 
   .tabs {
-    position: absolute;
     max-width: 1320px;
-    bottom: -80px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
   }
 
   .tab {
@@ -36,9 +35,10 @@
     cursor: pointer;
     align-items: center;
     transition: all 0.5s ease-in-out;
-    height: 160px;
-    border: 3px solid whitesmoke;
-    background-color: whitesmoke;
+    height: 80px;
+    box-shadow: 0 0 20px rgb(51, 50, 50) !important;
+    color: #e9eaea;
+    background-color: rgb(98, 98, 98);
     h3 {
       transition: all 0.5s ease-in-out;
       text-transform: uppercase;

@@ -2,8 +2,9 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import style from "./employees.module.css";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
-function Employees({ activeData }) {
+function Employees({ activeData, setActivePage }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const navigate = useNavigate();
@@ -12,6 +13,11 @@ function Employees({ activeData }) {
 
   return (
     <div className={style.container}>
+      <button className={style["back-button"]} onClick={() => setActivePage(0)}>
+        <IoMdArrowRoundBack fontSize={"22px"} />
+        Orqaga
+      </button>
+
       <div className={style.employeesX}>
         {(Array.isArray(activeData.xodimlar)
           ? activeData.xodimlar
