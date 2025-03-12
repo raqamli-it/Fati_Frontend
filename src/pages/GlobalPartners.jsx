@@ -40,11 +40,11 @@ export const GlobalPartners = ({ setLoading, loading }) => {
           <div key={index}>
             <h2>{item?.[`title_${lang}`]}</h2>
 
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: item?.[`content_${lang}`],
               }}
-            />
+            ></div>
           </div>
         );
       })}

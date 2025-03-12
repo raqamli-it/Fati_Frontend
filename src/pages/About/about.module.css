@@ -81,6 +81,7 @@
 
 .details p:nth-of-type(2) {
   padding: 0 0 15px;
+  text-transform: lowercase;
 }
 
 .wrapper .btns .active {

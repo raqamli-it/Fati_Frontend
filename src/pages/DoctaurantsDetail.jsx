@@ -31,7 +31,19 @@ function DoctaurantsDetail() {
 
         <div>
           <p>{findDetail?.[`title_${lang}`]}</p>
-          <h3 dangerouslySetInnerHTML={{ __html: findDetail?.[`works_${lang}`]}}></h3>
+          <h3
+            dangerouslySetInnerHTML={{
+              __html: findDetail?.[`labor_activity_${lang}`],
+            }}
+          ></h3>
+          <h3
+            dangerouslySetInnerHTML={{
+              __html: findDetail?.[`scientific_activity_${lang}`],
+            }}
+          ></h3>
+          <h3
+            dangerouslySetInnerHTML={{ __html: findDetail?.[`works_${lang}`] }}
+          ></h3>
         </div>
       </div>
     </div>

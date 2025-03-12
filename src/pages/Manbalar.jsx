@@ -44,6 +44,8 @@ const Manbalar = () => {
     setCurrentPage(1); // 1-sahifadan boshlash
   };
 
+  console.log(filterManbalar, "filterManbalar");
+
   return (
     <div className={adabiyotlar.container}>
       <div
@@ -86,6 +88,7 @@ const Manbalar = () => {
                     </a>
                   </div>
                   <p>{img?.[`title_${lang}`]}</p>
+                  <p>{img?.[`title_two_${lang}`]}</p>
                 </div>
               ))}
             </div>

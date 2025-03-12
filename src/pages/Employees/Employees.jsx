@@ -32,10 +32,11 @@ function Employees({ activeData, setActivePage }) {
 
               <div className={style.description}>
                 <span className={style.name}>
-                  {value?.[`ful_name_${lang}`]}
+                  {value?.[`full_name_${lang}`]}
                 </span>
 
                 <p>{value?.[`position_${lang}`]}</p>
+                <p>{value?.[`degree_${lang}`]}</p>
 
                 <button
                   onClick={() =>
