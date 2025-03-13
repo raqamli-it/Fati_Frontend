@@ -50,8 +50,8 @@
     transition: all 0.5s ease-in-out;
     height: 80px;
     box-shadow: 0 0 20px rgb(51, 50, 50) !important;
-    color: #e9eaea;
-    background-color: rgb(98, 98, 98);
+    color: white;
+    background-color: #023e8a;
     h3 {
       transition: all 0.5s ease-in-out;
       text-transform: uppercase;
@@ -67,7 +67,6 @@
 
   .links:hover h3,
   .links:hover .icon {
-    color: #023e8a;
     transition: all 0.5s ease-in-out;
   }
 }

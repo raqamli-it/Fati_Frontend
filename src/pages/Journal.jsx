@@ -35,7 +35,7 @@ export const Journal = ({ setLoading, loading }) => {
           <NavLink
             to="tahririyat"
             style={({ isActive }) => ({
-              backgroundColor: isActive ? "#ff0000aa" : "",
+              backgroundColor: isActive ? "#ff0000e2" : "",
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
@@ -48,7 +48,7 @@ export const Journal = ({ setLoading, loading }) => {
           <NavLink
             to="talablar"
             style={({ isActive }) => ({
-              backgroundColor: isActive ? "#ff0000aa" : "",
+              backgroundColor: isActive ? "#ff0000e2" : "",
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
@@ -60,7 +60,7 @@ export const Journal = ({ setLoading, loading }) => {
           <NavLink
             to="arxiv"
             style={({ isActive }) => ({
-              backgroundColor: isActive ? "#ff0000aa" : "",
+              backgroundColor: isActive ? "#ff0000e2" : "",
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
