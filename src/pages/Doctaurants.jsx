@@ -31,6 +31,7 @@ export const Doctaurants = ({ loading, setLoading }) => {
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected + 1);
+    console.log(event, "xa xato chiqayabdimi");
   };
 
   useEffect(() => {
@@ -44,8 +45,7 @@ export const Doctaurants = ({ loading, setLoading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "qqqq");
-  console.log(navigate, "navigate");
+  console.log(data, "Doctaurants");
 
   return (
     <div className={styles.wrapper}>
@@ -61,7 +61,7 @@ export const Doctaurants = ({ loading, setLoading }) => {
 
               <h6 className={styles.title}>{item?.[`title_${lang}`]}</h6>
               <button
-                onClick={() => navigate(`${item.id}`)}
+                onClick={() => navigate(`${item.id}`, { state: item })}
                 title="Batafsil ko'rish"
               >
                 Batafsil

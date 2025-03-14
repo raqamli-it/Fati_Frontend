@@ -11,6 +11,10 @@
   font-family: "Arial", sans-serif;
 }
 
+.description > div:nth-of-type(1) table tbody {
+  margin: 0 auto;
+}
+
 .description p:nth-of-type(2) strong {
   color: #151515;
   font-size: 18px;
@@ -46,5 +50,12 @@
 }
 
 .employeesName {
+  text-align: center;
+}
+
+.employeesName span {
+  display: block;
+  margin: 0;
+  line-height: 26px;
   text-align: center;
 }

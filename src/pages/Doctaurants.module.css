@@ -53,6 +53,7 @@ button {
 }
 
 .detailUserImg img {
+  margin-bottom: 30px;
   width: 35%;
   float: left;
   height: 400px;

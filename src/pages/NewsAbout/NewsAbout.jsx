@@ -46,42 +46,48 @@ export const NewsAbout = ({ setLoading, loading }) => {
   return (
     <section className={styles.section}>
       <div className={styles.card}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <h2>
-            <IoArrowBack
-              style={{
-                cursor: "pointer",
-                color: "#000000d2",
-                fontSize: "30px",
-                width: "10%",
-                display: "inline-block",
-              }}
-              onClick={() => navigate(-1)}
-            />
-            {data?.[`title_${lang}`]}
-          </h2>
-
-          <span>
-            {data?.created_at?.slice(8, 10) +
-              " " +
-              month[data?.created_at?.slice(5, 7) + "_" + lang] +
-              " " +
-              data?.created_at?.slice(0, 4)}
-          </span>
-        </div>
+        <h2>
+          <IoArrowBack
+            style={{
+              cursor: "pointer",
+              color: "#1e3769",
+              fontSize: "30px",
+              display: "inline-block",
+            }}
+            onClick={() => navigate(-1)}
+          />
+          {data?.[`title_${lang}`]}
+        </h2>
 
         <div className={styles.img}>
           <img src={data?.image} alt="img" />
         </div>
 
-        <div dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
+        <div className={styles.textContent}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+              color: "#89001a",
+              fontWeight: "600",
+              fontSize: "26px",
+              fontFamily: "'Poppins',serif-serf",
+              marginBottom: "15px",
+            }}
+          >
+            {data?.created_at?.slice(8, 10) +
+              " " +
+              month[data?.created_at?.slice(5, 7) + "_" + lang] +
+              " " +
+              data?.created_at?.slice(0, 4)}
+          </div>
+
+          <div
+            dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }}
+          ></div>
+        </div>
       </div>
     </section>
   );

@@ -59,6 +59,11 @@ export const ScCouncil = ({ setLoading, loading }) => {
                     <h2 className={styles.employeesName}>
                       {value?.[`full_name_${lang}`]}
                     </h2>
+                    {value.position_uz ? (
+                      <p>{value?.[`position_${lang}`]}</p>
+                    ) : (
+                      <p>Lavozimi</p>
+                    )}
                   </div>
                 ))}
               </div>

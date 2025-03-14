@@ -110,6 +110,12 @@ span {
   height: 100%;
 }
 
+.items .employees p {
+  color: rgba(0, 0, 0, 0.79);
+}
+
 .items .employees .employeesName {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 0;
 }

@@ -68,6 +68,18 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.detailText p span {
+  line-height: 20px;
+}
+
+.detailText p {
+  text-align: left !important;
+}
+
+.detailText p:first-child {
+  display: none;
+}
+
 /* paginatsiya */
 .pagination {
   display: flex;

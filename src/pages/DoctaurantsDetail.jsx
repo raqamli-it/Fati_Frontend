@@ -1,48 +1,42 @@
-import React, { useEffect, useState } from "react";
 import style from "./Doctaurants.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
 
 function DoctaurantsDetail() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const { id } = useParams();
-  const [doctaurantsDetail, setDoctaurantsDetail] = useState([]);
+  const location = useLocation(); // useLocation orqali state ni olish
 
-  useEffect(() => {
-    axios
-      .get(`/doktarantura/doktarantura/`)
-      .then((response) => setDoctaurantsDetail(response.data.results))
-      .catch((error) => console.error("Xatolik:", error));
-  }, []);
-
-  console.log(doctaurantsDetail, "doctaurantsDetail");
-
-  const findDetail = doctaurantsDetail.find((value) => value.id === Number(id));
-  console.log(findDetail, "findDetail");
+  const doctaurantData = location.state; // navigate orqali kelgan obyekt
+  console.log(doctaurantData, "doctaurantData");
 
   return (
     <div className={style.wrapper}>
       <div className={style.cardDetail}>
         <div className={style.detailUserImg}>
-          <img src={findDetail?.file} alt={findDetail?.[`title_${lang}`]} />
+          <img
+            src={doctaurantData?.file}
+            alt={doctaurantData?.[`title_${lang}`]}
+          />
         </div>
 
         <div>
-          <p>{findDetail?.[`title_${lang}`]}</p>
+          <p>{doctaurantData?.[`title_${lang}`]}</p>
           <h3
             dangerouslySetInnerHTML={{
-              __html: findDetail?.[`labor_activity_${lang}`],
+              __html: doctaurantData?.[`labor_activity_${lang}`],
             }}
           ></h3>
           <h3
             dangerouslySetInnerHTML={{
-              __html: findDetail?.[`scientific_activity_${lang}`],
+              __html: doctaurantData?.[`scientific_activity_${lang}`],
             }}
           ></h3>
           <h3
-            dangerouslySetInnerHTML={{ __html: findDetail?.[`works_${lang}`] }}
+            dangerouslySetInnerHTML={{
+              __html: doctaurantData?.[`works_${lang}`],
+            }}
           ></h3>
         </div>
       </div>

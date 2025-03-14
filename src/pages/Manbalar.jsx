@@ -34,6 +34,7 @@ const Manbalar = () => {
   }, [currentPage]);
 
   const handlePageClick = (event) => {
+    // event.preventDefault();
     setCurrentPage(event.selected + 1);
   };
 

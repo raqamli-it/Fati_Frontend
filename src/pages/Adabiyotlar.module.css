@@ -97,10 +97,14 @@
 
 .pagination li {
   margin: 0 5px;
-  padding: 10px;
   cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 10px;
 }
 
 .pagination li:hover {

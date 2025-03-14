@@ -35,6 +35,8 @@ function NoticesDetail({ setLoading, loading }) {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "data");
+
   return (
     <div className={style.detailContainer}>
       <div className={style.detailContainer}>
@@ -63,10 +65,7 @@ function NoticesDetail({ setLoading, loading }) {
               />
             </div>
 
-            <div
-              style={{
-                width: "100%",
-              }}
+            <div className={style.detailText}
               dangerouslySetInnerHTML={{ __html: data[`content_${lang}`] }}
             ></div>
           </div>

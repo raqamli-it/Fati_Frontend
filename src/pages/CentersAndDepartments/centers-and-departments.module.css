@@ -56,6 +56,8 @@
       transition: all 0.5s ease-in-out;
       text-transform: uppercase;
       font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
       font-family: "Poppins", sans-serif;
     }
     gap: 10px;

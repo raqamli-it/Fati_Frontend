@@ -24,6 +24,7 @@ export const ScientificDegree = ({ setLoading, loading }) => {
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
@@ -48,6 +49,8 @@ export const ScientificDegree = ({ setLoading, loading }) => {
 
                 <h2 className={styles.employeesName}>
                   <span>{value?.[`full_name_${lang}`]}</span>
+                  <span>{value?.[`position_${lang}`]}</span>
+                  <span>{value?.[`degree_${lang}`]}</span>
                 </h2>
               </div>
             ))}
