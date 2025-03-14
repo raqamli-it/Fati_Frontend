@@ -38,7 +38,7 @@ function Views({ setLoading }) {
             <video
               key={selectedItem.id} // ID yoki boshqa unikal qiymat ishlatish
               controls
-              style={{ width: "100%" }}
+              style={{ width: "100%", height: "100%" }}
             >
               <source src={selectedItem.video} type="video/mp4" />
             </video>

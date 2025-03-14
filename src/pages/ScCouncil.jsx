@@ -50,22 +50,24 @@ export const ScCouncil = ({ setLoading, loading }) => {
               ></div>
 
               <div className={styles.employees}>
-                {item?.xodimlar?.map((value, idx) => (
-                  <div key={idx}>
-                    <div className={styles.employeesImg}>
-                      <img src={value.image} alt={item?.[`title_${lang}`]} />
-                    </div>
+                {item?.xodimlar
+                  ?.sort((a, b) => a.id - b.id)
+                  .map((value, idx) => (
+                    <div key={idx}>
+                      <div className={styles.employeesImg}>
+                        <img src={value.image} alt={item?.[`title_${lang}`]} />
+                      </div>
 
-                    <h2 className={styles.employeesName}>
-                      {value?.[`full_name_${lang}`]}
-                    </h2>
-                    {value.position_uz ? (
-                      <p>{value?.[`position_${lang}`]}</p>
-                    ) : (
-                      <p>Lavozimi</p>
-                    )}
-                  </div>
-                ))}
+                      <h2 className={styles.employeesName}>
+                        {value?.[`full_name_${lang}`]}
+                      </h2>
+                      {value.position_uz ? (
+                        <p>{value?.[`position_${lang}`]}</p>
+                      ) : (
+                        <p>Lavozimi</p>
+                      )}
+                    </div>
+                  ))}
               </div>
             </div>
           );
