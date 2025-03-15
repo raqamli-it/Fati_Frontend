@@ -1,6 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { useTranslation } from "react-i18next";
-// import axios from "axios";
 import { NavLink, Outlet } from "react-router-dom";
 import "./journal.css";
 import talablar from "./PageIcons/talablar.png";
@@ -8,26 +5,6 @@ import arxiv from "./PageIcons/arxiv.webp";
 import taxririyat from "./PageIcons/taxririyat.png";
 
 export const Journal = ({ setLoading, loading }) => {
-  // const { t, i18n } = useTranslation();
-  // const lang = i18n.language;
-
-  // const [archiveMenuData, setArchiveMenuData] = useState([]);
-
-  // const fetchData = async () => {
-  //   try {
-  //     setLoading(true);
-  //     await axios
-  //       .get("/kutobxona/arxiv/")
-  //       .then((req) => setArchiveMenuData(req.data));
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setLoading("show-p");
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
   return (
     <div className="journal-page">
       <div className="links">
@@ -35,7 +12,7 @@ export const Journal = ({ setLoading, loading }) => {
           <NavLink
             to="tahririyat"
             style={({ isActive }) => ({
-              backgroundColor: isActive ? "#ff0000e2" : "",
+              backgroundColor: isActive ? "#023e8a" : "",
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
@@ -48,7 +25,7 @@ export const Journal = ({ setLoading, loading }) => {
           <NavLink
             to="talablar"
             style={({ isActive }) => ({
-              backgroundColor: isActive ? "#ff0000e2" : "",
+              backgroundColor: isActive ? "#023e8a" : "",
               color: isActive ? "white" : "",
             })}
             className="effect-btns"
@@ -60,7 +37,7 @@ export const Journal = ({ setLoading, loading }) => {
           <NavLink
             to="arxiv"
             style={({ isActive }) => ({
-              backgroundColor: isActive ? "#ff0000e2" : "",
+              backgroundColor: isActive ? "#023e8a" : "",
               color: isActive ? "white" : "",
             })}
             className="effect-btns"

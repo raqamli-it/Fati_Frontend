@@ -61,10 +61,12 @@ export const Contact = ({ setLoading, loading }) => {
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
-  
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
+
+  console.log(data, "data");
 
   return (
     <section className={styles.section}>
@@ -74,17 +76,22 @@ export const Contact = ({ setLoading, loading }) => {
           <div key={index} className={styles.card}>
             <div className={styles.box}>
               <h3>Telefon:</h3>
-              <p>{item.phone}</p>
+              <a href={`tel:${item.phone}`}>{item.phone}</a>
             </div>
 
             <div className={styles.box}>
               <h3>Email:</h3>
-              <p>{item.email}</p>
+              <a href={`mailto:${item.email}`}>{item.email}</a>
             </div>
 
             <div className={styles.box}>
               <h3>Manzil:</h3>
-              <p>{item.adress}</p>
+              <a
+                href={`https://www.google.com/maps?q=${item.lat},${item.long}`}
+                target="_blank"
+              >
+                {item.adress}
+              </a>
             </div>
           </div>
         ))}

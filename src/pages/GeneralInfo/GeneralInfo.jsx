@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import generalInfo from "./generalInfo.module.css";
 import { useTranslation } from "react-i18next";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 function GeneralInfo({ activeData, setActivePage }) {
   const { t, i18n } = useTranslation();
@@ -9,14 +9,15 @@ function GeneralInfo({ activeData, setActivePage }) {
 
   return (
     <div className={generalInfo.generalInfo}>
+      <button
+        title="Saxifadan chiqish"
+        className={generalInfo["back-button"]}
+        onClick={() => setActivePage(0)}
+      >
+        <FaArrowLeftLong fontSize={"22px"} />
+        Saxifadan chiqish
+      </button>
       <div className={generalInfo.img}>
-        <button
-          className={generalInfo["back-button"]}
-          onClick={() => setActivePage(0)}
-        >
-          <IoMdArrowRoundBack fontSize={"22px"} />
-          Orqaga
-        </button>
         <img src={activeData.image} alt={activeData?.[`title_${lang}`]} />
       </div>
 

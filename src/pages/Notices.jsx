@@ -57,6 +57,7 @@ function Notices({ setLoading, loading }) {
             <div className={style.discription}>
               <p>{item?.[`title_${lang}`]}</p>
               <button
+                title="Batafsil ko'rish"
                 onClick={() => navigate(`${item.id}?page=${currentPage}`)}
                 className={style["btn-details"]}
               >

@@ -4,12 +4,15 @@ import axios from "axios";
 import hrpanel from "./HRPanel.module.css";
 import kadirlar from "./kadirlar.png";
 import { Zoom } from "react-awesome-reveal";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 function HRPanel({ setLoading, loading }) {
   const { t, i18n } = useTranslation();
   const [data, setData] = useState([]);
   const [HRPanel, setHRPanel] = useState("Xodimlar");
   const lang = i18n.language;
+  const navigate = useNavigate();
 
   const GetHRPanel = async () => {
     try {
@@ -44,6 +47,22 @@ function HRPanel({ setLoading, loading }) {
       <div className={hrpanel.wrapper}>
         <div className={hrpanel.btns}>
           <div className={hrpanel.btn}>
+            <FaArrowLeftLong
+              title="Orqaga qaytish"
+              onClick={() => navigate("/")}
+              style={{
+                fontSize: "30px",
+                color: "blue",
+                cursor: "pointer",
+                height: "80px",
+                backgroundColor: "white",
+                width: "120px",
+                display: "block",
+                padding: "20px",
+                borderRadius: "16px",
+                boxShadow: "0 0 6px gray",
+              }}
+            />
             {data?.map((value, index) => (
               <button onClick={() => HRPanelBtn(value.title)} key={index}>
                 {value.title}

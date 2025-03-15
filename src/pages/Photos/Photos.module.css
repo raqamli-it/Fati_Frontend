@@ -3,6 +3,14 @@
   margin: 100px auto 70px;
 }
 
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
 .card {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

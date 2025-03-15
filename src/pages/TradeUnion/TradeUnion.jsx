@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import style from "./tradeunion.module.css";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export const TradeUnion = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -9,6 +11,7 @@ export const TradeUnion = () => {
   const [error, setError] = useState(null);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +37,14 @@ export const TradeUnion = () => {
       {teamMembers && <div className={style.chiziq}></div>}
 
       <div className={style.tradeUnionContainer}>
-        <h1>Institut boshqaruvi</h1>
+        <div className={style.prevIcon}>
+          <FaArrowLeftLong
+            title="Orqaga qaytish"
+            onClick={() => navigate("/")}
+            style={{ fontSize: "30px", color: "blue", cursor: "pointer" }}
+          />
+          <h1>Institut boshqaruvi</h1>
+        </div>
         <div className={style["team-grid"]}>
           {teamMembers?.map((value, index) => (
             <div key={index} className={`${style.card}`}>

@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import seminar from "./seminar.module.css";
 import axios from "axios";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 function SeminarDetail({ setLoading, loading }) {
   const { seminarDetail } = useParams();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const navigate=useNavigate()
 
   const [data, setData] = useState([]);
 
@@ -42,7 +44,24 @@ function SeminarDetail({ setLoading, loading }) {
 
   return (
     <div className={seminar["seminar-container"]}>
-      <p>{FindIdCategory?.[`title_${lang}`]}</p>
+      <div className={seminar.prevIcon}>
+        <button
+          className={seminar["back-button"]}
+          title="Saxifadan chiqish"
+          onClick={() => navigate(-1)}
+        >
+          <FaArrowLeftLong
+            style={{
+              fontSize: "24px",
+              color: "blue",
+              cursor: "pointer",
+            }}
+          />
+          Saxifadan chiqish
+        </button>
+
+        <p>{FindIdCategory?.[`title_${lang}`]}</p>
+      </div>
       <img
         className={seminar.detailImg}
         src={FindIdCategory && FindIdCategory.image}

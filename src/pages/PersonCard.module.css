@@ -3,23 +3,29 @@
   max-width: 1320px;
 }
 
-.description > p:nth-of-type(1) {
-  color: #242424;
-  font-size: 32px;
-  line-height: 42px;
-  margin-bottom: 20px;
-  font-family: "Arial", sans-serif;
+.prevIcon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.prevIcon .back-button {
+  display: flex;
+  margin-left: 0;
+  gap: 15px;
+  align-items: center;
+}
+
+.prevIcon p {
+  width: 80%;
+  font-family: "Graphic Light";
+  font-size: 30px;
+  text-align: left;
+  line-height: 36px;
 }
 
 .description > div:nth-of-type(1) table tbody {
   margin: 0 auto;
-}
-
-.description p:nth-of-type(2) strong {
-  color: #151515;
-  font-size: 18px;
-  line-height: 36px;
-  font-family: "Arial", sans-serif;
 }
 
 /* employees */

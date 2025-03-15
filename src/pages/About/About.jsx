@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./about.module.css";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export const About = ({ loading, setLoading }) => {
   const { t, i18n } = useTranslation();
@@ -9,6 +11,7 @@ export const About = ({ loading, setLoading }) => {
   const [staff, setStaff] = useState([]);
   const [activePage, setActivePage] = useState(null);
   const lang = i18n.language;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,6 +55,16 @@ export const About = ({ loading, setLoading }) => {
 
   return (
     <section className={style.about}>
+      <FaArrowLeftLong
+        title="Orqaga qaytish"
+        onClick={() => navigate("/")}
+        style={{
+          fontSize: "30px",
+          color: "blue",
+          cursor: "pointer",
+          margin: "80px 0 15px",
+        }}
+      />
       <div>
         {data.map((item, index) => (
           <div key={index} className={style.card}>

@@ -1,10 +1,11 @@
 import { useTranslation } from "react-i18next";
 import styles from "./news.module.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LiaArrowRightSolid } from "react-icons/lia";
 import Tooltip from "@mui/material/Tooltip";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const month = {
   "01_uz": "Yanvar",
@@ -37,6 +38,7 @@ export const News = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,19 +67,24 @@ export const News = ({ setLoading, loading }) => {
 
   return (
     <div className={styles.news_container}>
-      <h1
-        style={{
-          maxWidth: "1320px",
-          margin: "0 auto",
-          marginTop: "20px",
-          textAlign: "center",
-          fontWeight: "400",
-          fontSize: "40px",
-          fontFamily: "Poppins, sans-serif",
-        }}
-      >
-        {t("news")}
-      </h1>
+      <div className={styles.prevIcon}>
+        <FaArrowLeftLong
+          title="Orqaga qaytish"
+          onClick={() => navigate("/")}
+          style={{ fontSize: "30px", color: "blue", cursor: "pointer" }}
+        />
+        <h1
+          style={{
+            fontWeight: "400",
+            fontSize: "40px",
+            width: "100%",
+            fontFamily: "Poppins, sans-serif",
+            textAlign: "center",
+          }}
+        >
+          {t("news")}
+        </h1>
+      </div>
 
       <div className={styles.news}>
         {data?.map((item, index) => {

@@ -4,6 +4,26 @@
   padding: 10px 0 30px;
 }
 
+.prevIcon {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.prevIcon .back-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 0;
+}
+
+.prevIcon p {
+  margin: 0 auto;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 42px;
+  font-family: "Times New Roman", "serif";
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -12,7 +32,7 @@
 }
 
 .wrapper .cards {
-  background-color: rgba(0, 0, 255, 0.682);
+  background-color: #023e8a;
 }
 
 .wrapper img {
@@ -37,19 +57,15 @@
 
 .wrapper .cards .btn {
   margin: 15px;
+  color: white;
   margin-left: auto;
 }
 
-/* SeminarDetail style */
-
-.seminar-container > p:nth-of-type(1) {
-  font-size: 32px;
-  font-weight: 400;
-  margin: 35px 0;
-  line-height: 42px;
-  text-align: left;
-  font-family: "Times New Roman", "serif";
+.cards .title {
+  color: white;
 }
+
+/* SeminarDetail style */
 
 .seminar-container .detailImg {
   width: 70%;
@@ -58,7 +74,6 @@
   object-fit: contain;
   height: 600px;
 }
-
 
 .seminar-container .title p {
   font-family: "Times New Roman", "serif";

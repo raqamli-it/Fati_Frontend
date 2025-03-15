@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import styles from "./PersonCard.module.css";
 import axios from "axios";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const ScientificDegree = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
@@ -35,7 +36,24 @@ export const ScientificDegree = ({ setLoading, loading }) => {
     <section className={styles.container}>
       {data.map((item, index) => (
         <div key={index} className={styles.description}>
-          <p>{item?.[`title_${lang}`]}</p>
+          <div className={styles.prevIcon}>
+            <button
+              className={styles["back-button"]}
+              title="Saxifadan chiqish"
+              onClick={() => navigate("/")}
+            >
+              <FaArrowLeftLong
+                style={{
+                  fontSize: "24px",
+                  color: "blue",
+                  cursor: "pointer",
+                }}
+              />
+              Saxifadan chiqish
+            </button>
+            <p>{item?.[`title_${lang}`]}</p>
+          </div>
+
           <div
             dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
           ></div>

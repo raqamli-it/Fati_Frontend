@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./OrganizationStructure.module.css";
 import { useTranslation } from "react-i18next";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const OrganizationStructure = ({ setLoading, loading }) => {
   const [data, setData] = useState([]);
@@ -31,6 +32,16 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
   return (
     <section className={style.organizationStructure}>
       <div className={style.card}>
+        <FaArrowLeftLong
+          title="Orqaga qaytish"
+          onClick={() => navigate("/")}
+          style={{
+            fontSize: "30px",
+            color: "blue",
+            cursor: "pointer",
+            margin: "10px 0 20px",
+          }}
+        />
         {data?.map((value, index) => (
           <div key={index}>
             <img src={value.file} alt={value?.[`title_${lang}`]} />

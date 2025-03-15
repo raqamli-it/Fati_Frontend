@@ -14,9 +14,11 @@
 
 .section h1 {
   font-family: "Poppins", sans-serif;
+  font-weight: 500;
   font-size: 38px;
   width: 90%;
   margin: 0 auto;
+  color: #023e8a;
 }
 
 .card {
@@ -40,19 +42,40 @@
 .box h3 {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
-  color: rgba(255, 0, 0, 0.774);
+  font-weight: 500;
+  color: #023e8a;
 }
 
-.box p {
+.box a {
+  line-height: 24px;
+  transition: all 0.5s ease-in-out;
+  font-weight: 400;
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  text-align: left;
-  color: rgb(40, 40, 40);
 }
+
+.box a:hover {
+  transition: all 0.5s ease-in-out;
+  color: #3a81de;
+}
+
+.inputValue label {
+  color: #023e8a;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.inputValue input::placeholder,
+textarea::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
 .section h2 {
   font-size: 32px;
   font-size: 32px;
   font-family: "Poppins", sans-serif;
+  color: #023e8a;
+  font-weight: 500;
 }
 
 .section .sendMessage {
@@ -119,8 +142,8 @@
   font-size: 18px;
   color: white;
   border: none;
-  border: 2px solid rgba(255, 0, 0, 0.538);
-  background-color: rgba(255, 0, 0, 0.936);
+  border: 2px solid #023e8a;
+  background-color: #023e8a;
   border-radius: 6px;
   outline: none;
 }

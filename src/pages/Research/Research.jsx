@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "./Research.css";
-import { IoMdArrowRoundBack } from "react-icons/io";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 function Research({ activeData, setActivePage }) {
   const { t, i18n } = useTranslation();
@@ -17,9 +17,13 @@ function Research({ activeData, setActivePage }) {
       )?.map((value, index) => (
         <div key={index}>
           {/* <h1>{value?.[`title_${lang}`]}</h1> */}
-          <button className="back-button" onClick={() => setActivePage(0)}>
-            <IoMdArrowRoundBack fontSize={"22px"} />
-            Orqaga
+          <button
+            title="Saxifadan chiqish"
+            className="back-button"
+            onClick={() => setActivePage(0)}
+          >
+            <FaArrowLeftLong fontSize={"22px"} />
+            Saxifadan chiqish
           </button>
 
           <img src={value.image} alt={value?.[`title_${lang}`]} />
@@ -33,6 +37,3 @@ function Research({ activeData, setActivePage }) {
 }
 
 export default Research;
-
-
-

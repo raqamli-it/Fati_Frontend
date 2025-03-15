@@ -88,6 +88,7 @@ const Manbalar = () => {
                       <AiOutlineRead style={{ fontSize: "30px" }} />
                     </a>
                   </div>
+                  
                   <p>{img?.[`title_${lang}`]}</p>
                   <p>{img?.[`title_two_${lang}`]}</p>
                 </div>

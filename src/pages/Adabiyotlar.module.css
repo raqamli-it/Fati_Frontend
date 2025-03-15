@@ -66,7 +66,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  padding: 5px 20px 0;
+  padding: 10px 20px 0;
   line-height: 25px;
   margin-bottom: 0;
   text-align: center;
@@ -79,9 +79,9 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  padding: 5px 20px;
+  padding: 0 20px 5px;
   line-height: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: center;
   justify-content: center;
 }
@@ -108,11 +108,10 @@
 }
 
 .pagination li:hover {
-  background-color: #ddd;
+  background-color: #007bff;
 }
 
 .active {
   background-color: #007bff;
-  color: white;
   border: none;
 }

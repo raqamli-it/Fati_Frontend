@@ -55,7 +55,7 @@
   justify-content: center;
   right: 20px;
   border-radius: 50%;
-  background-color: rgba(30, 255, 0, 0.672);
+  background-color: rgba(0, 255, 0, 0.851);
 }
 
 .icon {
@@ -127,10 +127,13 @@
 
 .pagination li {
   margin: 0 5px;
-  padding: 10px;
   cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.pagination li a {
+  padding: 10px;
 }
 
 .pagination li:hover {

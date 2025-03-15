@@ -47,6 +47,7 @@ export const Seminar = ({ setLoading, loading }) => {
             <img src={value?.image} alt={value?.[`title_${lang}`]} />
             <h2 className={seminar.title}>{value?.[`title_${lang}`]}</h2>
             <button
+              title="Batafsil ko'ring"
               onClick={() => navigate(`${location.pathname}/${value.id}`)}
               className={seminar.btn}
             >

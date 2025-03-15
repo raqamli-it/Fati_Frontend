@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./Doctaurants.module.css";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const Doctaurants = ({ loading, setLoading }) => {
   const [data, setData] = useState([]);
@@ -49,6 +50,21 @@ export const Doctaurants = ({ loading, setLoading }) => {
 
   return (
     <div className={styles.wrapper}>
+      <button
+        className={styles["back-button"]}
+        title="Saxifadan chiqish"
+        onClick={() => navigate("/")}
+      >
+        <FaArrowLeftLong
+          style={{
+            fontSize: "24px",
+            color: "blue",
+            cursor: "pointer",
+          }}
+        />
+        Saxifadan chiqish
+      </button>
+
       <section className={styles.cards}>
         {data.map((item, index) => {
           return (
@@ -70,7 +86,6 @@ export const Doctaurants = ({ loading, setLoading }) => {
           );
         })}
       </section>
-
       <ReactPaginate
         previousLabel={"←"}
         nextLabel={"→"}
