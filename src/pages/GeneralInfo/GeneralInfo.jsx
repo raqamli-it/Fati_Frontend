@@ -7,16 +7,19 @@ function GeneralInfo({ activeData, setActivePage }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
+  console.log(activeData, "activeData");
+
   return (
     <div className={generalInfo.generalInfo}>
       <button
-        title="Saxifadan chiqish"
+        title="Sahifadan chiqish"
         className={generalInfo["back-button"]}
         onClick={() => setActivePage(0)}
       >
         <FaArrowLeftLong fontSize={"22px"} />
-        Saxifadan chiqish
+        Sahifadan chiqish
       </button>
+      
       <div className={generalInfo.img}>
         <img src={activeData.image} alt={activeData?.[`title_${lang}`]} />
       </div>

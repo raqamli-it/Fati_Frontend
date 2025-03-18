@@ -14,12 +14,12 @@ function Employees({ activeData, setActivePage }) {
   return (
     <div className={style.container}>
       <button
-        title="Saxifadan chiqish"
+        title="Sahifadan chiqish"
         className={style["back-button"]}
         onClick={() => setActivePage(0)}
       >
         <FaArrowLeftLong fontSize={"22px"} />
-        Saxifadan chiqish
+        Sahifadan chiqish
       </button>
 
       <div className={style.employeesX}>

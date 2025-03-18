@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import { FaPlay } from "react-icons/fa6";
 import style from "./Views.module.css";
 
 function Views({ setLoading }) {
@@ -30,18 +29,30 @@ function Views({ setLoading }) {
     getViewsData();
   }, []);
 
+  console.log(data, "video");
+
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
         {selectedItem && (
           <div>
-            <video
+            {/* <video
               key={selectedItem.id} // ID yoki boshqa unikal qiymat ishlatish
               controls
               style={{ width: "100%", height: "100%" }}
             >
               <source src={selectedItem.video} type="video/mp4" />
-            </video>
+            </video> */}
+            <iframe
+              key={selectedItem.id}
+              width="100%"
+              height="485"
+              src={selectedItem.video} // YouTube `embed` link bo'lishi kerak
+              title="Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         )}
 

@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 function HomeNews({ newsData }) {
   const navigate = useNavigate();
@@ -95,8 +96,9 @@ function HomeNews({ newsData }) {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  minHeight: "150px",
+                  minHeight: "120px",
                   width: "90%",
+                  margin: "0 auto",
                 }}
               >
                 {/* <p
@@ -104,12 +106,23 @@ function HomeNews({ newsData }) {
                   dangerouslySetInnerHTML={{ __html: value.content_uz }}
                 ></p> */}
                 <p className="content_uz">{value.title_uz}</p>
-                <button
+                <FaArrowRightLong
+                  title="Batafsil ko'rish"
+                  onClick={() => navigate(`news/${value.id}`)}
+                  style={{
+                    fontSize: "30px",
+                    color: "blue",
+                    cursor: "pointer",
+                    marginLeft: "auto",
+                    marginBottom: "13px",
+                  }}
+                />
+                {/* <button
                   onClick={() => navigate(`news/${value.id}`)}
                   className="news-btn"
                 >
                   Batafsil
-                </button>
+                </button> */}
               </div>
             </div>
           ))}

@@ -51,9 +51,11 @@
   object-fit: cover;
 }
 
-.wrapper button span {
+.viewsCard button span {
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
+  font-size: 20px !important;
+  line-height: 26px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: left;

@@ -45,6 +45,8 @@ const Adabiyotlar = () => {
     setCurrentPage(1); // 1-sahifadan boshlash
   };
 
+  console.log(filterAdabiyotlar, "filterAdabiyotlar");
+
   return (
     <div className={adabiyotlar.container}>
       <div
@@ -87,7 +89,9 @@ const Adabiyotlar = () => {
                         <AiOutlineRead style={{ fontSize: "30px" }} />
                       </a>
                     </div>
+                    
                     <p>{img?.[`title_${lang}`]}</p>
+                    <p>{img?.[`title_two_${lang}`]}</p>
                   </div>
                 );
               })}

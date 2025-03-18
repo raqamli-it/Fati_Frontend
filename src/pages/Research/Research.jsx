@@ -18,12 +18,12 @@ function Research({ activeData, setActivePage }) {
         <div key={index}>
           {/* <h1>{value?.[`title_${lang}`]}</h1> */}
           <button
-            title="Saxifadan chiqish"
+            title="Sahifadan chiqish"
             className="back-button"
             onClick={() => setActivePage(0)}
           >
             <FaArrowLeftLong fontSize={"22px"} />
-            Saxifadan chiqish
+            Sahifadan chiqish
           </button>
 
           <img src={value.image} alt={value?.[`title_${lang}`]} />

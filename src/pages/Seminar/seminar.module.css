@@ -32,7 +32,7 @@
 }
 
 .wrapper .cards {
-  background-color: #023e8a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.673);
 }
 
 .wrapper img {
@@ -57,12 +57,8 @@
 
 .wrapper .cards .btn {
   margin: 15px;
-  color: white;
+  color: blue;
   margin-left: auto;
-}
-
-.cards .title {
-  color: white;
 }
 
 /* SeminarDetail style */

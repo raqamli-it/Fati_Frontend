@@ -9,7 +9,7 @@ function SeminarDetail({ setLoading, loading }) {
   const { seminarDetail } = useParams();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const [data, setData] = useState([]);
 
@@ -47,7 +47,7 @@ function SeminarDetail({ setLoading, loading }) {
       <div className={seminar.prevIcon}>
         <button
           className={seminar["back-button"]}
-          title="Saxifadan chiqish"
+          title="Sahifadan chiqish"
           onClick={() => navigate(-1)}
         >
           <FaArrowLeftLong
@@ -57,7 +57,7 @@ function SeminarDetail({ setLoading, loading }) {
               cursor: "pointer",
             }}
           />
-          Saxifadan chiqish
+          Sahifadan chiqish
         </button>
 
         <p>{FindIdCategory?.[`title_${lang}`]}</p>

@@ -43,7 +43,7 @@ export const ScYoung = ({ setLoading, loading }) => {
               <div className={styles.prevIcon}>
                 <button
                   className={styles["back-button"]}
-                  title="Saxifadan chiqish"
+                  title="Sahifadan chiqish"
                   onClick={() => navigate("/")}
                 >
                   <FaArrowLeftLong
@@ -53,7 +53,7 @@ export const ScYoung = ({ setLoading, loading }) => {
                       cursor: "pointer",
                     }}
                   />
-                  Saxifadan chiqish
+                  Sahifadan chiqish
                 </button>
                 <h2 className={styles["about-title"]}>
                   {item?.[`title_${lang}`]}

@@ -67,11 +67,20 @@ p {
 .card > p:nth-of-type(1) {
   display: -webkit-box;
   -webkit-line-clamp: 1;
+  height: 25px;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .card > p:nth-of-type(2) {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  height: 25px;
+  overflow: hidden;
+}
+
+.card > p:nth-of-type(3) {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;

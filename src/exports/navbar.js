@@ -29,11 +29,11 @@ export const navbarData = [
         content: "contact",
         to: "/contact",
       },
-      {
-        id: "",
-        content: "HRPanel",
-        to: "/HRPanel",
-      },
+      // {
+      //   id: "",
+      //   content: "HRPanel",
+      //   to: "/HRPanel",
+      // },
     ],
   },
 

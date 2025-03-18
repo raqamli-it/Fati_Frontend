@@ -19,7 +19,7 @@ export const Journal = ({ setLoading, loading }) => {
           >
             <img src={taxririyat} alt="taxririyat" />
 
-            <span>TAHRIRIYAT</span>
+            <span style={{ color: "inherit" }}>TAHRIRIYAT</span>
           </NavLink>
 
           <NavLink
@@ -31,7 +31,7 @@ export const Journal = ({ setLoading, loading }) => {
             className="effect-btns"
           >
             <img src={talablar} alt="talablar" />
-            <span>TALABLAR</span>
+            <span style={{ color: "inherit" }}>TALABLAR</span>
           </NavLink>
 
           <NavLink
@@ -43,7 +43,7 @@ export const Journal = ({ setLoading, loading }) => {
             className="effect-btns"
           >
             <img src={arxiv} alt="arxiv" />
-            <span>ARXIV</span>
+            <span style={{ color: "inherit" }}>ARXIV</span>
           </NavLink>
         </div>
       </div>

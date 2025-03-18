@@ -52,7 +52,7 @@ export const Doctaurants = ({ loading, setLoading }) => {
     <div className={styles.wrapper}>
       <button
         className={styles["back-button"]}
-        title="Saxifadan chiqish"
+        title="Sahifadan chiqish"
         onClick={() => navigate("/")}
       >
         <FaArrowLeftLong
@@ -62,7 +62,7 @@ export const Doctaurants = ({ loading, setLoading }) => {
             cursor: "pointer",
           }}
         />
-        Saxifadan chiqish
+        Sahifadan chiqish
       </button>
 
       <section className={styles.cards}>

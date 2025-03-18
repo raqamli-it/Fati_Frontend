@@ -48,8 +48,7 @@
 }
 
 .effect-btns span {
-  margin-top: 35px;
-  margin-bottom: 0;
+  margin: 20px auto 5px;
   font-family: "Poppins", sans-serif;
   line-height: 20px;
 }
@@ -57,16 +56,13 @@
 .effect-btns:hover {
   transition: all 0.6s ease-out;
   background-color: #023e8a;
-}
-
-.effect-btns:hover img {
   color: white;
 }
 
 .effect-btns img {
   position: absolute;
   width: 50px;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;

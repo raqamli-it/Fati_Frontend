@@ -4,13 +4,15 @@ import { useTranslation } from "react-i18next";
 import style from "./Photos.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Zoom } from "react-awesome-reveal";
 
 function PhotosDetail({ setLoading, loading }) {
   const [data, setData] = useState([]);
+  const [activeImg, setActiveImg] = useState(null);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const { id } = useParams();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const getPhotos = async () => {
     try {
@@ -29,29 +31,52 @@ function PhotosDetail({ setLoading, loading }) {
 
   const photoDetailId = data.find((value) => value.id === Number(id));
 
+  console.log(photoDetailId, "photoDetailId");
+  console.log(activeImg, "activeImg");
+
   return (
     <div className={style.container}>
-      <button
-        className={style["back-button"]}
-        title="Saxifadan chiqish"
-        onClick={() => navigate(-1)}
-      >
-        <FaArrowLeftLong
-          style={{
-            fontSize: "24px",
-            color: "blue",
-            cursor: "pointer",
-          }}
-        />
-        Saxifadan chiqish
-      </button>
-      <div className={style.cardDetail}>
-        {photoDetailId?.rasmlar.map((item, index) => (
-          <div key={index} className={style.cardDetailImg}>
-            <img src={item?.image} alt={item?.image} />
+      {activeImg === null ? (
+        <div>
+          <button
+            className={style["back-button"]}
+            title="Sahifadan chiqish"
+            onClick={() => navigate(-1)}
+          >
+            <FaArrowLeftLong
+              style={{
+                fontSize: "24px",
+                color: "blue",
+                cursor: "pointer",
+              }}
+            />
+            Sahifadan chiqish
+          </button>
+
+          <div className={style.cardDetail}>
+            {photoDetailId?.rasmlar.map((item, index) => (
+              <div key={index} className={style.cardDetailImg}>
+                <img
+                  onClick={() => setActiveImg(item.image)}
+                  src={item?.image}
+                  alt={item?.image}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div
+          onClick={() => setActiveImg(null)}
+          className={style.activeImgContainer}
+        >
+          <div>
+            <Zoom>
+              <img src={activeImg} alt="Zoomed Image" />
+            </Zoom>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

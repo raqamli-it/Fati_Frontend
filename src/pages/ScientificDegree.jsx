@@ -39,7 +39,7 @@ export const ScientificDegree = ({ setLoading, loading }) => {
           <div className={styles.prevIcon}>
             <button
               className={styles["back-button"]}
-              title="Saxifadan chiqish"
+              title="Sahifadan chiqish"
               onClick={() => navigate("/")}
             >
               <FaArrowLeftLong
@@ -49,7 +49,7 @@ export const ScientificDegree = ({ setLoading, loading }) => {
                   cursor: "pointer",
                 }}
               />
-              Saxifadan chiqish
+              Sahifadan chiqish
             </button>
             <p>{item?.[`title_${lang}`]}</p>
           </div>

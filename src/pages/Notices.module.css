@@ -20,8 +20,6 @@
 
   .discription {
     padding: 10px 20px;
-    color: white;
-    background-color: #023e8a;
   }
 
   p {
@@ -37,11 +35,11 @@
   .btn-details {
     background-color: transparent;
     transition: all 0.3s ease-in-out;
-    font-size: 16px;
+    font-size: 18px;
     margin: 12px 0 5px;
     letter-spacing: 1.8px;
     margin-left: auto;
-    color: white;
+    color: rgba(0, 0, 255, 0.871);
     cursor: pointer;
   }
 
@@ -49,6 +47,10 @@
     transition: all 0.3s ease-in-out;
     text-shadow: 0 0 5px white;
   }
+}
+
+.card {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.759);
 }
 
 .detailContainer {

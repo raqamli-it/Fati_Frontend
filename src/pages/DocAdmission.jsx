@@ -44,7 +44,7 @@ export const DocAdmission = ({ setLoading, loading }) => {
               <div className={styles.prevIcon}>
                 <button
                   className={styles["back-button"]}
-                  title="Saxifadan chiqish"
+                  title="Sahifadan chiqish"
                   onClick={() => navigate("/")}
                 >
                   <FaArrowLeftLong
@@ -54,7 +54,7 @@ export const DocAdmission = ({ setLoading, loading }) => {
                       cursor: "pointer",
                     }}
                   />
-                  Saxifadan chiqish
+                  Sahifadan chiqish
                 </button>
 
                 <h2>{item?.[`title_${lang}`]}</h2>
