@@ -47,7 +47,7 @@ function Views({ setLoading }) {
               key={selectedItem.id}
               width="100%"
               height="485"
-              src={selectedItem.video} // YouTube `embed` link bo'lishi kerak
+              src={selectedItem.link ? selectedItem.link : selectedItem.video} // YouTube `embed` link bo'lishi kerak
               title="Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -57,14 +57,16 @@ function Views({ setLoading }) {
         )}
 
         <div className={style.viewsBtn}>
-          {data.map((item, index) => (
-            <div key={index} className={style.viewsCard}>
-              <button onClick={() => setSelectedItem(item)}>
-                <img src={item?.image} alt={item?.[`title_${lang}`]} />
-                <span>{item?.[`title_${lang}`]}</span>
-              </button>
-            </div>
-          ))}
+          {data
+            ?.sort((a, b) => b.order - a.order)
+            .map((item, index) => (
+              <div key={index} className={style.viewsCard}>
+                <button onClick={() => setSelectedItem(item)}>
+                  <img src={item?.image} alt={item?.[`title_${lang}`]} />
+                  <span>{item?.[`title_${lang}`]}</span>
+                </button>
+              </div>
+            ))}
         </div>
       </div>
     </div>

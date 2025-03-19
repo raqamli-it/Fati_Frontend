@@ -23,7 +23,7 @@ function Arxiv() {
         `/kutobxona/arxivlar/?search=${query}&page=${Page}`
       );
       setArxiv(response?.data.results);
-      setPageCount(Math.ceil(response.data.count / 10));
+      setPageCount(Math.ceil(response.data.count / 16));
     } catch (error) {
       console.error("Arxivlardan ma'lumotlarini olishda xatolik:", error);
     }

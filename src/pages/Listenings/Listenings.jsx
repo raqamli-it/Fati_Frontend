@@ -74,18 +74,20 @@ function Listenings({ setLoading }) {
         )}
 
         <div className={style.audioCard}>
-          {data.map((item, index) => (
-            <div key={index}>
-              <button onClick={() => setSelectedItem(item)}>
-                <FaPlay
-                  style={{
-                    fontSize: "25px",
-                  }}
-                />
-                <span>{item?.[`title_${lang}`]}</span>
-              </button>
-            </div>
-          ))}
+          {data
+            ?.sort((a, b) => a.order - b.order)
+            .map((item, index) => (
+              <div key={index}>
+                <button onClick={() => setSelectedItem(item)}>
+                  <FaPlay
+                    style={{
+                      fontSize: "25px",
+                    }}
+                  />
+                  <span>{item?.[`title_${lang}`]}</span>
+                </button>
+              </div>
+            ))}
         </div>
       </div>
     </div>
