@@ -1,6 +1,6 @@
 import styles from "./newsabout.module.css";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { month } from "../News/News";
@@ -52,11 +52,10 @@ export const NewsAbout = ({ setLoading, loading }) => {
               cursor: "pointer",
               color: "#1e3769",
               fontSize: "30px",
-              display: "inline-block",
             }}
             onClick={() => navigate(-1)}
           />
-          {data?.[`title_${lang}`]}
+          <span>{data?.[`title_${lang}`]}</span>
         </h2>
 
         <div className={styles.img}>
@@ -70,7 +69,7 @@ export const NewsAbout = ({ setLoading, loading }) => {
               alignItems: "center",
               justifyContent: "space-between",
               width: "100%",
-              color: "#89001a",
+              color: "#1e3769",
               fontWeight: "600",
               fontSize: "26px",
               fontFamily: "'Poppins',serif-serf",

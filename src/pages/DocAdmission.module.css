@@ -110,7 +110,7 @@ span {
 }
 
 .images {
-  height: 600px;
+  min-height: 600px;
   width: 100%;
   object-fit: contain;
 }

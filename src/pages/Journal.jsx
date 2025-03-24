@@ -3,6 +3,9 @@ import "./journal.css";
 import talablar from "./PageIcons/talablar.png";
 import arxiv from "./PageIcons/arxiv.webp";
 import taxririyat from "./PageIcons/taxririyat.png";
+import { BiEdit } from "react-icons/bi";
+import { AiOutlineFileText } from "react-icons/ai";
+import { GiArchiveResearch } from "react-icons/gi";
 
 export const Journal = ({ setLoading, loading }) => {
   return (
@@ -17,7 +20,8 @@ export const Journal = ({ setLoading, loading }) => {
             })}
             className="effect-btns"
           >
-            <img src={taxririyat} alt="taxririyat" />
+            {/* <img src={taxririyat} alt="taxririyat" /> */}
+            <BiEdit />
 
             <span style={{ color: "inherit" }}>TAHRIRIYAT</span>
           </NavLink>
@@ -30,7 +34,8 @@ export const Journal = ({ setLoading, loading }) => {
             })}
             className="effect-btns"
           >
-            <img src={talablar} alt="talablar" />
+            {/* <img src={talablar} alt="talablar" /> */}
+            <AiOutlineFileText />
             <span style={{ color: "inherit" }}>TALABLAR</span>
           </NavLink>
 
@@ -42,7 +47,8 @@ export const Journal = ({ setLoading, loading }) => {
             })}
             className="effect-btns"
           >
-            <img src={arxiv} alt="arxiv" />
+            {/* <img src={c} alt="arxiv" /> */}
+            <GiArchiveResearch />
             <span style={{ color: "inherit" }}>ARXIV</span>
           </NavLink>
         </div>

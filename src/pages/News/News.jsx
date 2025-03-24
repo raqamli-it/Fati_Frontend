@@ -87,51 +87,48 @@ export const News = ({ setLoading, loading }) => {
       </div>
 
       <div className={styles.news}>
-        {data
-          ?.sort((a, b) => Number(b.order) - Number(a.order))
-          .map((item, index) => {
-            return (
-              <div className={styles.card} key={index}>
-                <img src={item.image} alt={item[`title_${lang}`]} />
+        {data?.map((item, index) => {
+          // .sort((a, b) => Number(b.order) - Number(a.order))
+          return (
+            <div className={styles.card} key={index}>
+              <img src={item.image} alt={item[`title_${lang}`]} />
 
-                <div className={styles.content}>
-                  <h2>{item?.[`title_${lang}`]}</h2>
-                  <div className={styles["news-title"]}>
-                    <span>
-                      {item?.created_at?.slice(8, 10) +
-                        " " +
-                        month[item?.created_at?.slice(5, 7) + "_" + lang] +
-                        " " +
-                        item?.created_at?.slice(0, 4)}
-                    </span>
+              <div className={styles.content}>
+                <h2>{item?.[`title_${lang}`]}</h2>
+                <div className={styles["news-title"]}>
+                  <span>
+                    {item?.created_at?.slice(8, 10) +
+                      " " +
+                      month[item?.created_at?.slice(5, 7) + "_" + lang] +
+                      " " +
+                      item?.created_at?.slice(0, 4)}
+                  </span>
 
-                    <Tooltip
-                      title={
-                        <span
-                          style={{
-                            lineHeight: "30px",
-                            fontWeight: 200,
-                            letterSpacing: "1.5px",
-                            fontFamily: "Poppins",
-                            color: "white",
-                          }}
-                        >
-                          Batafsil ko'rish
-                        </span>
-                      }
-                      placement="top"
-                    >
-                      <Link
-                        to={item.link ? `${item.link}` : "/news/" + item?.id}
+                  <Tooltip
+                    title={
+                      <span
+                        style={{
+                          lineHeight: "30px",
+                          fontWeight: 200,
+                          letterSpacing: "1.5px",
+                          fontFamily: "Poppins",
+                          color: "white",
+                        }}
                       >
-                        <LiaArrowRightSolid className={styles.arrow} />
-                      </Link>
-                    </Tooltip>
-                  </div>
+                        Batafsil ko'rish
+                      </span>
+                    }
+                    placement="top"
+                  >
+                    <Link to={item.link ? `${item.link}` : "/news/" + item?.id}>
+                      <LiaArrowRightSolid className={styles.arrow} />
+                    </Link>
+                  </Tooltip>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
