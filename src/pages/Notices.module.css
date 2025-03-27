@@ -92,14 +92,21 @@
 
 .pagination li {
   margin: 0 5px;
-  padding: 10px;
   cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.pagination .active {
+.pagination li a {
+  display: block;
+  padding: 10px;
+}
+
+.pagination li:hover {
   background-color: #007bff;
-  color: white;
+}
+
+.active {
+  background-color: #007bff;
   border: none;
 }
