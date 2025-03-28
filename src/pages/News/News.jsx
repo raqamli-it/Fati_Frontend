@@ -120,8 +120,12 @@ export const News = ({ setLoading, loading }) => {
                     }
                     placement="top"
                   >
-                    <Link to={item.link ? `${item.link}` : "/news/" + item?.id}>
-                      <LiaArrowRightSolid className={styles.arrow} />
+                    <Link
+                      className={styles.arrow}
+                      to={item.link ? `${item.link}` : "/news/" + item?.id}
+                    >
+                      Batafsil
+                      {/* <LiaArrowRightSolid /> */}
                     </Link>
                   </Tooltip>
                 </div>

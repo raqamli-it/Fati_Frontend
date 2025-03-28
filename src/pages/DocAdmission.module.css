@@ -121,6 +121,10 @@ span {
   grid-gap: 30px;
 }
 
+.items .employees .cardContainer {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.74);
+}
+
 .items .employees .employeesImg {
   width: 100%;
   height: 320px;
@@ -133,7 +137,8 @@ span {
 
 .items .employees h2 {
   text-align: center;
-  color: rgba(0, 0, 0, 0.825);
+  padding: 0 10px;
+  color: rgba(0, 0, 0, 0.79);
 }
 
 .items .about-title {
@@ -142,6 +147,7 @@ span {
 
 .items .employees p {
   color: rgba(0, 0, 0, 0.79);
+  margin-bottom: 15px;
 }
 
 .items .employees .employeesName {

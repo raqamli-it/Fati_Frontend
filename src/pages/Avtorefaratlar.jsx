@@ -87,6 +87,7 @@ const Avtorefaratlar = () => {
                       <AiOutlineRead style={{ fontSize: "30px" }} />
                     </a>
                   </div>
+
                   <p>{img?.[`title_${lang}`]}</p>
                 </div>
               ))}

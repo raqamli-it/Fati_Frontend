@@ -45,7 +45,7 @@
 }
 
 .news-title {
-  margin-top: 10px;
+  margin: 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,8 +60,9 @@
 }
 
 .arrow {
-  font-size: 30px;
+  font-size: 20px;
   display: block;
+  font-weight: 600;
   color: #0052b4;
 }
 

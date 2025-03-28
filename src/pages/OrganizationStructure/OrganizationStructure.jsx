@@ -3,11 +3,13 @@ import axios from "axios";
 import style from "./OrganizationStructure.module.css";
 import { useTranslation } from "react-i18next";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export const OrganizationStructure = ({ setLoading, loading }) => {
   const [data, setData] = useState([]);
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {

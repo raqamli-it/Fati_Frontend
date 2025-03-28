@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+.employeesCard {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.753);
+}
+
 .prevIcon .back-button {
   display: flex;
   margin-left: 0;
@@ -57,11 +61,14 @@
 
 .employeesName {
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .employeesName span {
   display: block;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  line-height: 26px;
+  font-weight: 400;
+  line-height: 28px;
   text-align: center;
 }

@@ -106,7 +106,7 @@ function HomeNews({ newsData }) {
                   dangerouslySetInnerHTML={{ __html: value.content_uz }}
                 ></p> */}
                 <p className="content_uz">{value.title_uz}</p>
-                <FaArrowRightLong
+                {/* <FaArrowRightLong
                   title="Batafsil ko'rish"
                   onClick={() => navigate(`news/${value.id}`)}
                   style={{
@@ -116,13 +116,14 @@ function HomeNews({ newsData }) {
                     marginLeft: "auto",
                     marginBottom: "13px",
                   }}
-                />
-                {/* <button
+                /> */}
+                <button
+                  title="Batafsil ko'rish"
                   onClick={() => navigate(`news/${value.id}`)}
                   className="news-btn"
                 >
                   Batafsil
-                </button> */}
+                </button>
               </div>
             </div>
           ))}

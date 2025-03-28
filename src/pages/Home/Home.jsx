@@ -255,13 +255,13 @@ export const Home = ({ setLoading, loading }) => {
 
                       <div className={styles["social-links"]}>
                         <a href="">
-                          <FaFacebookF style={{ color: "white" }} />
+                          <FaFacebookF style={{ color: "#0000FFE2" }} />
                         </a>
                         <a href="">
-                          <FaTwitter style={{ color: "white" }} />
+                          <FaTwitter style={{ color: "#0000FFE2" }} />
                         </a>
                         <a href="">
-                          <IoLogoInstagram style={{ color: "white" }} />
+                          <IoLogoInstagram style={{ color: "#0000FFE2" }} />
                         </a>
                       </div>
                     </div>

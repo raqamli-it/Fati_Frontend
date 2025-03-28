@@ -72,7 +72,7 @@ export const ScCouncil = ({ setLoading, loading }) => {
                 {item?.xodimlar
                   ?.sort((a, b) => a.id - b.id)
                   .map((value, idx) => (
-                    <div key={idx}>
+                    <div key={idx} className={styles.cardContainer}>
                       <div className={styles.employeesImg}>
                         <img src={value.image} alt={item?.[`title_${lang}`]} />
                       </div>

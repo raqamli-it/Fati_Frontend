@@ -44,7 +44,7 @@ function NoticesDetail({ setLoading, loading }) {
           <div>
             <button
               title="Saxifadan chiqish"
-              onClick={() => navigate("/notices")}
+              onClick={() => navigate(-1)}
               style={{
                 display: "flex",
                 gap: "15px",

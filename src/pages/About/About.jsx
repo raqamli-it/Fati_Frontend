@@ -66,15 +66,17 @@ export const About = ({ loading, setLoading }) => {
         }}
       />
       <div>
-        {data.map((item, index) => (
-          <div key={index} className={style.card}>
-            <img src={item.image} alt={item.name || "Rasm"} />
-            <p className={style.text}>{item?.[`title_${lang}`]}</p>
-            <p
-              dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
-            ></p>
-          </div>
-        ))}
+        {data
+          ?.sort((a, b) => b.order - a.order)
+          .map((item, index) => (
+            <div key={index} className={style.card}>
+              <img src={item.image} alt={item.name || "Rasm"} />
+              <p className={style.text}>{item?.[`title_${lang}`]}</p>
+              <p
+                dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
+              ></p>
+            </div>
+          ))}
       </div>
 
       <div className={style.wrapper}>
