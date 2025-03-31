@@ -44,28 +44,31 @@ function Notices({ setLoading, loading }) {
     return <div className="loader"></div>;
   }
 
-  console.log(data);
+  console.log(data, "data ss");
 
   return (
     <div className={style.container}>
       <div className={style.cards}>
-        {data?.map((item, index) => (
-          <div className={style.card} key={index}>
-            <div className={style.images}>
-              <img src={item.image} alt={item[`title_${lang}`]} />
+        {data
+          ?.sort((a, b) => b.order - a.order)
+          .map((item, index) => (
+            <div className={style.card} key={index}>
+              <div className={style.images}>
+                <img src={item.image} alt={item[`title_${lang}`]} />
+              </div>
+              <div className={style.discription}>
+                <p>{item?.[`title_${lang}`]}</p>
+                <button
+                  title="Batafsil ko'rish"
+                  onClick={() => navigate(`${item.id}?page=${currentPage}`)}
+                  className={style["btn-details"]}
+                >
+                  Batafsil
+                </button>
+              </div>
+              {console.log(item)}
             </div>
-            <div className={style.discription}>
-              <p>{item?.[`title_${lang}`]}</p>
-              <button
-                title="Batafsil ko'rish"
-                onClick={() => navigate(`${item.id}?page=${currentPage}`)}
-                className={style["btn-details"]}
-              >
-                Batafsil
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       <ReactPaginate

@@ -71,10 +71,10 @@
   height: 600px;
 }
 
+.seminar-container .title {
+  margin-top: 15px;
+}
+
 .seminar-container .title p {
-  font-family: "Times New Roman", "serif";
-  font-weight: 400;
-  margin-top: 20px;
-  font-size: 20px;
   line-height: 36px;
 }

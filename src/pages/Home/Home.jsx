@@ -21,6 +21,7 @@ import avtorefaratlar from "./kutubxonaIcon/avtorefaratlar.jpg";
 
 import { Zoom } from "react-awesome-reveal";
 import bgImage from "./bg.jpg";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const headerSettings = {
   fade: true,
@@ -171,6 +172,19 @@ export const Home = ({ setLoading, loading }) => {
                     >
                       Batafsil
                     </button>
+
+                    {/* <FaArrowRightLong
+                      title="Batafsil ko'rish"
+                      onClick={() => navigate(`news/${value.id}`)}
+                      style={{
+                        fontSize: "26px",
+                        color: "blue",
+                        cursor: "pointer",
+                        marginLeft: "84%",
+                        marginBottom: "13px",
+                        display: "block",
+                      }}
+                    /> */}
                   </div>
                 );
               })}

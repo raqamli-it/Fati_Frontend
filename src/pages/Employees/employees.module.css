@@ -78,13 +78,15 @@
 .imgDetail {
   overflow-y: hidden;
   padding: 30px;
+  height: 82vh;
   border: 3px solid rgba(128, 128, 128, 0.525);
   border-radius: 8px;
 }
 
-.cardDetail > div {
-  overflow-y: hidden;
-  height: 77vh;
+.cardDetail div {
+  overflow-y: auto;
+  height: 72vh;
+  padding-right: 30px;
 }
 
 .imgDetail h1 {
@@ -101,7 +103,7 @@
   display: grid;
   gap: 35px;
   grid-template-columns: 1fr 2fr;
-  height: 85vh;
+  height: 82vh;
 }
 
 .cardDetails .imgDetail img {
@@ -115,32 +117,38 @@
 .imgDetail .user-details {
   display: flex;
   margin: 15px 0;
-  gap: 20px;
   justify-content: space-between;
 }
 
 .imgDetail .user-details span {
-  font-size: 20px !important;
+  font-size: 18px !important;
   font-weight: 600;
+  line-height: 28px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .imgDetail .user-details span:last-child {
   font-weight: 400;
+  text-align: right;
+}
+
+.imgDetail .user-details > span:first-of-type {
+  width: 120px !important;
 }
 
 /* lineX style */
 .lineX {
   width: 100%;
-  margin: 35px 0;
+  margin: 25px 0;
   background-color: rgba(128, 128, 128, 0.525);
-  height: 2px;
+  height: 2.5px;
 }
 /* lineX style */
 
 /* acardion style */
 .acardion {
   display: grid;
+  margin-top: 25px;
   transition: transform 0.5s ease-in-out;
   align-items: flex-start;
   grid-template-columns: 1fr 2fr;

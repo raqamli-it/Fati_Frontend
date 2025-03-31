@@ -39,21 +39,24 @@ function DoctaurantsDetail() {
 
         <div>
           <p>{doctaurantData?.[`full_name_${lang}`]}</p>
-          <h3
+
+          <p
             dangerouslySetInnerHTML={{
               __html: doctaurantData?.[`labor_activity_${lang}`],
             }}
-          ></h3>
-          <h3
+          ></p>
+
+          <p
             dangerouslySetInnerHTML={{
               __html: doctaurantData?.[`scientific_activity_${lang}`],
             }}
-          ></h3>
-          <h3
+          ></p>
+
+          <p
             dangerouslySetInnerHTML={{
               __html: doctaurantData?.[`works_${lang}`],
             }}
-          ></h3>
+          ></p>
         </div>
       </div>
     </div>

@@ -11,23 +11,23 @@
 
 .card h2 {
   display: flex;
+  margin: 20px 0;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
 }
 
 .card h2 span {
-  font-size: 26px !important;
+  font-size: 22px !important;
   width: 100%;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  color: #1e3769;
-  line-height: 42px;
-  margin: 20px 0;
+  line-height: 36px;
 }
 
 .card .img {
   height: 500px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .card img {
@@ -39,6 +39,6 @@
 
 .textContent p {
   font-size: clamp(14px, 20px, 22px);
-  font-family: "Times New Roman", "serif";
-  line-height: 28px;
+  line-height: 36px;
 }
+

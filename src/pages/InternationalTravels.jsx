@@ -36,27 +36,31 @@ export const InternationalTravels = ({ loading, setLoading }) => {
 
   return (
     <div className={style.internationalTravels}>
-      {data?.map((item, index) => (
-        <div>
-          <h2>{item?.[`title_${lang}`]}</h2>
-          <div className={style.card} key={index}>
-            <div className={style["card-container"]}>
-              <img src={item?.file} alt="" />
-            </div>
+      {data
+        ?.sort((a, b) => b.order - a.order)
+        .map((item, index) => (
+          <div key={index}>
+            <h2>{item?.[`title_${lang}`]}</h2>
+            <div className={style.card}>
+              <div className={style["card-container"]}>
+                <img src={item?.file} alt="" />
+              </div>
 
-            <div className={style["card-content"]}>
-              <p
-                dangerouslySetInnerHTML={{ __html: item?.[`content_${lang}`] }}
-              />
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: item?.[`subcontent_${lang}`],
-                }}
-              />
+              <div className={style["card-content"]}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: item?.[`content_${lang}`],
+                  }}
+                />
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: item?.[`subcontent_${lang}`],
+                  }}
+                ></p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

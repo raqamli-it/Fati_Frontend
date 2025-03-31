@@ -73,6 +73,18 @@ export const ScientificDegree = ({ setLoading, loading }) => {
               </div>
             ))}
           </div>
+          
+          <div>
+            {item?.text_id?.map((value, idx) => (
+              <h1
+                key={idx}
+                className={styles.text_id}
+                dangerouslySetInnerHTML={{
+                  __html: value?.[`content_${lang}`],
+                }}
+              ></h1>
+            ))}
+          </div>
         </div>
       ))}
     </section>

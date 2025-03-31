@@ -25,4 +25,12 @@
       height: 450px;
     }
   }
+
+  .cardRight {
+    margin-top: 20px;
+  }
+
+  .cardRight p {
+    line-height: 36px;
+  }
 }

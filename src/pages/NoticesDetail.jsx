@@ -43,7 +43,7 @@ function NoticesDetail({ setLoading, loading }) {
         {data ? (
           <div>
             <button
-              title="Saxifadan chiqish"
+              title="Sahifadan chiqish"
               onClick={() => navigate(-1)}
               style={{
                 display: "flex",
@@ -61,7 +61,7 @@ function NoticesDetail({ setLoading, loading }) {
                   cursor: "pointer",
                 }}
               />
-              Saxifadan chiqish
+              Sahifadan chiqish
             </button>
             <h2 className={style["about-title"]}>{data[`title_${lang}`]}</h2>
 

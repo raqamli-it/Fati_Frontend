@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
@@ -11,8 +11,8 @@ function EmployeesDetail() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const [dataDetail, setDataDetail] = useState([]);
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -21,7 +21,7 @@ function EmployeesDetail() {
       .catch((error) => console.error("Xatolik:", error));
   }, [detail]);
 
-  console.log(dataDetail, "detail xxx");
+  // console.log(dataDetail, "detail xxx");
 
   return (
     <div className={style.container}>
@@ -40,22 +40,22 @@ function EmployeesDetail() {
           <h1>{dataDetail?.[`full_name_${lang}`]}</h1>
 
           <div className={style["user-details"]}>
-            <span>Lavozimi : </span>
+            <span>Lavozimi :</span>
             <span>{dataDetail?.[`position_${lang}`]}</span>
           </div>
 
           <div className={style["user-details"]}>
-            <span>Unvoni : </span>
+            <span>Unvoni :</span>
             <span>{dataDetail?.[`degree_${lang}`]}</span>
           </div>
 
           <div className={style["user-details"]}>
-            <span>Raqami : </span>
+            <span>Raqami :</span>
             <span>{dataDetail?.phone}</span>
           </div>
 
           <div className={style["user-details"]}>
-            <span>Emaili : </span>
+            <span>Emaili :</span>
             <span>{dataDetail?.email}</span>
           </div>
         </div>
@@ -66,8 +66,6 @@ function EmployeesDetail() {
           ></div>
         </div>
       </div>
-
-      <div className={style.lineX}></div>
 
       <div className={style.acardion}>
         <button onClick={() => setIsOpen(!isOpen)} className={style.toggleBtn}>
@@ -127,6 +125,8 @@ function EmployeesDetail() {
           dicta magni deserunt sed! Alias, nostrum dolorum ex cumque ut velit.
         </div>
       </div>
+
+      <div className={style.lineX}></div>
     </div>
   );
 }

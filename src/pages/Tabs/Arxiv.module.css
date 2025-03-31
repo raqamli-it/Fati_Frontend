@@ -127,6 +127,7 @@
 
 .pagination li {
   margin: 0 5px;
+  transition: all 0.3s linear;
   cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -137,7 +138,9 @@
 }
 
 .pagination li:hover {
-  background-color: #ddd;
+  background-color: #007bff;
+  transition: all 0.3s linear;
+  color: white;
 }
 
 .active {

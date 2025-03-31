@@ -34,6 +34,8 @@ export const ScYoung = ({ setLoading, loading }) => {
     return <div className="loader"></div>;
   }
 
+  console.log(data, "data");
+
   return (
     <div className={styles["about-container"]}>
       {data.map((item) => {
@@ -68,7 +70,6 @@ export const ScYoung = ({ setLoading, loading }) => {
             </div>
 
             <div
-              className={styles["about-text"]}
               dangerouslySetInnerHTML={{
                 __html: item?.[`content_${lang}`],
               }}

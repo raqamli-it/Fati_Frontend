@@ -1,5 +1,4 @@
 .generalInfo {
-  padding-right: 10px;
   max-width: 1320px;
   min-height: 450px;
   margin: 80px auto;
@@ -20,7 +19,7 @@
 }
 
 .img {
-  height: 480px;
+  height: 492px;
   float: left;
   width: 40%;
   margin-right: 20px;
@@ -43,10 +42,14 @@ h2 {
   font-family: "Times New Roman", "serif";
 }
 
-.contants h1 span {
+.contants > div:nth-of-type(1) p {
+  line-height: 36px;
+}
+
+/* .contants h1 span {
   text-align: justify !important;
   font-weight: 400 !important;
   font-size: 18px !important;
-  font-family: "Times New Roman", "serif" !important;
   line-height: 10px !important;
-}
+  font-family: "Roboto Slab", serif !important;
+} */

@@ -50,7 +50,7 @@ export const NewsAbout = ({ setLoading, loading }) => {
           <IoArrowBack
             style={{
               cursor: "pointer",
-              color: "#1e3769",
+              color: "#023e8a",
               fontSize: "30px",
             }}
             onClick={() => navigate(-1)}
@@ -69,7 +69,7 @@ export const NewsAbout = ({ setLoading, loading }) => {
               alignItems: "center",
               justifyContent: "space-between",
               width: "100%",
-              color: "#1e3769",
+              color: "#023e8a",
               fontWeight: "600",
               fontSize: "26px",
               fontFamily: "'Poppins',serif-serf",

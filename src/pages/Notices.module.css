@@ -7,6 +7,7 @@
 .cards {
   display: grid;
   gap: 25px;
+  margin-bottom: 30px;
   grid-template-columns: repeat(4, 1fr);
 
   .images {
@@ -56,7 +57,7 @@
 .detailContainer {
   max-width: 1320px;
   min-height: 620px;
-  margin: 90px auto 0;
+  margin: 90px auto 30px;
 }
 
 .detailContainer {
@@ -68,18 +69,6 @@
 .detailContainer .about-title {
   margin: 0 0 15px;
   color: rgba(0, 0, 0, 0.845);
-}
-
-.detailText p span {
-  line-height: 20px;
-}
-
-.detailText p {
-  text-align: left !important;
-}
-
-.detailText p:first-child {
-  display: none;
 }
 
 /* paginatsiya */

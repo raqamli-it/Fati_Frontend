@@ -19,11 +19,7 @@
 }
 
 .card p {
-  font-size: 18px;
-  margin: 15px 0;
-  text-align: justify;
-  font-family: "Poppins", sans-serif;
-  color: rgba(0, 0, 0, 0.642);
+  margin: 20px 0;
 }
 
 .about .wrapper {
@@ -47,7 +43,8 @@
   cursor: pointer;
   font-size: 16px;
   letter-spacing: 1.3px;
-  line-height: 22px;
+  line-height: 24px;
+  font-weight: 700;
   border-radius: 10px;
   box-shadow: 0 0 7px gray;
 }
@@ -88,4 +85,9 @@
   transition: all 0.4s ease-in-out;
   background-color: #023e8a;
   color: white;
+}
+
+.instituttarixi {
+  font-style: normal;
+  font-weight: 400 !important;
 }
