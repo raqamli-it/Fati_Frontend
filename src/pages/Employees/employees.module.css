@@ -76,98 +76,81 @@
 
 .cardDetails {
   display: grid;
-  gap: 35px;
-  grid-template-columns: 1fr 2fr;
-  height: 600px;
+  gap: 30px;
+  grid-template-columns: 350px 920px;
+  align-items: flex-start;
   position: relative;
+  min-height: 620px;
 }
 
-.cardDetail,
-.imgDetail {
-  overflow-y: hidden;
-  padding: 30px;
-  height: 600px;
-  border: 3px solid rgba(128, 128, 128, 0.525);
-  border-radius: 8px;
-}
-
-.imgDetail {
-  position: sticky;
-  top: 200px;
-}
-
-.cardDetail div {
+.cardDetail .scrollBox {
+  min-height: 610px;
   overflow-y: auto;
-  height: 600px;
-  padding-right: 30px;
 }
 
-.cardDetail div p {
+.imgDetail {
+  padding: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.64);
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.826);
+}
+
+.cardDetail {
+  border: 2px solid rgba(0, 0, 0, 0.64);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.826);
+}
+
+.cardDetail .scrollBox p {
   line-height: 36px;
 }
 
-.imgDetail h1 {
-  font-size: 24px;
-  color: rgba(0, 0, 0, 0.756);
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  text-align: center;
-  margin: 20px 0;
-  text-transform: capitalize !important;
-}
-
-.cardDetails .imgDetail img {
-  width: 80%;
-  margin: 0 auto;
+.imgDetail img {
+  width: 310px;
+  height: 310px;
   display: block;
-  height: 290px;
+  margin: 0 auto;
   border-radius: 50%;
 }
 
-.imgDetail .user-details {
+.imgDetail h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  color: rgba(0, 0, 0, 0.833);
+  font-weight: 500;
+  line-height: 30px;
+  font-size: 24px;
+}
+
+.user-details {
   display: flex;
   margin: 15px 0;
   justify-content: space-between;
 }
 
-.imgDetail .user-details span {
-  font-size: 18px !important;
+.user-details span {
+  font-size: 17px !important;
   font-weight: 600;
   line-height: 28px;
   font-family: "Poppins", sans-serif;
 }
 
-.imgDetail .user-details span:last-child {
+.user-details span:last-child {
   font-weight: 400;
   text-align: left;
-  width: 75%;
+  width: 100%;
 }
 
-.imgDetail .user-details > span:first-of-type {
+.user-details > span:first-of-type {
   width: 120px !important;
 }
 
-/* lineX style */
-.lineX {
-  width: 100%;
-  margin: 25px 0;
-  background-color: rgba(128, 128, 128, 0.525);
-  height: 2.5px;
-}
-/* lineX style */
-
-/* acardion style */
-.acardion {
-  display: grid;
-  margin-top: 25px;
-  transition: transform 0.5s ease-in-out;
-  align-items: flex-start;
-  grid-template-columns: 1fr 2fr;
-  gap: 35px;
-}
-
-.acardion .toggleBtn {
+.toggleBtn {
   display: flex;
+  margin-top: 25px;
   background-color: white;
   padding: 8px 15px;
   border-radius: 8px;
@@ -177,14 +160,14 @@
   justify-content: space-between;
 }
 
-.acardion .toggleBtn span {
+.toggleBtn span {
   display: block;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.853);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.acardion .closeText {
+.closeText {
   height: 0px;
   width: 100%;
   font-family: "Poppins", sans-serif;
@@ -192,21 +175,23 @@
   transition: all 0.5s ease-out;
 }
 
-.acardion .openText {
+.closeText p {
+  line-height: 36px;
+}
+
+.openText {
   height: 100%; /* Ichidagi matn uzunligiga qarab moslashadi */
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
 
-.acardion .rotateIcon {
+.rotateIcon {
   color: rgba(0, 0, 0, 0.853);
   transition: 0.4s ease-in-out;
 }
 
-.acardion .rotateIconY {
+.rotateIconY {
   transform: rotate(180deg);
   color: rgba(0, 0, 0, 0.853);
   transition: 0.4s ease-in-out;
 }
-
-/* acardion style */
