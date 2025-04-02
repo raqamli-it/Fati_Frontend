@@ -14,6 +14,24 @@ function EmployeesDetail() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
+  //
+  // const [isScrolled, setIsScrolled] = useState(false);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY >= 90) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       setIsScrolled(false);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+  //
+
   useEffect(() => {
     axios
       .get(`/markazlar-bolimlar/Xodimlar/${detail}`)

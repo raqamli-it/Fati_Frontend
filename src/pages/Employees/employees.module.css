@@ -74,19 +74,36 @@
   justify-content: flex-end;
 }
 
+.cardDetails {
+  display: grid;
+  gap: 35px;
+  grid-template-columns: 1fr 2fr;
+  height: 600px;
+  position: relative;
+}
+
 .cardDetail,
 .imgDetail {
   overflow-y: hidden;
   padding: 30px;
-  height: 82vh;
+  height: 600px;
   border: 3px solid rgba(128, 128, 128, 0.525);
   border-radius: 8px;
 }
 
+.imgDetail {
+  position: sticky;
+  top: 200px;
+}
+
 .cardDetail div {
   overflow-y: auto;
-  height: 72vh;
+  height: 600px;
   padding-right: 30px;
+}
+
+.cardDetail div p {
+  line-height: 36px;
 }
 
 .imgDetail h1 {
@@ -97,13 +114,6 @@
   text-align: center;
   margin: 20px 0;
   text-transform: capitalize !important;
-}
-
-.cardDetails {
-  display: grid;
-  gap: 35px;
-  grid-template-columns: 1fr 2fr;
-  height: 82vh;
 }
 
 .cardDetails .imgDetail img {
@@ -124,12 +134,13 @@
   font-size: 18px !important;
   font-weight: 600;
   line-height: 28px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .imgDetail .user-details span:last-child {
   font-weight: 400;
-  text-align: right;
+  text-align: left;
+  width: 75%;
 }
 
 .imgDetail .user-details > span:first-of-type {
