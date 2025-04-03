@@ -1,7 +1,7 @@
 .container {
   max-width: 1320px;
   margin: 80px auto;
-  min-height: 800px;
+  min-height: 550px;
 }
 
 .back-button {
@@ -80,7 +80,6 @@
   grid-template-columns: 350px 920px;
   align-items: flex-start;
   position: relative;
-  min-height: 620px;
 }
 
 .cardDetail .scrollBox {

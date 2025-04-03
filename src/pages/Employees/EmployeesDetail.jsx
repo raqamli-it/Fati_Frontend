@@ -5,6 +5,8 @@ import axios from "axios";
 import style from "./employees.module.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaChevronDown } from "react-icons/fa";
+import { height, width } from "@mui/system";
+import zIndex from "@mui/material/styles/zIndex";
 
 function EmployeesDetail() {
   const { detail } = useParams();
@@ -27,7 +29,7 @@ function EmployeesDetail() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= 90) {
+      if (window.scrollY >= 145) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -40,99 +42,110 @@ function EmployeesDetail() {
   }, []);
 
   return (
-    <div className={style.container}>
-      <button
-        style={{
-          position: isScrolled && "fixed",
-          top: isScrolled && "80px",
-        }}
-        title="Sahifadan chiqish"
-        className={style["back-button"]}
-        onClick={() => navigate(-1)}
-      >
-        <FaArrowLeftLong fontSize={"22px"} />
-        Sahifadan chiqish
-      </button>
-
-      <div
-        style={{
-          display: isScrolled && "grid",
-          gridTemplateColumns: isScrolled ? "350px 920px" : "350px 920px",
-        }}
-        className={style.cardDetails}
-      >
-        <div
-          style={{
-            position: isScrolled && "fixed",
-            top: isScrolled && "126px",
-            width: isScrolled && "350px",
-          }}
+    <div>
+      <div className={style.container}>
+        <button
+          title="Sahifadan chiqish"
+          className={style["back-button"]}
+          onClick={() => navigate(-1)}
         >
-          <div className={style.imgDetail}>
-            <img
-              src={dataDetail.image}
-              alt={dataDetail?.[`ful_name_${lang}`]}
-            />
-            <h1>{dataDetail?.[`full_name_${lang}`]}</h1>
+          <FaArrowLeftLong fontSize={"22px"} />
+          Sahifadan chiqish
+        </button>
 
-            <div className={style["user-details"]}>
-              <span>Lavozimi :</span>
-              <span>{dataDetail?.[`position_${lang}`]}</span>
-            </div>
-
-            <div className={style["user-details"]}>
-              <span>Unvoni :</span>
-              <span>{dataDetail?.[`degree_${lang}`]}</span>
-            </div>
-
-            <div className={style["user-details"]}>
-              <span>Raqami :</span>
-              <span>{dataDetail?.phone}</span>
-            </div>
-
-            <div className={style["user-details"]}>
-              <span>Emaili :</span>
-              <span>{dataDetail?.email}</span>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={style.toggleBtn}
+        <div className={style.cardDetails}>
+          <div
+            style={{
+              position: isScrolled && "fixed",
+              top: isScrolled && "70px",
+              zIndex: 999,
+              width: "350px",
+            }}
           >
-            <span>Asarlari va maqolalari</span>
-            <FaChevronDown
-              className={isOpen ? style.rotateIconY : style.rotateIcon}
-            />
-          </button>
-        </div>
+            <div className={style.imgDetail}>
+              <img
+                src={dataDetail.image}
+                alt={dataDetail?.[`ful_name_${lang}`]}
+              />
+              <h1>{dataDetail?.[`full_name_${lang}`]}</h1>
 
-        <div
-          className={style.cardDetail}
-          style={{
-            width: isScrolled && "920px",
-            marginTop: isScrolled && "48px",
-            marginLeft: isScrolled && "380px",
-          }}
-        >
-          <div className={style.scrollBox}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: dataDetail?.[`about_${lang}`],
-              }}
-            ></div>
+              <div className={style["user-details"]}>
+                <span>Lavozimi :</span>
+                <span>{dataDetail?.[`position_${lang}`]}</span>
+              </div>
 
-            {isOpen && (
+              <div className={style["user-details"]}>
+                <span>Unvoni :</span>
+                <span>{dataDetail?.[`degree_${lang}`]}</span>
+              </div>
+
+              <div className={style["user-details"]}>
+                <span>Raqami :</span>
+                <span>{dataDetail?.phone}</span>
+              </div>
+
+              <div className={style["user-details"]}>
+                <span>Emaili :</span>
+                <span>{dataDetail?.email}</span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={style.toggleBtn}
+            >
+              <span>Asarlari va maqolalari</span>
+              <FaChevronDown
+                className={isOpen ? style.rotateIconY : style.rotateIcon}
+              />
+            </button>
+          </div>
+          {/* salomat  */}
+          {/* salomat  */}
+          {/* salomat  */}
+          {/* salomat  */}
+          {/* salomat  */}
+
+          <div
+            style={{
+              position: "relative",
+              // top: isScrolled && "70px",
+              zIndex: 999,
+              marginLeft: isScrolled && "380px",
+              width: "920px",
+            }}
+            className={style.cardDetail}
+          >
+            <div className={style.scrollBox}>
               <div
-                // className={`${style.closeText} ${isOpen ? style.openText : ""}`}
                 dangerouslySetInnerHTML={{
-                  __html: dataDetail?.[`works_${lang}`],
+                  __html: dataDetail?.[`about_${lang}`],
                 }}
               ></div>
-            )}
+
+              {isOpen && (
+                <div
+                  // className={`${style.closeText} ${isOpen ? style.openText : ""}`}
+                  dangerouslySetInnerHTML={{
+                    __html: dataDetail?.[`works_${lang}`],
+                  }}
+                ></div>
+              )}
+            </div>
           </div>
         </div>
       </div>
+
+      <div
+        style={{
+          position: isScrolled && "relative",
+          zIndex: isScrolled && 998,
+          width: isScrolled && "100%",
+          height: "28vh",
+          bottom: isScrolled && "-200px",
+          backgroundColor: isScrolled && "white",
+        }}
+      ></div>
     </div>
   );
 }
