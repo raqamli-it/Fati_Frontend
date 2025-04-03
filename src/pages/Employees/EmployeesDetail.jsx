@@ -5,7 +5,6 @@ import axios from "axios";
 import style from "./employees.module.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaChevronDown } from "react-icons/fa";
-import zIndex from "@mui/material/styles/zIndex";
 
 function EmployeesDetail() {
   const { detail } = useParams();
@@ -46,7 +45,6 @@ function EmployeesDetail() {
         style={{
           position: isScrolled && "fixed",
           top: isScrolled && "80px",
-          zIndex: "9999",
         }}
         title="Sahifadan chiqish"
         className={style["back-button"]}
@@ -58,7 +56,7 @@ function EmployeesDetail() {
 
       <div
         style={{
-          display: isScrolled ? "grid" : "grid",
+          display: isScrolled && "grid",
           gridTemplateColumns: isScrolled ? "350px 920px" : "350px 920px",
         }}
         className={style.cardDetails}

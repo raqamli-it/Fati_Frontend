@@ -1,7 +1,7 @@
 .container {
   max-width: 1320px;
   margin: 80px auto;
-  min-height: 450px;
+  min-height: 800px;
 }
 
 .back-button {
@@ -84,7 +84,7 @@
 }
 
 .cardDetail .scrollBox {
-  min-height: 610px;
+  min-height: 525px;
   overflow-y: auto;
 }
 
@@ -108,8 +108,8 @@
 }
 
 .imgDetail img {
-  width: 310px;
-  height: 310px;
+  width: 290px;
+  height: 290px;
   display: block;
   margin: 0 auto;
   border-radius: 50%;
