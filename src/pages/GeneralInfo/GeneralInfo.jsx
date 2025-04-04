@@ -19,16 +19,28 @@ function GeneralInfo({ activeData, setActivePage }) {
         <FaArrowLeftLong fontSize={"22px"} />
         Sahifadan chiqish
       </button>
-      
-      <div className={generalInfo.img}>
-        <img src={activeData.image} alt={activeData?.[`title_${lang}`]} />
-      </div>
 
       <div className={generalInfo.contants}>
         <h2>{activeData?.[`title_${lang}`]}</h2>
         <div
-          dangerouslySetInnerHTML={{ __html: activeData?.[`content_${lang}`] }}
+          dangerouslySetInnerHTML={{
+            __html: activeData?.[`content_${lang}`],
+          }}
         ></div>
+      </div>
+
+      <div className={generalInfo.imgCard}>
+        <div className={generalInfo.img}>
+          <img src={activeData.image} alt={activeData?.[`title_${lang}`]} />
+        </div>
+
+        <div className={generalInfo.contants}>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: activeData?.[`content_two_${lang}`],
+            }}
+          ></div>
+        </div>
       </div>
     </div>
   );
