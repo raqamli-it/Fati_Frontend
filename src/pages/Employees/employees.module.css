@@ -1,7 +1,6 @@
 .container {
   max-width: 1320px;
   margin: 80px auto;
-  min-height: 550px;
 }
 
 .back-button {
@@ -77,20 +76,15 @@
 .cardDetails {
   display: grid;
   gap: 30px;
-  grid-template-columns: 350px 920px;
+  grid-template-columns: 3fr 8fr;
   align-items: flex-start;
-  position: relative;
-}
-
-.cardDetail .scrollBox {
-  min-height: 525px;
-  overflow-y: auto;
 }
 
 .imgDetail {
   padding: 20px;
   border: 2px solid rgba(0, 0, 0, 0.64);
   border-radius: 12px;
+  height: 580px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.826);
 }
 
@@ -99,10 +93,19 @@
   border-radius: 12px;
   box-sizing: border-box;
   padding: 20px;
+  height: 580px;
+  display: grid;
+  place-items: center;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.826);
 }
 
-.cardDetail .scrollBox p {
+.cardDetail .scrollBox {
+  height: 530px;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.cardDetail p {
   line-height: 36px;
 }
 
@@ -116,7 +119,7 @@
 
 .imgDetail h1 {
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 0;
   font-family: "Poppins", sans-serif;
   color: rgba(0, 0, 0, 0.833);
   font-weight: 500;

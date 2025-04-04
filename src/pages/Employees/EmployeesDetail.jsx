@@ -25,127 +25,75 @@ function EmployeesDetail() {
 
   console.log(dataDetail, "detail xxx");
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 145) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY >= 145) {
+  //       setIsScrolled(true);
+  //     } else {
+  //       setIsScrolled(false);
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
-    <div>
-      <div className={style.container}>
-        <button
-          title="Sahifadan chiqish"
-          className={style["back-button"]}
-          onClick={() => navigate(-1)}
-        >
-          <FaArrowLeftLong fontSize={"22px"} />
-          Sahifadan chiqish
-        </button>
+    <div className={style.container}>
+      <button
+        title="Sahifadan chiqish"
+        className={style["back-button"]}
+        onClick={() => navigate(-1)}
+      >
+        <FaArrowLeftLong fontSize={"22px"} />
+        Sahifadan chiqish
+      </button>
 
-        <div className={style.cardDetails}>
-          <div
-            style={{
-              position: isScrolled && "fixed",
-              top: isScrolled && "70px",
-              zIndex: 999,
-              width: "350px",
-            }}
-          >
-            <div className={style.imgDetail}>
-              <img
-                src={dataDetail.image}
-                alt={dataDetail?.[`ful_name_${lang}`]}
-              />
-              <h1>{dataDetail?.[`full_name_${lang}`]}</h1>
+      <div className={style.cardDetails}>
+        <div className={style.imgDetail}>
+          <img src={dataDetail.image} alt={dataDetail?.[`ful_name_${lang}`]} />
+          <h1>{dataDetail?.[`full_name_${lang}`]}</h1>
 
-              <div className={style["user-details"]}>
-                <span>Lavozimi :</span>
-                <span>{dataDetail?.[`position_${lang}`]}</span>
-              </div>
-
-              <div className={style["user-details"]}>
-                <span>Unvoni :</span>
-                <span>{dataDetail?.[`degree_${lang}`]}</span>
-              </div>
-
-              <div className={style["user-details"]}>
-                <span>Raqami :</span>
-                <span>{dataDetail?.phone}</span>
-              </div>
-
-              <div className={style["user-details"]}>
-                <span>Emaili :</span>
-                <span>{dataDetail?.email}</span>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={style.toggleBtn}
-            >
-              <span>Asarlari va maqolalari</span>
-              <FaChevronDown
-                className={isOpen ? style.rotateIconY : style.rotateIcon}
-              />
-            </button>
+          <div className={style["user-details"]}>
+            <span>Lavozimi :</span>
+            <span>{dataDetail?.[`position_${lang}`]}</span>
           </div>
-          {/* salomat  */}
-          {/* salomat  */}
-          {/* salomat  */}
-          {/* salomat  */}
-          {/* salomat  */}
 
-          <div
-            style={{
-              position: "relative",
-              // top: isScrolled && "70px",
-              zIndex: 999,
-              marginLeft: isScrolled && "380px",
-              width: "920px",
-            }}
-            className={style.cardDetail}
-          >
-            <div className={style.scrollBox}>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: dataDetail?.[`about_${lang}`],
-                }}
-              ></div>
+          <div className={style["user-details"]}>
+            <span>Unvoni :</span>
+            <span>{dataDetail?.[`degree_${lang}`]}</span>
+          </div>
 
-              {isOpen && (
-                <div
-                  // className={`${style.closeText} ${isOpen ? style.openText : ""}`}
-                  dangerouslySetInnerHTML={{
-                    __html: dataDetail?.[`works_${lang}`],
-                  }}
-                ></div>
-              )}
-            </div>
+          <div className={style["user-details"]}>
+            <span>Raqami :</span>
+            <span>{dataDetail?.phone}</span>
+          </div>
+
+          <div className={style["user-details"]}>
+            <span>Emaili :</span>
+            <span>{dataDetail?.email}</span>
+          </div>
+        </div>
+
+        <div className={style.cardDetail}>
+          <div className={style.scrollBox}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: dataDetail?.[`about_${lang}`],
+              }}
+            ></div>
+
+            <div
+              dangerouslySetInnerHTML={{
+                __html: dataDetail?.[`works_${lang}`],
+              }}
+            ></div>
           </div>
         </div>
       </div>
-
-      <div
-        style={{
-          position: isScrolled && "relative",
-          zIndex: isScrolled && 998,
-          width: isScrolled && "100%",
-          height: "28vh",
-          bottom: isScrolled && "-200px",
-          backgroundColor: isScrolled && "white",
-        }}
-      ></div>
     </div>
   );
 }
