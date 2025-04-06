@@ -82,14 +82,14 @@
 
 .imgDetail {
   padding: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.64);
+  /* border: 2px solid rgba(0, 0, 0, 0.64); */
   border-radius: 12px;
   height: 580px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.826);
 }
 
 .cardDetail {
-  border: 2px solid rgba(0, 0, 0, 0.64);
+  /* border: 2px solid rgba(0, 0, 0, 0.64); */
   border-radius: 12px;
   box-sizing: border-box;
   padding: 20px;
@@ -110,11 +110,11 @@
 }
 
 .imgDetail img {
-  width: 290px;
+  width: 100%;
   height: 290px;
   display: block;
   margin: 0 auto;
-  border-radius: 50%;
+  border-radius: 12px;
 }
 
 .imgDetail h1 {
@@ -147,7 +147,7 @@
 }
 
 .user-details > span:first-of-type {
-  width: 120px !important;
+  width: 140px !important;
 }
 
 .toggleBtn {

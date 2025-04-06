@@ -1,12 +1,9 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import style from "./employees.module.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa";
-import { height, width } from "@mui/system";
-import zIndex from "@mui/material/styles/zIndex";
 
 function EmployeesDetail() {
   const { detail } = useParams();
@@ -63,7 +60,7 @@ function EmployeesDetail() {
           </div>
 
           <div className={style["user-details"]}>
-            <span>Unvoni :</span>
+            <span>Darajasi :</span>
             <span>{dataDetail?.[`degree_${lang}`]}</span>
           </div>
 
