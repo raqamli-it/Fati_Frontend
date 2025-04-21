@@ -17,7 +17,7 @@ function DoctaurantsDetail() {
     <div className={style.wrapper}>
       <button
         className={style["back-button"]}
-        title="Saxifadan chiqish"
+        title="Sahifadan chiqish"
         onClick={() => navigate(-1)}
       >
         <FaArrowLeftLong
@@ -27,7 +27,7 @@ function DoctaurantsDetail() {
             cursor: "pointer",
           }}
         />
-        Saxifadan chiqish
+        Sahifadan chiqish
       </button>
       <div className={style.cardDetail}>
         <div className={style.detailUserImg}>

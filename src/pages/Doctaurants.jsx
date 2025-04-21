@@ -3,26 +3,28 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import styles from "./Doctaurants.module.css";
 import ReactPaginate from "react-paginate";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 export const Doctaurants = ({ loading, setLoading }) => {
   const [data, setData] = useState([]);
   const { t, i18n } = useTranslation();
   const [pageCount, setPageCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
   const lang = i18n.language;
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Query dan page qiymatini olish, bo'lmasa default 1
+  const currentPage = parseInt(searchParams.get("page")) || 1;
 
   const fetchData = async (Page = 1) => {
     try {
       setLoading(true);
-      await axios
-        .get(`/doktarantura/doktarantura/?page=${Page}`)
-        .then((req) => {
-          setPageCount(Math.ceil(req.data.count / 6));
-          setData(req.data.results);
-        });
+      const response = await axios.get(
+        `/doktarantura/doktarantura/?page=${Page}`
+      );
+      setPageCount(Math.ceil(response.data.count / 6));
+      setData(response.data.results);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -31,8 +33,8 @@ export const Doctaurants = ({ loading, setLoading }) => {
   };
 
   const handlePageClick = (event) => {
-    setCurrentPage(event.selected + 1);
-    console.log(event, "xa xato chiqayabdimi");
+    const selectedPage = event.selected + 1;
+    setSearchParams({ page: selectedPage }); // URL ga yozib qo'yamiz
   };
 
   useEffect(() => {
@@ -46,8 +48,6 @@ export const Doctaurants = ({ loading, setLoading }) => {
     return <div className="loader"></div>;
   }
 
-  console.log(data, "Doctaurants");
-
   return (
     <div className={styles.wrapper}>
       <button
@@ -56,47 +56,41 @@ export const Doctaurants = ({ loading, setLoading }) => {
         onClick={() => navigate("/")}
       >
         <FaArrowLeftLong
-          style={{
-            fontSize: "24px",
-            color: "blue",
-            cursor: "pointer",
-          }}
+          style={{ fontSize: "24px", color: "blue", cursor: "pointer" }}
         />
         Sahifadan chiqish
       </button>
 
       <section className={styles.cards}>
-        {data.map((item, index) => {
-          return (
-            <div className={styles.container} key={index}>
-              <img
-                src={item?.file}
-                alt="image"
-                className={styles["card-image"]}
-              />
-
-              <h6 className={styles.title}>{item?.[`title_${lang}`]}</h6>
-              <button
-                onClick={() => navigate(`${item.id}`, { state: item })}
-                title="Batafsil ko'rish"
-              >
-                Batafsil
-              </button>
-            </div>
-          );
-        })}
+        {data.map((item, index) => (
+          <div className={styles.container} key={index}>
+            <img
+              src={item?.file}
+              alt="image"
+              className={styles["card-image"]}
+            />
+            <h6 className={styles.title}>{item?.[`title_${lang}`]}</h6>
+            <button
+              onClick={() => navigate(`${item.id}`, { state: item })}
+              title="Batafsil ko'rish"
+            >
+              Batafsil
+            </button>
+          </div>
+        ))}
       </section>
+
       <ReactPaginate
         previousLabel={"←"}
         nextLabel={"→"}
         breakLabel={"..."}
-        pageCount={pageCount} // Sahifa soni
+        pageCount={pageCount}
         marginPagesDisplayed={2}
         pageRangeDisplayed={3}
-        onPageChange={handlePageClick} // Sahifa almashganda
-        containerClassName={styles.pagination} // To‘g‘ri class
+        onPageChange={handlePageClick}
+        containerClassName={styles.pagination}
         activeClassName={styles.active}
-        forcePage={currentPage - 1}
+        forcePage={currentPage - 1} // react-paginate 0-indeksda ishlaydi
       />
     </div>
   );

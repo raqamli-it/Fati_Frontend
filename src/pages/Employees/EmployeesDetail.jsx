@@ -64,10 +64,10 @@ function EmployeesDetail() {
             <span>{dataDetail?.[`degree_${lang}`]}</span>
           </div>
 
-          <div className={style["user-details"]}>
+          {/* <div className={style["user-details"]}>
             <span>Raqami :</span>
             <span>{dataDetail?.phone}</span>
-          </div>
+          </div> */}
 
           <div className={style["user-details"]}>
             <span>Emaili :</span>

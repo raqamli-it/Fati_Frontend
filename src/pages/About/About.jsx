@@ -97,15 +97,18 @@ export const About = ({ loading, setLoading }) => {
 
         <div className={style.details}>
           {FindId &&
-            FindId.category.map((item) => (
-              <div key={item.id}>
-                <div className={style.img}>
-                  <img src={item?.image} alt={item?.[`full_name_${lang}`]} />
+            FindId?.category
+              ?.sort((a, b) => b.order - a.order)
+              ?.map((item) => (
+                <div key={item.id}>
+                  <div className={style.img}>
+                    <img src={item?.image} alt={item?.[`full_name_${lang}`]} />
+                  </div>
+
+                  <p>{item?.[`full_name_${lang}`]}</p>
+                  <p>{item?.year}</p>
                 </div>
-                <p>{item?.[`full_name_${lang}`]}</p>
-                <p>{item?.year}</p>
-              </div>
-            ))}
+              ))}
         </div>
       </div>
     </section>
