@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import styles from "./PersonCard.module.css";
 import axios from "axios";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export const ScientificDegree = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,7 +75,7 @@ export const ScientificDegree = ({ setLoading, loading }) => {
               </div>
             ))}
           </div>
-          
+
           <div>
             {item?.text_id?.map((value, idx) => (
               <h1
