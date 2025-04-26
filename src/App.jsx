@@ -50,11 +50,6 @@ import PhotosDetail from "./pages/Photos/PhotosDetail";
 import DoctaurantsDetail from "./pages/DoctaurantsDetail";
 import SeminarDetail from "./pages/Seminar/SeminarDetail";
 
-// import GeneralInfo from "./pages/GeneralInfo/GeneralInfo";
-// import Employees from "./pages/Employees/Employees";
-// import Research from "./pages/Research/Research";
-// import PhotoVideo from "./pages/PhotoVideo/PhotoVideo";
-
 i18n.use(initReactI18next).init({
   resources: {
     uz: { translation: translationUz },

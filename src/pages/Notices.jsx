@@ -66,7 +66,6 @@ function Notices({ setLoading, loading }) {
                   Batafsil
                 </button>
               </div>
-              {console.log(item)}
             </div>
           ))}
       </div>

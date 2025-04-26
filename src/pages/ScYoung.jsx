@@ -74,6 +74,18 @@ export const ScYoung = ({ setLoading, loading }) => {
                 __html: item?.[`content_${lang}`],
               }}
             ></div>
+
+            <div className={styles.cards}>
+              {item?.yosh_xodimlar?.map((value, index) => (
+                <div key={index} className={styles.card}>
+                  <div className={styles.img}>
+                    <img src={value?.image} alt={value?.fullname} />
+                  </div>
+                  <p>{value?.fullname}</p>
+                  <p>{value?.position}</p>
+                </div>
+              ))}
+            </div>
           </div>
         );
       })}

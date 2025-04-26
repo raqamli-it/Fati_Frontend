@@ -218,17 +218,18 @@ export const Home = ({ setLoading, loading }) => {
         <div className="img-cards">
           <h2>{t("councils")}</h2>
           <div className="kengashlar">
-            <Link className="yiginlarDetail" to="/sc-young">
-              <span>{t("sc-council")}</span>
-              <img src="./assets/icons/arrow.svg" alt="arrow" />
-            </Link>
-
             <Link className="yiginlarDetail" to="/sc-council">
-              <span>{t("scientific-degree")}</span>
+              <span>{t("sc-council")}</span>
+              {/* sc-young  */}
               <img src="./assets/icons/arrow.svg" alt="arrow" />
             </Link>
 
             <Link className="yiginlarDetail" to="/scientific-degree">
+              <span>{t("scientific-degree")}</span>
+              <img src="./assets/icons/arrow.svg" alt="arrow" />
+            </Link>
+            {/* scientific-degree  */}
+            <Link className="yiginlarDetail" to="/sc-young">
               <span> {t("sc-young")}</span>
               <img src="./assets/icons/arrow.svg" alt="arrow" />
             </Link>

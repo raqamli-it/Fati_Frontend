@@ -71,6 +71,7 @@
   font-weight: 400;
   height: 84px;
   display: -webkit-box;
+  text-align: center;
   line-height: 28px;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;

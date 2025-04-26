@@ -68,12 +68,13 @@ function NoticesDetail({ setLoading, loading }) {
             <div
               style={{
                 float: "left",
-                width: "25%",
+                width: "33%",
+                height: "420px",
                 marginRight: "20px",
               }}
             >
               <img
-                style={{ width: "100%" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 src={data.image}
                 alt="Detail Image"
               />
