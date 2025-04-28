@@ -7,7 +7,7 @@ export const Layout = () => {
     <div className="layout">
       <Navbar />
 
-      <div style={{ minHeight: "58vh" }}>
+      <div style={{ minHeight: "70vh" }}>
         <Outlet />
       </div>
 

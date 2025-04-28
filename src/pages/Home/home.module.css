@@ -6,75 +6,9 @@
   min-height: 600px;
   overflow: hidden;
   position: relative;
-
-  /* ul {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 10px;
-    padding-right: 40px;
-    position: relative;
-    z-index: 444444;
-    width: 69vw;
-    margin-left: auto;
-    ol {
-      visibility: hidden;
-      width: 0;
-      height: 0;
-      opacity: 0;
-    }
-    input {
-      display: none;
-    }
-
-    li {
-      display: flex;
-      align-items: center;
-      position: relative;
-      transition: 0.3s ease-in-out;
-      font-size: 17px;
-      padding: 0 0 20px;
-      svg {
-        width: 10px;
-        height: 10px;
-      }
-      &:hover {
-        padding: 0 5px 20px;
-
-        ol {
-          visibility: visible;
-          width: max-content;
-          height: auto;
-          opacity: 1;
-          position: absolute;
-          top: 30px;
-          background: #fff;
-          color: black;
-          padding: 5px 10px;
-          border-radius: 5px;
-          li:hover {
-            text-decoration: none;
-          }
-          &:before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid #fff;
-          }
-          li {
-            margin-bottom: 10px;
-            padding: 0;
-          }
-        }
-      }
-    }
-  } */
 }
+
+
 
 .container {
   max-width: 100%;

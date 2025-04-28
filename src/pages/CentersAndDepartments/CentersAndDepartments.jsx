@@ -62,7 +62,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
           <div className={styles.bg_img}>
             <img src={data?.file} alt={data?.[`title_${lang}`]} />
           </div>
-          {/* <div className={styles.bg_img}></div> */}
+          
           <div className={styles.tabs}>
             <div className={styles.tab}>
               {[

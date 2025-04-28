@@ -1,16 +1,15 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Slider from "react-slick/lib/slider";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import HomeNews from "../HomeNews/HomeNews";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io5";
-import { AiOutlineLink } from "react-icons/ai";
+import { Zoom } from "react-awesome-reveal";
+
+// import Slider from "react-slick";
 // import { navbarData } from "../../exports/navbar";
 
 // iconkalar
@@ -18,10 +17,13 @@ import jurnali from "./kutubxonaIcon/jurnali.jpg";
 import manbalar from "./kutubxonaIcon/manbalar.png";
 import adabiyotlar from "./kutubxonaIcon/adabiyotlar.jpg";
 import avtorefaratlar from "./kutubxonaIcon/avtorefaratlar.jpg";
-
-import { Zoom } from "react-awesome-reveal";
 import bgImage from "./bg.jpg";
+
 import { FaArrowRightLong } from "react-icons/fa6";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io5";
+import { AiOutlineLink } from "react-icons/ai";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 const headerSettings = {
   fade: true,
@@ -135,6 +137,53 @@ export const Home = ({ setLoading, loading }) => {
     },
   ];
 
+  let sliderRef = useRef(null);
+
+  const next = () => {
+    sliderRef.slickNext();
+  };
+
+  const previous = () => {
+    sliderRef.slickPrev();
+  };
+
+  var settings = {
+    dots: true,
+    arrows: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    initialSlide: 0,
+
+    responsive: [
+      // {
+      //   breakpoint: 1024,
+      //   settings: {
+      //     slidesToShow: 3,
+      //     slidesToScroll: 3,
+      //     infinite: true,
+      //     dots: true,
+      //   },
+      // },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section>
       <header className={styles.header}>
@@ -156,42 +205,51 @@ export const Home = ({ setLoading, loading }) => {
       <div className={styles.container}>
         <HomeNews newsData={newsData} />
 
+        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
+
         <div className="img-cards">
           <h2>{t("departments")}</h2>
           <div className="markaz_va_bolim">
             <div className="bolimButton">
-              {teachers.map((item, index) => {
-                return (
-                  <div key={index} className="shadow">
-                    <img src={item.image} alt="" />
-                    <p>{item?.[`title_${lang}`]}</p>
-                    <button
-                      onClick={() =>
-                        navigate(`/centers-and-departments/bolim/${item.id}`)
-                      }
-                    >
-                      Batafsil
-                    </button>
+              <button className="prevButton" onClick={previous}>
+                <GrPrevious style={{ fontSize: "16px" }} />
+              </button>
 
-                    {/* <FaArrowRightLong
-                      title="Batafsil ko'rish"
-                      onClick={() => navigate(`news/${value.id}`)}
-                      style={{
-                        fontSize: "26px",
-                        color: "blue",
-                        cursor: "pointer",
-                        marginLeft: "84%",
-                        marginBottom: "13px",
-                        display: "block",
-                      }}
-                    /> */}
-                  </div>
-                );
-              })}
+              <Slider
+                ref={(slider) => {
+                  sliderRef = slider;
+                }}
+                {...settings}
+              >
+                {teachers.map((item, index) => {
+                  return (
+                    <div className="shadow-card">
+                      <div key={index} className="shadow">
+                        <img src={item.image} alt="img" />
+                        <p>{item?.[`title_${lang}`]}</p>
+                        <button
+                          onClick={() =>
+                            navigate(
+                              `/centers-and-departments/bolim/${item.id}`
+                            )
+                          }
+                        >
+                          Batafsil
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Slider>
+
+              <button className="nextButton" onClick={next}>
+                <GrNext style={{ marginTop: "4px", fontSize: "16px" }} />
+              </button>
             </div>
           </div>
         </div>
 
+        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
         <div className="img-cards">
           <h2>{t("centers")}</h2>
           <div className="markaz_va_bolim">
