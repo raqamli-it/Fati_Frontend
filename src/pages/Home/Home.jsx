@@ -150,11 +150,14 @@ export const Home = ({ setLoading, loading }) => {
   var settings = {
     dots: true,
     arrows: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplaySpeed: 2000,
+    autoplay: true,
     initialSlide: 0,
+    pauseOnHover: false,
 
     responsive: [
       // {
@@ -205,8 +208,6 @@ export const Home = ({ setLoading, loading }) => {
       <div className={styles.container}>
         <HomeNews newsData={newsData} />
 
-        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
-
         <div className="img-cards">
           <h2>{t("departments")}</h2>
           <div className="markaz_va_bolim">
@@ -249,8 +250,50 @@ export const Home = ({ setLoading, loading }) => {
           </div>
         </div>
 
-        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
         <div className="img-cards">
+          <h2>{t("centers")}</h2>
+          <div className="markaz_va_bolim">
+            <div className="bolimButton">
+              <button className="prevButton" onClick={previous}>
+                <GrPrevious style={{ fontSize: "16px" }} />
+              </button>
+
+              <Slider
+                ref={(slider) => {
+                  sliderRef = slider;
+                }}
+                {...settings}
+              >
+                {centersData.map((item, index) => {
+                  return (
+                    <div className="shadow-card">
+                      <div key={index} className="shadow">
+                        <img src={item.image} alt="img" />
+                        <p>{item?.[`title_${lang}`]}</p>
+                        <button
+                          onClick={() =>
+                            navigate(
+                              `/centers-and-departments/markaz/${item.id}`
+                            )
+                          }
+                        >
+                          Batafsil
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Slider>
+
+              <button className="nextButton" onClick={next}>
+                <GrNext style={{ marginTop: "4px", fontSize: "16px" }} />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
+        {/* <div className="img-cards">
           <h2>{t("centers")}</h2>
           <div className="markaz_va_bolim">
             <div className="markazButton">
@@ -271,7 +314,8 @@ export const Home = ({ setLoading, loading }) => {
               })}
             </div>
           </div>
-        </div>
+        </div> */}
+        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
 
         <div className="img-cards">
           <h2>{t("councils")}</h2>
