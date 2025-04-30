@@ -5,6 +5,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { MdDashboardCustomize } from "react-icons/md";
 import { FaUserFriends, FaPhotoVideo } from "react-icons/fa";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import { GiArchiveResearch } from "react-icons/gi";
 import GeneralInfo from "../GeneralInfo/GeneralInfo";
 import Employees from "../Employees/Employees";
@@ -13,7 +14,7 @@ import Research from "../Research/Research";
 export const CentersAndDepartments = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const [activePage, setActivePage] = useState(0);
+  const [activePage, setActivePage] = useState(1);
   const { type, id } = useParams();
   const navigate = useNavigate();
 
@@ -57,62 +58,80 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
 
   return (
     <section className={styles["center-departments"]}>
-      {activePage === Number(0) ? (
-        <div>
-          <div className={styles.bg_img}>
-            <img src={data?.file} alt={data?.[`title_${lang}`]} />
-          </div>
-          
-          <div className={styles.tabs}>
-            <div className={styles.tab}>
-              {[
-                {
-                  id: 1,
-                  // icon: <MdDashboardCustomize size={50} />,
-                  label: t("malumotlar"),
-                },
+      <div>
+        <div
+          className={`${styles.bg_img} ${
+            activePage !== 1 && styles.bg_img_top
+          }`}
+        >
+          <img
+            src={data?.file}
+            alt={data?.[`title_${lang}`]}
+            style={{
+              opacity: activePage !== 1 ? 0 : 1,
+              transition:
+                activePage !== 1
+                  ? "opacity 0.4s ease-in-out"
+                  : "opacity 0.7s ease-in-out",
+            }}
+          />
+        </div>
+        <div className={styles.tabs}>
+          <div className={styles.tab}>
+            <button onClick={() => navigate(-1)} className={styles.links}>
+              <h3>
+                <FaArrowLeftLong
+                  style={{ fontSize: "22px", marginTop: "6px" }}
+                />
+              </h3>
+            </button>
 
-                {
-                  id: 2,
-                  // icon: <FaUserFriends size={50} />,
-                  label: t("xodimlar"),
-                },
+            <button
+              style={{
+                color: activePage === Number(1) && "#000",
+                backgroundColor: activePage === Number(1) && "white",
+              }}
+              onClick={() => setActivePage(1)}
+              className={styles.links}
+            >
+              <h3>{t("malumotlar")}</h3>
+            </button>
 
-                {
-                  id: 3,
-                  // icon: <GiArchiveResearch size={50} />,
-                  label: t("tadqiqotlar"),
-                },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  // style={{
-                  //   color: activePage === tab.id ? "#023E8A" : "black",
-                  //   border: activePage === tab.id ? "3px solid #023E8A" : "",
-                  // }}
-                  onClick={() => setActivePage(tab.id)}
-                  className={styles.links}
-                >
-                  {tab.icon}
-                  <h3>{tab.label}</h3>
-                </button>
-              ))}
-            </div>
+            <button
+              style={{
+                color: activePage === Number(2) && "#000",
+                backgroundColor: activePage === Number(2) && "white",
+              }}
+              onClick={() => setActivePage(2)}
+              className={styles.links}
+            >
+              <h3>{t("xodimlar")}</h3>
+            </button>
+
+            <button
+              style={{
+                color: activePage === Number(3) && "#000",
+                backgroundColor: activePage === Number(3) && "white",
+              }}
+              onClick={() => setActivePage(3)}
+              className={styles.links}
+            >
+              <h3>{t("tadqiqotlar")}</h3>
+            </button>
           </div>
         </div>
-      ) : (
-        <div className={styles.tab_card}>
-          {activePage === 1 && (
-            <GeneralInfo activeData={data} setActivePage={setActivePage} />
-          )}
-          {activePage === 2 && (
-            <Employees activeData={data} setActivePage={setActivePage} />
-          )}
-          {activePage === 3 && (
-            <Research activeData={data} setActivePage={setActivePage} />
-          )}
-        </div>
-      )}
+      </div>
+      <div className={styles.tab_card}>
+        {activePage === 1 && (
+          <GeneralInfo activeData={data} setActivePage={setActivePage} />
+        )}
+        {activePage === 2 && (
+          <Employees activeData={data} setActivePage={setActivePage} />
+        )}
+        {activePage === 3 && (
+          <Research activeData={data} setActivePage={setActivePage} />
+        )}
+      </div>
     </section>
   );
 };

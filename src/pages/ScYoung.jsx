@@ -61,12 +61,13 @@ export const ScYoung = ({ setLoading, loading }) => {
                   {item?.[`title_${lang}`]}
                 </h2>
               </div>
-
-              <img
-                className={styles["images"]}
-                src={item?.file}
-                alt={item?.[`title_${lang}`]}
-              />
+              {item?.file && (
+                <img
+                  className={styles["images"]}
+                  src={item?.file}
+                  alt={item?.[`title_${lang}`]}
+                />
+              )}
             </div>
 
             <div

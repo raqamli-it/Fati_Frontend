@@ -2,26 +2,16 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import style from "./employees.module.css";
-import { FaArrowLeftLong } from "react-icons/fa6";
 
-function Employees({ activeData, setActivePage }) {
+function Employees({ activeData }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const navigate = useNavigate();
 
-  console.log(activeData, "activeData wwww");
+  console.log(activeData, "xodimlar");
 
   return (
     <div className={style.container}>
-      <button
-        title="Sahifadan chiqish"
-        className={style["back-button"]}
-        onClick={() => setActivePage(0)}
-      >
-        <FaArrowLeftLong fontSize={"22px"} />
-        Sahifadan chiqish
-      </button>
-
       <div className={style.employeesX}>
         {(Array.isArray(activeData.xodimlar)
           ? activeData.xodimlar

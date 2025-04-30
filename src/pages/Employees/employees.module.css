@@ -1,15 +1,6 @@
 .container {
   max-width: 1320px;
-  margin: 80px auto;
-}
-
-.back-button {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
-  margin-left: 0;
-  color: rgba(0, 0, 255, 0.749);
+  margin: 0 auto 50px;
 }
 
 .employeesX {

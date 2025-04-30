@@ -1,64 +1,68 @@
 .center-departments {
-  /* .bg_img {
-    width: 100%;
-    margin-top: 45px;
-    height: 450px;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("./bg-tarix.jpg");
-  } */
-
   .bg_img {
     width: 100%;
     margin-top: 55px;
-    /* background-color: red; */
-    min-height: 450px;
-  }
-  .bg_img img {
-    width: 100%;
-    min-height: 450px;
-    object-fit: cover;
+    /* min-height: 450px; */
+    position: relative;
+    transition: all 0.5s ease-in-out;
   }
 
-  .tab_card {
-    padding-top: 50px;
+  .bg_img_top {
+    width: 100%;
+    /* margin-top: -320px; */
+    margin-top: -370px;
+    position: relative;
+    z-index: -1;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .bg_img img {
+    width: 100%;
+    /* min-height: 450px !important; */
+    min-height: 500px !important;
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
   }
 
   .tabs {
-    max-width: 1320px;
+    max-width: 800px;
     display: flex;
     justify-content: center;
-    margin: 50px auto;
+    background-color: #023e8a;
+    margin: -32px auto 50px;
+    padding: 12px;
+    border-radius: 35px;
+    position: relative;
   }
 
   .tab {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 15px;
   }
 
   .links {
-    width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    padding: 0 30px;
     align-items: center;
     transition: all 0.5s ease-in-out;
-    height: 80px;
-    box-shadow: 0 0 20px rgb(51, 50, 50) !important;
+    height: 40px;
+    border-radius: 18px;
     color: white;
-    background-color: #023e8a;
+    /* background-color: #032864; */
+    border: 2px solid #022559c8;
     h3 {
       transition: all 0.5s ease-in-out;
       text-transform: uppercase;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: 1.5px;
       font-family: "Poppins", sans-serif;
     }
+
     gap: 10px;
     .icon {
       font-size: 35px;
@@ -69,5 +73,11 @@
   .links:hover h3,
   .links:hover .icon {
     transition: all 0.5s ease-in-out;
+  }
+
+  .top {
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    top: -400px;
   }
 }
