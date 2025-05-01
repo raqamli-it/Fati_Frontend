@@ -28,6 +28,7 @@
   border-color: black;
   border-color: gray;
 }
+
 /* search input style */
 
 /* imgContainer style */
@@ -98,20 +99,29 @@
 .pagination li {
   margin: 0 5px;
   cursor: pointer;
-  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
 .pagination li a {
-  display: block;
-  padding: 10px;
+  width: 42px;
+  display: grid;
+  place-items: center;
+  height: 42px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #2c2c2cda;
+  font-family: "Poppins", sans-serif;
 }
 
-.pagination li:hover {
-  background-color: #007bff;
+.pagination li a:hover {
+  background-color: #023e8a;
+  color: white;
+
+  transition: all 0.3s ease-in-out;
 }
 
-.active {
-  background-color: #007bff;
+.active a {
+  background-color: #023e8a;
   border: none;
+  color: white;
 }

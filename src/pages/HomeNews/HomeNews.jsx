@@ -56,8 +56,6 @@ function HomeNews({ newsData }) {
     ],
   };
 
-  console.log(newsData, "newsData");
-
   return (
     <div>
       <h2 onClick={() => navigate(`/news`)} className="title">

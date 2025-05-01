@@ -19,7 +19,13 @@ function Research({ activeData }) {
       {Array.isArray(researchItems) && researchItems.length > 0 ? (
         researchItems.map((value, index) => (
           <div key={index}>
-            <img src={value?.image} alt={value?.[`title_${lang}`]} />
+            {value?.image && (
+              <img
+                src={value.image}
+                alt={value?.[`title_${lang}`]}
+                style={{ width: "100%", height: "auto" }}
+              />
+            )}
             <p
               dangerouslySetInnerHTML={{ __html: value?.[`content_${lang}`] }}
             ></p>

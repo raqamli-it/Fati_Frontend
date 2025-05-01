@@ -88,7 +88,7 @@ const Manbalar = () => {
                       <AiOutlineRead style={{ fontSize: "30px" }} />
                     </a>
                   </div>
-                  
+
                   <p>{img?.[`title_${lang}`]}</p>
                   <p>{img?.[`title_two_${lang}`]}</p>
                 </div>
@@ -96,8 +96,8 @@ const Manbalar = () => {
             </div>
 
             <ReactPaginate
-              previousLabel={"←"}
-              nextLabel={"→"}
+              previousLabel={"<"}
+              nextLabel={">"}
               breakLabel={"..."}
               pageCount={pageCount} // Jami sahifalar soni
               marginPagesDisplayed={2}

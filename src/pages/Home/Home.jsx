@@ -137,14 +137,23 @@ export const Home = ({ setLoading, loading }) => {
     },
   ];
 
-  let sliderRef = useRef(null);
+  let sliderCentersRef = useRef(null);
+  let sliderBolimlarRef = useRef(null);
 
-  const next = () => {
-    sliderRef.slickNext();
+  const nextBolimlar = () => {
+    sliderBolimlarRef.slickNext();
   };
 
-  const previous = () => {
-    sliderRef.slickPrev();
+  const previousBolimlar = () => {
+    sliderBolimlarRef.slickPrev();
+  };
+
+  const nextCenters = () => {
+    sliderCentersRef.slickNext();
+  };
+
+  const previousCenters = () => {
+    sliderCentersRef.slickPrev();
   };
 
   var settings = {
@@ -160,17 +169,17 @@ export const Home = ({ setLoading, loading }) => {
     pauseOnHover: true,
 
     responsive: [
-      // {
-      //   breakpoint: 1024,
-      //   settings: {
-      //     slidesToShow: 3,
-      //     slidesToScroll: 3,
-      //     infinite: true,
-      //     dots: true,
-      //   },
-      // },
       {
-        breakpoint: 600,
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -178,7 +187,7 @@ export const Home = ({ setLoading, loading }) => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 520,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -212,20 +221,20 @@ export const Home = ({ setLoading, loading }) => {
           <h2>{t("departments")}</h2>
           <div className="markaz_va_bolim">
             <div className="bolimButton">
-              <button className="prevButton" onClick={previous}>
+              <button className="prevButton" onClick={previousBolimlar}>
                 <GrPrevious style={{ fontSize: "16px" }} />
               </button>
 
               <Slider
                 ref={(slider) => {
-                  sliderRef = slider;
+                  sliderBolimlarRef = slider;
                 }}
                 {...settings}
               >
                 {teachers.map((item, index) => {
                   return (
-                    <div className="shadow-card">
-                      <div key={index} className="shadow">
+                    <div key={index} className="shadow-card">
+                      <div className="shadow">
                         <img src={item.image} alt="img" />
                         <p>{item?.[`title_${lang}`]}</p>
                         <button
@@ -243,7 +252,7 @@ export const Home = ({ setLoading, loading }) => {
                 })}
               </Slider>
 
-              <button className="nextButton" onClick={next}>
+              <button className="nextButton" onClick={nextBolimlar}>
                 <GrNext style={{ marginTop: "4px", fontSize: "16px" }} />
               </button>
             </div>
@@ -254,20 +263,20 @@ export const Home = ({ setLoading, loading }) => {
           <h2>{t("centers")}</h2>
           <div className="markaz_va_bolim">
             <div className="bolimButton">
-              <button className="prevButton" onClick={previous}>
+              <button className="prevButton" onClick={previousCenters}>
                 <GrPrevious style={{ fontSize: "16px" }} />
               </button>
 
               <Slider
                 ref={(slider) => {
-                  sliderRef = slider;
+                  sliderCentersRef = slider;
                 }}
                 {...settings}
               >
                 {centersData.map((item, index) => {
                   return (
-                    <div className="shadow-card">
-                      <div key={index} className="shadow">
+                    <div key={index} className="shadow-card">
+                      <div className="shadow">
                         <img src={item.image} alt="img" />
                         <p>{item?.[`title_${lang}`]}</p>
                         <button
@@ -285,7 +294,7 @@ export const Home = ({ setLoading, loading }) => {
                 })}
               </Slider>
 
-              <button className="nextButton" onClick={next}>
+              <button className="nextButton" onClick={nextCenters}>
                 <GrNext style={{ marginTop: "4px", fontSize: "16px" }} />
               </button>
             </div>

@@ -56,8 +56,51 @@
 
 .detailContainer {
   max-width: 1320px;
-  min-height: 620px;
   margin: 90px auto 30px;
+}
+
+.detailCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.detailCard .detailImg {
+  width: 30%;
+  height: 450px;
+  box-shadow: 0 0 10px gray;
+  border-radius: 15px;
+}
+
+.detailCard .detailImg p {
+  margin-top: 15px;
+}
+
+.detailCard .detailImg img {
+  border-radius: 15px;
+  width: 100%;
+}
+
+.detailCard .detailTextCard {
+  width: 70%;
+  display: grid;
+  height: 450px;
+  box-shadow: 0 0 10px gray;
+  place-items: center;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.detailCard .detailText {
+  width: 100%;
+  height: 410px;
+  overflow-y: auto;
+}
+
+.detailCard .detailText p {
+  line-height: 36px;
+  padding-right: 20px;
 }
 
 .detailContainer {
@@ -82,20 +125,29 @@
 .pagination li {
   margin: 0 5px;
   cursor: pointer;
-  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
 .pagination li a {
-  display: block;
-  padding: 10px;
+  width: 42px;
+  display: grid;
+  place-items: center;
+  height: 42px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #2c2c2cda;
+  font-family: "Poppins", sans-serif;
 }
 
-.pagination li:hover {
-  background-color: #007bff;
+.pagination li a:hover {
+  background-color: #023e8a;
+  color: white;
+
+  transition: all 0.3s ease-in-out;
 }
 
-.active {
-  background-color: #007bff;
+.active a {
+  background-color: #023e8a;
   border: none;
+  color: white;
 }

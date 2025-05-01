@@ -42,7 +42,7 @@ function EmployeesDetail() {
     <div className={style.container}>
       <button
         title="Sahifadan chiqish"
-        className={style["back-button"]}
+        className={style["backButton"]}
         onClick={() => navigate(-1)}
       >
         <FaArrowLeftLong fontSize={"22px"} />

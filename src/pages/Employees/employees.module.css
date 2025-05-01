@@ -3,6 +3,17 @@
   margin: 0 auto 50px;
 }
 
+.backButton {
+  margin-top: 90px;
+  position: relative;
+  right: 87%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 .employeesX {
   display: grid;
   align-items: flex-start;

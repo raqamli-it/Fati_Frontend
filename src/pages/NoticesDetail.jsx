@@ -39,56 +39,48 @@ function NoticesDetail({ setLoading, loading }) {
 
   return (
     <div className={style.detailContainer}>
-      <div className={style.detailContainer}>
-        {data ? (
-          <div>
-            <button
-              title="Sahifadan chiqish"
-              onClick={() => navigate(-1)}
+      {data ? (
+        <div>
+          <button
+            title="Sahifadan chiqish"
+            onClick={() => navigate(-1)}
+            style={{
+              display: "flex",
+              gap: "15px",
+              marginRight: "auto",
+              alignItems: "center",
+              marginLeft: 0,
+              marginBottom: "15px",
+            }}
+          >
+            <FaArrowLeftLong
               style={{
-                display: "flex",
-                gap: "15px",
-                marginRight: "auto",
-                alignItems: "center",
-                marginLeft: 0,
-                marginBottom: "15px",
+                fontSize: "24px",
+                color: "blue",
+                cursor: "pointer",
               }}
-            >
-              <FaArrowLeftLong
-                style={{
-                  fontSize: "24px",
-                  color: "blue",
-                  cursor: "pointer",
-                }}
-              />
-              Sahifadan chiqish
-            </button>
-            <h2 className={style["about-title"]}>{data[`title_${lang}`]}</h2>
+            />
+            Sahifadan chiqish
+          </button>
+          <h2 className={style["about-title"]}>{data[`title_${lang}`]}</h2>
 
-            <div
-              style={{
-                float: "left",
-                width: "33%",
-                height: "420px",
-                marginRight: "20px",
-              }}
-            >
-              <img
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                src={data.image}
-                alt="Detail Image"
-              />
+          <div className={style.detailCard}>
+            <div className={style.detailImg}>
+              <img src={data.image} alt="Detail Image" />
+              <p>{data?.fullname}</p>
             </div>
 
-            <div
-              className={style.detailText}
-              dangerouslySetInnerHTML={{ __html: data[`content_${lang}`] }}
-            ></div>
+            <div className={style.detailTextCard}>
+              <div
+                className={style.detailText}
+                dangerouslySetInnerHTML={{ __html: data[`content_${lang}`] }}
+              ></div>
+            </div>
           </div>
-        ) : (
-          <p>{t("data_not_found")}</p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p>{t("data_not_found")}</p>
+      )}
     </div>
   );
 }

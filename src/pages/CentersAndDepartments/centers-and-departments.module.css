@@ -20,6 +20,7 @@
     width: 100%;
     /* min-height: 450px !important; */
     min-height: 500px !important;
+    object-position: center;
     object-fit: cover;
     transition: all 0.4s ease-in-out;
   }

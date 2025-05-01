@@ -63,6 +63,7 @@
 .details .img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .details p {
@@ -79,6 +80,7 @@
 .details p:nth-of-type(2) {
   padding: 0 0 15px;
   text-transform: lowercase;
+  height: 35px;
 }
 
 .wrapper .btns .active {

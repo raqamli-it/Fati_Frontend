@@ -19,9 +19,9 @@ function GeneralInfo({ activeData }) {
       </div>
 
       <div className={generalInfo.imgCard}>
-        <div className={generalInfo.img}>
+        {/* <div className={generalInfo.img}>
           <img src={activeData.image} alt={activeData?.[`title_${lang}`]} />
-        </div>
+        </div> */}
 
         <div className={generalInfo.contants}>
           <div
