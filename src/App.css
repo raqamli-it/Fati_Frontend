@@ -227,32 +227,36 @@ body {
     box-shadow: 0 5px 15px gray;
   }
 
-  .shadow {
-    margin: 0 auto;
-    width: 97%;
-    height: 445px;
-    background-color: rgba(128, 128, 128, 0.829);
-  }
-
-  .shadow img {
+  .shadow-card {
+    height: 460px;
     width: 100%;
-    height: 370px;
-    object-fit: cover;
-  }
+    .shadow {
+      margin: 0 auto;
+      width: 97%;
+      height: 445px;
+      box-shadow: 0 5px 10px gray;
+    }
 
-  .shadow p {
-    height: 35x;
-    margin-top: 10px;
-    display: grid;
-    place-items: center;
-  }
+    .shadow img {
+      width: 100%;
+      height: 370px;
+      object-fit: cover;
+    }
 
-  .shadow button {
-    margin-right: auto;
-    height: 35px;
-    width: 15%;
-    display: inline-block;
-    margin-left: 85%;
+    .shadow p {
+      height: 35x;
+      margin-top: 10px;
+      display: grid;
+      place-items: center;
+    }
+
+    .shadow button {
+      margin-right: auto;
+      height: 35px;
+      width: 15%;
+      display: inline-block;
+      margin-left: 85%;
+    }
   }
 
   .bolimButton ul li button::before {

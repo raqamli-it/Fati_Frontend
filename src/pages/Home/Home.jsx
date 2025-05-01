@@ -151,13 +151,13 @@ export const Home = ({ setLoading, loading }) => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 4000,
     autoplay: true,
     initialSlide: 0,
-    pauseOnHover: false,
+    pauseOnHover: true,
 
     responsive: [
       // {
