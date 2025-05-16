@@ -62,6 +62,7 @@ function NoticesDetail({ setLoading, loading }) {
             />
             Sahifadan chiqish
           </button>
+          
           <h2 className={style["about-title"]}>{data[`title_${lang}`]}</h2>
 
           <div className={style.detailCard}>

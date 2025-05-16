@@ -76,6 +76,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
             }}
           />
         </div>
+
         <div className={styles.tabs}>
           <div className={styles.tab}>
             <button onClick={() => navigate(-1)} className={styles.links}>
@@ -121,6 +122,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
           </div>
         </div>
       </div>
+
       <div className={styles.tab_card}>
         {activePage === 1 && (
           <GeneralInfo activeData={data} setActivePage={setActivePage} />

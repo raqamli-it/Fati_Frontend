@@ -30,24 +30,21 @@ function HomeNews({ newsData }) {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1320,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1080,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -56,11 +53,14 @@ function HomeNews({ newsData }) {
     ],
   };
 
+  console.log(newsData, "xxxxxxxxx");
+
   return (
     <div>
       <h2 onClick={() => navigate(`/news`)} className="title">
         Yangiliklar
       </h2>
+      
       <div className="news-container slider-container">
         <button className="prevButton" onClick={previous}>
           <GrPrevious />
@@ -86,7 +86,6 @@ function HomeNews({ newsData }) {
                 </div>
               </Fade>
 
-              {/* <p className="title_en">{value.title_en}</p> */}
               <div className="lineX"></div>
 
               <div
@@ -99,22 +98,8 @@ function HomeNews({ newsData }) {
                   margin: "0 auto",
                 }}
               >
-                {/* <p
-                  className="content_uz"
-                  dangerouslySetInnerHTML={{ __html: value.content_uz }}
-                ></p> */}
                 <p className="content_uz">{value.title_uz}</p>
-                {/* <FaArrowRightLong
-                  title="Batafsil ko'rish"
-                  onClick={() => navigate(`news/${value.id}`)}
-                  style={{
-                    fontSize: "26px",
-                    color: "blue",
-                    cursor: "pointer",
-                    marginLeft: "auto",
-                    marginBottom: "13px",
-                  }}
-                /> */}
+
                 <button
                   title="Batafsil ko'rish"
                   onClick={() => navigate(`news/${value.id}`)}
@@ -127,7 +112,7 @@ function HomeNews({ newsData }) {
           ))}
         </Slider>
 
-        <button className="NextButton" onClick={next}>
+        <button className="nextButton" onClick={next}>
           <GrNext />
         </button>
       </div>

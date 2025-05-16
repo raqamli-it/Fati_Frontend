@@ -199,3 +199,45 @@
   color: rgba(0, 0, 0, 0.853);
   transition: 0.4s ease-in-out;
 }
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    .employeesX {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    .employeesX {
+      width: 80%;
+      margin: 0 auto;
+      /* background-color: red; */
+      grid-template-columns: 1fr;
+      .card {
+        .img {
+          height: 360px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    .employeesX {
+      width: 100%;
+      margin: 0 auto;
+
+      .card {
+        .img {
+          padding: 0;
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

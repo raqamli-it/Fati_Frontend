@@ -1,6 +1,7 @@
 .container {
   max-width: 1320px;
-  margin: 100px auto 60px;
+  margin: 60px auto 40px;
+  padding: 30px;
 }
 
 .wrapper {
@@ -11,6 +12,10 @@
   padding: 30px;
   height: 550px;
   box-shadow: 0 0 10px rgb(198, 198, 198);
+}
+
+.wrapper iframe {
+  height: 485px;
 }
 
 .wrapper .viewsBtn {
@@ -59,4 +64,67 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: left;
+}
+
+@media only screen and (max-width: 1320px) {
+  .container {
+    .wrapper {
+      padding: 20px;
+      gap: 20px;
+
+      iframe {
+        height: 510px;
+      }
+
+      .viewsBtn {
+        padding: 0;
+
+        .viewsCard {
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    .wrapper {
+      margin-top: 35px;
+      grid-template-columns: 1fr;
+      height: 1000px;
+
+      iframe {
+        height: 380px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    .wrapper {
+      iframe {
+        height: 330px;
+      }
+
+      .viewsBtn {
+        .viewsCard button {
+          align-items: flex-start;
+          margin-bottom: 12px;
+          img {
+            width: 120px;
+          }
+
+          span {
+            font-size: 14px !important;
+            line-height: 20px;
+          }
+        }
+
+        .viewsCard {
+          width: 98%;
+        }
+      }
+    }
+  }
 }

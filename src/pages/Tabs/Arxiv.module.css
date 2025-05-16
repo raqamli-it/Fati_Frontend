@@ -1,7 +1,22 @@
 .tahririyat {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 50px 30px;
+}
+
+.search {
+  position: relative;
+  display: inline-block;
+  width: 32%;
+
+  .searchIcon {
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    top: 38%;
+    transform: translateY(-50%);
+  }
 }
 
 .tahririyat-wrapper {
@@ -147,4 +162,49 @@
   background-color: #007bff;
   color: white;
   border: none;
+}
+
+@media only screen and (max-width: 1320px) {
+  .tahririyat {
+    .tahririyat-wrapper {
+      gap: 15px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .tahririyat {
+    .search {
+      width: 50%;
+    }
+
+    .tahririyat-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .tahririyat {
+    .search {
+      width: 60%;
+    }
+
+    .tahririyat-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tahririyat {
+    .search {
+      width: 100%;
+    }
+
+    .tahririyat-wrapper {
+      grid-template-columns: 1fr;
+      grid-row-gap: 30px;
+    }
+  }
 }

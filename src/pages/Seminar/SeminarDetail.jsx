@@ -62,11 +62,13 @@ function SeminarDetail({ setLoading, loading }) {
 
         <p>{FindIdCategory?.[`title_${lang}`]}</p>
       </div>
+
       <img
         className={seminar.detailImg}
         src={FindIdCategory && FindIdCategory.image}
         alt={FindIdCategory?.[`title_${lang}`]}
       />
+      
       <div
         className={seminar.title}
         dangerouslySetInnerHTML={{

@@ -1,6 +1,7 @@
 .talablar-wrapper {
   display: grid;
   margin: 30px 0;
+  padding: 0 30px;
   gap: 30px;
   grid-template-columns: 1fr;
 }
@@ -32,4 +33,54 @@
 
 .description > p {
   line-height: 36px;
+}
+
+@media only screen and (max-width: 800px) {
+  .talablar {
+    .talablar-wrapper {
+      margin-top: 0;
+      .wrapper {
+        p {
+          margin-top: 0;
+          font-size: 24px;
+          line-height: 32px;
+        }
+
+        .img-talablar {
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .description p span {
+          font-size: 18px !important;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .talablar {
+    .talablar-wrapper {
+      margin-top: 0;
+      .wrapper {
+        p {
+          margin-top: 0;
+          font-size: 20px;
+          line-height: 28px;
+        }
+
+        .img-talablar {
+          height: 350px;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
 }

@@ -104,7 +104,6 @@ export const About = ({ loading, setLoading }) => {
                   <div className={style.img}>
                     <img src={item?.image} alt={item?.[`full_name_${lang}`]} />
                   </div>
-
                   <p>{item?.[`full_name_${lang}`]}</p>
                   <p>{item?.year}</p>
                 </div>

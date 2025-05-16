@@ -1,7 +1,7 @@
 .container {
   max-width: 1320px;
   margin: 90px auto 50px;
-  padding: 20px 0;
+  padding: 30px;
 }
 
 .cards {
@@ -56,7 +56,8 @@
 
 .detailContainer {
   max-width: 1320px;
-  margin: 90px auto 30px;
+  margin: 90px auto 50px;
+  padding: 0 30px;
 }
 
 .detailCard {
@@ -150,4 +151,112 @@
   background-color: #023e8a;
   border: none;
   color: white;
+}
+
+/* RESPONSIV CODE */
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    padding: 35px 20px 20px;
+    margin-bottom: 0;
+
+    .cards {
+      margin-bottom: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+
+      .card {
+        .images img {
+          object-fit: cover;
+        }
+
+        .discription {
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  .detailContainer {
+    padding-top: 30px;
+
+    .detailCard {
+      flex-direction: column;
+      grid-row-gap: 30px;
+      margin-top: 30px;
+
+      .detailImg {
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .detailTextCard {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .detailContainer {
+    width: 100%;
+    .about-title {
+      font-size: 17px;
+    }
+
+    .detailCard {
+      .detailImg {
+        width: 75%;
+      }
+
+      .detailTextCard {
+        width: 100%;
+        .detailText {
+          p span {
+            font-size: 18px !important;
+          }
+
+          p {
+            line-height: 26px;
+            width: 96%;
+            overflow-x: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    .cards {
+      grid-template-columns: 1fr;
+      grid-row-gap: 30px;
+      .card {
+        .images {
+          height: 340px;
+        }
+      }
+    }
+  }
+
+  .detailContainer {
+    padding: 20px;
+    .about-title {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    .detailCard {
+      .detailImg {
+        width: 100%;
+      }
+    }
+  }
 }

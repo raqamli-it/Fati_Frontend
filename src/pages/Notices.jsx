@@ -19,7 +19,7 @@ function Notices({ setLoading, loading }) {
     try {
       setLoading(true);
       const response = await axios.get(`/kengashlar/elonlar/?page=${Page}`);
-      setPageCount(Math.ceil(response.data.count / 4));
+      setPageCount(Math.ceil(response.data.count / 8));
       setData(response.data.results);
       setLoading(false);
     } catch (error) {

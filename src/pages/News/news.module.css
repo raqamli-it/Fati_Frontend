@@ -4,7 +4,7 @@
   background-position: top;
   background-repeat: no-repeat;
   width: 100%;
-  padding: 70px 0 50px;
+  padding: 70px 30px 50px;
 }
 
 .prevIcon {
@@ -86,4 +86,43 @@
 .content:hover p {
   color: red;
   transition: all 0.6s ease-in;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 1080px) {
+  .news_container {
+    .news {
+      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .news_container {
+    .news {
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .news_container {
+    .prevIcon {
+      margin-top: 50px;
+      h1 {
+        font-size: 26px !important;
+      }
+    }
+
+    .news {
+      grid-row-gap: 25px;
+      grid-template-columns: 1fr;
+
+      .card img {
+        height: 280px;
+      }
+    }
+  }
 }

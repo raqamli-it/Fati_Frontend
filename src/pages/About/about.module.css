@@ -1,6 +1,7 @@
 .about {
   max-width: 1320px;
   margin: 0 auto;
+  padding: 0 30px;
 }
 
 .card {
@@ -35,7 +36,7 @@
 }
 
 .wrapper .btns button {
-  padding: 20px;
+  padding: 0 20px;
   border: none;
   height: 110px;
   width: 200px;
@@ -43,10 +44,12 @@
   cursor: pointer;
   font-size: 16px;
   letter-spacing: 1.3px;
-  line-height: 24px;
+  line-height: 22px;
   font-weight: 700;
   border-radius: 10px;
   box-shadow: 0 0 7px gray;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 
 .details {
@@ -92,4 +95,78 @@
 .instituttarixi {
   font-style: normal;
   font-weight: 400 !important;
+}
+
+/* RESPONSIVE CODIM */
+
+@media screen and (max-width: 1080px) {
+  .about {
+    padding-top: 35px;
+    .card {
+      padding-top: 0;
+      img {
+        height: 450px;
+      }
+    }
+
+    .wrapper {
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        button {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .details {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        p {
+          font-size: 14px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .about {
+    .wrapper {
+      .details {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about {
+    .card {
+      img {
+        height: 300px;
+        object-fit: contain;
+      }
+
+      .text {
+        font-size: 24px;
+      }
+
+      p:last-child span {
+        font-size: 18px !important;
+      }
+    }
+
+    .wrapper {
+      .details {
+        grid-template-columns: 1fr;
+        grid-row-gap: 25px;
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
 }

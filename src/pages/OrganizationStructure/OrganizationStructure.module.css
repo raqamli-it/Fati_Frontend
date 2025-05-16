@@ -1,12 +1,42 @@
 .organizationStructure {
-  width: 1320px;
-  margin: 0 auto;
-  padding: 30px 0 0;
+  max-width: 1320px;
+  margin: 70px auto 50px;
 }
 .card {
-  padding: 50px 0;
-}
-.card img {
+  margin: 0 auto;
   width: 100%;
-  height: 700px;
+  padding: 0 30px;
+  img {
+    width: 100%;
+    height: 700px;
+    object-fit: contain;
+  }
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1080px) {
+  .organizationStructure {
+    .card {
+      padding: 50px 50px 0;
+
+      img {
+        height: 500px;
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .organizationStructure {
+    .card {
+      padding: 30px 20px 0;
+
+      img {
+        height: 400px;
+        object-fit: cover;
+      }
+    }
+  }
 }

@@ -1,7 +1,7 @@
 .seminar-container {
   max-width: 1320px;
   margin: 70px auto 0;
-  padding: 10px 0 30px;
+  padding: 10px 30px 30px;
 }
 
 .prevIcon {
@@ -77,4 +77,113 @@
 
 .seminar-container .title p {
   line-height: 36px;
+}
+
+/* RESPONSIV CODE */
+@media only screen and (max-width: 1080px) {
+  .seminar-container {
+    .wrapper {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      .cards {
+        img {
+          height: 250px;
+        }
+
+        h2 {
+          margin: 0;
+        }
+      }
+    }
+
+    .prevIcon {
+      margin-top: 35px;
+    }
+
+    .detailImg {
+      height: 400px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .seminar-container {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      .cards {
+        img {
+          height: 250px;
+        }
+
+        h2 {
+          margin: 0;
+        }
+      }
+    }
+
+    .prevIcon {
+      .back-button {
+        font-size: 14px;
+        width: 25%;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+
+    .detailImg {
+      height: 400px;
+      object-fit: none;
+      width: 100%;
+    }
+
+    .title p span {
+      font-size: 18px !important;
+    }
+
+    .title p {
+      line-height: 26px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .seminar-container {
+    .wrapper {
+      grid-template-columns: 1fr;
+      grid-row-gap: 30px;
+      .cards {
+        img {
+          height: 300px;
+        }
+
+        .btn {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .prevIcon {
+      gap: 10px;
+      align-items: flex-start;
+      .back-button {
+        width: 35% !important;
+        gap: 5px;
+      }
+
+      p {
+        width: 65%;
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+
+    .detailImg {
+      height: 260px;
+    }
+  }
 }

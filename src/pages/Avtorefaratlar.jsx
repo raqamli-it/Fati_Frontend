@@ -48,9 +48,7 @@ const Avtorefaratlar = () => {
 
   return (
     <div className={avtorefaratlar.container}>
-      <div
-        style={{ position: "relative", display: "inline-block", width: "50%" }}
-      >
+      <div className={avtorefaratlar.search}>
         <input
           type="text"
           placeholder="Qidiruv ..."

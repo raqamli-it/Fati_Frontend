@@ -36,10 +36,6 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-
-  @media (max-width: 550px) {
-    height: 150px;
-  }
 }
 .journal-Button-x {
   width: 100px;

@@ -43,10 +43,10 @@ function Views({ setLoading }) {
             >
               <source src={selectedItem.video} type="video/mp4" />
             </video> */}
+
             <iframe
               key={selectedItem.id}
               width="100%"
-              height="485"
               src={selectedItem.link ? selectedItem.link : selectedItem.video} // YouTube `embed` link bo'lishi kerak
               title="Video"
               frameBorder="0"

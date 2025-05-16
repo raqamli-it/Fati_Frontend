@@ -5,16 +5,16 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { Search } from "../Search/Search";
 import { GrDown } from "react-icons/gr";
-import { BiMenu } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
+import { TbMenu2 } from "react-icons/tb";
 import { Time } from "./Time";
 import { Wheater } from "./Wheater";
 import axios from "axios";
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
   const [language, setLanguage] = useState("");
 
+  const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 90) {
@@ -29,10 +29,29 @@ export const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth > 1080) {
+        setIsScrolled(window.scrollY >= 90);
+        setOpenIconMenu(false);
+      } else {
+        setIsScrolled(false);
+        setOpenIconMenu(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // resize bo‘lsa ham tekshir
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
   const { i18n, t } = useTranslation();
   const lang = i18n.language;
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [openIconMenu, setOpenIconMenu] = useState(false);
   const [teachers, setTeachersData] = useState([]);
   const [markazlar, setMarkazlarData] = useState([]);
   const [seminar, setSeminarData] = useState([]);
@@ -74,6 +93,10 @@ export const Navbar = () => {
     fetchData();
   }, []);
 
+  const OpenIconMenu = () => {
+    setOpenIconMenu(!openIconMenu);
+  };
+
   return (
     <nav className={styles.navbar}>
       {/* <div className={styles.top_alert}>
@@ -92,49 +115,24 @@ export const Navbar = () => {
           <div className={styles["global-search"]}>
             <input type="text" placeholder="Izlash ... " />
             <button>Qidiruv</button>
-          </div>
 
-          <div className={styles.lang}>
-            <div className={styles.change}>
-              <select
-                onChange={(e) => setLangValue(e.target.value)}
-                value={langVal}
-              >
-                <option value="uz">UZB</option>
-                <option value="en">ENG</option>
-              </select>
-
-              {/* <div
-                onClick={() => setLangValue("uz")}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-              >
-                <img src={uzbek} alt="flag" />
-                <p>UZB</p>
+            <div className={styles.lang}>
+              <div className={styles.change}>
+                <select
+                  onChange={(e) => setLangValue(e.target.value)}
+                  value={langVal}
+                >
+                  <option value="uz">UZB</option>
+                  <option value="en">ENG</option>
+                </select>
               </div>
-
-              <div
-                onClick={() => setLangValue("en")}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-              >
-                <img src={english} alt="flag" />
-                <p>ENG</p>
-              </div> */}
             </div>
           </div>
-        </div>
-        <div className={styles["menu-mob"]}>
-          <div onClick={() => setShowMenu((prev) => !prev)}>
-            <BiMenu />
+
+          <div className={styles.closeIcon}>
+            <button onClick={OpenIconMenu}>
+              {openIconMenu ? <TbMenu2 /> : <AiOutlineClose />}
+            </button>
           </div>
         </div>
 
@@ -144,100 +142,76 @@ export const Navbar = () => {
             top: isScrolled && "0px",
             position: isScrolled && "fixed",
             color: isScrolled && "black",
+            // marginTop: openIconMenu ? "0" : "-420px",
           }}
-          className={styles.show}
+          // className={`${styles.show} ${openIconMenu && styles.toggleBox}`}
+          // className={openIconMenu ? styles.toggleBox : styles.show}
+          className={`${styles.show} ${openIconMenu ? styles.toggleBox : ""}`}
         >
+          <div className={styles["global-search-mobile"]}>
+            <input type="text" placeholder="Izlash ... " />
+            <button>Qidiruv</button>
+
+            <div className={styles.lang}>
+              <select
+                onChange={(e) => setLangValue(e.target.value)}
+                value={langVal}
+              >
+                <option value="uz">UZB</option>
+                <option value="en">ENG</option>
+              </select>
+            </div>
+          </div>
+
           {navbarData.map((item, index) => {
             const { id, content } = item;
             return (
-              <li key={index}>
+              <li key={index} className={styles.menuItem}>
                 <label htmlFor={id}>
-                  <div>
+                  <div className={styles.hoverTrigger}>
                     {item?.links ? (
-                      <p
-                        style={{
-                          display: "flex",
-                          gap: "5px",
-                          height: "55px",
-                          margin: "0 20px",
-                          fontSize: "16px",
-                          fontWeight: "400",
-                          justifyContent: "center",
-                        }}
-                      >
-                        {t(content)}
-                      </p>
+                      <p>{t(content)}</p>
                     ) : (
-                      <Link
-                        style={{
-                          overflowY: "hidden",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          height: "55px",
-                          fontWeight: "400",
-                          fontSize: "16px",
-                        }}
-                        to={item.to}
-                      >
-                        {t(content)}
-                      </Link>
+                      <Link to={item.to}>{t(content)}</Link>
                     )}
                   </div>
-                  <ol>
+
+                  <ol
+                    className={styles.submenu}
+                    style={{ backgroundColor: isScrolled ? "white" : "" }}
+                  >
                     {item?.links !== 1 && item?.links !== 2 && item?.links !== 3
-                      ? item?.links?.map((item, index) => {
-                          const { id, content, to } = item;
-                          return (
-                            <li
-                              style={{
-                                color: isScrolled && "white",
-                              }}
-                              key={index}
-                              onClick={() => setShowMenu(false)}
-                            >
-                              <Link to={`${to}/${id}`}>{t(content)}</Link>
-                            </li>
-                          );
-                        })
+                      ? item?.links?.map((item, index) => (
+                          <li key={index}>
+                            <Link to={`${item.to}/${item.id}`}>
+                              {t(item.content)}
+                            </Link>
+                          </li>
+                        ))
                       : item?.links === 2
                       ? seminar?.map((item, index) => (
-                          <li
-                            style={{
-                              color: isScrolled && "white",
-                            }}
-                            key={index}
-                            onClick={() => setShowMenu(false)}
-                          >
+                          <li key={index}>
                             <Link to={`/seminar/${item.id}`}>
-                              {item?.[`title_${lang}`]}
+                              {item[`title_${lang}`]}
                             </Link>
                           </li>
                         ))
                       : item?.links === 1
                       ? teachers?.map((item, index) => (
-                          <li
-                            style={{ color: isScrolled && "white" }}
-                            key={index}
-                            onClick={() => setShowMenu(false)}
-                          >
+                          <li key={index}>
                             <Link
                               to={`/centers-and-departments/bolim/${item.id}`}
                             >
-                              {item?.[`title_${lang}`]}
+                              {item[`title_${lang}`]}
                             </Link>
                           </li>
                         ))
                       : markazlar?.map((item, index) => (
-                          <li
-                            style={{ color: isScrolled && "white" }}
-                            key={index}
-                            onClick={() => setShowMenu(false)}
-                          >
+                          <li key={index}>
                             <Link
                               to={`/centers-and-departments/markaz/${item.id}`}
                             >
-                              {item?.[`title_${lang}`]}
+                              {item[`title_${lang}`]}
                             </Link>
                           </li>
                         ))}

@@ -29,6 +29,7 @@ function DoctaurantsDetail() {
         />
         Sahifadan chiqish
       </button>
+
       <div className={style.cardDetail}>
         <div className={style.detailUserImg}>
           <img

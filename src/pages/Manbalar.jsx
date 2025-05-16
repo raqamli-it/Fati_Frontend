@@ -49,9 +49,7 @@ const Manbalar = () => {
 
   return (
     <div className={adabiyotlar.container}>
-      <div
-        style={{ position: "relative", display: "inline-block", width: "50%" }}
-      >
+      <div className={adabiyotlar.search}>
         <input
           type="text"
           placeholder="Qidiruv ..."

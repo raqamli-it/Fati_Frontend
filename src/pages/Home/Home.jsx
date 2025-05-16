@@ -170,7 +170,7 @@ export const Home = ({ setLoading, loading }) => {
 
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1400,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -179,7 +179,7 @@ export const Home = ({ setLoading, loading }) => {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 1080,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -187,7 +187,7 @@ export const Home = ({ setLoading, loading }) => {
         },
       },
       {
-        breakpoint: 520,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -201,15 +201,7 @@ export const Home = ({ setLoading, loading }) => {
       <header className={styles.header}>
         <Slider {...headerSettings} className="slides">
           {sliderData?.map((item, index) => {
-            return (
-              <div key={index}>
-                {<img src={item?.file} />}
-                {/* <div className={styles["global-search"]}>
-                  <input type="text" placeholder="Izlash ... " />
-                  <button>Qidiruv</button>
-                </div> */}
-              </div>
-            );
+            return <div key={index}>{<img src={item?.file} />}</div>;
           })}
         </Slider>
       </header>
@@ -301,37 +293,11 @@ export const Home = ({ setLoading, loading }) => {
           </div>
         </div>
 
-        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
-        {/* <div className="img-cards">
-          <h2>{t("centers")}</h2>
-          <div className="markaz_va_bolim">
-            <div className="markazButton">
-              {centersData.map((item, index) => {
-                return (
-                  <div key={index} className="shadowMarkaz">
-                    <img src={item.image} />
-                    <p>{item?.[`title_${lang}`]}</p>
-                    <button
-                      onClick={() =>
-                        navigate(`/centers-and-departments/markaz/${item.id}`)
-                      }
-                    >
-                      Batafsil
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div> */}
-        {/* wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww */}
-
         <div className="img-cards">
           <h2>{t("councils")}</h2>
           <div className="kengashlar">
             <Link className="yiginlarDetail" to="/sc-council">
               <span>{t("sc-council")}</span>
-              {/* sc-young  */}
               <img src="./assets/icons/arrow.svg" alt="arrow" />
             </Link>
 
@@ -409,6 +375,7 @@ export const Home = ({ setLoading, loading }) => {
           }}
         >
           <div
+            className="yiginlarCard"
             style={{ maxWidth: "1320px", margin: "0 auto", padding: "35px 0" }}
           >
             <h2

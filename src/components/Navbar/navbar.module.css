@@ -1,18 +1,100 @@
 .navbar {
-  user-select: none;
-  background: #023e8a;
+  /* user-select: none; */
+  /* background: #023e8a; */
   overflow: hidden;
-  color: #fff;
-
-  .logo {
-    width: 150px;
-    img {
-      max-width: 100%;
-    }
-  }
 
   .container {
     width: 100%;
+
+    .top {
+      display: flex;
+      background: #023e8a;
+      justify-content: space-between;
+      max-width: 1600px;
+      padding: 0 100px;
+      margin: 0 auto 0;
+      height: 90px;
+      align-items: center;
+
+      .logo {
+        width: 150px;
+        img {
+          max-width: 100%;
+        }
+      }
+
+      .global-search {
+        display: flex;
+        width: 50%;
+        justify-content: space-between;
+        gap: 15px;
+
+        input {
+          height: 42px;
+          background-color: transparent;
+          border-radius: 12px;
+          font-size: 16px;
+          font-weight: 400;
+          width: 100%;
+          border: 2px solid rgba(128, 128, 128, 0.656);
+          color: white;
+          outline: none;
+          letter-spacing: 1.3px;
+          padding: 0 15px;
+        }
+
+        button {
+          padding: 0 15px;
+          height: 42px;
+          background-color: transparent;
+          border: 2px solid rgba(128, 128, 128, 0.656);
+          border-radius: 12px;
+          letter-spacing: 1.5px;
+          color: white;
+          cursor: pointer;
+          font-size: 16px;
+          outline: none;
+        }
+
+        .lang {
+          .change {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            color: white;
+            cursor: pointer;
+
+            select {
+              background-color: transparent;
+              border: 2px solid gray;
+              height: 42px;
+              color: white;
+              font-size: 16px;
+              font-weight: 500;
+              border-radius: 8px;
+              outline: none;
+              width: 80px;
+              cursor: pointer;
+
+              option {
+                background-color: gray;
+              }
+            }
+          }
+        }
+      }
+
+      .closeIcon {
+        display: none;
+        button {
+          svg {
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
 
     .show {
       height: 55px;
@@ -30,127 +112,58 @@
       padding: 0 10px;
       transition: all 0.5s ease-in;
 
-      li {
-        p {
-          cursor: pointer;
-        }
-        &:hover {
-          opacity: 0.8;
-          ol {
-            position: absolute;
-            top: 55px;
-            opacity: 1;
-            visibility: visible;
-            transition: all 0.5s ease-in;
-            width: 225px;
-            z-index: 1000;
-          }
-        }
-      }
-      label {
+      .menuItem {
         position: relative;
-        height: 100%;
-        p {
+
+        &:hover .submenu {
+          display: block;
+          background: #494949;
+          margin-left: -30px;
+          transition: all 0.5s ease-in;
+        }
+
+        .hoverTrigger {
           display: flex;
           align-items: center;
-          gap: 4px;
+          font-size: 16px;
+          height: 55px;
+          font-weight: 400;
+          cursor: pointer;
+          p {
+            margin: 0 15px;
+          }
         }
 
-        svg {
-          height: 15px;
-          width: 15px;
-        }
-
-        ol {
-          opacity: 0;
-          text-align: left;
-          font-size: 14px;
-          visibility: hidden;
+        .submenu {
+          display: none;
           position: absolute;
-          top: 100px;
-          width: 225px;
-          transition: all 0.2s ease-in;
-          background: #494949;
-          /* backdrop-filter: blur(100px); */
-          z-index: 1000;
-          li {
-            padding: 10px;
-            border: none;
+          top: 100%;
+          left: 0;
+          background: rgba(0, 0, 0, 0.568);
+          z-index: 99;
+          transition: all 0.5s ease-in;
+          min-width: 200px;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+          li a {
+            width: 100% !important;
+            padding: 8px 0;
+            font-size: 14px;
+            display: block !important;
+            display: flex;
+            padding: 8px 15px;
+            align-items: center;
           }
         }
       }
-    }
 
-    .top {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1600px;
-      padding: 0 100px;
-      margin: 10px auto 0;
-      height: 80px;
-      align-items: center;
-
-      .global-search {
-        display: flex;
-        width: 50%;
-        gap: 15px;
-        input {
-          height: 42px;
-          background-color: transparent;
-          border-radius: 12px;
-          font-size: 16px;
-          font-weight: 400;
-          width: 100%;
-          border: 2px solid rgba(128, 128, 128, 0.656);
-          color: white;
-          outline: none;
-          letter-spacing: 1.3px;
-          padding: 0 15px;
-        }
-        button {
-          padding: 0 15px;
-          background-color: transparent;
-          border: 2px solid rgba(128, 128, 128, 0.656);
-          border-radius: 12px;
-          letter-spacing: 1.5px;
-          color: white;
-          cursor: pointer;
-          font-size: 16px;
-          outline: none;
-        }
+      .global-search-mobile {
+        display: none;
       }
     }
-  }
-}
 
-.menu-mob {
-  display: none;
-}
-
-.lang {
-  .change {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    color: white;
-    margin: 5px 0;
-    cursor: pointer;
-
-    select {
-      background-color: transparent;
-      border: 2px solid gray;
-      height: 38px;
-      color: white;
-      font-size: 16px;
-      font-weight: 500;
-      border-radius: 8px;
-      outline: none;
-      width: 80px;
-      cursor: pointer;
-
-      option {
-        background-color: gray;
-      }
+    .toggleBox {
+      margin-top: -460px;
     }
   }
 }
@@ -164,4 +177,128 @@
   margin: 0 auto;
   max-width: 1600px;
   padding: 0 100px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .navbar {
+    .container {
+      .top {
+        padding: 0 50px;
+      }
+
+      ul {
+        li {
+          label {
+            div p {
+              font-size: 14px !important;
+              margin: 0 10px !important;
+            }
+            div a {
+              font-size: 14px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .navbar {
+    .container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+
+      .top {
+        .global-search {
+          display: none;
+        }
+
+        .closeIcon {
+          display: block;
+        }
+      }
+
+      .show {
+        position: relative;
+        justify-content: flex-start;
+        display: grid;
+        height: 460px;
+        z-index: -1;
+        background: #49494985;
+        padding: 15px 30px 30px;
+
+        .menuItem {
+          .hoverTrigger {
+            height: 35px;
+            p {
+              margin: 0 !important;
+            }
+          }
+
+          .submenu {
+            width: 100%;
+            li a {
+              padding: 8px 30px;
+            }
+          }
+        }
+
+        .global-search-mobile {
+          display: block;
+          width: 100% !important;
+          display: flex;
+          align-items: center;
+          height: 42px;
+          color: white;
+          input {
+            width: 80% !important;
+            padding: 0 15px;
+            background-color: transparent;
+            border: 2px solid gray;
+            outline: none;
+            font-size: 14px;
+            height: 100%;
+            color: white;
+            border-radius: 8px;
+          }
+
+          input::placeholder {
+            color: white;
+          }
+
+          button {
+            width: 20% !important;
+            margin: 0 10px;
+            border: 2px solid gray;
+            border-radius: 8px;
+            height: 100%;
+            color: white;
+            font-size: 16px;
+          }
+
+          .lang {
+            height: 42px;
+
+            select {
+              border: 2px solid gray;
+              border-radius: 8px;
+              background-color: transparent;
+              height: 100%;
+              color: white;
+              cursor: pointer;
+              outline: none;
+              padding: 0 5px;
+              option {
+                background-color: gray;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

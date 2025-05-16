@@ -41,6 +41,7 @@ export const GlobalPartners = ({ setLoading, loading }) => {
             <h2>{item?.[`title_${lang}`]}</h2>
 
             <div
+              className={styles.table}
               dangerouslySetInnerHTML={{
                 __html: item?.[`content_${lang}`],
               }}

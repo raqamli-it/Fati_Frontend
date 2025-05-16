@@ -16,6 +16,10 @@
     transition: all 0.4s ease-in-out;
   }
 
+  .tab_card {
+    padding: 0 30px;
+  }
+
   .bg_img img {
     width: 100%;
     /* min-height: 450px !important; */
@@ -80,5 +84,33 @@
     position: relative;
     transition: all 0.4s ease-in-out;
     top: -400px;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .center-departments {
+    .tabs {
+      max-width: 600px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .center-departments {
+    .tabs {
+      max-width: 420px;
+      .tab {
+        gap: 7px;
+        .links {
+          padding: 0 15px;
+          h3 {
+            font-size: 12px;
+            svg {
+              font-size: 18px !important;
+            }
+          }
+        }
+      }
+    }
   }
 }

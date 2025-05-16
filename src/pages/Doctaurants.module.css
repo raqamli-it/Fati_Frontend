@@ -1,6 +1,6 @@
 .wrapper {
   max-width: 1320px;
-  margin: 100px auto 70px;
+  margin: 100px 30px 70px;
 }
 
 .back-button {
@@ -22,7 +22,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -76,7 +75,7 @@ button {
   display: flex;
   list-style: none;
   justify-content: center;
-  padding: 20px 0;
+  padding: 20px 0 0;
 }
 
 .pagination li {
@@ -95,4 +94,40 @@ button {
   background-color: #007bff;
   border: 1px solid #007bff;
   color: white;
+}
+
+/* RESPONSIV CODE */
+@media only screen and (max-width: 1080px) {
+  .wrapper {
+    .cards {
+      .container {
+        padding: 0;
+
+        button {
+          margin-bottom: 10px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .pagination li a {
+      padding: 5px 12px;
+    }
+  }
 }

@@ -37,45 +37,48 @@ export const DocAdmission = ({ setLoading, loading }) => {
   console.log(data, "DocAdmission");
 
   return (
-    <div className={styles["about-container"]}>
-      {data.map((item) => {
-        return (
-          <div className={styles.items} key={item.id}>
-            <div>
-              <div className={styles.prevIcon}>
-                <button
-                  className={styles["back-button"]}
-                  title="Sahifadan chiqish"
-                  onClick={() => navigate("/")}
-                >
-                  <FaArrowLeftLong
-                    style={{
-                      fontSize: "24px",
-                      color: "blue",
-                      cursor: "pointer",
-                    }}
-                  />
-                  Sahifadan chiqish
-                </button>
+    <div className={styles.container}>
+      <div className={styles["about-container"]}>
+        {data.map((item) => {
+          return (
+            <div className={styles.items} key={item.id}>
+              <div>
+                <div className={styles.prevIcon}>
+                  <button
+                    className={styles["back-button"]}
+                    title="Sahifadan chiqish"
+                    onClick={() => navigate("/")}
+                  >
+                    <FaArrowLeftLong
+                      style={{
+                        fontSize: "24px",
+                        color: "blue",
+                        cursor: "pointer",
+                      }}
+                    />
+                    Sahifadan chiqish
+                  </button>
 
-                <h2>{item?.[`title_${lang}`]}</h2>
+                  <h2>{item?.[`title_${lang}`]}</h2>
+                </div>
+
+                <img
+                  className={styles["images"]}
+                  src={item?.file}
+                  alt={item?.[`title_${lang}`]}
+                />
               </div>
-              <img
-                className={styles["images"]}
-                src={item?.file}
-                alt={item?.[`title_${lang}`]}
-              />
-            </div>
 
-            <div
-              className={styles["about-text"]}
-              dangerouslySetInnerHTML={{
-                __html: item?.[`content_${lang}`],
-              }}
-            ></div>
-          </div>
-        );
-      })}
+              <div
+                className={styles["about-text"]}
+                dangerouslySetInnerHTML={{
+                  __html: item?.[`content_${lang}`],
+                }}
+              ></div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

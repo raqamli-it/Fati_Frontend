@@ -52,9 +52,7 @@ function Arxiv() {
 
   return (
     <div className={style.tahririyat}>
-      <div
-        style={{ position: "relative", display: "inline-block", width: "32%" }}
-      >
+      <div className={style.search}>
         <input
           type="text"
           placeholder="Qidiruv ..."
@@ -62,17 +60,7 @@ function Arxiv() {
           onChange={(e) => setTempSearch(e.target.value)} // Vaqtinchalik searchni yangilash
           className={style.searchInput}
         />
-        <FcSearch
-          onClick={BooksSearch}
-          style={{
-            fontSize: "30px",
-            position: "absolute",
-            right: "10px",
-            cursor: "pointer",
-            top: "38%",
-            transform: "translateY(-50%)",
-          }}
-        />
+        <FcSearch onClick={BooksSearch} className={style.searchIcon} />
       </div>
 
       <div>

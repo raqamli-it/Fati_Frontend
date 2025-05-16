@@ -1,7 +1,7 @@
 .globalProjects {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 80px 30px;
 
   .findPage {
     display: grid;
@@ -96,5 +96,31 @@
     font-weight: 400 !important;
     text-align: left;
     font-size: 24px;
+  }
+}
+
+/* RESPONSIV CODE */
+@media only screen and (max-width: 1080px) {
+  .globalProjects {
+    margin-top: 35px;
+    .findPage {
+      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .globalProjects {
+    .findPage {
+      button {
+        font-size: 14px !important;
+        padding: 8px 12px !important;
+      }
+    }
   }
 }

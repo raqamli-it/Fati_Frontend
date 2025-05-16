@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   max-width: 1320px;
-  margin: 50px auto;
+  padding: 0 30px;
+  margin: 50px auto 0;
 }
 
 .about-container {
   display: flex;
   max-width: 1320px;
-  margin: 70px auto 20px;
+  margin: 30px auto 0;
   flex-direction: column;
   align-items: center;
   font-family: "Georgia", sans-serif;
@@ -90,9 +91,9 @@ table tr td {
 }
 
 .images {
-  min-height: 600px;
+  height: 600px;
   width: 100%;
-  object-fit: contain;
+  /* object-fit: contain; */
 }
 
 .items .employees {
@@ -157,6 +158,94 @@ table tr td {
     p {
       margin: 15px 0;
       font-size: 18px;
+    }
+  }
+}
+
+/* RESPONSIV CODE */
+@media only screen and (max-width: 1080px) {
+  .container {
+    padding: 30px;
+    .about-container {
+      .items {
+        .prevIcon h2 {
+          font-size: 24px;
+          text-align: left;
+        }
+
+        .images {
+          height: 400px !important;
+        }
+
+        .employees {
+          gap: 15px;
+
+          .cardContainer {
+            .employeesImg img {
+              object-fit: cover;
+            }
+            .employeesName {
+              font-size: 16px;
+              line-height: 22px;
+            }
+          }
+        }
+
+        p span {
+          font-size: 18px !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    .about-container {
+      .items {
+        .prevIcon {
+          gap: 15px;
+          .back-button {
+            text-align: left;
+            font-size: 16px;
+            width: 35%;
+
+            svg {
+              font-size: 20px !important;
+            }
+          }
+        }
+        .prevIcon h2 {
+          font-size: 18px !important;
+          line-height: 22px;
+        }
+        .employees {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    .about-container {
+      .items {
+        .prevIcon {
+          .back-button {
+            gap: 10px;
+            svg {
+              font-size: 26px !important;
+            }
+          }
+        }
+
+        .employees {
+          grid-template-columns: 1fr;
+          width: 90%;
+          margin: 0 auto;
+        }
+      }
     }
   }
 }

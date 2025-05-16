@@ -133,6 +133,7 @@ export const Contact = ({ setLoading, loading }) => {
             id=""
             placeholder="Xabaringizni yuboring"
           ></textarea>
+          
           <button type="submit" className={styles.send}>
             Yuborish
           </button>

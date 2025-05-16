@@ -58,7 +58,7 @@ export const Doctaurants = ({ loading, setLoading }) => {
         <FaArrowLeftLong
           style={{ fontSize: "24px", color: "blue", cursor: "pointer" }}
         />
-        Sahifadan chiqish
+        Sahifadan chiqish 
       </button>
 
       <section className={styles.cards}>

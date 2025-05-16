@@ -10,6 +10,7 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,9 +25,11 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
     };
     fetchData();
   }, []);
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }

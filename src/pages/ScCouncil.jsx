@@ -67,7 +67,7 @@ export const ScCouncil = ({ setLoading, loading }) => {
                   __html: item?.[`content_${lang}`],
                 }}
               ></div>
-
+              
               <div className={styles.employees}>
                 {item?.xodimlar
                   ?.sort((a, b) => a.id - b.id)
